@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content=""> <title>RSI Patient Portal</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/aspen-admin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+            <!-- Top Menu Items -->
+            <div>
+                <a class="navbar-brand" href="index.html" style="margin: -12px !important;"><img src="images/logo.png" /></a>
+                <ul class="nav top-nav"> 
+				<li>
+                        <a href="index.html">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            <p>My Health</p>
+                        </a>
+                    </li>
+
+                    <li class="current">
+                        <a href="MyMessages.html">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <p>My Messages</p>
+                        </a>
+                    </li>
+
+                    <li>
+                               <a href="MyAppointments.html">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            <p>My Appointments</p>
+                        </a>
+                    </li> <li>  <a href="MyProfile.html">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <p>My Profile</p>
+                        </a>
+
+                    <li>
+                           <a href="PayMyBill.html">  <i class="fa fa-usd" aria-hidden="true"></i>
+    <p>Pay My Bill</p>
+                        </a>
+                    </li>
+
+                    <li> <a href="login.html">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                <p>Logout</p>
+                            </a>
+                        </li>
+
+                </ul>
+
+                <!-- <a class="icon-sm">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                </a> -->
+            </div>
+
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="index.html">
+                            <i class="fa fa-home"></i> Home</a>
+                    </li> <!--<li>
+                            <a href="visits.html">
+                                <i class="fa fa-stethoscope"></i> Visits</a>
+                        </li>
+                    <li>
+                        <a  href="medications.html">
+                            <i class="fa fa-medkit"></i> Medications
+                        </a>
+                   
+                    </li>
+
+                    
+                    <li>
+                        <a href="History.html"> <i class="fa fa-history"></i>History</a>
+                    </li>
+                    <li>
+                        <a href="Documents.html">
+                            <i class="fa fa-files-o"></i> Documents</a>
+                    </li> -->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-md-3 no-padd">
+                        <div class="panel panel-default block-contain2">
+                            <div class="panel-heading">
+                                <div class="">
+                                    <div class="row">
+                                        <div class="pl-15 pull-left">
+                                           <select class="form-control" id="hospital">
+                                      <option selected="">Inbox</option>
+                                      <option>Sent</option>
+                                     
+                                  </select>
+                                        </div>
+                                        <div class="pr-15 pull-right">
+                                            <button type="submit" class="btn btn-default aspen-bt buttonBlue">
+                                                <i class="fa fa-plus pr-10" aria-hidden="true"></i>New</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body font-16">
+                               
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <h4 class="no-margin font-16">
+                                        <a>Administrative Office (2) </a>
+                                    </h4>
+                                    <span class="name-lable">RE: Genemi Question </span>
+                                    <span class="name-lable lh-12">NO, we Will not be open; there is an.. </span>
+                                </div>
+                                <hr>
+
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <h4 class="no-margin font-16">
+                                        <a>Administrative Office (2) </a>
+                                    </h4>
+                                    <span class="name-lable">RE: Genemi Question </span>
+                                    <span class="name-lable lh-12">NO, we Will not be open; there is an.. </span>
+                                </div>
+                                <hr>
+
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <h4 class="no-margin font-16">
+                                        <a>Administrative Office (2) </a>
+                                    </h4>
+                                    <span class="name-lable">RE: Genemi Question </span>
+                                    <span class="name-lable lh-12">NO, we Will not be open; there is an.. </span>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-9 no-padd border-left">
+                        <div class="panel panel-default block-contain2">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <span class="tab">
+                                            <h4 class="mt-1">RE: General Question</h4>
+                                        </span>
+                                        <button type="submit" class="btn btn-default aspen-bt ml-15 buttonBlue">
+                                            <i class="fa fa-trash pr-10" aria-hidden="true"></i>Delete
+
+                                        </button>
+                                        <button type="submit" class="btn btn-default aspen-bt buttonBlue">
+                                            <i class="fa fa-reply pr-10" aria-hidden="true"></i>Reply</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body font-16">
+                              <div class="pull-left">
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <h4 class="no-margin font-16">
+                                        <a>From </a>
+                                    </h4>
+                                    <span class="name-lable">Administrative Office </span>
+                                </div>
+
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <h4 class="">
+                                        <a>To </a>
+                                    </h4>
+                                    <span class="name-lable">April Harrison</span>
+                                </div>
+
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <h4 class="">
+                                        <a>RE: </a>
+                                    </h4>
+                                    <span class="name-lable">General Question</span>
+                                </div>
+                                </div>
+                                <div class="pull-right">
+                                    Today at 11:31 AM
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-sm-12 no-padd row-widgits mb-2">
+                                    <span class="name-lable">NO, we Will not be open; an Urgent Care at the corner of Main and South April J. Harrison
+                                        has an appointrnent with Curt Interna MO on Wednesday, June 28, 2017, at 11:15 AM
+                                        for Followup Visit.</span>
+                                    <p class="name-lable">Instructions: H patient document any changes since visit. </p>
+                                </div>
+                                <hr>
+
+                                <div class="pull-left mt-2">
+                                        <div class="col-sm-12 no-padd row-widgits">
+                                            <h4 class="no-margin font-16">
+                                                <a>From </a>
+                                            </h4>
+                                            <span class="name-lable">Administrative Office </span>
+                                        </div>
+        
+                                        <div class="col-sm-12 no-padd row-widgits">
+                                            <h4 class="">
+                                                <a>To </a>
+                                            </h4>
+                                            <span class="name-lable">April Harrison</span>
+                                        </div>
+        
+                                        <div class="col-sm-12 no-padd row-widgits">
+                                            <h4 class="">
+                                                <a>RE: </a>
+                                            </h4>
+                                            <span class="name-lable">General Question</span>
+                                        </div>
+                                        </div>
+                                        <div class="pull-right mt-2">
+                                            Today at 11:31 AM
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-sm-12 no-padd row-widgits">
+                                            <span class="name-lable">NO, we Will not be open; an Urgent Care at the corner of Main and South April J. Harrison
+                                                has an appointrnent with Curt Interna MO on Wednesday, June 28, 2017, at 11:15 AM
+                                                for Followup Visit.</span>
+                                            <p class="name-lable">Instructions: H patient document any changes since visit. </p>
+                                        </div>
+                                       
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                
+
+                
+
+                
+
+               
+
+
+               
+
+            </div>
+            <!-- /#page-wrapper -->
+
+        </div></div></div>
+        <!-- /#wrapper -->
+
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+
+        <!-- Morris Charts JavaScript -->
+        <script src="js/plugins/morris/raphael.min.js"></script>
+        <script src="js/plugins/morris/morris.min.js"></script>
+        <script src="js/plugins/morris/morris-data.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content=""> <title>RSI Patient Portal</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/aspen-admin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+            <!-- Top Menu Items -->
+            <div>
+                <a class="navbar-brand" href="index.html" style="margin: -12px !important;"><img src="images/logo.png" /></a>
+                <ul class="nav top-nav"> <li>
+                        <a href="index.html">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            <p>My Health</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="MyMessages.html">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <p>My Messages</p>
+                        </a>
+                    </li>
+
+                    <li class="current">
+                               <a href="MyAppointments.html">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            <p>My Appointments</p>
+                        </a>
+                    </li> <li>  <a href="MyProfile.html">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <p>My Profile</p>
+                        </a>
+
+                    <li>
+                           <a href="PayMyBill.html">  <i class="fa fa-usd" aria-hidden="true"></i>
+    <p>Pay My Bill</p>
+                        </a>
+                    </li>
+
+                    <li> <a href="login.html">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                <p>Logout</p>
+                            </a>
+                        </li>
+
+                </ul>
+
+                <!-- <a class="icon-sm">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                </a> -->
+            </div>
+
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+				<li>
+                        <a href="index.html">
+                            <i class="fa fa-home"></i> Home</a>
+                    </li>
+                    <li>
+                        <a href="MyAppointments.html">
+                            <i class="fa fa-calendar"></i> Scheduled</a>
+                    </li>
+                    <li class="active">
+                           <a href="RequestAppointments.html">
+                            <i class="fa fa-calendar-o"></i> Request</a>
+                    </li>
+                    
+                
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row  border-bottom">
+                    <div class="col-lg-12 head-section">
+                        <h2 class="">   <a href="#">James S Miller</a>
+                            <small>Male / 10/23/1978</small> <div class="patient-info">
+                                <small>
+                                    Patient ID :
+                                    <span>00786878</span>
+                                </small>&nbsp; &nbsp; <small>
+                                 
+                                </small>
+                            </div>
+                        </h2>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                  &nbsp;
+                    </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="panel-group" id="accordion">
+                            <div class="panel panel-default mouse-hover" data-toggle="collapse" data-target="#collapse1">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a>Scheduled Appointments</a>
+                                    </h4>
+                                </div>
+                                <div class="panel-body font-13">
+							
+							 
+							 <div class="row">
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+	
+											<div class="form-group">
+												<label class="label-normal">Hospital</label>
+											<select class="form-control" id="hospital">
+                                        <option  selected="">Select</option>
+									  <option>California Hospital Medical Center</option>
+									  <option>Prima Care</option>
+									  <option>Health First Center</option>
+									  <option>Care For You </option>
+									
+									</select>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+											<div class="form-group">
+												<label class="label-normal">Speciality</label>
+												<select class="form-control" id="speciality">
+                                        <option selected="">Select</option>
+                                        <option>Anaesthetics</option>
+                                        <option>Opthalmology</option>
+                                        <option>Biofeedback</option>
+                                        <option>Cardiology</option>
+                                        <option>Dermatology</option>
+									</select>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+	
+											<div class="form-group">
+												<label class="label-normal">Consultant Name</label>
+											  <select class="form-control" id="speciality">
+                                      <option selected="">Select</option>
+                                      <option>Mark Miller</option>
+                                      <option>James Peterson</option>
+                                      <option>Chris Donald</option>
+                                      <option>Markinson Kelvin</option>
+                                     
+                                  </select>
+											</div>
+										</div>
+									</div>
+							 
+							 
+							 <div class="row">
+										
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+											<div class="form-group">
+												<label class="label-normal">How Soon ?</label>
+												 <select class="form-control" id="hospital">
+                                      <option selected="">Select</option>
+                                      <option>First Available</option>
+                                    </select>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+											<div class="form-group">
+												<label class="label-normal">Preferred Day(s) </label>
+												<br>
+												 <label class="line-height20">
+                                            <input type="checkbox" value="" name="radio1" checked="checked">
+                                         Mon
+                                        </label>
+										  &nbsp;
+										 <label class="line-height20">
+                                            <input type="checkbox" value="" name="radio1" >
+                                           Tue
+                                        </label>
+										 &nbsp;
+										 <label class="line-height20">
+                                            <input type="checkbox" value="" name="radio1">
+                                            Wed
+                                        </label> &nbsp;
+										 <label class="line-height20">
+                                            <input type="checkbox" value="" name="radio1">
+                                           Thu
+                                        </label> &nbsp;
+										 <label class="line-height20">
+                                            <input type="checkbox" value="" name="radio1">
+                                            Fri
+                                        </label>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+											<div class="form-group">
+												<label class="label-normal">Time</label><br>
+												 <label class="line-height20">
+                                            <input type="radio" value="" name="radio1" checked="checked">
+                                          No Preference
+                                        </label>
+										  &nbsp;
+										 <label class="line-height20">
+                                            <input type="radio" value="" name="radio1" >
+                                           Morning
+                                        </label>
+										 &nbsp;
+										 <label class="line-height20">
+                                            <input type="radio" value="" name="radio1">
+                                            Afternoon
+                                        </label>
+											</div>
+										</div>
+									</div>
+							 
+							 <div class="row">
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+	
+											<div class="form-group">
+												<label class="label-normal">What is most important to you?</label>
+											  <select class="form-control" id="speciality">
+                                      <option selected="">Select</option>
+                                      <option>Location</option>
+                                      <option>Consultant</option>
+                                      <option>Day</option>
+                                      <option>Time</option>
+                                     
+                                  </select>
+											</div>
+										</div>
+										
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+											<div class="form-group">
+												<label class="label-normal">Description</label>
+													<textarea class="form-control" id="description" rows="2"></textarea>
+											</div>
+										</div>
+									</div>
+							 
+							
+                          
+                         
+                                  
+							  
+						  
+						  </div>
+                            </div>
+                        </div>
+                    </div>
+
+                  <div class="col-md-12 text-right"><a href="MyAppointmentsSuccess.html"><button class="btn btn-default aspen-bt my-1 buttonBlue">Request Appointment</button></a></div>
+ 
+            </div>
+            <!-- /#page-wrapper -->
+
+        </div>
+        <!-- /#wrapper -->
+</div></div>
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+
+        <!-- Morris Charts JavaScript -->
+        <script src="js/plugins/morris/raphael.min.js"></script>
+        <script src="js/plugins/morris/morris.min.js"></script>
+        <script src="js/plugins/morris/morris-data.js"></script>
+
+</body>
+
+</html>

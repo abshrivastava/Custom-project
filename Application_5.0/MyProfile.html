@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content=""> <title>RSI Patient Portal</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/aspen-admin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+            <!-- Top Menu Items -->
+            <div>
+                <a class="navbar-brand" href="index.html" style="margin: -12px !important;"><img src="images/logo.png" /></a>
+                <ul class="nav top-nav"> <li>
+                        <a href="index.html">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            <p>My Health</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="MyMessages.html">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <p>My Messages</p>
+                        </a>
+                    </li>
+
+                    <li>
+                               <a href="MyAppointments.html">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            <p>My Appointments</p>
+                        </a>
+                    </li>
+
+                    <li class="current">  <a href="MyProfile.html">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <p>My Profile</p>
+                        </a>
+                    </li>
+
+                    <li>
+                           <a href="PayMyBill.html">  <i class="fa fa-usd" aria-hidden="true"></i>
+    <p>Pay My Bill</p>
+                        </a>
+                    </li>
+
+                    <li> <a href="login.html">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                <p>Logout</p>
+                            </a>
+                        </li>
+
+                </ul>
+
+                <!-- <a class="icon-sm">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                </a> -->
+            </div>
+
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+				<li>
+                        <a href="index.html">
+                            <i class="fa fa-home"></i> Home</a>
+                    </li>
+                   <!-- <li class="active">
+                        <a href="MyAppointments.html">
+                            <i class="fa fa-calendar"></i> Scheduled</a>
+                    </li>
+                    <li>
+                           <a href="RequestAppointments.html">
+                            <i class="fa fa-calendar-o"></i> Request</a>
+                    </li> -->
+                    
+                
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12 head-section">
+                        <h2 class="" style="font-size:18px !important;">
+                            <a href="#">My Profile</a>
+                           
+
+                            
+                        </h2>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                    <div class="border-bottom">
+                        <div class="col-sm-6 my-auto pt-10">
+                            <h4>
+                                <a href="#" style="font-size:14px !important;">Patient Information</a>
+                            </h4>
+                        </div>
+                      
+                        </div>
+                    </div>
+
+                <div class="row">
+                      <div class="col-lg-8 col-md-8 col-sm-12 pr7">
+                          <div class="block_padding min-h565">
+                              <div class="row border-bottom">
+                                  <div class="col-lg-3">
+                                      <div class="form-group">
+                                          <label>Title</label>
+                                          <select class="input-sm form-control"> <option selected="selected"> Mr. </option> <option> Mrs. </option></select>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-3">
+                                      <div class="form-group">
+                                          <label>First Name</label>
+                                          <input type="text" placeholder="James" class="form-control input-sm" value="James">
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-3">
+                                      <div class="form-group">
+                                          <label>Middle Name</label>
+                                          <input type="text" placeholder="Middle Name" class="form-control input-sm" value="S">
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-3">
+                                      <div class="form-group">
+                                          <label>Last Name</label>
+                                          <input type="text" placeholder="Last Name" class="form-control input-sm" value="Miller">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row ">
+                                  <div class="col-lg-12">
+                                      <h3 class="inner_sub_title">Other Details</h3>
+                                  </div>
+                              </div>
+                              <div class="blankspace"></div>
+
+                              <div class="row ">
+                                  <div class="col-lg-6 col-md-12 col-sm-12">
+                                      <div class="row">
+                                          <div class="col-sm-6 ">
+                                              <div class="form-group">
+                                                  <label>Patient ID</label>
+                                                  <input type="text" placeholder="" class="form-control input-sm" value="00786878">
+                                              </div>
+                                          </div>
+                                          <div class="col-sm-6 ">
+                                              <div class="form-group">
+                                                  <label>Residence Country</label>
+                                                  <select class="form-control input-sm">
+                                                      <option value="bounceIn">Select</option>
+                                                      <option value="bounceIn">United Kingdom</option>
+                                                      <option value="bounceIn" selected="selected">USA</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-sm-6">
+                                              <div class="form-group">
+                                                  <label>Correspondence via </label>
+                                                  <select class="form-control input-sm">
+                                                      <option>Select</option>
+                                                      <option>Letter</option>
+                                                      <option selected="selected">E-mail</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+                                          <div class="col-sm-6">
+                                              <div class="form-group">
+                                                  <label>Reminder Via </label>
+                                                  <select class="form-control input-sm">
+                                                      <option>Select</option>
+                                                      <option selected="selected">Text</option>
+                                                      <option>E-mail</option>
+
+                                                  </select>
+                                              </div>
+                                          </div>
+
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-6 col-md-12 col-sm-12">
+                                      <div class="row ">
+                                          <div class="col-sm-5">
+                                              <div class="form-group">
+                                                  <label>Gender</label>
+                                                  <select class="form-control input-sm">
+                                                      <option>Select</option>
+                                                      <option selected="selected">Male</option>
+                                                      <option>Female</option>
+
+                                                  </select>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row ">
+                                          <div class="col-sm-5">
+                                              <div class="form-group">
+                                                  <label>Date of Birth</label>
+                                                  <div id="datetimepicker1" class="input-group">
+
+                                                      <input type="text" data-format="yyyy-MM-dd" class="form-control input-sm" value="1978-10-23"><span class="add-on input-group-addon input-sm" ><i class="fa fa-calendar icon-calendar"></i></span>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="col-sm-2">
+                                              <div class="form-group ">
+                                                  <label>&nbsp;</label>
+                                                  <div>
+                                                      <label class="checkbox-inline"><input type="checkbox" name=""> Unknown </label>
+                                                  </div>
+
+                                              </div>
+                                          </div>
+                                          <div class="col-sm-4">
+                                              <div class="form-group">
+                                                  <label>Age</label>
+                                                  <input type="text" placeholder="In Years" class="form-control input-sm">
+                                              </div>
+                                          </div>
+
+                                      </div>
+                                  </div>
+                              </div>
+                           
+                           <div class="row">
+                                  <div class="col-lg-12">
+                                      <h3 class="inner_sub_title">G P Details</h3>
+                                  </div>
+                              </div>
+                              <div class="blankspace"></div>
+                              <div class="row ">
+                                  <div class="col-lg-3">
+                                      <div class="form-group">
+                                          <label>
+                                              GP Practice
+                                          </label>
+                                          <div class="input-group customsearch">
+                                              <span class="add-on input-group-addon">
+                                                  <button class="btn" type="button" data-toggle="modal" data-target="#Location">
+                                                      <i class="glyphicon glyphicon-search"></i>
+                                                  </button>
+                                              </span>
+                                              <input type="text" data-format="" class="form-control RequiredWBWB" placeholder="Search...">
+                                              <span class="add-on input-group-addon">
+                                                  <button class="btn" type="button">
+                                                      <i class="fa fa-times-circle"></i>
+                                                  </button>
+                                              </span>
+                                          </div>
+                                      </div>
+                        
+                                  </div>
+                                  <div class="col-lg-3"><div class="form-group mrgl15">
+    <label>GP    </label>
+    <div class="input-group customsearch">
+        <span class="add-on input-group-addon">
+            <button class="btn" type="button" data-toggle="modal" data-target="#Location">
+                <i class="glyphicon glyphicon-search"></i>
+            </button>
+        </span>
+        <input type="text" data-format="" class="form-control RequiredWBWB" placeholder="Search...">
+        <span class="add-on input-group-addon">
+            <button class="btn" type="button">
+                <i class="fa fa-times-circle"></i>
+            </button>
+        </span>
+    </div>
+</div></div>
+                                  </div>
+								      <div class="row border-bottom"></div>
+                          </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-12 pl7" style="background:#f2f2f2; border:1px solid #cbcbcb">
+                          <div class="yellow_border  col-lg-12 min-h555">
+                              <div class="row">
+                                  <div class="col-lg-12" style="padding-top:5px; padding-bottom:10px;">
+                                      <h3 class="inner_sub_title">Contact Information</h3>
+                                  </div>
+                              </div>
+                              <div class="blankspace"></div>
+                              <div class="row ">
+                                  <div class="col-lg-12">
+                                      <div class="form-group">
+                                          <label>Address</label>
+                                          <input type="text" placeholder="Address 1" class="form-control input-sm" value="23, Crossings,">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row ">
+                                  <div class="col-lg-12">
+                                      <div class="form-group">
+                                          <input type="text" placeholder="Address 2" class="form-control input-sm" value="Mark Streets">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row ">
+                                  <div class="col-lg-12">
+                                      <div class="form-group">
+                                          <input type="text" placeholder="Address 3" class="form-control input-sm">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row ">
+                                  <div class="col-lg-12">
+                                      <div class="form-group">
+                                          <input type="text" placeholder="Address 4" class="form-control input-sm">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row ">
+                                  <div class="col-lg-12">
+                                      <div class="form-group">
+                                          <input type="text" placeholder="Address 5" class="form-control input-sm" value="Upland">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row ">
+                                  <div class="col-lg-6 col-md-6 col-sm-6 pr7">
+                                      <div class="form-group">
+                                          <label>Zip Code </label>
+                                          <input type="text" placeholder="" class="form-control input-sm" value="23234">
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6 pl7">
+                                      <div class="form-group">
+                                          <label>&nbsp;</label>
+                                          <div>
+                                              
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row ">
+                                  <div class="col-lg-6 col-md-6 col-sm-6">
+                                      <div class="form-group">
+                                          <label>Home Phone  </label>
+                                          <input type="text" placeholder="" class="form-control input-sm" value="234 223 2323">
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6">
+                                      <div class="form-group">
+                                          <label>Mobile  </label>
+                                          <input type="text" placeholder="" class="form-control input-sm" value="234 454 5654">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-lg-8 col-md-8 col-sm-6">
+                                      <div class="form-group">
+                                          <label>Work Phone </label>
+                                          <input type="text" placeholder="" class="form-control input-sm">
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-4 col-md-4 col-sm-6">
+                                      <div class="form-group">
+                                          <label>Extension </label>
+                                          <input type="text" placeholder="" class="form-control input-sm">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row ">
+                                  <div class="col-lg-12">
+                                      <div class="form-group">
+                                          <label>Email </label>
+                                          <input type="text" placeholder="" class="form-control input-sm" value="jamesm@email.com">
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-12">
+                                      <div class="form-group">
+                                          <label>Alternate Contact Name</label>
+                                          <input type="email" placeholder="" class="form-control input-sm">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="clr"></div>
+                          </div>
+                      </div>
+                  </div>
+				
+<div class="row"><div class="col-md-12 text-right"><a href="index.html"><button class="btn btn-default aspen-bt my-1 buttonBlue">Save Profile</button></a></div></div>
+            </div>
+        <!-- /#wrapper -->
+
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+
+        <!-- Morris Charts JavaScript -->
+        <script src="js/plugins/morris/raphael.min.js"></script>
+        <script src="js/plugins/morris/morris.min.js"></script>
+        <script src="js/plugins/morris/morris-data.js"></script>
+
+</body>
+
+</html>

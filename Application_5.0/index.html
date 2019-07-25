@@ -1,0 +1,810 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content=""> <title>RSI Patient Portal</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/aspen-admin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+            <!-- Top Menu Items -->
+            <div>
+                <a class="navbar-brand" href="index.html" style="margin: -12px !important;"><img src="images/logo.png" /></a>
+                <ul class="nav top-nav"> <li class="current">
+                        <a href="index.html">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            <p>My Health</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="MyMessages.html">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <p>My Messages</p>
+                        </a>
+                    </li>
+
+                    <li>
+                               <a href="MyAppointments.html">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            <p>My Appointments</p>
+                        </a>
+                    </li> <li>  <a href="MyProfile.html">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <p>My Profile</p>
+                        </a>
+
+                    <li>
+                           <a href="PayMyBill.html">  <i class="fa fa-usd" aria-hidden="true"></i>
+    <p>Pay My Bill</p>
+                        </a>
+                    </li>
+
+                    <li> <a href="login.html">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                <p>Logout</p>
+                            </a>
+                        </li>
+
+                </ul>
+
+                <!-- <a class="icon-sm">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                </a> -->
+            </div>
+
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a href="index.html">
+                            <i class="fa fa-home"></i> Home</a>
+                    </li> <li>
+                            <a href="visits.html">
+                                <i class="fa fa-stethoscope"></i> Visits</a>
+                        </li>
+                    <li class="dropdown">
+                        <a  href="medications.html">
+                            <i class="fa fa-medkit"></i> Medications
+                        </a>
+                   
+                    </li>
+
+                    
+                    <li>
+                        <a href="History.html"> <i class="fa fa-history"></i>History</a>
+                    </li>
+                    <li>
+                        <a href="Documents.html">
+                            <i class="fa fa-files-o"></i> Documents</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12 head-section">
+                        <h2 class="">
+                            <a >James S Miller</a> <small>Male / 10/23/1978</small> <div class="patient-info">
+                                <small>
+                                    Patient ID :
+                                    <span>00786878</span>
+                                </small>&nbsp; &nbsp; <small>
+                                 
+                                </small>
+                            </div>
+                        </h2>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 no-padd border-right">
+                        <div class="panel panel-default block-contain2">
+                            <div class="panel-heading panel-heading1">
+                                <span class="tab">
+                                    <h4>Vitals</h4>
+                                </span>
+                                <!-- <span class="tab">
+                                    <h4> History</h4>
+                                </span> -->
+                            </div>
+                            <div class="panel-body">
+                                <div class="col-sm-4 no-padd row-widgits text-center">
+                                   <br /> <img src="images/states.png"></div>
+                                <div class="col-sm-4 no-padd row-widgits">
+                                    <h4 class="">
+                                        <a>64" </a>
+                                        <small>Height</small>
+                                    </h4>
+                                    <h4 class="">
+                                        <a>130.0 lbs</a>
+                                        <small>Weight</small>
+                                    </h4>
+                                    <h4 class="">
+                                        <a>22.31 kg/m2</a>
+                                        <small>BMI</small>
+                                    </h4>
+                                    <h4 class="">
+                                        <a>98.1 F</a>
+                                        <small>Temp</small>
+                                    </h4>
+                                    <h4 class="">
+                                        <a>68/min</a>
+                                        <small>Heart Rate</small>
+                                    </h4>
+                                    <h4 class="">
+                                        <a >120/80</a>
+                                        <small>BP</small>
+                                    </h4>
+                                    <h4 class="">
+                                        <a>14/min</a>
+                                        <small>Resp Rate</small>
+                                    </h4>
+                                    <!-- <span class="name-lable full-lable">Mark Walt,Dr.</span>
+                                    </br>
+                                    <span class="name-lable full-lable">Highgate Hospital</span> -->
+                                </div>
+                      
+                            </div>
+                          
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 no-padd">
+                        <div class="panel panel-default block-contain2">
+                            <div class="panel-heading panel-heading1">
+                                <span class="tab">
+                                    <h4>Social History</h4>
+                                </span>
+                            </div>
+                            <div class="panel-body font-16">
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <h4 class="no-margin font-16">
+                                                <a>Education </a>
+                                            </h4>
+                                            <span class="name-lable">Post Graduate</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h4 class="no-margin font-16">
+                                                <a>Occupation</a>
+                                            </h4>
+                                            <span class="name-lable">Retired</span>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
+
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <h4 class="">
+                                                <a>Marital Status</a>
+                                            </h4>
+                                            <span class="name-lable">Married</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h4 class="">
+                                                <a>Current Spouse Information </a>
+                                            </h4>
+                                            <span class="name-lable">N/A</span>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
+
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <h4 class="">
+                                                <a>Caffeine - Coffee, Tea, Soda</a>
+                                            </h4>
+                                            <span class="name-lable">3 times in a day</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h4 class="">
+                                                <a>Alcohol - Beer, Wine, Liquor</a>
+                                            </h4>
+                                            <span class="name-lable">Occasionally</span>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
+
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <h4 class="">
+                                                <a>Recreational / Street Drugs</a>
+                                            </h4>
+                                            <span class="name-lable">N/A</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h4 class="">
+                                                <a></a>
+                                            </h4>
+                                            <span class="name-lable"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-md-6 no-padd border-right">
+                        <div class="panel panel-default block-contain2">
+                            <div class="panel-heading panel-heading1">
+                                <span class="tab">
+                                    <h4>Vitals History</h4>
+                                </span>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped custom_table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Date
+                                                            <i class="fa fa-sort pull-right" aria-hidden="true"></i>
+                                                        </th>
+                                                        <th> BP
+                                                            <i class="fa fa-sort pull-right" aria-hidden="true"></i>
+                                                        </th>
+                                                        <th> Height</th>
+                                                        <th> Weight</th>
+                                                        <th>BMI</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="green_text"> 10/11/2017</td>
+                                                        <td> 120/80</td>
+                                                        <td> 64"</td>
+                                                        <td> 130.0 lbs</td>
+                                                        <td> 22.31 kg/m2</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="green_text"> 01/09/2018</td>
+                                                        <td> 120/80</td>
+                                                        <td> 64"</td>
+                                                        <td> 130.0 lbs</td>
+                                                        <td> 22.31 kg/m2</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="green_text"> 02/25/2018</td>
+                                                        <td> 120/80</td>
+                                                        <td> 64"</td>
+                                                        <td> 130.0 lbs</td>
+                                                        <td> 22.31 kg/m2</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="green_text"> 03/06/2018</td>
+                                                        <td> 120/80</td>
+                                                        <td> 64"</td>
+                                                        <td> 130.0 lbs</td>
+                                                        <td> 22.31 kg/m2</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="blankspace"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 no-padd">
+                        <div class="panel panel-default block-contain2">
+                            <div class="panel-heading panel-heading1">
+                                <span class="tab">
+                                    <h4>Tests and Results</h4>
+                                </span>
+                            </div>
+                            <div class="panel-body font-16">
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <h4 class="no-margin font-16">
+                                                <a >Glucose ur-scnc </a>
+                                            </h4>
+                                            <span class="name-lable">MON 01/02/2017</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h4 class="no-margin font-16">
+                                                <a >Result </a>
+                                            </h4>
+                                            <span class="name-lable">2+</span>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                </div>
+
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <h4 class="">
+                                                <a >Color Urine </a>
+                                            </h4>
+                                            <span class="name-lable">MON 01/02/2017</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h4 class="">
+                                                <a >Result </a>
+                                            </h4>
+                                            <span class="name-lable">Pale Yellow</span>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                </div>
+
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <h4 class="">
+                                                <a >Urobilinogen Urine</a>
+                                            </h4>
+                                            <span class="name-lable">MON 03/03/2018</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h4 class="">
+                                                <a >Result: </a>
+                                            </h4>
+                                            <span class="name-lable">4</span>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                </div>
+
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <h4 class="">
+                                                <a >Basophils # Bld Manual </a>
+                                            </h4>
+                                            <span class="name-lable">FRI 03/03/2018</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h4 class="">
+                                                <a >Result: </a>
+                                            </h4>
+                                            <span class="name-lable">1.0x10E3 / uL </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 no-padd border-right">
+                        <div class="panel panel-default block-contain">
+                            <div class="panel-heading panel-heading1">
+                                <span class="tab">
+                                    <h4>Current Medications</h4>
+                                </span>
+                            </div>
+                            <div class="panel-body font-16">
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <h4 class="no-margin font-16">
+                                        <a >Celexa 10 mg oral tablet</a>
+                                      <span >Active</span></h4>
+                                  
+                                    <span class="name-lable lh-12">December 17, 2017</span>
+                                </div>
+
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <h4 class="">
+                                        <a >Vyvanse </a> <span>Active</span>
+                                    </h4>
+                                   
+                                    <span class="name-lable lh-12">January 22, 2018</span>
+                                </div>
+
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <h4 class="">
+                                        <a >Hydroxyzzine HCI 10 mg/ 5 mL Oral Solution  </a> <span> Active - <i>take 5 mL by oral route daily for 30 days</i></span>
+                                    </h4>
+                                   
+                                    <span class="name-lable lh-12">January 22, 2018</span>
+                                </div>
+								<div class="col-sm-12 no-padd row-widgits">
+                                    <h4 class="">
+                                        <a >Lipitor </a> <span>Active</span>                                    </h4>
+                                   
+                                    <span class="name-lable lh-12">March 04, 2018</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 no-padd">
+                        <div class="panel panel-default block-contain">
+                            <div class="panel-heading panel-heading1">
+                                <span class="tab">
+                                    <h4>Care Plan</h4>
+                                </span>
+                            </div>
+                            <div class="panel-body font-16">
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <h4 class="no-margin font-16">
+                                        <a >Kidney Test</a>
+                                   <span>Renal Profile</span> </h4>
+                                </div>
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <h4>
+                                        <a >Liver Function Test </a>
+                                    </h4>
+                                </div>
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <h4>
+                                        <a >Cholesterol Test</a> <span> Lipid Profile Test</span>
+                                    </h4>
+                                </div>
+								<div class="col-sm-12 no-padd row-widgits">
+                                    <h4>
+                                        <a >Blood Glucose Test</span>
+                                    </h4>
+                                </div>
+								<div class="col-sm-12 no-padd row-widgits">
+                                    <h4>
+                                        <a >Urine Test</span>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 no-padd border-right">
+                        <div class="panel panel-default block-contain3">
+                            <div class="panel-heading panel-heading1">
+                                <span class="tab">
+                                    <h4>Allergies</h4>
+                                </span>
+                            </div>
+                            <div class="panel-body font-16">
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <h4 class="no-margin font-16">
+                                        <a >Diflucan </a>
+                                    </h4>
+                                    <span class="name-lable">Active</span>
+                                </div>
+
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <h4 class="">
+                                        <a >Almond </a>
+                                    </h4>
+                                    <span class="name-lable">Active</span>
+                                </div>
+
+                                <div class="col-sm-12 no-padd row-widgits">
+                                    <h4 class="">
+                                        <a >Bee Stings </a>
+                                    </h4>
+                                    <span class="name-lable">Active</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+					<div class="col-md-6 no-padd border-right">
+                        <div class="panel panel-default block-contain3">
+                            <div class="panel-heading panel-heading1">
+                                <span class="tab">
+                                    <h4>Request an Appointment</h4>
+                                </span>
+                            </div>
+                            <div class="panel-body font-13">
+							
+							 
+							 <div class="row">
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+	
+											<div class="form-group">
+												<label class="label-normal">Hospital</label>
+											<select class="form-control" id="hospital">
+                                        <option  selected="">Select</option>
+									  <option>California Hospital Medical Center</option>
+									  <option>Prima Care</option>
+									  <option>Health First Center</option>
+									  <option>Care For You </option>
+									
+									</select>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+											<div class="form-group">
+												<label class="label-normal">Speciality</label>
+												<select class="form-control" id="speciality">
+                                        <option selected="">Select</option>
+                                        <option>Anaesthetics</option>
+                                        <option>Opthalmology</option>
+                                        <option>Biofeedback</option>
+                                        <option>Cardiology</option>
+                                        <option>Dermatology</option>
+									</select>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+											<div class="form-group">
+												<label class="label-normal">Sub Speciality</label>
+												  <select class="form-control" id="hospital">
+                                      <option selected="">Select</option>
+                                      <option>Glucamo</option>
+                                      <option>Cornea and External Disease</option>
+                                      <option>Cataract and Refractive Surgery</option>
+                                      <option>Uveitis and Ocular Immunology</option>
+                                      <option>Vitreoretinal Diseases</option>
+                                  </select>
+											</div>
+										</div>
+									</div>
+							 
+							 
+							 <div class="row">
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+	
+											<div class="form-group">
+												<label class="label-normal">Consultant Name</label>
+											  <select class="form-control" id="speciality">
+                                      <option selected="">Select</option>
+                                      <option>Mark Miller</option>
+                                      <option>James Peterson</option>
+                                      <option>Chris Donald</option>
+                                      <option>Markinson Kelvin</option>
+                                     
+                                  </select>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+											<div class="form-group">
+												<label class="label-normal">How Soon ?</label>
+												 <select class="form-control" id="hospital">
+                                      <option selected="">Select</option>
+                                      <option>First Available</option>
+                                    </select>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+											<div class="form-group">
+												<label class="label-normal">Time</label><br>
+												 <label class="line-height20">
+                                            <input type="radio" value="" name="radio1" checked="checked">
+                                          No Preference
+                                        </label>
+										  &nbsp;
+										 <label class="line-height20">
+                                            <input type="radio" value="" name="radio1" >
+                                           Morning
+                                        </label>
+										 &nbsp;
+										 <label class="line-height20">
+                                            <input type="radio" value="" name="radio1">
+                                            Afternoon
+                                        </label>
+											</div>
+										</div>
+									</div>
+							 
+							 <div class="row">
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+	
+											<div class="form-group">
+												<label class="label-normal">What is most important to you?</label>
+											  <select class="form-control" id="speciality">
+                                      <option selected="">Select</option>
+                                      <option>Location</option>
+                                      <option>Consultant</option>
+                                      <option>Day</option>
+                                      <option>Time</option>
+                                     
+                                  </select>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+											<div class="form-group">
+												<label class="label-normal">Preferred Day(s) </label>
+												<br>
+												 <label class="line-height20">
+                                            <input type="checkbox" value="" name="radio1" checked="checked">
+                                         Mon
+                                        </label>
+										  &nbsp;
+										 <label class="line-height20">
+                                            <input type="checkbox" value="" name="radio1" >
+                                           Tue
+                                        </label>
+										 &nbsp;
+										 <label class="line-height20">
+                                            <input type="checkbox" value="" name="radio1">
+                                            Wed
+                                        </label> &nbsp;
+										 <label class="line-height20">
+                                            <input type="checkbox" value="" name="radio1">
+                                           Thu
+                                        </label> &nbsp;
+										 <label class="line-height20">
+                                            <input type="checkbox" value="" name="radio1">
+                                            Fri
+                                        </label>
+											</div>
+										</div>
+										<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+											<div class="form-group">
+												<label class="label-normal">Description</label>
+													<textarea class="form-control" id="description" rows="1"></textarea>
+											</div>
+										</div>
+									</div>
+							 
+							
+                          
+                         
+                                  
+							   <div class="row">
+							   <div class="form-group col-md-12" style="margin-bottom:0px; margin-top:10px;">
+							  <button type="submit" class="btn btn-default aspen-bt buttonBlue">Request Appointment</button>
+							  </div>
+							</div>
+						  
+						  </div>
+						 
+                        </div>
+						
+                    </div>
+					 
+                </div>
+
+            <div class="row">&nbsp;</div>
+
+
+                <!-- /.row -->
+         
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- /#page-wrapper -->
+
+        </div>
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h5 class="modal-title" id="exampleModalLabel">Send Health Record</h5>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row row">
+                            <div class="col-md-12">
+                                <label for="validationDefault01">To
+                                    <i class="fw-n text-grey">(required)</i>
+                                </label>
+                                <input type="text" class="form-control" id="validationDefault01" placeholder="Example: jhondoe@email.com" required>
+                            </div>
+                            <div class="col-md-12 mt-2">
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                                        <label class="form-check-label" for="invalidCheck2">
+                                            Check only if this is a Direct Address.
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                                    ea commodo consequat.
+                                </div>
+                            </div>
+                            <div class="col-md-12 mt-2">
+                                <i class="fa fa-paperclip fa-fp"></i>
+                                <label>
+                                    <p class="fw-n text-grey">My Health Record</p>
+                                </label>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="">
+                                    <label for="comment">Message</label>
+                                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="mt-2">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    Ut enim ad minim veniamt.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <button class="btn btn-primary" type="submit">Submit form</button> -->
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default aspen-bt aspen-bt-add">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="js/plugins/morris/raphael.min.js"></script>
+    <script src="js/plugins/morris/morris.min.js"></script>
+    <script src="js/plugins/morris/morris-data.js"></script>
+
+</body>
+
+</html>
