@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Aspen</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- styles -->
+    <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
+    <link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/helper.css" />
+    <link rel="stylesheet" href="bootstrap.3.3.7/content/Content/bootstrap.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/cal.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+
+</head>
+<body onLoad="mainPageLoad()">
+
+   
+    <div class="logincontainer">
+
+        <div class="row">
+            <div class="col-lg-4 col-md-5 col-sm-8 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 ">
+                <div class="text-center">
+                    <img src="images/logo-ipad.png"/>
+                </div>
+                <div class="clr20"></div>
+                <div class="loginbox white_bg blue_border">
+                    <div class="row">
+                        <div class="col-lg-12 ">
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input type="text" class="form-control input-sm" placeholder="Chris.Allan@aspen.com" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 ">
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="text" class="form-control input-sm" placeholder="******" />
+                            </div>
+                        </div>
+                        </div>
+                    <div class="row">
+                        <div class="col-lg-12 ">
+                            <div class="form-group">
+                                <label>Pin</label>
+                                <input type="text" class="form-control input-sm" placeholder="******" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <button class="btn btn-success btn-block" onclick="window.location.href='Index.html'">Login</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <button class="btn btn-link btn-block" onclick="window.location.href='Forgot-pin.html'">Forgot Pin ?</button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </div>
+
+
+        <div class="loginbottom">
+            <div class="col-lg-12">
+                <h3 class="inner_title">General Announcements</h3>
+                <div class="marqueeouter">
+                    <marquee direction="up" scrolldelay="250" onmouseover="this.stop();" onmouseout="this.start();" >
+                        <ul >
+                            <li>This is public message and should appear only in login screen</li>
+                            <li>This is the first public message.</li>
+                            <li>We all are doing great, keep rocking !!!</li>
+                        </ul>
+                    </marquee>
+                </div>
+            </div>
+            <div class="clr20"></div>
+
+            <p class="small_txt col-lg-12 ">You are about to access the Aspen Healthcare computer system that is intended for authorised users only. All unauthorised access is *AN OFFENCE* and is *STRICTLY PROHIBITED*. You should have no expectation of privacy in your use of this network. Use of this network constitutes consent to monitoring, retrieval, and disclosure of any information stored within the network for any purpose or, stored locally on the hard drive or other media in use with this system (e.g., floppy disks, PDAs and other hand-held peripherals, CD-ROMs, etc.) to assist in ensuring network security and criminal prosecution.</p>
+           <div class="clr"></div>
+            <footer class="footer">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-left">Copyright © 2016 - 2017. All Rights Reserved.</div>
+                    
+                </div>
+
+            </footer>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.1.1.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap.3.3.7/content/Scripts/bootstrap.min.js"></script>
+    <script src="js/home.js"></script>
+
+    <script type="text/javascript">
+        function mainPageLoad() {
+
+            var mainContaint = $('#calendarPanel');
+            mainContaint.load("home.html");
+            setTimeout(function () {
+                $('.animate-panel').animatePanel();
+            }, 100);
+        };
+
+
+
+    </script>
+
+
+</body>
+</html>

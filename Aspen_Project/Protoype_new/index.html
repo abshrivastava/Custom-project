@@ -1,0 +1,2099 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Aspen</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- styles -->
+    <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
+    <link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/helper.css" />
+    <link rel="stylesheet" href="bootstrap.3.3.7/content/Content/bootstrap.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/cal.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    
+</head>
+<body onLoad="mainPageLoad()">
+    
+    <!--Header start-->
+    <header>
+        <div class="color-line"></div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="pull-left head_nav_left">
+                    <div class="collapse_all">
+                        <a id="Current-Activity-Home" class="subMenuHref">
+                            <b class="fa fa-indent fa-lg"></b>
+                        </a>
+                    </div>
+                    <a href="index.html" class="logo"><img src="images/logo.png" /></a>
+
+                    <div class="toggle_menu" id="hideMenuBtn">
+                        <i class="fa fa-bars "></i>
+                    </div>
+                    <h2>Consultant Portal</h2>
+                </div>
+                    <div class="pull-right head_nav_right">
+                        <nav>
+                            <ul class="nav navbar-nav no-borders">
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                                        The Holly <i class="pe-7s-angle-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu sub_menu animated flipInX">
+                                        <li>
+                                            <a>
+                                                <span class="label"></span>The Holly
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a>
+                                                <span class="label"></span> Parkside Hospital
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a>
+                                                <span class="label"></span> Highgate Private Hospital
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a>
+                                                <span class="label"></span> The Edinburgh Clinic
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                                        Consultant 1 <i class="pe-7s-angle-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu sub_menu animated flipInX">
+                                        <li>
+                                            <a>
+                                                Consultant 2
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a>
+                                                Consultant 3
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle subMenuHref" hideSecondLeftMenu="true"  secondLeftMenu ="true" id="home" data-toggle="dropdown">
+                                        <i class="fa fa-calendar" style="font-size: 22px; line-height: 26px;"></i>
+                                    </a>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                                        Reports <i class="pe-7s-angle-down"></i>
+                                    </a>
+                                    <ul class="dropdown-menu sub_menu animated flipInX">
+                                        <li>
+                                            <a>
+                                                <span class="label label-success">12</span> Monthly Calender
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a>
+                                                <span class="label label-warning">4</span> Weekly Calender
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a>
+                                                <span class="label label-danger">8</span> Daily Calender
+                                            </a>
+                                        </li>
+                                        <li class="summary"><a href="#">See all Reports</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                                        Functions <i class="pe-7s-angle-down"></i>
+                                    </a>
+                                    <div class="dropdown-menu bigmenu animated flipInX">
+                                        <ul class="row">
+                                            <li>
+                                                <a class="subMenuHref" hidesecondleftmenu="true" id="Book_Appointment" href="javascript:void(0)">
+                                                    <i class="pe pe-7s-id text-info"></i>
+                                                    <span>Book Appointment</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="subMenuHref" hidesecondleftmenu="true" id="Contact_Hospital_Staff" href="javascript:void(0)">
+                                                    <i class="pe pe-7s-mail text-warning"></i>
+                                                    <span>Send Messages</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="subMenuHref" hidesecondleftmenu="true" id="Holiday_request" href="javascript:void(0)">
+                                                    <i class="fa fa-calendar-check-o text-success"></i>
+                                                    <span>Leave Request</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="subMenuHref" hidesecondleftmenu="true" id="Find_Colleague" href="javascript:void(0)">
+                                                    <i class="fa fa-users text-info"></i>
+                                                    <span>Find Colleague</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="subMenuHref" hidesecondleftmenu="true" id="Offsite_Access" href="javascript:void(0)">
+                                                    <i class="pe pe-7s-delete-user text-success"></i>
+                                                    <span>Offsite Access</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="subMenuHref" hidesecondleftmenu="true" id="Request_Clinic" href="javascript:void(0)">
+                                                    <i class="fa fa-medkit text-danger"></i>
+                                                    <span>Request New Clinic</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="subMenuHref" hidesecondleftmenu="true" id="Request_Theatre" href="javascript:void(0)">
+                                                    <i class="fa fa-bed text-muted"></i>
+                                                    <span>Request New Theatre</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="subMenuHref" hidesecondleftmenu="true" id="Custom_Screen" href="javascript:void(0)">
+                                                    <i class="pe pe-7s-airplay text-warning"></i>
+                                                    <span>Custom Screen</span>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                                        <i class="pe-7s-bell"><span class="label label-success">4</span></i>
+
+                                    </a>
+									
+									
+										<ul class="dropdown-menu sub_menu  animated flipInX">
+											<li class="title">Messages
+										   </li>
+											<li>
+												<a class="subMenuHref" sidebarmenuhide="true" id="Messages_inbox">
+													Your clinic location is changed
+												</a>
+											</li>
+											<li>
+												<a class="subMenuHref" sidebarmenuhide="true" id="Messages_inbox">
+													GP/Consultant meeting on Friday
+												</a>
+											</li>
+											<li>
+												<a class="subMenuHref" sidebarmenuhide="true" id="Messages_inbox">
+													Your theatre on MON 11/07/16 at The Holly Hospital starts at 14:50
+												</a>
+											</li>
+											<li class="notification"> <a class="subMenuHref" sidebarmenuhide="true" id="Messages_inbox">See All Notifications</a></li>
+										</ul>
+						
+                                    
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                                        <i class="pe-7s-note2"><span class="label label-danger">5</span></i>
+
+                                    </a>
+                                    
+									 <ul class="dropdown-menu sub_menu animated flipInX">
+                               <li class="title">
+                                Diagnostic Reports Notifications
+                             </li>
+                            <li>
+                                <a class="subMenuHref" sidebarmenuhide="true" id="Diagnostic_Requests_inbox">
+                                    <i class="fa fa-warning text-danger"></i> Patient : Chris Allen, Booking confirmed for Ultrasound
+                                </a>
+                            </li>
+                            <li>
+                                <a class="subMenuHref" sidebarmenuhide="true" id="Diagnostic_Requests_inbox">
+                                    <i class="fa fa-warning text-danger"></i> Patient : Allen Donald, XRay report received
+                                </a>
+                            </li>
+                            <li>
+                                <a class="subMenuHref" sidebarmenuhide="true" id="Diagnostic_Requests_inbox">
+                                    Patient : Chris Allen, Booking confirmed for Ultrasound
+                                </a>
+                            </li>
+                            <li class="notification"><a class="subMenuHref" sidebarmenuhide="true" id="Diagnostic_Requests_inbox">See All Notifications</a></li>
+                        </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                                        <i class="pe-7s-browser"><span class="label label-danger">8</span></i>
+
+                                    </a>
+                                    <ul class="dropdown-menu sub_menu animated flipInX">
+                                         <li class="title">
+                                            Admission Requests Notifications
+                                         </li>
+                                        <li>
+                                            <a class="subMenuHref" sidebarmenuhide="true" id="Inpatient_Bookings_inbox">
+                                                <i class="fa fa-warning text-danger"></i> Patient : Chris Allen, Booking confirmed for Ultrasound
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="subMenuHref" sidebarmenuhide="true" id="Inpatient_Bookings_inbox">
+                                                <i class="fa fa-warning text-danger"></i> Patient : Allen Donald, XRay report received
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="subMenuHref" sidebarmenuhide="true" id="Inpatient_Bookings_inbox">
+                                                Patient : Chris Allen, Booking confirmed for Ultrasound
+                                            </a>
+                                        </li>
+                                        <li class="notification"><a class="subMenuHref" sidebarmenuhide="true" id="Inpatient_Bookings_inbox">See All Notifications</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a id="sidebar" class="right-sidebar-toggle">
+                                        <i class="pe-7s-upload pe-7s-news-paper"></i>
+                                    </a>
+                                </li>
+                                <li><i title="Your password is going to expire in 8 days, please change your password by clicking here." data-toggle="modal" data-target="#myModalPass" class="fa fa-warning text-danger pass_warning"></i></li>
+                                <li>
+                                    <div class="profile-small">
+                                        <div class="stats-label text-color">
+                                            
+                                            <div class="dropdown">
+                                                <a href="#" data-toggle="dropdown">
+                                                    <img src="images/profile.png" height="35" class="img-circle m-b">
+                                                    <b class="caret"></b>
+                                                    <div class="clr"></div>
+                                                    <b class="name">ROBERT BROWN</b>
+                                                </a>
+                                                <ul class="dropdown-menu sub_menu animated flipInX ">
+                                                    <li><a class="hide-menu subMenuHref" openConsultantMenu="true" id="Profile">Consultant Profile</a></li>
+                                                    <li><a data-toggle="modal" data-target="#myModalPass">Change Password</a></li>
+                                                    <li><a onclick="window.location.href='login.html'">Logout</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                <div class="clr"></div>
+                </div>
+            
+        </div>
+
+    </header>
+    <!--Header Ens-->
+
+    <!--Left panel start-->
+    <aside id="left_sidepanel" class="sidebar_menu">
+        <div class="relative">
+            <!--aside menu toggle-->
+            <a id="leftaside_toggle" href="javascript:void(0)">
+                <b class="fa fa-forward "></b>
+            </a>
+            <!--aside menu toggle-->
+           
+            <!--aside main tab start-->
+            <div class="main_tab">
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#mypatient" aria-controls="mypatient" role="tab" data-toggle="tab">My Patient</a></li>
+                    <li role="presentation"><a href="#patientsearch" aria-controls="patientsearch" role="tab" data-toggle="tab">Patient Search</a></li>
+                   
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade active in" id="mypatient">
+                        
+                        <!--inner tab start-->
+                        <div class="inner_tab">
+
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#clinics" aria-controls="clinics" role="tab" data-toggle="tab">Clinics</a></li>
+                                <li role="presentation"><a href="#theatres" aria-controls="theatres" role="tab" data-toggle="tab">Theatres</a></li>
+                                <li role="presentation"><a href="#admissions" aria-controls="admissions" role="tab" data-toggle="tab">Admissions</a></li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="clinics">
+                                    <div class="dropdown relative">
+                                       
+
+                                        <ul class="clinic_time">
+                                            <li class="active"><a href="#">Thurs, 15th July 2016</a></li >
+                                            <li>|</li>
+                                            <li ><a href="#">10:00 - 12:00</a></li>
+                                            <li class="timing_drop"> <a class="dropdown-toggle " href="#" data-toggle="dropdown"><i class="pe-7s-angle-down"></i></a>
+                                                <ul class="dropdown-menu animated flipInX m-t-xs ">
+                                                    <li><a href="#">11:00 - 12:00</a></li>
+                                                    <li><a href="#">01:00 - 02:00</a></li>
+                                                    <li><a href="#">03:00 - 04:00</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="hidden-time">|</li>
+                                            <li class="hidden-time"><a href="#">11:00 - 12:00</a></li>
+                                            <li class="hidden-time">|</li>
+                                            <li class="hidden-time"><a href="#">01:00 - 02:00</a></li>
+                                            <li class="hidden-time">|</li>
+                                            <li class="hidden-time"><a href="#">03:00 - 04:00</a></li>
+                                          
+                                        </ul> 
+                                       
+
+                                        <a class="dropdown-toggle timeslot_filter" href="#" data-toggle="dropdown">
+                                            <span class="right" ><b class="pe pe-7s-filter"></b></span>
+                                        </a>
+                                        <ul class="dropdown-menu animated flipInX m-t-xs search-drop">
+                                            <li><input type="checkbox" value="">Show Available time</li>
+                                            <li class="divider"></li>
+                                            <li><input  type="checkbox" value="">Exclude Seen/Attended</li>
+                                           
+                                           <li>
+                                               
+                                            </li>
+
+                                        </ul>
+                                       <div class="mail_merge_btn">
+                                          
+                                           <a href="#" >Patient Detail Form</a> &nbsp;|&nbsp;
+                                           <a href="#">Registration Form</a>
+</div>
+                                        <div class="clr"></div>
+                                    </div>
+                                    <!--Patient info table -->
+                                    <div class="bs-example table-scroll">
+                                        <table class="table time_table">
+                                            <thead>
+                                                <tr>
+                                                  
+                                                    <th>Time</th>
+                                                    <th title="Duration">Dur..</th>
+                                                    <th title="Patient Name">Name</th>
+                                                    <th class="w65 text-center" title="Appointment Type">Type</th>
+                                                    <th title="Appointment Status">Status</th>
+                                                    <th title="Patient id">ID</th>
+                                                    <th>NHS No.</th>
+                                                    <th>Clinic Function</th>
+                                                    <th class="text-center">Patient Type</th>
+                                                    <th class="text-center">Seen Before</th>
+                                                    <th class="text-center">Appt Notes</th>
+                                                    <th class="text-center">Flag</th>
+                                                    <th class="text-center">Allergy</th>
+                                                    <th class="text-center w120"> <input value="" type="checkbox"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                  
+                                                    <td>09:00</td>
+                                                    <td>20</td>
+                                                    <td><a class="subMenuHref" id="Current-Activity-Home"  >Sarah Smith <i class="fa fa-user text-info" title="Under 18"></i></a></td>
+                                                    <td class="text-center">FU</td>
+                                                    <td><font style="color:#3c763d">Arrived</font></td>
+                                                    <td title="Attended" class="atn">1294192</td>
+                                                    <td>480 432 4399</td>
+                                                    <td class="atn">Consultation</td>
+                                                    <td class="text-center"><i title="Insured" class="fa fa-square private"></i></td>
+                                                    <td class="text-center"><i title="Never Seen Before" class="fa fa-times" aria-hidden="true"></i> </td>
+                                                    <td class="text-center"><i title="For removal of right corneal suture" class="fa fa-info-circle text-info  " data-toggle="modal" data-target="#apptnotes1"></i></td>
+                                                    <td class="text-center"><i title="Flags" class="fa fa-flag orange_text" data-toggle="modal" data-target="#flags"></i></td>
+                                                    <td class="text-center"><i title="Allergies" class="fa fa-asterisk " data-toggle="modal" data-target="#Allergies"></i></td>
+                                                    <td align="center"><input value="" type="checkbox"></td>
+                                                </tr>
+                                                <tr class="active">
+                                                   
+                                                    <td>09:20</td>
+                                                    <td>20</td>
+                                                    <td><a class="subMenuHref" id="Current-Activity-Home">Joanna Cohen</a></td>
+                                                    <td class="text-center">FU</td>
+                                                    <td><font style="color:#3c763d">Arrived</font></td>
+                                                    <td title="Attended" class="atn">1108676</td>
+                                                    <td>707 357 7282</td>
+                                                    <td>Consultation</td>
+                                                    <td class="text-center"><i title="Choose &amp; Book" class="fa fa-square book"></i></td>
+                                                    <td class="text-center"><i title="Seen Before" class="fa fa-check text-success" aria-hidden="true"></i> </td>
+                                                    <td class="text-center"></td>
+                                                    <td class="text-center"><i title="Flags" class="fa fa-flag orange_text" data-toggle="modal" data-target="#flags"></i></td>
+                                                    <td class="text-center"><i title="Allergies" class="fa fa-asterisk " data-toggle="modal" data-target="#Allergies"></i></td>
+                                                    <td align="center"><input value="" type="checkbox"></td>
+                                                </tr>
+                                                <tr>
+                                                  
+                                                    <td>09:40</td>
+                                                    <td>20</td>
+                                                    <td><a class="subMenuHref" id="Current-Activity-Home">Lucy Phillips</a></td>
+                                                    <td class="text-center">FU</td>
+                                                    <td><font class="text-danger">DNA</font></td>
+                                                    <td title="Attended" class="atn">1387618</td>
+                                                    <td>412 926 6926</td>
+                                                    <td class="atn">Consultation</td>
+                                                    <td class="text-center"><i title="Choose &amp; Book" class="fa fa-square book"></i></td>
+                                                    <td class="text-center"><i title="Seen Before" class="fa fa-check text-success" aria-hidden="true"></i> </td>
+                                                    <td class="text-center"><i title="2 to 4 wks iop checkup" class="fa fa-info-circle text-info  " data-toggle="modal" data-target="#apptnotes2"></i></td>
+                                                    <td class="text-center"><i title="Flags" class="fa fa-flag orange_text" data-toggle="modal" data-target="#flags"></i></td>
+                                                    <td class="text-center"><i title="Allergies" class="fa fa-asterisk " data-toggle="modal" data-target="#Allergies"></i></td>
+                                                    <td align="center"><input value="" type="checkbox"></td>
+                                                </tr>
+                                                <tr class="active">
+                                                   
+                                                    <td>10:00</td>
+                                                    <td>20</td>
+                                                    <td><a class="subMenuHref" id="Current-Activity-Home">Gordon Cook <i class="fa fa-user text-info" title="Under 18"></i></a></td>
+                                                    <td class="text-center">FU</td>
+                                                    <td><font style="color:#8d6f01;">Late</font></td>
+                                                    <td title="Attended">1336143</td>
+                                                    <td>604 437 4076</td>
+                                                    <td>Consultation</td>
+                                                    <td class="text-center"><i title="Choose &amp; Book" class="fa fa-square book"></i></td>
+                                                    <td class="text-center"><i title="Seen Before" class="fa fa-check text-success" aria-hidden="true"></i> </td>
+                                                    <td class="text-center"></td>
+                                                    <td class="text-center"><i title="Flags" class="fa fa-flag orange_text" data-toggle="modal" data-target="#flags"></i></td>
+                                                    <td class="text-center"><i title="Allergies" class="fa fa-asterisk " data-toggle="modal" data-target="#Allergies"></i></td>
+                                                    <td align="center"><input value="" type="checkbox"></td>
+                                                </tr>
+                                                <tr>
+                                                 
+                                                    <td>10:20</td>
+                                                    <td>20</td>
+                                                    <td><a class="subMenuHref" id="Current-Activity-Home">Lorraine Hussain</a> </td>
+                                                    <td class="text-center">FU</td>
+                                                    <td><font style="color:#d26f00;">Confirmed</font></td>
+                                                    <td title="Attended" class="atn">1294192</td>
+                                                    <td>568 432 4399</td>
+                                                    <td>Consultation</td>
+                                                    <td class="text-center"><i title="Choose &amp; Book" class="fa fa-square book"></i></td>
+                                                    <td class="text-center"><i title="Seen Before" class="fa fa-check text-success" aria-hidden="true"></i> </td>
+                                                    <td class="text-center"><i title="Plastics" class="fa fa-info-circle text-info  " data-toggle="modal" data-target="#apptnotes3"></i></td>
+                                                    <td class="text-center"><i title="Flags" class="fa fa-flag orange_text" data-toggle="modal" data-target="#flags"></i></td>
+                                                    <td class="text-center"><i title="Allergies" class="fa fa-asterisk " data-toggle="modal" data-target="#Allergies"></i></td>
+                                                    <td align="center"><input value="" type="checkbox"></td>
+                                                </tr>
+                                                <tr class="active">
+                                                   
+                                                    <td>10:40</td>
+                                                    <td>20</td>
+                                                    <td><a class="subMenuHref" id="Current-Activity-Home">Katherine Marshall</a></td>
+                                                    <td class="text-center">FU</td>
+                                                    <td><font style="color:#d26f00;">Confirmed</font></td>
+                                                    <td title="Attended" class="atn">1248466</td>
+                                                    <td>442 342 9810</td>
+                                                    <td>Consultation</td>
+                                                    <td class="text-center"><i title="Choose &amp; Book" class="fa fa-square book"></i></td>
+                                                    <td class="text-center"><i title="Never Seen Before" class="fa fa-times " aria-hidden="true"></i> </td>
+                                                    <td class="text-center"></td>
+                                                    <td class="text-center"><i title="Flags" class="fa fa-flag orange_text" data-toggle="modal" data-target="#flags"></i></td>
+                                                    <td class="text-center"><i title="Allergies" class="fa fa-asterisk " data-toggle="modal" data-target="#Allergies"></i></td>
+                                                    <td align="center"><input value="" type="checkbox"></td>
+                                                </tr>
+                                                <tr>
+                                                  
+                                                    <td>11:00</td>
+                                                    <td>20</td>
+                                                    <td><a class="subMenuHref" id="Current-Activity-Home">Kenneth Robinson</a></td>
+                                                    <td class="text-center">FU</td>
+                                                    <td><font style="color:#d26f00;">Confirmed</font></td>
+                                                    <td title="Attended" class="atn">1389028</td>
+                                                    <td>480 432 4399</td>
+                                                    <td class="atn">Consultation</td>
+                                                    <td class="text-center"><i title="Choose &amp; Book" class="fa fa-square book"></i></td>
+                                                    <td class="text-center"><i title="Seen Before" class="fa fa-check text-success" aria-hidden="true"></i> </td>
+                                                    <td class="text-center"></td>
+                                                    <td class="text-center"><i title="Flags" class="fa fa-flag orange_text" data-toggle="modal" data-target="#flags"></i></td>
+                                                    <td class="text-center"><i title="Allergies" class="fa fa-asterisk " data-toggle="modal" data-target="#Allergies"></i></td>
+                                                    <td align="center"><input value="" type="checkbox"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--Patient info table -->
+                                    <div class="panel-footer " id="legendFooter" >
+                                        <ul>
+                                            <li>Cab<i class="fa fa-square book"> </i></li>
+                                            <li>Contract<i class="fa fa-square contract"> </i></li>
+                                            <li>Self-Pay<i class="fa fa-square self"> </i></li>
+                                            <li>Insured<i class="fa fa-square private"></i></li>
+                                            <li>Self-Pay<i class="fa fa-square self"> </i></li>
+                                            <li>Insured<i class="fa fa-square private"></i></li>
+                                            <li>Seen Before <i title="Seen Before" class="fa fa-check text-success" aria-hidden="true"></i></li>
+                                            <li>Never Seen Before <i title="Seen Before" class="fa fa-times" aria-hidden="true"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div role="tabpanel" class="tab-pane" id="theatres">
+
+                                    <div class="dropdown relative">
+                                        <ul class="clinic_time">
+                                            <li class="active"><a href="#">Thurs, 15th July 2016</a></li>
+                                            <li>|</li>
+                                            <li><a href="#">10:00 - 12:00</a></li>
+                                            <li class="timing_drop">
+                                                <a class="dropdown-toggle " href="#" data-toggle="dropdown"><i class="pe-7s-angle-down"></i></a>
+                                                <ul class="dropdown-menu animated flipInX m-t-xs ">
+                                                    <li><a href="#">11:00 - 12:00</a></li>
+                                                    <li><a href="#">01:00 - 02:00</a></li>
+                                                    <li><a href="#">03:00 - 04:00</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="hidden-time">|</li>
+                                            <li class="hidden-time"><a href="#">11:00 - 12:00</a></li>
+                                            <li class="hidden-time">|</li>
+                                            <li class="hidden-time"><a href="#">01:00 - 02:00</a></li>
+                                            <li class="hidden-time">|</li>
+                                            <li class="hidden-time"><a href="#">03:00 - 04:00</a></li>
+
+                                        </ul> 
+                                    </div>
+                                    <!--Theaters-->
+                                    <div class="bs-example table-scroll">
+                                        <table class="table time_table">
+                                            <thead>
+                                                <tr>
+                                                   
+                                                    <th class="w40"> Time</th>
+                                                    <th class="w40" title="Duration">Dur..</th>
+                                                    <th class="w110" title="Patient Name">Name</th>
+                                                    <th class="w110">Treatment Description</th>
+                                                    <th title="Patient id" class="90">ID</th>
+                                                    <th title="NHS No.">NHS No.</th>
+                                                    <th class="text-center">Patient Type</th>
+                                                    <th class="text-center">Treatment Code</th>
+                                                    <th>Pay Code</th>
+                                                    <th>Anaesthetist</th>
+                                                    <th class="text-center">Flag</th>
+                                                    <th class="text-center">Allergy</th>
+                                                    <th class="text-center w120"><input value="" type="checkbox"></th>
+                                                </tr>
+
+
+
+
+                                            </thead>
+                                            <tbody>
+                                                <tr class="active">
+                                                   
+                                                    <td align="center">09:30</td>
+                                                    <td align="center">45</td>
+                                                    <td><a class="subMenuHref" id="Current_Admission">Laura White</a>  <i class="fa fa-user text-info" title="Under 18"></i></td>
+                                                    <td><div class="text-t">Multiple arthroscopic operation on knee (including meniscectomy, chondroplasty, drilling or microfracture)</div></td>
+                                                    <td>1385910</td>
+                                                    <td>416 529 3970</td>
+                                                    <td align="center"><i title="Choose &amp; Book" class="fa fa-square book"></i></td>
+                                                    <td align="center">W8500</td>
+                                                    <td title="Barking, Having, Redb">Barking..</td>
+                                                    <td title="Yakandawala, Gangani (Dr)">Yakandaw..</td>
+                                                    <td class="text-center"><i title="Flags" class="fa fa-flag orange_text" data-toggle="modal" data-target="#flags"></i></td>
+                                                    <td class="text-center"><i title="Allergies" class="fa fa-asterisk " data-toggle="modal" data-target="#Allergies"></i></td>
+                                                    <td align="center"><input value="" type="checkbox"></td>
+                                                </tr>
+
+                                                <tr class="">
+                                                    
+                                                    <td align="center">10:15</td>
+                                                    <td align="center">60</td>
+                                                    <td><a class="subMenuHref" id="Current_Admission">Sally Shaw</a></td>
+                                                    <td title="Paravertebral block up to two levels (without X-ray control)">Paraverteb..</td>
+                                                    <td>1385932</td>
+                                                    <td>436 419 4808</td>
+                                                    <td align="center"><i title="Choose &amp; Book" class="fa fa-square book"></i></td>
+                                                    <td align="center">25010</td>
+                                                    <td title="NHS Haverin CCG">NHS Have..</td>
+                                                    <td title="Yakandawala, Gangani (Dr)">Yakandaw..</td>
+                                                    <td class="text-center"><i title="Flags" class="fa fa-flag orange_text" data-toggle="modal" data-target="#flags"></i></td>
+                                                    <td class="text-center"><i title="Allergies" class="fa fa-asterisk " data-toggle="modal" data-target="#Allergies"></i></td>
+                                                    <td align="center"><input value="" type="checkbox"></td>
+                                                </tr>
+
+                                                <tr class="active">
+                                                  
+                                                    <td align="center">11:15</td>
+                                                    <td align="center">45</td>
+                                                    <td><a class="subMenuHref" id="Current_Admission">Tracy Stevens</a></td>
+                                                    <td title="Medial Branch Block or Facet joint injection (under x-ray control) - 3 to 4 joints">Medial Bran..</td>
+                                                    <td>1385910</td>
+                                                    <td>416 529 3970</td>
+                                                    <td align="center"><i title="Choose &amp; Book" class="fa fa-square book"></i></td>
+                                                    <td align="center">A5750</td>
+                                                    <td title="NHS Waltham Forest">NHS Walth..</td>
+                                                    <td title="Yakandawala, Gangani (Dr)">Yakanda..</td>
+                                                    <td class="text-center"><i title="Flags" class="fa fa-flag orange_text" data-toggle="modal" data-target="#flags"></i></td>
+                                                    <td class="text-center"><i title="Allergies" class="fa fa-asterisk " data-toggle="modal" data-target="#Allergies"></i></td>
+                                                    <td align="center"><input value="" type="checkbox"></td>
+                                                </tr>
+
+                                                <tr class="">
+                                                  
+                                                    <td align="center">12:00</td>
+                                                    <td align="center">45</td>
+                                                    <td><a class="subMenuHref" id="Current_Admission">Alex Adams</a></td>
+                                                    <td title="Excision of lesion of peripheral nerve (e.g. neurilemma)">Excision of..</td>
+                                                    <td>1194420</td>
+                                                    <td>498 122 4605</td>
+                                                    <td align="center"><i title="Choose &amp; Book" class="fa fa-square book"></i></td>
+                                                    <td align="center">A6110</td>
+                                                    <td title="NHS Haverin CCG">NHS Haver..</td>
+                                                    <td title="Yakandawala, Gangani (Dr)">Yakanda..</td>
+                                                    <td class="text-center"><i title="Flags" class="fa fa-flag orange_text" data-toggle="modal" data-target="#flags"></i></td>
+                                                    <td class="text-center"><i title="Allergies" class="fa fa-asterisk " data-toggle="modal" data-target="#Allergies"></i></td>
+                                                    <td align="center"><input value="" type="checkbox"></td>
+                                                </tr>
+
+                                                <tr class="active">
+                                                   
+                                                    <td align="center">12:45</td>
+                                                    <td align="center">45</td>
+                                                    <td><a class="subMenuHref" id="Current_Admission">Frank Rose</a>  <i class="fa fa-user text-info" title="Under 18"></i></td>
+                                                    <td title="Carpal tunnel release (open)">Carpal tunn..</td>
+                                                    <td>1386162</td>
+                                                    <td>480 377 1383</td>
+                                                    <td align="center"><i title="Choose &amp; Book" class="fa fa-square book"></i></td>
+                                                    <td align="center">A6510</td>
+                                                    <td title="NHS Waltham Forest">NHS Walth..</td>
+                                                    <td title="Yakandawala, Gangani (Dr)">Yakanda..</td>
+                                                    <td class="text-center"><i title="Flags" class="fa fa-flag orange_text" data-toggle="modal" data-target="#flags"></i></td>
+                                                    <td class="text-center"><i title="Allergies" class="fa fa-asterisk " data-toggle="modal" data-target="#Allergies"></i></td>
+                                                    <td align="center"><input value="" type="checkbox"></td>
+                                                </tr>
+                                    
+                                                    </table>
+</div>
+
+                                    <div class="panel-footer " id="legendFooter">
+                                        <ul>
+                                            <li>Choose & Book<i class="fa fa-square book"> </i></li>
+                                         </ul>
+                                    </div>
+                                    </div>
+
+                                <div role="tabpanel" class="tab-pane" id="admissions">
+                                    <div class="dropdown relative">
+
+
+                                        <ul class="clinic_time">
+                                            <li class="active"><a href="#">Thurs, 15th July 2016</a></li>
+                                           
+                                           
+                                        </ul>
+
+
+                                        <a class="dropdown-toggle timeslot_filter" href="#" data-toggle="dropdown">
+                                            <span class="right"><b class="pe pe-7s-filter"></b></span>
+                                        </a>
+                                        <ul class="dropdown-menu animated flipInX m-t-xs search-drop">
+                                            <li><input type="checkbox" value="">Include Pre-Admitted</li>
+                                          
+
+                                        </ul>
+                                        <div class="mail_merge_btn">
+
+                                            <a href="#">Patient Detail Form</a> &nbsp;|&nbsp;
+                                            <a href="#">Registration Form</a>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                    <!--Admissions-->
+                                    <div class="bs-example table-scroll">
+                                        <table class="table time_table">
+                                            <thead>
+                                                <tr class="info">
+                                                   
+                                                    <th class="w50" title="Admission Date">Date</th>
+                                                    <th title="Patient Name" class="w110">Name</th>
+                                                    <th class="w65">Ward</th>
+                                                    <th class="w65">Bed</th>
+                                                    <th>Treatment Description</th>
+                                                    <th class="text-center"> </th>
+
+                                                    <th title="Patient id">ID</th>
+                                                    <th title="NHS Number">NHS No.</th>
+                                                    <th>Patient Type</th>
+                                                    <th>Pay Code</th>
+                                                    <th class="text-center">Treatment Code</th>
+                                                    <th class="text-center">Flag</th>
+                                                    <th class="text-center">Allergy</th>
+                                                    <th class="text-center w120"><input value="" type="checkbox"></th>
+                                                </tr>
+
+
+                                            </thead>
+                                            <tbody>
+                                                <tr class="active">
+                                                
+                                                    <td>12/1/2016</td>
+                                                    <td><a class="subMenuHref" id="Current_Admission">Laura White</a> <i class="fa fa-user text-info" title="Under 18"></i></td>
+                                                    <td>Oak Ward</td>
+                                                    <td>Room 261</td>
+                                                    <td><div class="text-t">Multiple arthroscopic operation on knee (including meniscectomy, chondroplasty, drilling or microfracture)</div></td>
+                                                    <td align="center" class="text-warning">Pre-Admitted</td>
+                                                    <td>1385910</td>
+                                                    <td>416 529 3970</td>
+                                                    <td><i title="Choose &amp; Book" class="fa fa-square book"></i></td>
+                                                    <td title="Barking, Having, Redb">Barking..</td>
+                                                    <td align="center">W8500</td>
+                                                    <td class="text-center"><i title="Flags" class="fa fa-flag orange_text" data-toggle="modal" data-target="#flags"></i></td>
+                                                    <td class="text-center"><i title="Allergies" class="fa fa-asterisk " data-toggle="modal" data-target="#Allergies"></i></td>
+                                                    <td align="center"><input value="" type="checkbox"></td>
+                                                </tr>
+                                                <tr class="">
+                                                 
+                                                    <td>12/2/2016</td>
+                                                    <td><a class="subMenuHref" id="Current_Admission">Sally Shaw</a></td>
+                                                    <td>Oak Ward</td>
+                                                    <td>Room 262</td>
+                                                    <td title="Paravertebral block up to two levels (without X-ray control)">Paraverteb..</td>
+                                                    <td align="center" class="text-info" >Discharged</td>
+                                                    <td>1385932</td>
+                                                    <td>436 419 4808</td>
+                                                    <td><i title="Discharge" class="fa fa-square book"></i></td>
+                                                    <td title="NHS Haverin CCG">NHS Have..</td>
+                                                    <td align="center">25010</td>
+                                                    <td class="text-center"><i title="Flags" class="fa fa-flag orange_text" data-toggle="modal" data-target="#flags"></i></td>
+                                                    <td class="text-center"><i title="Allergies" class="fa fa-asterisk " data-toggle="modal" data-target="#Allergies"></i></td>
+                                                    <td align="center"><input value="" type="checkbox"></td>
+                                                </tr>
+                                                <tr class="active">
+                                                   
+                                                    <td>12/2/2016</td>
+                                                    <td><a class="subMenuHref" id="Current_Admission">Tracy Stevens</a></td>
+                                                    <td>Oak Ward</td>
+                                                    <td>Room 263</td>
+                                                    <td title="Medial Branch Block or Facet joint injection (under x-ray control) - 3 to 4 joints">Medial Bran..</td>
+                                                    <td align="center" class="text-warning">Pre-Admitted</td>
+                                                    <td>1382595</td>
+                                                    <td>416 529 3970</td>
+                                                    <td><i title="Choose &amp; Book" class="fa fa-square book"></i></td>
+                                                    <td title="NHS Waltham Forest">NHS Walth..</td>
+                                                    <td align="center">A5750</td>
+                                                    <td class="text-center"><i title="Flags" class="fa fa-flag orange_text" data-toggle="modal" data-target="#flags"></i></td>
+                                                    <td class="text-center"><i title="Allergies" class="fa fa-asterisk " data-toggle="modal" data-target="#Allergies"></i></td>
+                                                    <td align="center"><input value="" type="checkbox"></td>
+                                                </tr>
+                                                <tr class="">
+                                                  
+                                                    <td>12/3/2016</td>
+                                                    <td><a class="subMenuHref" id="Current_Admission">Alex Adams</a></td>
+                                                    <td>Oak Ward</td>
+                                                    <td>Room 128</td>
+                                                    <td title="Excision of lesion of peripheral nerve (e.g. neurilemma)">Excision of..</td>
+                                                    <td align="center" class="text-success" >Admitted</td>
+                                                    <td>1385910</td>
+                                                    <td>416 529 3970</td>
+                                                    <td><i title="Choose &amp; Book" class="fa fa-square book"></i></td>
+                                                    <td title="NHS Haverin CCG">NHS Haver..</td>
+                                                    <td align="center">A6110</td>
+                                                    <td class="text-center"><i title="Flags" class="fa fa-flag orange_text" data-toggle="modal" data-target="#flags"></i></td>
+                                                    <td class="text-center"><i title="Allergies" class="fa fa-asterisk " data-toggle="modal" data-target="#Allergies"></i></td>
+                                                    <td align="center"><input value="" type="checkbox"></td>
+                                                </tr>
+                                                <tr class="active">                                                 
+                                                    <td>12/4/2016</td>
+                                                    <td><a class="subMenuHref" id="Current_Admission">Frank Rose</a> <i class="fa fa-user text-info" title="Under 18"></i></td>
+                                                    <td>Oak Ward</td>
+                                                    <td>Room 129</td>
+                                                    <td title="Carpal tunnel release (open)">Carpal tunn..</td>
+                                                    <td align="center" class="text-warning">Pre-Admitted</td>
+                                                    <td>1385910</td>
+                                                    <td>416 529 3970</td>
+                                                    <td><i title="Choose &amp; Book" class="fa fa-square book"></i></td>
+                                                    <td title="NHS Waltham Forest">NHS Walth..</td>
+                                                    <td align="center">A6510</td>
+                                                    <td class="text-center"><i title="Flags" class="fa fa-flag orange_text" data-toggle="modal" data-target="#flags"></i></td>
+                                                    <td class="text-center"><i title="Allergies" class="fa fa-asterisk " data-toggle="modal" data-target="#Allergies"></i></td>
+                                                    <td align="center"><input value="" type="checkbox"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--Admissions-->
+                                    <div class="panel-footer " id="legendFooter">
+                                        <ul>
+                                            <li>Cab<i class="fa fa-square book"> </i></li>
+                                            <li>Contract<i class="fa fa-square contract"> </i></li>
+                                            <li>Self-Pay<i class="fa fa-square self"> </i></li>
+                                            <li>Insured<i class="fa fa-square private"></i></li>
+                                            <li>Admitted &nbsp;<i class="fa fa-male  text-warning"> </i></li>
+                                            <li>Discharge &nbsp;<i class="fa fa-ambulance  text-info"> </i></li>
+                                            <li>Pre Admitted &nbsp;<i class="fa fa-user-md  text-success"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--inner tab end-->
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="patientsearch">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                                <div class="srarch-small">
+                                    <div class="form-group navbar-form-custom">
+                                        <input type="text" placeholder="Search...by ID..." class="form-control" name="search">
+                                    </div>
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu animated flipInX search-drop patient_search">
+                                <li><input type="text" placeholder="Search...by Surname..." class="form-control " name="search"></li>
+                                <li><input type="text" placeholder="Search...by First Name..." class="form-control " name="search"></li>
+                                <li><input type="text" placeholder="Search...by DOB..." class="form-control " name="search"></li>
+                                <li><input type="text" placeholder="Search...by NHS no..." class="form-control " name="search"></li>
+                                <li><input type="text" placeholder="Search...by Old Patient ID..." class="form-control " name="search"></li>
+                                <li class="text-right"><button  class="btn btn-sm btn-success "><i class="fa fa-search "></i> Search</button> <button class="btn btn-sm btn-red "><i class="fa fa-times-circle"></i> Clear</button></li>
+                            </ul>
+                        </div>
+                        <div class="cle"></div>
+                        <div class="bs-example table-scroll">
+                            <table class="table table time_table">
+                                <thead>
+                                    <tr class="info">
+                                        <th> Patient Name</th>
+                                        <th> Patient ID</th>
+                                        <th> NHS No</th>
+                                        <th> Date of Birth</th>
+                                        <th> Gender</th>
+                                        <th> Post Code</th>
+                                        <th> Phone</th>
+                                        <th class="text-center">Flag</th>
+                                        <th class="text-center">Allergy</th>
+                                        <th class="text-center">Seen Before</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> <a class="subMenuHref" id="Demographics">Chris J Allan</a></td>
+                                        <td> 236547</td>
+                                        <td> 021 458 887</td>
+                                        <td> 02/03/1974</td>
+                                        <td> Male</td>
+                                        <td> EC3N 2ER</td>
+                                        <td> 985 258 1456</td>
+                                        <td class="text-center"><i title="Flags" class="fa fa-flag orange_text" data-toggle="modal" data-target="#flags"></i></td>
+                                        <td class="text-center"><i title="Allergies" class="fa fa-asterisk " data-toggle="modal" data-target="#Allergies"></i></td>
+                                        <td class="text-center"><i title="Seen Before" class="fa fa-check text-success" aria-hidden="true"></i> </td>
+                                    </tr>
+                                    <tr>
+                                        <td> <a class="subMenuHref" id="Demographics">David Brown</a></td>
+                                        <td> 236987</td>
+                                        <td> 021 852 887</td>
+                                        <td> 05/11/1975</td>
+                                        <td> Male</td>
+                                        <td> EC3N 2ER</td>
+                                        <td> 985 958 1456</td>
+                                        <td class="text-center"><i title="Flags" class="fa fa-flag orange_text" data-toggle="modal" data-target="#flags"></i></td>
+                                        <td class="text-center"><i title="Allergies" class="fa fa-asterisk " data-toggle="modal" data-target="#Allergies"></i></td>
+                                        <td class="text-center"><i title="Seen Before" class="fa fa-check text-success" aria-hidden="true"></i> </td>
+                                    </tr>
+                                    <tr>
+                                        <td> <a class="subMenuHref" id="Demographics">Kelly Grand</a></td>
+                                        <td> 236325</td>
+                                        <td> 021 258 887</td>
+                                        <td> 20/03/1978</td>
+                                        <td> Female</td>
+                                        <td> EC3N 2ER</td>
+                                        <td> 985 258 8527</td>
+                                        <td class="text-center"><i title="Flags" class="fa fa-flag orange_text" data-toggle="modal" data-target="#flags"></i></td>
+                                        <td class="text-center"><i title="Allergies" class="fa fa-asterisk " data-toggle="modal" data-target="#Allergies"></i></td>
+                                        <td class="text-center"><i title="Never Seen Before" class="fa fa-times" aria-hidden="true"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td> <a class="subMenuHref" id="Demographics">Mark Grand</a></td>
+                                        <td> 256547</td>
+                                        <td> 001 458 887</td>
+                                        <td> 11/09/1973</td>
+                                        <td> Male</td>
+                                        <td> EC3N 2ER</td>
+                                        <td> 985 258 5896</td>
+                                        <td class="text-center"><i title="Flags" class="fa fa-flag orange_text" data-toggle="modal" data-target="#flags"></i></td>
+                                        <td class="text-center"><i title="Allergies" class="fa fa-asterisk " data-toggle="modal" data-target="#Allergies"></i></td>
+                                        <td class="text-center"><i title="Seen Before" class="fa fa-check text-success" aria-hidden="true"></i> </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="clr20"></div>
+                        <button data-toggle="modal" data-target="#New_patient_model" type="button" class="btn btn-primary btn-sm"><i class="fa fa-plus" aria-hidden="true"></i> New Patient</button>
+                    </div>
+                </div>
+            </div>
+            <!--aside main tab start-->
+        </div>
+    </aside>
+    <!--Left panel end-->
+
+    <!--Right Sidebar start-->
+    <div id="right-sidebar" class="animated fadeInRight ">
+
+        <div class="">
+            <button id="sidebar-close" class="right-sidebar-toggle sidebar-button btn btn-default m-b-md">
+                <i class="pe pe-7s-close"></i>
+            </button>
+        </div>
+        <ul class="nav" id="side-menu">
+            <li class="sub-menu" style="border-top: 3px solid #fbb179;">
+                <a href="#">Inbox </a>
+                <ul class="nav nav-second-level">
+                    <li><a class="subMenuHref" hideSecondLeftMenu="true"  id="Messages_inbox">Messages &nbsp;&nbsp;<span class="label label-success">8</span></a></li>
+                    <li><a class="subMenuHref" hideSecondLeftMenu="true" id="Diagnostic_Requests_inbox">Diagnostic Requests &nbsp;&nbsp;<span class="label label-warning">5</span></a></li>
+                    <li><a class="subMenuHref" hideSecondLeftMenu="true" id="Inpatient_Bookings_inbox">Admission Requests &nbsp;&nbsp;<span class="label label-success">8</span></a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+              <a href="#">Outbox</a>
+                <ul class="nav nav-second-level">
+                    <li><a class="subMenuHref" hideSecondLeftMenu="true" id="Messages_outbox">Messages</a></li>
+                    <li><a class="subMenuHref" hideSecondLeftMenu="true"  id="Diagnostic_Requests_outbox">Diagnostic Requests </a></li>
+                    <li><a class="subMenuHref" hideSecondLeftMenu="true" id="Inpatient_Bookings_outbox">Admission Requests </a></li>
+                    <li><a class="subMenuHref" hideSecondLeftMenu="true" id="Clinic_Theatre_Requests_outbox">Clinic/Theatre Requests </a></li>
+                </ul>
+
+            </li>
+
+        </ul>
+
+        <!-- Right sidebar -->
+
+    </div>
+    <!--Right Sidebar End-->
+   
+    <!--Wrapper start-->
+    <div id="wrapper">
+        <div class="content animate-panel">
+
+            <!--Second Level Menu Section Start-->
+            <div id="secondLeftMenu" style="display:none;" class="col-lg-2 col-md-3 col-sm-4 fadeInLeft sidebar-open">
+                <!--div-tab 2 start-->
+              
+                    <div class="menu_bg">
+                      
+                        <a id="hideSecondLeftMenu" href="javascript:void(0)">
+                            <b class="fa fa-backward "></b>
+                        </a>
+
+                        <div class="profile-picture" id="profile">
+                            <img src="images/profile.png" height="70" class="img-circle m-b">
+                            <div class="stats-label text-color">
+                                <div>
+                                    <div class="dropdown">
+                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                                            <span class="name">Chris J Allan | 458925 <b class="caret"></b></span><br>
+                                            <small class="text-muted">02/03/1974 | 007 877 5654</small><br>
+                                            <small class="text-muted">Next activity 15/07/2016 | IP</small><br>
+                                        </a>
+                                        <ul class="dropdown-menu animated flipInX m-t-xs">
+                                            <li><a class="subMenuHref" id="Document_upload">Document upload </a></li>
+
+                                            <li><a class="subMenuHref" id="Create_Letters">Create Letters</a></li>
+
+                                            
+                                        </ul>
+                                        </div>
+                                        <div >
+                                            <span class="dropdown"><i class="fa fa-flag orange_text dropdown-toggle" href="#" data-toggle="dropdown" aria-hidden="true"></i>
+                                                <ul class="dropdown-menu animated flipInX m-t-xs">
+                                                    <li><a class="subMenuHref" id="#">VIP</a></li>
+                                                    <li><a class="subMenuHref" id="#">Finance</a></li>
+                                                </ul>
+                                            </span>
+                                             &nbsp 
+                                            <span class="dropdown"><i class="fa fa-asterisk dropdown-toggle" href="#" data-toggle="dropdown" aria-hidden="true"></i>
+                                                <ul class="dropdown-menu animated flipInX m-t-xs">
+                                                    <li><a class="subMenuHref" id="#">Atopic eczema</a></li>
+
+                                                    <li><a class="subMenuHref" id="#">Allergic urticaria</a></li>
+
+                                                    <li><a class="subMenuHref" id="#">Anaphylaxis</a></li>
+                                                </ul>
+                                            </span>
+                                        
+                                            
+
+                                        </div>
+                                        
+                                    </div>
+                                <div id="sparkline1" class="small-chart m-t-sm"></div>
+                            </div>
+                        </div>
+                        <div class="profile-picture"  id="consultant_profile">
+
+                            <img src="images/profile.png" height="70" class="img-circle m-b">
+                            <div class="stats-label text-color">
+                                <div >
+                                  
+                                        <span class="name">Robert Brown </span><br>
+                                        <small class="text-muted">Consultant</small><br>
+                                        <small class="text-muted">Cardiologist | 00989877</small><br>
+                                    
+                                    
+                                </div>
+                                
+                                <div id="sparkline1" class="small-chart m-t-sm"></div>
+                            </div>
+                        </div>
+
+                         <ul class="nav subMenuActive" id="side-menu"> 
+                            <li class="sub-menu" name="consultantProfile"><a class="subMenuHref"   openConsultantMenu="true" id="Profile">Consultant Profile <span class="fa fa-caret-right pull-right"></span></a></li>
+                            <li class="sub-menu" name="consultantProfile"><a class="subMenuHref" openConsultantMenu="true"  id="Other_info">Other information<span class="fa fa-caret-right pull-right"></span></a></li>
+                            <li class="sub-menu" name="consultantProfile"><a class="subMenuHref" openConsultantMenu="true"  id="Relations">Relations<span class="fa fa-caret-right pull-right"></span></a></li>
+                            <li class="sub-menu" name="consultantProfile"><a class="subMenuHref"  openConsultantMenu="true" id="Documentation">Documentation<span class="fa fa-caret-right pull-right"></span></a></li>
+                            <li class="sub-menu" name="consultantProfile"><a class="subMenuHref" openConsultantMenu="true"  id="Booking_Details">Booking Details<span class="fa fa-caret-right pull-right"></span></a></li>
+
+                         <li class="sub-menu" name="theatresItems"><a class="subMenuHref Active" id="Current_Admission">Current Admission<span class="fa fa-caret-right pull-right"></span></a></li>
+                         <li class="sub-menu" name="theatresItems"><a class="subMenuHref" id="Theater_Booking">Theatre Booking<span class="fa fa-caret-right pull-right"></span></a></li>
+                         <li class="sub-menu" name="theatresItems"><a class="subMenuHref" id="Admission_Discharge">Admission & Discharge<span class="fa fa-caret-right pull-right"></span></a></li>
+                         <li class="sub-menu"  name="clinicsItems"><a class="subMenuHref" id="Current-Activity-Home">Current Appointment<span class="fa fa-caret-right pull-right"></span></a></li>
+                           <li class="sub-menu" name="patientSearch"><a class="subMenuHref" id="Demographics">Demographics<span class="fa fa-caret-right pull-right"></span></a></li>
+                            <li class="sub-menu" name="patientSearch"><a class="subMenuHref" id="Treatments">Treatments / Diagnoses <span class="fa fa-caret-right pull-right"></span></a></li>
+                            <li class="sub-menu" name="patientSearch"><a class="subMenuHref" id="Comorbidities">Comorbidities / Allergies <span class="fa fa-caret-right pull-right"></span></a></li>
+                            <li class="sub-menu" name="patientSearch"><a class="subMenuHref" id="Dispensed_Medication">Dispensed Medication <span class="fa fa-caret-right pull-right"></span></a></li>
+                            <li class="sub-menu" name="patientSearch"><a class="subMenuHref" id="Visit_history-nested">Visit History <span class="fa fa-caret-right pull-right"></span></a></li>
+                            <li class="sub-menu" name="patientSearch"><a class="subMenuHref" id="Documents">Documents <span class="fa fa-caret-right pull-right"></span></a></li>
+                            <li class="sub-menu" name="otherMenuItem"><a class="subMenuHref" id="Requests">Requests <span class="fa fa-caret-right pull-right"></span></a></li>
+                            <li class="sub-menu" name="otherMenuItem" showforDifferent="patientSearch"><a class="subMenuHref" id="Notes">Notes <span class="fa fa-caret-right pull-right"></span></a></li>
+                            <li class="sub-menu" id="appointmentOn" style="display:none;"><a class="subMenuHref" id="Appointment_on">Appointment On 01/01/2013<span class="fa fa-caret-right pull-right"></span></a></li>
+                        </ul> 
+                    </div>
+               
+
+                <!--div-tab 2 end-->
+            </div>
+            <!--Second Level Menu Section End-->
+           
+                <div id="calendarPanel" class="col-md-12" >
+                </div>
+          <div class="clr"></div>  
+        </div>
+                <!--Footer start-->
+                <footer class="footer">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-left">Copyright © 2016 - 2017. All Rights Reserved.</div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-right">Date: 03/08/2016</div>
+                    </div>
+
+                </footer>
+                <!--footer end-->
+            </div>
+            <!--Wrapper End-->
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+            <script src="js/jquery-3.1.1.js"></script>
+            <!-- Include all compiled plugins (below), or include individual files as needed -->
+            <script src="bootstrap.3.3.7/content/Scripts/bootstrap.min.js"></script>
+            <script src="js/home.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+        function mainPageLoad() { 
+            var mainContaint = $('#calendarPanel');
+            mainContaint.load("home.html");
+            setTimeout(function () {
+                $('.animate-panel').animatePanel();
+            }, 100);
+
+           
+        };
+
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+        
+    </script>
+ 
+
+
+    <div id="myModalPass" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4 class="modal-title">Change Password</h4>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-body form_popup">
+
+                 <div class="form-inline">
+                     <div class="row">
+                         <div class="col-lg-12">
+                             <div class="form-group">
+                                 <label class="w209 text-right">User Name :  </label> <input placeholder="" class="form-control input-sm w320" name="" value="" type="text" disabled>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="row">
+                         <div class="col-lg-12">
+                             <div class="form-group">
+                                 <label class="w209 text-right">Old Password : <span class="RedText">*</span></label> <input placeholder="" class="form-control input-sm w320" name="" value="" type="text">
+                             </div>
+                         </div>
+                     </div>
+                     <div class="row">
+                         <div class="col-lg-12">
+                             <div class="form-group">
+                                 <label class="w209 text-right">New Password : <span class="RedText">*</span></label> <input placeholder="" class="form-control input-sm w320" name="" value="" type="text">
+                             </div>
+                         </div>
+                     </div>
+                     <div class="row">
+                         <div class="col-lg-12">
+                             <div class="form-group">
+                                 <label class="w209 text-right">Confirm Password : <span class="RedText">*</span></label> <input placeholder="" class="form-control input-sm w320" name="" value="" type="text">
+                             </div>
+                         </div>
+                     </div>
+                     <div class="clr10"></div>
+                     <div class="row">
+                         <div class="col-lg-12">
+                             <div class="form-group">
+                                 <label class="w209 text-right">&nbsp;</label> <button class="btn btn-primary" onclick="window.location.href='Index.html'">Change Password</button>
+<button class="btn btn-default" onclick="window.location.href='login.html'">Cancel</button>
+                             </div>
+                         </div>
+                     </div>
+                 </div>   
+
+                    
+                   
+                    
+
+
+
+                    
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <!----Flags-->
+    <div id="flags" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4 class="modal-title">Flags</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body form_popup">
+                    <table class="table table-bordered custom_table">
+                       
+                        <tbody>
+                            <tr>
+                                <td> VIP</td>
+                            </tr>
+                            <tr>
+                                <td> Bad Debtor</td>
+                               </tr>
+                        </tbody>
+                    </table>
+                   
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!----Allergies-->
+    <div id="Allergies" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4 class="modal-title">Allergies</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body form_popup">
+                    <table class="table table-bordered table-striped custom_table">
+                        <thead>
+
+                            <tr>
+
+                                <th> Allergies</th>
+                                <th> Onset Date</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td> Crustaceans</td>
+                                <td> <input type="text" size="12" placeholder="11/08/2016" class="form-control input-sm w110"></td>
+                               
+                            </tr>
+
+                            <tr>
+                                <td> Asthmatic</td>
+                                <td> <input type="text" size="12" class="form-control input-sm w110" placeholder="11/08/2016"></td>
+                              
+                            </tr>
+
+                            <tr>
+                                <td> Celery</td>
+                                <td> <input type="text" size="12" class="form-control input-sm w110" placeholder="11/08/2016"></td>
+                               
+                            </tr>
+
+                            <tr>
+                                <td> Crustaceans</td>
+                                <td> <input type="text" size="12" class="form-control input-sm w110" placeholder="11/08/2016"></td>
+                               
+                            </tr>
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!----apptnotes-->
+    <div id="apptnotes1" class="modal fade" >
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4 class="modal-title">Appointment Notes</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body form_popup">
+                    <p>For removal of right corneal suture</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="apptnotes2" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4 class="modal-title">Appointment Notes</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body form_popup">
+                    <p>2 to 4 wks iop checkup</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="apptnotes3" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4 class="modal-title">Appointment Notes</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body form_popup">
+                    <p>Plastics</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-------New Patient start-------->
+
+
+    <!-----post code popup start -->
+    <div id="New_patient_model" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4 class="modal-title">Patient Quick Registration</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body form_popup">                 
+                    <div class="scroll_outer ">
+                        <div class="inner_pages cunsultant_pro">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 col-sm-12 pr7">
+                                    <div class="blue_border  block_padding min-h565">
+                                        <div class="row border-bottom">
+                                            <div class="col-lg-3">
+                                                <div class="form-group">
+                                                    <select class="input-sm form-control"> <option> Mr. </option> <option> Mrs. </option></select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="form-group">
+                                                    <input type="text" placeholder="First Name" class="form-control input-sm">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="form-group">
+                                                    <input type="text" placeholder="Middle Name" class="form-control input-sm">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="form-group">
+                                                    <input type="text" placeholder="Last Name." class="form-control input-sm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row border-bottom">
+                                            <div class="col-lg-12">
+                                                <h3 class="inner_sub_title">Other Details</h3>
+                                            </div>
+                                        </div>
+                                        <div class="blankspace"></div>
+
+                                        <div class="row ">
+                                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                                <div class="row">
+                                                    <div class="col-sm-6 ">
+                                                        <div class="form-group">
+                                                            <label>NHS Number</label>
+                                                            <input type="text" placeholder="" class="form-control input-sm">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6 ">
+                                                        <div class="form-group">
+                                                            <label>Residence Country</label>
+                                                            <select class="form-control input-sm">
+                                                                <option value="bounceIn">select</option>
+                                                                <option value="bounceIn">United Kingdom</option>
+                                                                <option value="bounceIn">USA</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>Correspondence via </label>
+                                                            <select class="form-control input-sm">
+                                                                <option>select</option>
+                                                                <option>Letter</option>
+                                                                <option>E-mail</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>Reminder Via </label>
+                                                            <select class="form-control input-sm">
+                                                                <option>select</option>
+                                                                <option>Text</option>
+                                                                <option>E-mail</option>
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                                <div class="row ">
+                                                    <div class="col-sm-5">
+                                                        <div class="form-group">
+                                                            <label>Gender</label>
+                                                            <select class="form-control input-sm">
+                                                                <option>select</option>
+                                                                <option>Male</option>
+                                                                <option>Female</option>
+
+                                                            </select>
+                                                        </div>
+                                                   </div>
+                                                </div>
+                                                <div class="row ">
+                                                    <div class="col-sm-5">
+                                                        <div class="form-group">
+                                                            <label>Date of Birth</label>
+                                                            <div id="datetimepicker1" class="input-group">
+
+                                                                <input type="text" data-format="yyyy-MM-dd" class="form-control input-sm"><span class="add-on input-group-addon input-sm"><i class="fa fa-calendar icon-calendar"></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <div class="form-group ">
+                                                            <label>&nbsp;</label>
+                                                            <div>
+                                                                <label class="checkbox-inline"><input type="checkbox" name=""> Unknown </label>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group">
+                                                            <label>Age</label>
+                                                            <input type="text" placeholder="In Years" class="form-control input-sm">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row border-bottom">
+                                        </div>
+                                        <div class="row border-bottom">
+                                            <div class="col-lg-12">
+                                                <h3 class="inner_sub_title">G P Details</h3>
+                                            </div>
+                                        </div>
+                                        <div class="blankspace"></div>
+                                        <div class="row border-bottom">
+                                            <div class="col-lg-12 form-inline">
+                                                <div class="form-group">
+                                                    <label>GP Practice   </label>
+                                                    <div>
+                                                        <input type="text" class="form-control input-sm">
+                                                        <button class="btn btn-sm" type="button" data-toggle="modal" data-target="#GP_Practice_lookup">
+                                                            <i class="glyphicon glyphicon-search"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mrgl15">
+                                                    <label>GP    </label>
+                                                    <div>
+                                                        <input type="text" class="form-control input-sm">
+                                                        <button class="btn btn-sm" type="button" data-toggle="modal" data-target="#GP_lookup">
+                                                            <i class="glyphicon glyphicon-search"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-12 pl7">
+                                    <div class="yellow_border  col-lg-12 min-h555">
+                                        <div class="row border-bottom">
+                                            <div class="col-lg-12">
+                                                <h3 class="inner_sub_title">Contact Information</h3>
+                                            </div>
+                                        </div>
+                                        <div class="blankspace"></div>
+                                        <div class="row ">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label>Address</label>
+                                                    <input type="text" placeholder="Address 1" class="form-control input-sm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <input type="text" placeholder="Address 2" class="form-control input-sm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <input type="text" placeholder="Address 3" class="form-control input-sm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <input type="text" placeholder="Address 4" class="form-control input-sm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <input type="text" placeholder="Address 5" class="form-control input-sm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 pr7">
+                                                <div class="form-group">
+                                                    <label>Post Code </label>
+                                                    <input type="text" placeholder="" class="form-control input-sm">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 pl7">
+                                                <div class="form-group">
+                                                    <label>&nbsp;</label>
+                                                    <div>
+                                                        <button class="btn btn-sm" type="button" data-toggle="modal" data-target="#postcode_lookup">
+                                                            <i class="glyphicon glyphicon-search"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Home Phone  </label>
+                                                    <input type="text" placeholder="" class="form-control input-sm">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Mobile  </label>
+                                                    <input type="text" placeholder="" class="form-control input-sm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-8 col-md-8 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Work Phone </label>
+                                                    <input type="text" placeholder="" class="form-control input-sm">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Extension </label>
+                                                    <input type="text" placeholder="" class="form-control input-sm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label>Email </label>
+                                                    <input type="text" placeholder="" class="form-control input-sm">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label>Alternate Contact Name</label>
+                                                    <input type="email" placeholder="" class="form-control input-sm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blankspace"></div>
+                            <div class="btn_section ">
+                                <div class="row">
+                                    <div class="col-sm-12 text-right">
+                                        <button data-toggle="modal" data-target="#newpatient_model" class="btn btn-sm btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      <div class="clr"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+    <!--new patient model-->
+    <!-- Modal -->
+    <div id="newpatient_model" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Patient : Suspected Duplicate Patients</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row form-inline">
+                        <div class="col-lg-4 col-lg-4 col-sm-4">
+                            <div class="form-group">
+                                <b>Name : </b>
+                                Shore, Andie
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-lg-4 col-sm-4">
+                            <div class="form-group">
+                                <b>NHS No : </b>
+                                434 064 9902
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-lg-4 col-sm-4">
+                            <div class="form-group">
+                                <b>Gender : </b>
+                                M
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-inline">
+                        <div class="col-lg-4 col-lg-4 col-sm-4">
+                            <div class="form-group">
+                                <b>Date of Birth : </b>
+                                02/03/1974
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-lg-4 col-sm-4">
+                            <div class="form-group">
+                                <b>Phone : </b>
+                                8568800252
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-lg-4 col-sm-4">
+                            <div class="form-group">
+                                <b>Email : </b>
+                                Shore@yahoomail.com
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row red_border">
+                        <div class="col-lg-12">
+                            <h6>Suspected Duplicate Patients List </h6>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped custom_table">
+                                    <thead>
+                                        <tr>
+                                            <th> Patient Name</th>
+                                            <th> Patient ID</th>
+                                            <th> NHS Number</th>
+                                            <th> Gender</th>
+                                            <th>Date of Birth</th>
+                                            <th>Post Code</th>
+                                            <th>Phone</th>
+                                            <th> Email</th>
+                                            <th class="text-center">Select</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td> Shore, Andie </td>
+                                            <td> 1447532</td>
+                                            <td> 434 064 9902</td>
+                                            <td> Female</td>
+                                            <td>28/12/1968</td>
+                                            <td> EC1 1AS</td>
+                                            <td> +1 852 426 4550</td>
+                                            <td> Shore.Andie@test.com</td>
+                                            <td class="text-center"><input value="" class="" type="radio"></td>
+                                        </tr>
+                                        <tr>
+                                            <td> Shore </td>
+                                            <td> 1447552</td>
+                                            <td> 434 064 9902</td>
+                                            <td> Female</td>
+                                            <td>28/12/1968</td>
+                                            <td> EC1 1A5</td>
+                                            <td> +1 852 426 1111</td>
+                                            <td> Shore.Andie@demo.com</td>
+                                            <td class="text-center"><input value="" class="" type="radio"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clr10"></div>
+                    <div class="btn_section">
+                        <div class="row">
+                            <div class="col-lg-12 text-right">
+                                <button opensidemenu="true" data-toggle="modal" class="btn btn-sm btn-success subMenuHref dismissall" ><i class="fa fa-check-square-o" aria-hidden="true"></i> Use Selected Patient</button>
+                                <button opensidemenu="true" data-toggle="modal" class="btn btn-sm btn-primary subMenuHref dismissall" ><i class="fa fa-floppy-o"></i> Save As New Patient</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-----post code popup start -->
+    <div id="postcode_lookup" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4 class="modal-title">Address Search</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body form_popup">
+                    <div class="row ">
+                        <div class="col-lg-12">
+                            <h3 class="inner_sub_title">Address List</h3>
+                        </div>
+                    </div>
+                    <div class="row  ">
+                        <div class="col-lg-12">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped custom_table">
+                                    <thead>
+
+                                        <tr>
+                                            <th> Address 1  </th>
+                                            <th> Address 2 </th>
+                                            <th> Address 3 </th>
+                                            <th> Address 4 </th>
+                                            <th> Address 5 </th>
+                                            <th> Post Code </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td> <a href="#">The Address</a></td>
+                                            <td>5 Market Place</td>
+                                            <td>South Shelds</td>
+                                            <td>tyne and wear</td>
+                                            <td></td>
+                                            <td>NE33 BH</td>
+                                        </tr>
+                                        <tr>
+                                            <td> <a href="#">Antelia</a></td>
+                                            <td>Market Place</td>
+                                            <td>South Shelds</td>
+                                            <td>tyne and wear</td>
+                                            <td>Street</td>
+                                            <td>NE33 BH</td>
+                                        </tr>
+                                        <tr>
+                                            <td> <a href="#">The Address</a></td>
+                                            <td>5 Market Place</td>
+                                            <td>South Shelds</td>
+                                            <td>tyne and wear</td>
+                                            <td></td>
+                                            <td>NE33BH </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="clr10"></div>
+                            <div class="btn_section ">
+                                <div class="row">
+                                    <div class="col-sm-12 text-right">
+
+                                        <button class="btn btn-sm btn-danger" data-dismiss="modal"><i class="fa fa-times text-white"></i> Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----post code popup end -->
+    <!-----GP Practice Lookup popup start -->
+    <div id="GP_Practice_lookup" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4 class="modal-title">GP Practice: Search</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body form_popup">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label>Practice Name</label>
+                                <input type="text" class="form-control input-sm" />
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label>GP Practice Type</label>
+                                <select class="form-control input-sm">
+                                    <option>Select</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label>CCG</label>
+                                <select class="form-control input-sm">
+                                    <option>Select</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label>ODS</label>
+                                <input type="text" class="form-control input-sm" />
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label>Address</label>
+                                <input type="text" class="form-control input-sm" />
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label>Post Code</label>
+                                <input type="text" class="form-control input-sm" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn_section2 text-right">
+                        <div class="row">
+
+                            <div class="col-lg-12 text-right">
+                                <button class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-search"></i> Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blankspace"></div>
+                    <div class="row ">
+                        <div class="col-lg-12">
+                            <h3 class="inner_sub_title">GP Practice</h3>
+                        </div>
+                    </div>
+                    <div class="row  ">
+                        <div class="col-lg-12">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped custom_table">
+                                    <thead>
+                                        <tr>
+                                            <th> Practice Name   <i class="fa fa-sort pull-right" aria-hidden="true"></i></th>
+                                            <th> Address </th>
+                                            <th> Post Code </th>
+                                            <th> Phone </th>
+                                            <th> GP Practice Type </th>
+                                            <th> CCG area </th>
+                                            <th>ODS Code</th>
+                                            <th>Active</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td> <a href="#">Miller Street Surgery</a></td>
+                                            <td>Address1 Addres2 Address3... </td>
+                                            <td>ST5 1JD</td>
+                                            <td>0000000000</td>
+                                            <td>NHS</td>
+                                            <td>NHS North Staffordshire</td>
+                                            <td>M83025</td>
+                                            <td class="text-center"><input type="checkbox" /> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="clr10"></div>
+                            <div class="btn_section ">
+                                <div class="row">
+                                    <div class="col-sm-12 text-right">
+                                        <button class="btn btn-sm btn-red"><i class="fa fa-times-circle"></i> Clear</button>
+                                        <button class="btn btn-sm btn-danger" data-dismiss="modal"><i class="fa fa-times text-white"></i> Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----GP Practice Lookup popup end -->
+    <!-----GP Lookup popup start -->
+    <div id="GP_lookup" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4 class="modal-title">GP: Search</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body form_popup">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label>GMC Code</label>
+                                <input type="text" class="form-control input-sm" />
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label>ODS Code</label>
+                                <input type="text" class="form-control input-sm" />
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label>Surname</label>
+                                <input type="text" class="form-control input-sm" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label>GP Type</label>
+                                <select type="text" class="form-control input-sm">
+                                    <option>Select</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label>Address</label>
+                                <input type="text" class="form-control input-sm" />
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="form-group">
+                                <label>Post Code</label>
+                                <input type="text" class="form-control input-sm" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn_section2 text-right">
+                        <div class="row">
+                            <div class="col-lg-12 text-right">
+                                <button class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-search"></i> Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blankspace"></div>
+                    <div class="row ">
+                        <div class="col-lg-12">
+                            <h3 class="inner_sub_title">GP List</h3>
+                        </div>
+                    </div>
+                    <div class="row  ">
+                        <div class="col-lg-12">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped custom_table">
+                                    <thead>
+                                        <tr>
+                                            <th> GP Name   <i class="fa fa-sort pull-right" aria-hidden="true"></i></th>
+                                            <th> GP Practice </th>
+                                            <th>Address</th>
+                                            <th> GP Type </th>
+                                            <th> GMC Code </th>
+                                            <th> ODS Code </th>
+                                            <th>Active</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td> <a href="#">Ganesh Kulandaivelu</a></td>
+                                            <td>Miller Street University</td>
+                                            <td>Address1 Address2</td>
+                                            <td>Private</td>
+                                            <td>6056179</td>
+                                            <td>G9039470</td>
+                                            <td class="text-center"><input type="checkbox" /> </td>
+                                        </tr>
+                                        <tr>
+                                            <td> <a href="#">Jalil Ahmed</a></td>
+                                            <td>Miller Street University</td>
+                                            <td>Address1 Address2</td>
+                                            <td>NHS</td>
+                                            <td>4690593</td>
+                                            <td>G9049475</td>
+                                            <td class="text-center"><input type="checkbox" /> </td>
+                                        </tr>
+                                        <tr>
+                                            <td> <a href="#">Priya George</a></td>
+                                            <td>Miller Street University</td>
+                                            <td>Address1 Address2</td>
+                                            <td>Private</td>
+                                            <td>2056179</td>
+                                            <td>G7039470</td>
+                                            <td class="text-center"><input type="checkbox" /> </td>
+                                        </tr>
+                                        <tr>
+                                            <td> <a href="#">Ganesh Kulandaivelu</a></td>
+                                            <td>Miller Street University</td>
+                                            <td>Address1 Address2</td>
+                                            <td>Private</td>
+                                            <td>6056179</td>
+                                            <td>G9039470</td>
+                                            <td class="text-center"><input type="checkbox" /> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="clr10"></div>
+                            <div class="btn_section ">
+                                <div class="row">
+                                    <div class="col-sm-12 text-right">
+                                        <button class="btn btn-sm btn-red"><i class="fa fa-times-circle"></i> Clear</button>
+                                        <button class="btn btn-sm btn-danger" data-dismiss="modal"><i class="fa fa-times text-white"></i> Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-----GP Lookup popup end -->
+    <!-------New Patient End-------->
+</body>
+</html>

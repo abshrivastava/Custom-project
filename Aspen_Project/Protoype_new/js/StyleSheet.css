@@ -1,0 +1,132 @@
+﻿/// <reference path="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" />
+
+$(document).ready(function () {
+
+
+
+    
+    $('#hideMenuBtn').click(function () {
+        $("#wrapper").toggleClass("full_wrapper");
+        $("#left_sidepanel").toggleClass("aside_close"); 
+        $("#left_sidepanel").removeClass("full_aside");
+    });
+
+    $('#leftaside_toggle').click(function () {
+        $("#left_sidepanel").toggleClass("full_aside");
+        $("#left_sidepanel #leftaside_toggle").toggleClass("rotate180");
+        $(".panel-footer").toggleClass("display_block");
+    });
+
+    $('.right-sidebar-toggle').on('click', function () {
+        $('#right-sidebar').toggleClass('sidebar-open');
+    });
+
+    $('.animate-panel').animatePanel();
+});
+
+
+$.fn['animatePanel'] = function () {
+    //debugger;
+    var element = $(this);
+    var effect = $(this).data('effect');
+    var delay = $(this).data('delay');
+    var child = $(this).data('child');
+
+
+    if (!effect) {
+        effect = 'zoomIn'
+    }
+    if (!delay) {
+        delay = 0.04
+    } else {
+        delay = delay / 10
+    }
+    
+    var startAnimation = 0;
+    var start = Math.abs(delay) + startAnimation;  
+    element.addClass('opacity-0');
+     
+    element.addClass('stagger').addClass('animated-panel').addClass(effect);
+     
+    var animateTime = (21 * delay * 10000) / 10; 
+
+    element.each(function (i, elm) {
+        start += delay;
+        var rounded = Math.round(start * 10) / 10;
+        $(elm).css('animation-delay', rounded + 's');
+        $(elm).removeClass('opacity-0');
+    }); 
+    setTimeout(function () {
+        $('.stagger').css('animation', '');
+        $('.stagger').removeClass(effect).removeClass('animated-panel').removeClass('stagger');
+    }, animateTime)
+
+};
+
+onHrefClick = function (el) {
+
+    if ($('.nav-tabs .active').text() == 'Theatres' || $('.nav-tabs .active').text() == 'Admissions') {
+        setMenuForLink('none', 'block');
+    } else if ($('.nav-tabs .active').text() == 'Clinics') {
+        setMenuForLink('block', 'none');
+        if (el.getAttribute != undefined && el.getAttribute('openSideMenu')) {
+            $('#secondLeftMenu')[0].style.display = 'block';
+            $('#calendarPanel')[0].className = 'col-md-10';
+        }
+    }
+    if (el.id) {
+        var page = el.id;
+        var mainContaint = $('#calendarPanel');
+        mainContaint.load(page + ".html");
+        setTimeout(function () {
+            $('.animate-panel').animatePanel();
+        }, 100);
+
+    } else {
+        debugger;
+        var page = el.attr('id');
+        this.page = page;
+        var mainContaint = $('#calendarPanel');
+        mainContaint.load(page + ".html");
+        var rigthSideBar = $('#right-sidebar')[0];
+        //rigthSideBar.className = el.attr('sidebarmenuhide') == "true" ? 'fadeInRight sidebar-close' : '';
+        if (el.attr('sidebarmenuhide') == 'true') {
+
+            rigthSideBar.className = "fadeInRight sidebar-close";
+        }
+        else {
+            rigthSideBar.className = "";
+        };
+
+        var displayType = el.attr('sidebarmenuhide') == "true" ? "none" : "block";
+
+        var colCls = el.attr('sidebarmenuhide') == "true" ? 'col-md-12' : 'col-md-10';
+
+        $('#secondLeftMenu')[0].style.display = displayType;
+        $('#calendarPanel')[0].className = colCls;
+        setTimeout(function () {
+            if (this.page != "Current-Activity-Home" && this.page != "Book_Appointment") {
+                $('.animate-panel').animatePanel();
+            }
+        }, 100, this);
+        setSubMenuHrefActiveClass(page);
+        var isiPad = /ipad/i.test(navigator.userAgent.toLowerCase());
+        if (isiPad || window.innerWidth <= 1024) {
+            $('#menu')[0].style.display = 'none';
+            $('#wrapper')[0].className = '';
+            $('#wrapper')[0].style.margin = '0';
+        }
+    }
+    setTimeout(function () {
+        $("input[name='article']:radio").on("change", function () {
+
+        });
+    }, 300);
+
+};
+
+
+$('a.subMenuHref').click(function () {
+    onHrefClick($(this));
+    //   $('#wrapper')[0].className='wrapperiPad'; 
+});

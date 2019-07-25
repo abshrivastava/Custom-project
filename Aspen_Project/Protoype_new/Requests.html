@@ -1,0 +1,1468 @@
+<div class="content_toolbar">
+  
+    <div class="blue_strip">
+        <div class="row">
+            <div class="col-lg-2 col-md-12 col-sm-12 pid"><b>Patient ID : 784307 </b></div>
+            <div class="col-lg-2 col-md-4 col-sm-4"><b>Name :</b> Rawling-Brown Zoe</div>
+            <div class="col-lg-2 col-md-4 col-sm-4"><b>NHS No. :</b> 434 064 9902</div>
+        </div>
+    </div>
+    <div class="clr"></div>
+</div>
+<div class="scroll_outer ">
+    <div class="inner_pages cunsultant_pro">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-lg-12 white_bg form_popup">
+                  
+
+                    <div id="diagnosticRequest" class="box-animation">
+                        <div id="diagnosticPopup">
+
+                            <div class="row green_border_b">
+                                <div class="col-lg-5 col-md-5 col-sm-12"><h3 class="inner_sub_title">Follow up/Diagnostic Request</h3></div>
+                                <div class="col-lg-7 col-md-7 col-sm-12 text-right  diagnosticRequestHyper">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active">
+                                            <a data-toggle="tab" href="#Details">Details</a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="tab" href="#SafetyCheck">Safety Check</a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="tab" href="#MRI">MRI Contradictions</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                            <div class="tab-content">
+
+                                <div id="Details" class="tab-pane active">
+                                    <div class="blankspace"></div>
+                                    <div class="row border-bottom">
+                                        <div class="col-lg-3 col-md-3 col-sm-6 ">
+                                            <div class="form-group">
+                                                <label> Request Type</label>
+                                                <select id="admissionSelectField" class="form-control input-sm">
+
+                                                    <option value="diagnosticPopup">Diagnostics</option>
+                                                    <option value="Detailstabhide">Blood test</option>
+                                                    <option value="Detailstabhide">Follow up</option>
+                                                    <option value="admissionPopup">Admission</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-6 " id="examlookup">
+                                            <div class="form-group">
+                                                <label> Exam</label>
+                                                <select class="form-control input-sm">
+                                                    <option>MRI</option>
+                                                    <option>CT Scan</option>
+                                                    <option>Ultrsound</option>
+                                                    <option>Admission</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-6 " id="starDiv">
+                                            <label>&nbsp;</label>
+                                            <div>
+                                                <div class="dropdown display_inline">
+                                                    <a title="Favorites" data-toggle="dropdown" href="#" class="dropdown-toggle" aria-expanded="false"><i class="fa fa-star text-success"></i></a>
+
+                                                    <ul class="dropdown-menu w209 animated flipInX ">
+                                                        <li><a>MRI Right HIP<i class="fa fa-close text-danger pull-right"></i></a></li>
+                                                        <li><a>MRI Both Knees<i class="fa fa-close text-danger pull-right"></i></a></li>
+                                                        <li><a>MRI Left Leg<i class="fa fa-close text-danger pull-right"></i></a></li>
+                                                    </ul>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-6 ">
+                                            <label> Request Class</label>
+                                            <select class="form-control input-sm">
+                                                <option>Normal</option>
+                                                <option>Post op</option>
+                                                <option>Pre op</option>
+                                                <option>Admission</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="blankspace"></div>
+                                    <div class="row" id="descriptionsArea" style="display:none;">
+                                        <div class="blankspace"></div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+
+                                                <textarea class="form-control input-sm" rows="7" placeholder="Descriptions Required"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="hide_content">
+                                        <div class="blankspace"></div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+
+                                                    <textarea class="form-control input-sm" rows="3" placeholder="Investigation Required"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row border-bottom">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+
+                                                    <textarea placeholder="Clinical History" class="form-control input-sm" rows="3"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="blankspace"></div>
+                                        <div class="row border-bottom">
+                                            <div class="col-lg-12 ">
+                                                <div class="form-group">
+                                                    <label> Preferred Radiologist  </label>
+                                                    <div class="form-inline">
+                                                        <div class="form-group">
+                                                           
+                                                            <div>
+                                                                <input type="text" class="form-control input-sm">
+                                                                <button class="btn btn-sm" type="button" data-toggle="modal" data-target="#Preferred_Radiologist_lookup">
+                                                                    <i class="glyphicon glyphicon-search"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                        <label class="checkbox-inline mrgl10">
+                                                            <input type="checkbox" name="optradio"> Mark as Urgent
+                                                        </label>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="SafetyCheck" class="tab-pane ">
+
+
+                                    <h6 class="border-bottom">Safety Check</h6>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <table class="form_table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="w250">Could the patient be pregnant?</td>
+                                                        <td>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">Yes
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">No
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Is the patient a high infection risk?</td>
+                                                        <td>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">Yes
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">No
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Is the patient dibetic?</td>
+                                                        <td>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">Yes
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">No
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Is the patient on Metformin?</td>
+                                                        <td>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">Yes
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">No
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Dose the patient have any allergies?</td>
+                                                        <td>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">Yes
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">No
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Is the patient breast feeding?</td>
+                                                        <td>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">Yes
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">No
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Infection Risk:</td>
+                                                        <td><input type="text" class="form-control input-sm"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Is the diabetes controlled by</td>
+                                                        <td>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">Tablet
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">Insulin
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Allergies :</td>
+                                                        <td><input value="Peanuts, Soya, Gluten" name="" class="form-control input-sm" type="text"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="MRI" class="tab-pane ">
+                                    <h6 class="border-bottom">To be completed for MRI Examinations - MRI Contraindications (Dose the patient have?):</h6>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <table class="form_table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="w250">A pacemaker?</td>
+                                                        <td>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">Yes
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">No
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Cochlear implants</td>
+                                                        <td>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">Yes
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">No
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Programmable hydrocephalus shunt?</td>
+                                                        <td>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">Yes
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">No
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Metallic foreign body in eye?</td>
+                                                        <td>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">Yes
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">No
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>A cerebral aneurysm clip?</td>
+                                                        <td>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">Yes
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">No
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Neurostimulators?</td>
+                                                        <td>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">Yes
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">No
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>History of working with metal?</td>
+                                                        <td>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">Yes
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">No
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Other metallic implants?</td>
+                                                        <td>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">Yes
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="optradio">No
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blankspace"></div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 line-height30">
+                                        <b>Request List</b>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6  text-right">
+                                        <button class="btn btn-sm btn-primary "><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                                        <button class="btn btn-sm btn-warning "><i class="fa fa-star-o "></i> Save as Favourite</button>
+                                    </div>
+                                </div>
+                                <div class="blankspace"></div>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped custom_table">
+                                        <thead>
+                                            <tr>
+                                                <th>Request Type</th>
+                                                <th>Description</th>
+                                                <th>Order</th>
+                                                <th>Status</th>
+                                                <th>Request Class</th>
+                                                <th>Booked Date</th>
+                                                <th>Form</th>
+                                                <th>Requested By</th>
+                                                <th>Created By</th>
+                                                <th>Created On</th>
+                                                <th class="text-center">Urgent</th>
+                                                <th class="text-center">Edit</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td> <a href="#">Blood Test</a></td>
+                                                <td> Ultrsound</td>
+                                                <td align="center"><i class="fa fa-level-down text-info"></i></td>
+                                                <td>Requested</td>
+                                                <td> Post-op Request</td>
+                                                <td></td>
+                                                <td align="center"><i class="fa fa-file-text text-info"></i></td>
+                                                <td>Paige, David (Dr)</td>
+                                                <td>Chris J Allan</td>
+                                                <td>07/09/2016</td>
+                                                <td class="text-center"><i class="fa fa-warning text-danger"></i></td>
+                                                <td class="text-center"><i class="fa fa-pencil-square-o text-info "></i></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><a href="#"> CT Scan</a></td>
+                                                <td> CT Scan</td>
+                                                <td align="center"><i class="fa fa-level-up text-info"></i></td>
+                                                <td>Requested</td>
+                                                <td> Post-op Request</td>
+                                                <td></td>
+                                                <td align="center"><i class="fa fa-file-text text-info"></i></td>
+                                                <td>Paige, David (Dr)</td>
+                                                <td>Chris J Allan</td>
+                                                <td>07/09/2016</td>
+                                                <td class="text-center"></td>
+                                                <td class="text-center"><i class="fa fa-pencil-square-o text-info"></i></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td> <a href="#">Blood Test</a></td>
+                                                <td> Ultrsound</td>
+                                                <td align="center"><i class="fa fa-level-down text-info"></i></td>
+                                                <td>Booked</td>
+                                                <td> Post-op Request</td>
+                                                <td>10/10/2016</td>
+                                                <td align="center"><i class="fa fa-file-text text-info"></i></td>
+                                                <td>Paige, David (Dr)</td>
+                                                <td>Chris J Allan</td>
+                                                <td>07/09/2016</td>
+                                                <td class="text-center"><i class="fa fa-warning text-danger"></i></td>
+                                                <td class="text-center"></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td> <a href="#">CT Scan</a></td>
+                                                <td> CT Scan</td>
+                                                <td align="center"><i class="fa fa-level-up text-info"></i></td>
+                                                <td>Booked</td>
+                                                <td> Post-op Request</td>
+                                                <td>12/10/2016</td>
+                                                <td align="center"><i class="fa fa-file-text text-info"></i></td>
+                                                <td>Paige, David (Dr)</td>
+                                                <td>Chris J Allan</td>
+                                                <td>07/09/2016</td>
+                                                <td class="text-center"></td>
+                                                <td class="text-center"></td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="blankspace"></div>
+                            </div>
+
+
+                        </div>
+
+                        <!-- Demo -->
+                        <div id="admissionPopup" class="form_popup" style="display:none;">
+                            <div class="row green_border_b">
+                                <div class="col-lg-5 col-md-5 col-sm-5"><h3 class="inner_sub_title">Admission Request</h3></div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 text-right admissionRequestHyper">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active">
+                                            <a data-toggle="tab" href="#AdmissionDetails">Details</a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="tab" href="#Request_tab">Requests</a>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="tab" href="#Equipments">Equipments</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                            <div class="tab-content">
+                                <div id="AdmissionDetails" class="tab-pane active">
+                                    <div class="blankspace"></div>
+                                    <div class="row border-bottom">
+                                        <div class="col-lg-3 col-md-3 col-sm-6 ">
+                                            <div class="form-group">
+                                                <label> Request Type</label>
+                                                <select class="form-control input-sm" id="diagnosticSelectField">
+
+                                                    <option value="diagnosticPopup">Diagnostics</option>
+                                                    <option value="Detailstabhide">Blood test</option>
+                                                    <option value="Detailstabhide">Follow up</option>
+                                                    <option value="admissionPopup">Admission</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-6 ">
+                                            <div class="form-group">
+                                                <label> Admission Date</label>
+                                                <div id="datetimepicker1" class="input-group">
+
+                                                    <input type="text" data-format="yyyy-MM-dd" class="form-control input-sm"><span class="add-on input-group-addon input-sm"><i class="fa fa-calendar icon-calendar"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-6 ">
+                                            <div class="form-group">
+                                                <label>Theater Date </label>
+                                                <div id="datetimepicker1" class="input-group">
+
+                                                    <input type="text" data-format="yyyy-MM-dd" class="form-control input-sm"><span class="add-on input-group-addon input-sm"><i class="fa fa-calendar icon-calendar"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-6 ">
+                                            <div class="form-group">
+                                                <label>Time </label>
+                                                <div id="datetimepicker1" class="input-group">
+
+                                                    <input type="text" data-format="yyyy-MM-dd" class="form-control input-sm"><span class="add-on input-group-addon input-sm"><i class="fa fa-clock-o text-info f15"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="blankspace"></div>
+                                    <div class="row border-bottom">
+                                        <div class="col-lg-4 col-md-4 col-sm-12">
+                                            <div class="form-group">
+                                                <label>Type of Admission</label>
+                                                <div>
+                                                    <form>
+                                                        <label class="checkbox-inline">
+                                                            <input type="checkbox" name="optradio">Inpatient
+                                                        </label>
+                                                        <label class="checkbox-inline">
+                                                            <input type="checkbox" name="optradio">Day Care
+                                                        </label>
+                                                        <label class="checkbox-inline">
+                                                            <input type="checkbox" name="optradio">WIWO
+                                                        </label>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-6">
+                                            <div class="form-group">
+                                                <label>Expected L.O.S.</label>
+                                                <input type="text" class="form-control input-sm" placeholder="Days/Hours">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-6">
+                                            <div class="form-group">
+                                                <label>Theatre Assistant</label>
+                                                <div class="input-group customsearch">
+                                                    <span class="add-on input-group-addon input-sm">
+                                                        <button class="btn" type="button" data-toggle="modal" data-target="#Location">
+                                                            <i class="glyphicon glyphicon-search"></i>
+                                                        </button>
+                                                    </span>
+                                                    <input type="text" data-format="" class="form-control input-sm" placeholder="Search...">
+                                                    <span class="add-on input-group-addon input-sm">
+                                                        <button class="btn" type="button">
+                                                            <i class="fa fa-times-circle"></i>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="blankspace"></div>
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-4 col-sm-12">
+                                            <div class="form-group">
+                                                <label>Anaesthetist to be Booked by</label>
+                                                <div>
+                                                    <form>
+                                                        <label class="checkbox-inline">
+                                                            <input type="checkbox" name="optradio">Consultant/Secretary
+                                                        </label>
+                                                        <label class="checkbox-inline">
+                                                            <input type="checkbox" name="optradio">Reservation
+                                                        </label>
+
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-6">
+                                            <div class="form-group">
+                                                <label>Type of Anaesthetic </label>
+                                                <select class="form-control input-sm">
+                                                    <option>Select</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-6">
+                                            <div class="form-group">
+                                                <label>Consultant Anaesthetist</label>
+                                                <div class="input-group customsearch">
+                                                    <span class="add-on input-group-addon input-sm">
+                                                        <button class="btn" type="button" data-toggle="modal" data-target="#Location">
+                                                            <i class="glyphicon glyphicon-search"></i>
+                                                        </button>
+                                                    </span>
+                                                    <input type="text" data-format="" class="form-control input-sm" placeholder="Search...">
+                                                    <span class="add-on input-group-addon input-sm">
+                                                        <button class="btn" type="button">
+                                                            <i class="fa fa-times-circle"></i>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <textarea class="form-control input-sm" placeholder="Enter Comments..."></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="blankspace"></div>
+                                    <h6>Operation/Procedure/Treatment </h6>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-3 col-sm-3">
+                                            <div class="form-group">
+                                                <label>Treatment code</label>
+                                                <input type="text" class="form-control input-sm">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <div class="form-group">
+                                                <label>Description:</label>
+                                                <input type="text" class="form-control input-sm">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <div class="form-group">
+                                                <label>Remark</label>
+                                                <input type="text" class="form-control input-sm">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1 col-md-1 col-sm-1">
+                                            <div class="form-group">
+                                                <label>&nbsp;</label>
+                                                <div>
+                                                    <button type="button" class="btn btn-default btn-sm">
+                                                        <i class="glyphicon glyphicon-plus small"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div id="Request_tab" class="tab-pane ">
+                                    <h6 class="border-bottom">To be completed for MRI Examinations - MRI Contraindications (Dose the patient have?) :</h6>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h3 class="inner_sub_title">Pre-Operative </h3>
+                                        </div>
+                                    </div>
+                                    <div class="row border-bottom">
+                                        <div class="col-lg-12">
+                                            <table class="form_table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="w150">
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" name="optradio">Blood Test
+                                                            </label>
+
+                                                        </td>
+                                                        <td class="w425">
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" name="optradio">FBC
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" name="optradio">U&amp;E
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" name="optradio">INR
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" name="optradio">G&amp;S
+                                                            </label>
+
+
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-inline display_inline">
+                                                                <label>Other :</label>
+                                                                <input type="text" class="form-control input-sm">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="w150">
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" name="optradio">Pre-assessment
+                                                            </label>
+                                                        </td>
+                                                        <td colspan="2">
+                                                            <input type="text" class="form-control input-sm">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="w150">
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" name="optradio">Other
+                                                            </label>
+
+                                                        </td>
+                                                        <td class="w425">
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" name="optradio">ECG
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" name="optradio">MRSA
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" name="optradio">MSU
+                                                            </label>
+
+
+
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-inline display_inline">
+                                                                <label>Other :</label>
+                                                                <input type="text" class="form-control input-sm">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="blankspace"></div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h3 class="inner_sub_title">On-Admission </h3>
+                                        </div>
+                                    </div>
+                                    <div class="row border-bottom">
+                                        <div class="col-lg-12">
+                                            <table class="form_table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="w150">
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" name="optradio">Blood Test
+                                                            </label>
+
+                                                        </td>
+                                                        <td class="w425">
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" name="optradio">FBC
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" name="optradio">U&amp;E
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" name="optradio">ECG
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" name="optradio">MRSA
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" name="optradio">MSU
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" name="optradio">INR
+                                                            </label>
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" name="optradio">G&amp;S
+                                                            </label>
+
+
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-inline display_inline">
+                                                                <label>Other :</label>
+                                                                <input type="text" class="form-control input-sm">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="w150">
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" name="optradio">Pre-op Prep.
+                                                            </label>
+                                                        </td>
+                                                        <td colspan="2">
+                                                            <input type="text" class="form-control input-sm">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="w150">
+                                                            <label class="checkbox-inline">
+                                                                <input type="checkbox" name="optradio">Other
+                                                            </label>
+                                                        </td>
+                                                        <td colspan="2">
+                                                            <input type="text" class="form-control input-sm">
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <h3 class="inner_sub_title">Pre-Operative Diagnostic Test :</h3>
+                                                </div>
+                                            </div>
+                                            <div class="row border-bottom">
+                                                <div class="col-lg-12">
+                                                    <table class="form_table">
+
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="w150">
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" name="optradio">CT
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" class="form-control input-sm" placeholder="Description">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="w150">
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" name="optradio">MRI
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" class="form-control input-sm" placeholder="Description">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="w150">
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" name="optradio">AXRY
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" class="form-control input-sm" placeholder="Description">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="w150">
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" name="optradio">Mammography
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" class="form-control input-sm" placeholder="Description">
+                                                                </td>
+                                                            </tr>
+
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <h3 class="inner_sub_title">On-Admission Diagnostic Test </h3>
+                                                </div>
+                                            </div>
+                                            <div class="row border-bottom">
+                                                <div class="col-lg-12">
+                                                    <table class="form_table">
+
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="w150">
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" name="optradio">CT
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" class="form-control input-sm" placeholder="Description">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="w150">
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" name="optradio">MRI
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" class="form-control input-sm" placeholder="Description">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="w150">
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" name="optradio">AXRY
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" class="form-control input-sm" placeholder="Description">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="w150">
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" name="optradio">Mammography
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" class="form-control input-sm" placeholder="Description">
+                                                                </td>
+                                                            </tr>
+
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+                                    <div class="blankspace"></div>
+
+
+
+                                </div>
+
+                                <div id="Equipments" class="tab-pane">
+                                    <h6 class="border-bottom">To be completed for MRI Examinations - MRI Contraindications (Dose the patient have?):</h6>
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-4 col-sm-6">
+                                            <div class="form-group">
+                                                <label>Equipments :</label>
+                                                <div class="equipments_list">
+                                                    <ul>
+                                                        <li><input value="" type="checkbox"> Equipment 1 </li>
+                                                        <li><input value="" type="checkbox"> Equipment 2</li>
+                                                        <li><input value="" type="checkbox"> Equipment 3</li>
+                                                        <li><input value="" type="checkbox"> Equipment 4</li>
+                                                        <li><input value="" type="checkbox"> Equipment 5 </li>
+                                                        <li><input value="" type="checkbox"> Equipment 6</li>
+                                                        <li><input value="" type="checkbox"> Equipment 7</li>
+                                                        <li><input value="" type="checkbox"> Equipment 8 </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-6">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label>Prosthesis :</label>
+                                                        <input type="text" class="form-control input-sm">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+
+                                                        <div>
+                                                            <input value="" type="checkbox"> Image intensifier
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+
+                                                        <div>
+                                                            <input value="" type="checkbox"> Latex Allergy
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label>Other Allergies :</label>
+                                                        <input type="text" class="form-control input-sm">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <label>Comments :</label>
+                                            <textarea class="form-control input-sm"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="clr10"></div>
+                                <div class="btn_section ">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                            <button class="btn btn-sm btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+                                        </div>
+                                        <div class="col-lg-8 col-md-8 col-sm-8 text-right">
+                                            <div class="mrgl10 form-inline display_inline ">
+
+                                                <label>Last Added : </label> <input type="text" value="868" class="form-control input-sm" disabled /> <input type="text" class="form-control input-sm" value="Acromionectomy" disabled /> <label>
+                                                    08/07/2016
+                                                </label>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blankspace"></div>
+
+                            </div>
+                        </div>
+
+                        <!-- Demo -->
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clr"></div>
+</div>
+
+
+
+
+
+    <div id="myModalse" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4 class="modal-title">User : Search</h4>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-body form_popup">
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="form-group">
+                                <label>Surname  :</label>
+                                <input placeholder="" class="form-control input-sm" name="" value="" type="text">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="form-group">
+                                <label> First Name :</label>
+                                <input type="text" class="form-control input-sm" />
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="form-group">
+                                <label> Speciality  : </label>
+                                <div class=" form-inline">
+
+                                    <select id="diagnosticSelectField" class="form-control input-sm">
+                                        <option selected="">Select</option>
+                                        <option>Anaesthetics</option>
+                                        <option>Opthalmology</option>
+                                        <option>Biofeedback</option>
+                                        <option>Cardiology</option>
+                                        <option>Dermatology</option>
+
+                                    </select>
+                                    <button class="btn input-sm" type="button">
+                                        <i class="fa fa-search "></i>
+                                    </button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row green_border_b">
+                        <div class="col-lg-12 ">
+                            <h3 class="inner_sub_title">Healthcare Professional List</h3>
+                        </div>
+                    </div>
+                    <div class="blankspace"></div>
+                    <div class="row  ">
+                        <div class="col-lg-12">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped custom_table">
+
+                                    <thead>
+
+                                        <tr>
+                                            <th> Name  </th>
+                                            <th> Speciality  </th>
+
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td> Mike Miller </td>
+                                            <td> Anaesthetics</td>
+
+
+
+                                        </tr>
+                                        <tr>
+                                            <td> Bob Syman </td>
+                                            <td> Biofeedback</td>
+
+
+                                        </tr>
+                                        <tr>
+                                            <td> Kelly Petra </td>
+                                            <td> Cardiology</td>
+
+
+                                        </tr>
+                                        <tr>
+                                            <td> Mark Robinson</td>
+                                            <td> Dermatology</td>
+
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+<!-----Preferred Radiologist Lookup popup start -->
+<div id="Preferred_Radiologist_lookup" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4 class="modal-title">Healthcare Professional: Search</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body form_popup">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>Code</label>
+                            <input type="text" class="form-control input-sm" />
+                        </div>
+                    </div>
+                   
+                  
+                </div>
+                <div class="row ">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>Surname</label>
+                            <input type="text" class="form-control input-sm" />
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" class="form-control input-sm" />
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>First Initial</label>
+                            <input type="text" class="form-control input-sm" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>Speciality</label>
+                            <input type="text" class="form-control input-sm" />
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>Role</label>
+                            <input type="text" class="form-control input-sm" />
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>&nbsp;</label>
+                            <div>
+                                <a href="#">advance Search</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn_section2 text-right">
+                    <div class="row">
+
+                        <div class="col-lg-12 text-right">
+                            <button class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-search"></i> Search</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="blankspace"></div>
+                <div class="row ">
+                    <div class="col-lg-12">
+                        <h3 class="inner_sub_title">Healthcare Professional List</h3>
+                    </div>
+                </div>
+                <div class="row  ">
+                    <div class="col-lg-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped custom_table">
+                                <thead>
+                                    <tr>
+                                        <th> Name   <i class="fa fa-sort pull-right" aria-hidden="true"></i></th>
+                                        <th> Role </th>
+                                        <th> Speciality </th>
+                                        <th> Code </th>
+                                        <th> GMC Code </th>
+                                        <th> Primary Facility </th>
+                                        <th class="text-center">Active</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> <a href="#">Agnihotri, Sangeeta (MS)</a></td>
+                                        <td>Consultants</td>
+                                        <td>RADIOLOGY</td>
+                                        <td>C000041</td>
+                                        <td>4561231</td>
+                                        <td>The Holly</td>
+                                        <td class="text-center"><input type="checkbox" /> </td>
+                                    </tr>
+                                    <tr>
+                                        <td> <a href="#">Michal, Jhon (MS)</a></td>
+                                        <td>Consultants</td>
+                                        <td>RADIOLOGY</td>
+                                        <td>C000041</td>
+                                        <td>4561231</td>
+                                        <td>The Holly</td>
+                                        <td class="text-center"><input type="checkbox" /> </td>
+                                    </tr>
+                                    <tr>
+                                        <td> <a href="#">Bond, James (MS)</a></td>
+                                        <td>Consultants</td>
+                                        <td>RADIOLOGY</td>
+                                        <td>C000041</td>
+                                        <td>4561231</td>
+                                        <td>The Holly</td>
+                                        <td class="text-center"><input type="checkbox" /> </td>
+                                    </tr>
+                                    <tr>
+                                        <td> <a href="#">Agnihotri, Raj (MS)</a></td>
+                                        <td>Consultants</td>
+                                        <td>RADIOLOGY</td>
+                                        <td>C000041</td>
+                                        <td>4561231</td>
+                                        <td>The Holly</td>
+                                        <td class="text-center"><input type="checkbox" /> </td>
+                                    </tr>
+                                    <tr>
+                                        <td> <a href="#">Singh, Rahul (MS)</a></td>
+                                        <td>Consultants</td>
+                                        <td>RADIOLOGY</td>
+                                        <td>C000041</td>
+                                        <td>4561231</td>
+                                        <td>The Holly</td>
+                                        <td class="text-center"><input type="checkbox" /> </td>
+                                    </tr>
+                                    <tr>
+                                        <td> <a href="#">Kumar, Shivam (MS)</a></td>
+                                        <td>Consultants</td>
+                                        <td>RADIOLOGY</td>
+                                        <td>C000041</td>
+                                        <td>4561231</td>
+                                        <td>The Holly</td>
+                                        <td class="text-center"><input type="checkbox" /> </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="clr10"></div>
+                        <div class="btn_section ">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+                                        <ul class="pagination" style="margin:0">
+                                            <li class="paginate_button previous disabled" id="example2_previous"><a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a></li>
+                                            <li class="paginate_button active"><a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0">1</a></li>
+                                            <li class="paginate_button "><a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0">2</a></li>
+
+                                            <li class="paginate_button next" id="example2_next"><a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0">Next</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 text-right">
+                                    <button class="btn btn-sm btn-red"> <i class="fa fa-times-circle"></i> Clear</button>
+                                    <button class="btn btn-sm btn-danger" data-dismiss="modal"><i class="fa fa-times text-white"></i> Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-----Preferred Radiologist Lookup popup end -->
+
+
+    <script type="text/javascript">
+
+        function setBig(item, scope) {
+
+            var itemDiv = $('#' + item)[0];
+            //  var parentDiv = $(itemDiv.parentElement);
+            //var parentDiv = $('#panelBig').parent;
+            var btn = $(scope);
+            //  debugger;
+
+        }
+
+        var changeDivContainerWidth = function (item, box, tBox) {
+            var panelBig = $(item).parent();
+            if (panelBig.hasClass('col-lg-6')) {
+                $(item).addClass('clip-box-toggle');
+                panelBig.removeClass('col-lg-6');
+                // panelBig.removeClass('pr7');
+                panelBig.addClass('col-lg-12');
+                panelBig.addClass('mrgb15');
+                $(box).removeClass('mrgt15');
+
+                panelBig.removeClass('pr7');
+                $(tBox).removeClass('pl7');
+                $(tBox).addClass('pr7');
+            }
+            else {
+                panelBig.addClass('col-lg-6');
+                panelBig.removeClass('col-lg-12');
+                //  panelBig.addClass('pl7');
+                $(item).removeClass('clip-box-toggle');
+                panelBig.removeClass('mrgb15');
+                //    $(box).addClass('mrgt15');
+                $(tBox).addClass('pl7');
+                $(tBox).removeClass('pr7');
+                panelBig.addClass('pr7');
+            }
+        };
+
+        $('#request_expand').click(function () {
+            changeDivContainerWidth('#request_expand', '#Diagnoses_box', '#Treatments_box');
+        });
+
+        $('#note_expand').click(function () {
+            var panelBig = $('#note_expand').parent();
+            if (panelBig.hasClass('col-lg-6')) {
+                $('#note_expand').addClass('clip-box-toggle');
+                panelBig.removeClass('col-lg-6');
+                panelBig.removeClass('pr7');
+                panelBig.addClass('col-lg-12');
+                panelBig.addClass('mrgb15');
+                $('#Status_box').removeClass('pl7');
+            }
+            else {
+                panelBig.addClass('col-lg-6');
+                panelBig.removeClass('col-lg-12');
+                panelBig.addClass('pr7');
+                panelBig.removeClass('mrgb15');
+                $('#note_expand').removeClass('clip-box-toggle');
+                $('#Status_box').addClass('pl7');
+            }
+        });
+
+
+
+        function showHideDiv(scope) {
+            var hide_content = $('#hide_content')[0];
+            var descriptionsArea = $('#descriptionsArea')[0];
+            var starDiv = $('#starDiv')[0];
+            var examlookup = $('#examlookup')[0];
+
+            if (scope.value == 'Detailstabhide') {
+                hide_content.style.display = 'none';
+                descriptionsArea.style.display = 'block';
+                examlookup.style.display = 'none';
+                starDiv.style.display = 'none';
+                $('#admissionPopup')[0].style.display = 'none';
+                $('#diagnosticPopup')[0].style.display = 'block';
+                $('.diagnosticRequestHyper')[0].style.display = 'none';
+            }
+            else {
+                var panelBig = $('#request_expand').parent();
+                if (!panelBig.hasClass('col-lg-12')) {
+                    changeDivContainerWidth('#request_expand', '#Diagnoses_box', '#Treatments_box');
+                }
+                hide_content.style.display = 'block';
+                descriptionsArea.style.display = 'none';
+                starDiv.style.display = 'block';
+                examlookup.style.display = 'block';
+                $('.admissionRequestHyper')[0].style.display = 'block';
+                $('.diagnosticRequestHyper')[0].style.display = 'block';
+                var divArray = ['admissionPopup', 'diagnosticPopup'];
+                for (var i = 0 ; i < divArray.length; i++) {
+                    $('#' + divArray[i])[0].style.display = 'none';
+                }
+                if ($('#' + scope.value)[0]) {
+                    $('#' + scope.value)[0].style.display = 'block';
+                }
+            }
+
+        }
+        $('#diagnosticSelectField').change(function () {
+            var el = $(this)[0];
+            if (el.value != '') {
+                showHideDiv(el);
+                $('#admissionSelectField')[0].value = 'diagnosticPopup';
+            }
+        });
+        $('#admissionSelectField').change(function (el) {
+            var el = $(this)[0];
+            if (el.value != '') {
+                showHideDiv(el);
+                $('#diagnosticSelectField')[0].value = 'admissionPopup';
+            }
+        });
+    </script>
+
+<!--<script src="js/home.js"></script>-->

@@ -1,0 +1,1087 @@
+<div >
+    <div class="content_toolbar">
+        <div class="blankspace"></div>
+        <div class="cal_title white_bg pd10">
+            <div class="row">
+                <div class="col-sm-6 line-height30">
+                    Monthly Clinic View | November 2016
+                </div>
+                <div class="panel-tools col-sm-6 form-inline text-right">
+                    <button type="button" class="btn btn-sm btn-default"> &nbsp;&nbsp;<i class="fa fa-angle-double-left f15"></i> &nbsp;&nbsp;</button>
+                    <select name="select" class="form-control input-sm" style="">
+                        <option>Jan</option>
+                        <option>Feb</option>
+                        <option>Mar</option>
+                        <option>Apr</option>
+                        <option>May</option>
+                        <option>Jun</option>
+                        <option>Jul</option>
+                        <option>Aug</option>
+                        <option>Sep</option>
+                        <option>Oct</option>
+                        <option selected="">Nov</option>
+                        <option>Dec</option>
+                    </select>
+                    <select name="select2" class="form-control input-sm" style="">
+                        <option>2010</option>
+                        <option>2011</option>
+                        <option>2012</option>
+                        <option>2013</option>
+                        <option>2014</option>
+                        <option>2015</option>
+                        <option selected="">2016</option>
+                    </select>
+                    <button type="button" class="btn btn-sm btn-default"> &nbsp;&nbsp;<i class="fa fa-angle-double-right f15"></i> &nbsp;&nbsp;</button>
+                </div>
+            </div>
+        </div>
+        <div class="blankspace"></div>
+        <div class="clr"></div>
+    </div>
+
+    <div class="clr10"></div>
+    <div class="scroll_outer ">
+        <div class="calender_outer">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div >
+                        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="1" class="TableBorder">
+                            <tbody>
+                                <tr>
+                                    <td height="35" align="center" valign="middle" class="TableHead"><strong>Monday</strong></td>
+                                    <td height="35" align="center" valign="middle" class="TableHead"><strong>Tuesday</strong></td>
+                                    <td height="35" align="center" valign="middle" class="TableHead"><strong>Wednesday</strong></td>
+                                    <td height="35" align="center" valign="middle" class="TableHead"><strong>Thursday</strong></td>
+                                    <td height="35" align="center" valign="middle" class="TableHead"><strong>Friday</strong></td>
+                                    <td height="35" align="center" valign="middle" class="TableHead"><strong>Saturday</strong></td>
+                                    <td align="center" valign="middle" class="TableHead"><strong>Sunday</strong></td>
+                                </tr>
+                                <tr>
+                                    <td height="100" align="center" valign="middle" class="cellCalendarClinic">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a>1</a>
+                                                        <a class="right"><i class="pe pe-7s-print print-icon"></i></a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                            <li><a data-toggle="modal" data-target="#ClinicList">Block Clinic</a></li>
+                                                            <li><a data-toggle="modal" data-target="#RequestEditClinicList">Request Change in Clinic Time</a></li>
+                                                            <li><a data-toggle="modal" data-target="#RequestEditTheatre">Request Change in Theatre Time</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+                                                        <a  class="subMenuHref">Clinic: 08:00 - 10:00 (6) - APV</a> 
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+
+                                                        <a class="subMenuHref"> Theatre: 12:00-15:00 (2) - ME</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+                                                    <a  class="subMenuHref">Clinic: 17:00 - 20:00 (6) - APV </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal cale-text" id="Request_Clinic_Edit" onclick="onHrefClick(this)">Requested Clinic: 16:00-17:00</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td height="120" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a>2</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td height="68" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a>3</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td height="68" align="center" valign="middle" class="cellCalendarClinic">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a>4</a>
+                                                        <a class="right"><i class="pe pe-7s-print print-icon"></i></a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                            <li><a data-toggle="modal" data-target="#ClinicList">Block Clinic</a></li>
+                                                            <li><a data-toggle="modal" data-target="#RequestEditClinicList">Request Change in Clinic Time</a></li>
+                                                            <li><a data-toggle="modal" data-target="#RequestEditTheatre">Request Change in Theatre Time</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+                                                        <a class="subMenuHref">Clinic: 08:00 - 10:00 (6) - APV</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+                                                        <a class="subMenuHref"> Theatre: 12:00-15:00 (2) - ME</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+                                                        <a class="subMenuHref">Clinic: 17:00 - 20:00 (6) - APV </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal cale-text" id="Request_Clinic_Edit" onclick="onHrefClick(this)">Requested Clinic: 16:00-17:00</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td height="120" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a>5</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td height="68" align="center" valign="middle" class="cellCalendarLeave">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a>6</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td width="14%" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="No clinic/No theatre/No admission">7</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="14%" height="120" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="No clinic/No theatre/No admission">8</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+                                    <td width="14%" height="68" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="No clinic/No theatre/No admission">9</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td width="14%" height="68" align="center" valign="middle" class="cellCalendarClinic">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a>10</a>
+                                                        <a class="right"><i class="pe pe-7s-print print-icon"></i></a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                            <li><a data-toggle="modal" data-target="#ClinicList">Block Clinic</a></li>
+                                                            <li><a data-toggle="modal" data-target="#RequestEditClinicList">Request Change in Clinic Time</a></li>
+                                                            <li><a data-toggle="modal" data-target="#RequestEditTheatre">Request Change in Theatre Time</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+                                                        <a class="subMenuHref">Clinic: 08:00 - 10:00 (6) - APV</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+                                                        <a class="subMenuHref"> Theatre: 12:00-15:00 (2) - ME</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+                                                        <a class="subMenuHref">Clinic: 17:00 - 20:00 (6) - APV </a>
+
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="GrayTextCal cale-text" id="Request_Clinic_Edit" onclick="onHrefClick(this)">Requested Clinic: 16:00-17:00</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td width="14%" height="68" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="No clinic/No theatre/No admission">11</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td width="14%" height="68" align="center" valign="middle" class="cellCalendarHoliday">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="Bank Holiday">12</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td width="14%" height="68" align="center" valign="middle" class="cellCalendarClinic">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a>13</a>
+                                                        <a class="right"><i class="pe pe-7s-print print-icon"></i></a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                            <li><a data-toggle="modal" data-target="#ClinicList">Block Clinic</a></li>
+                                                            <li><a data-toggle="modal" data-target="#RequestEditClinicList">Request Change in Clinic Time</a></li>
+                                                            <li><a data-toggle="modal" data-target="#RequestEditTheatre">Request Change in Theatre Time</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+                                                        <a class="subMenuHref">Clinic: 08:00 - 10:00 (6) - APV</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+                                                        <a class="subMenuHref"> Theatre: 12:00-15:00 (2) - ME</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+                                                        <a class="subMenuHref">Clinic: 17:00 - 20:00 (6) - APV </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal cale-text" id="Request_Clinic_Edit" onclick="onHrefClick(this)">Requested Clinic: 16:00-17:00</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td width="14%" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="No clinic/No theatre/No admission">14</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="14%" height="100" align="center" valign="middle" class="cellCalendarSel">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="Current Day">15</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td width="14%" height="68" align="center" valign="middle" class="cellCalendarClinic">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a>16</a>
+                                                        <a class="right"><i class="pe pe-7s-print print-icon"></i></a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                            <li><a data-toggle="modal" data-target="#ClinicList">Block Clinic</a></li>
+                                                            <li><a data-toggle="modal" data-target="#RequestEditClinicList">Request Change in Clinic Time</a></li>
+                                                            <li><a data-toggle="modal" data-target="#RequestEditTheatre">Request Change in Theatre Time</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+                                                        <a class="subMenuHref">Clinic: 08:00 - 10:00 (6) - APV</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+                                                        <a class="subMenuHref"> Theatre: 12:00-15:00 (2) - ME</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+
+                                                        <a class="subMenuHref">Clinic: 17:00 - 20:00 (6) - APV </a>
+
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="GrayTextCal cale-text" id="Request_Clinic_Edit" onclick="onHrefClick(this)">Requested Clinic: 16:00-17:00</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td width="14%" height="120" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="No clinic/No theatre/No admission">17</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td width="14%" height="68" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="No clinic/No theatre/No admission">18</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td width="14%" height="68" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="No clinic/No theatre/No admission">19</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td width="14%" height="68" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a href="#" onclick="OpenMenu(this);">20</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td width="14%" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="No clinic/No theatre/No admission">21</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="14%" height="120" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="No clinic/No theatre/No admission">22</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td width="14%" height="68" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="No clinic/No theatre/No admission">23</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td width="14%" height="68" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="No clinic/No theatre/No admission">24</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td width="14%" height="68" align="center" valign="middle" class="cellCalendarClinic">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a>25</a>
+                                                        <a class="right"><i class="pe pe-7s-print print-icon"></i></a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+
+
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                            <li><a data-toggle="modal" data-target="#ClinicList">Block Clinic</a></li>
+                                                            <li><a data-toggle="modal" data-target="#RequestEditClinicList">Request Change in Clinic Time</a></li>
+                                                            <li><a data-toggle="modal" data-target="#RequestEditTheatre">Request Change in Theatre Time</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+                                                        <a class="subMenuHref">Clinic: 08:00 - 10:00 (6) - APV</a>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+
+                                                        <a class="subMenuHref"> Theatre: 12:00-15:00 (2) - ME</a>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+
+                                                        <a class="subMenuHref">Clinic: 17:00 - 20:00 (6) - APV </a>
+
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="GrayTextCal cale-text" id="Request_Clinic_Edit" onclick="onHrefClick(this)">Requested Clinic: 16:00-17:00</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td width="14%" height="68" align="center" valign="middle" class="cellCalendarClinic">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a>26</a>
+                                                        <a class="right"><i class="pe pe-7s-print print-icon"></i></a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+
+
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                            <li><a data-toggle="modal" data-target="#ClinicList">Block Clinic</a></li>
+                                                            <li><a data-toggle="modal" data-target="#RequestEditClinicList">Request Change in Clinic Time</a></li>
+                                                            <li><a data-toggle="modal" data-target="#RequestEditTheatre">Request Change in Theatre Time</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+                                                        <a class="subMenuHref">Clinic: 08:00 - 10:00 (6) - APV</a>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+
+                                                        <a class="subMenuHref"> Theatre: 12:00-15:00 (2) - ME</a>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+
+                                                        <a class="subMenuHref">Clinic: 17:00 - 20:00 (6) - APV </a>
+
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="GrayTextCal cale-text" id="Request_Clinic_Edit" onclick="onHrefClick(this)">Requested Clinic: 16:00-17:00</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td width="14%" height="68" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="No clinic/No theatre/No admission">27</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td width="14%" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="No clinic/No theatre/No admission">28</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="120" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="No clinic/No theatre/No admission">29</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td width="14%" height="68" align="center" valign="middle" class="cellCalendarClinic">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a>30</a>
+                                                        <a class="right"><i class="pe pe-7s-print print-icon"></i></a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+
+
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                            <li><a data-toggle="modal" data-target="#ClinicList">Block Clinic</a></li>
+                                                            <li><a data-toggle="modal" data-target="#RequestEditClinicList">Request Change in Clinic Time</a></li>
+                                                            <li><a data-toggle="modal" data-target="#RequestEditTheatre">Request Change in Theatre Time</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+                                                        <a class="subMenuHref">Clinic: 08:00 - 10:00 (6) - APV</a>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+
+                                                        <a class="subMenuHref"> Theatre: 12:00-15:00 (2) - ME</a>
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="GrayTextCal dropdown">
+
+                                                        <a class="subMenuHref">Clinic: 17:00 - 20:00 (6) - APV </a>
+
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="GrayTextCal cale-text" id="Request_Clinic_Edit" onclick="onHrefClick(this)">Requested Clinic: 16:00-17:00</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td height="68" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="No clinic/No theatre/No admission">31</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td height="68" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="No clinic/No theatre/No admission">1</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+
+                                    <td height="68" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="No clinic/No theatre/No admission">2</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td height="68" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="No clinic/No theatre/No admission">3</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td height="68" align="center" valign="middle" class="cellCalendar">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="1">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" class="dropdown">
+                                                        <a title="No clinic/No theatre/No admission">4</a>
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle left" aria-expanded="false"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+                                                        <ul class="dropdown-menu hdropdown animated flipInX m-t-xs">
+                                                            <li><a id="Request_Clinic" onclick="onHrefClick(this)">Request New Clinic</a></li>
+                                                            <li><a id="Request_Theatre" onclick="onHrefClick(this)">Request New Theatre</a></li>
+                                                            <li><a id="Holiday_request" onclick="onHrefClick(this)">Request Leave</a></li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="blankspace"></div>
+        <div class="Legends">
+           <ul class="Legends">
+               <li>Current Day <i class="fa fa-square star"> </i></li>
+               <li>Clinics <i class="fa fa-square star1"> </i></li>
+               <li>Public Holiday <i class="fa fa-square star2"> </i></li>
+               <li>Leave <i class="fa fa-square leavecolor"></i></li>
+               <li>APV - APV</li>
+               <li>ME - Midland Eye</li>
+           </ul>
+        </div>
+        <div class="clr"></div>
+    </div>
+</div>
+
+
+<!--Block Clinic Popup-->
+<div id="ClinicList" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4 class="modal-title">Clinic List</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body form_popup">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped custom_table">
+                        <thead>
+                            <tr>
+                                <th> Speciality</th>
+                                <th> Clinic function</th>
+                                <th> Clinic Time</th>
+                                <th class="text-center">#Appts</th>
+                                <th class="text-center">Booked (mins)</th>
+                                <th class="text-center">Available (mins)</th>
+                                <th class="text-center">Largest Slot (mins)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> <a data-dismiss="modal" id="Block_Clinic" onclick="onHrefClick(this)">RADIOLOGY</a></td>
+                                <td> Consultation</td>
+                                <td> 08:00 - 09:00</td>
+                                <td class="text-center">0</td>
+                                <td class="text-center">0</td>
+                                <td class="text-center">60</td>
+                                <td class="text-center">60</td>
+                            </tr>
+                            <tr>
+                                <td> <a data-dismiss="modal" id="Block_Clinic" onclick="onHrefClick(this)">GENERAL MEDICINE</a></td>
+                                <td> OPD Dressings</td>
+                                <td> 08:30 - 13:00</td>
+                                <td class="text-center">0</td>
+                                <td class="text-center">0</td>
+                                <td class="text-center">270</td>
+                                <td class="text-center">270</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="clr10"></div>
+                <div class="btn_section ">
+                    <div class="row">
+                        <div class="col-lg-12 text-right">
+                            <button class="btn btn-sm btn-danger" data-dismiss="modal"><i class="fa fa-times text-white"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Request Edit Clinic Popup-->
+<div id="RequestEditClinicList" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4 class="modal-title display_inline">Clinic List - Edit Time Request </h4>
+                   
+                         - 22/08/2016
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-body form_popup">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped custom_table">
+                        <thead>
+                            <tr>
+                                <th> Speciality</th>
+                                <th> Clinic function</th>
+                                <th> Clinic Time</th>
+                                <th class="text-center">#Appts</th>
+                                <th class="text-center">Booked (mins)</th>
+                                <th class="text-center">Available (mins)</th>
+                                <th class="text-center">Largest Slot (mins)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> <a data-dismiss="modal" id="Request_Clinic_Edit" onclick="onHrefClick(this)">RADIOLOGY</a></td>
+                                <td> Consultation</td>
+                                <td> 08:00 - 09:00</td>
+                                <td class="text-center">0</td>
+                                <td class="text-center">0</td>
+                                <td class="text-center">60</td>
+                                <td class="text-center">60</td>
+                            </tr>
+                            <tr>
+                                <td> <a data-dismiss="modal" id="Request_Clinic_Edit" onclick="onHrefClick(this)">GENERAL MEDICINE</a></td>
+                                <td> OPD Dressings</td>
+                                <td> 08:30 - 13:00</td>
+                                <td class="text-center">0</td>
+                                <td class="text-center">0</td>
+                                <td class="text-center">270</td>
+                                <td class="text-center">270</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="clr10"></div>
+                <div class="btn_section ">
+                    <div class="row">
+                        <div class="col-lg-12 text-right">
+                            <button class="btn btn-sm btn-danger" data-dismiss="modal"><i class="fa fa-times text-white"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--Request Edit Theatre Popup-->
+<div id="RequestEditTheatre" class="modal fade" role="dialog">
+    <div class="modal-dialog ">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4 class="modal-title display_inline">Theatre List - Edit Time Request</h4>
+                        - 22/08/2016
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body form_popup">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped custom_table">
+                        <thead>
+                            <tr>
+                                <th> Speciality</th>
+                               
+                                <th> Theatre Time</th>
+                                <th class="text-center">Bookings</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> <a data-dismiss="modal" id="Request_Theatre_Edit" onclick="onHrefClick(this)">RADIOLOGY</a></td>
+                                
+                                <td> 08:00 - 09:00</td>
+                                <td class="text-center">0</td>
+                               
+                            </tr>
+                            <tr>
+                                <td> <a data-dismiss="modal" id="Request_Theatre_Edit" onclick="onHrefClick(this)">GENERAL MEDICINE</a></td>
+                               
+                                <td> 08:30 - 13:00</td>
+                                <td class="text-center">0</td>
+                             
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="clr10"></div>
+                <div class="btn_section ">
+                    <div class="row">
+                        <div class="col-lg-12 text-right">
+                            <button class="btn btn-sm btn-danger" data-dismiss="modal"><i class="fa fa-times text-white"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--<script src="js/home.js"></script>-->

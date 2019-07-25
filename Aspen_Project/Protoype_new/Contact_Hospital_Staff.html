@@ -1,0 +1,166 @@
+<div class="content_toolbar">
+    <div class="animate-panel">
+        <h2 class="inner_title"> Send Messages </h2>
+    </div>
+    <div class="clr"></div>
+</div>
+<div class="scroll_outer ">
+    <div class="inner_pages cunsultant_pro">
+
+        <form class="form-inline">
+            <div class="col-lg-12 blue_border white_bg">
+                <div class="blankspace"></div>
+
+                <table class="table mail" cellpadding="5">
+                    <tr>
+                        <td class="w90"><label>Send To:</label></td>
+                        <td>
+
+
+
+                            <select class="form-control w215">
+                                <option>select</option>
+                                <option>User</option>
+                                <option>User Group</option>
+                                <option>Department</option>
+
+                            </select>
+                            <label class="w215 text-right"> User/User Group/Department :</label>
+                            <select class="form-control  w215">
+                                <option>select</option>
+                                <option>Client Services Advisor</option>
+                                <option>Director of Nursing and Clinical Services</option>
+                                <option>HCP Administrator</option>
+                                <option>Head of Marketing and Communications</option>
+                                <option>Imaging Manager</option>
+                                <option>Outpatients Manager</option>
+                                <option>Senior Sister Outpatients</option>
+                                <option>Theatre Manager</option>
+                                <option>TEC OP Bookings</option>
+                                <option>TEC Theatre Booking	</option>
+                            </select>
+                           
+                            <button data-toggle="modal" data-target="#user_search" type="button" class="btn  btn-sm"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                </td>
+                         </tr>
+
+                    <tr>
+                        <td class="w90">Subject:</td>
+                        <td>
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control msg_subject" id="exampleInputName2" placeholder="">
+                                </div>
+                                <div class="col-sm-4 text-right">
+                                    <button class="btn btn-sm btn-success " id="Document_upload" onclick="onHrefClick(this)" type="button"><i class="fa fa-upload text-white"></i> Scan &amp; Upload</button>
+                                </div>
+
+                            </div>
+                       
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w90">Message:</td>
+                        <td>
+                            <textarea class="form-control input-sm" rows="5"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w90">Attachemnts:</td>
+                        <td>
+                            <p><a href="#">Document1.pdf</a> <a href="#" class="RedText"><i class="fa fa-times" aria-hidden="true"></i></a></p>
+                            <p><a href="#">Document2.txt</a> <a href="#" class="RedText"><i class="fa fa-times" aria-hidden="true"></i></a></p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="clr10"></div>
+            <div class="btn_section text-right">
+                <div class="row">
+                    <div class="col-sm-6 text-left"><button id="Messages_outbox" onclick="onHrefClick(this)" type="button" class="btn btn-primary btn-sm"><i class="fa fa-chevron-left" aria-hidden="true"></i> Previous Sent Mails</button></div>
+                    <div class="col-sm-6"><button class="btn btn-sm btn-primary "><i class="fa fa-paper-plane" aria-hidden="true"></i> Send</button></div>
+
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="clr"></div>
+</div>
+
+
+    <div id="user_search" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">User : Search</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row border-bottom ">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Name : </label>
+                                <input class="form-control input-sm" name="" value="" type="text">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label>Phone :</label>
+                                <input class="form-control input-sm" name="" value="" type="text">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label> Email :</label>
+                            <div class="input-group customsearch">
+
+                                <input type="text" data-format="" class="form-control input-sm" placeholder="Search...">
+                                <span class="add-on input-group-addon input-sm">
+                                    <button class="btn" type="button" data-toggle="modal" data-target="#Location">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <h3 class="inner_sub_title">
+                        User List
+                    </h3>
+                    <table class="table table-bordered table-striped custom_table">
+                        <thead>
+
+                            <tr>
+                                <th> Name</th>
+                                <th> Phone</th>
+                                <th> Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td> David Brown</td>
+                                <td> 5698547896</td>
+                                <td> David.brown@demo.com</td>
+                            </tr>
+                            <tr>
+                                <td> Mark Grand</td>
+                                <td> 8569547896</td>
+                                <td> Mark-grand@demo.com</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="clr10"></div>
+                    <div class="btn_section ">
+                        <div class="row">
+                            <div class="col-lg-12 text-right">
+                                <button class="btn btn-sm btn-danger" data-dismiss="modal"><i class="fa fa-times text-white"></i> Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--<script src="js/home.js"></script>-->
