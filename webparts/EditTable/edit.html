@@ -1,0 +1,1066 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Concerto Health</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+    <!-- Required plugin - Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+    <link href="sites/rsyspedia/AppLibrary/webparts/EditTable/css/glyphicon.min.css" rel="stylesheet" />
+    <link href="/sites/rsyspedia/AppLibrary/webparts/EditTable/css/style.css" rel="stylesheet" />
+
+
+
+    <style>
+        .btn-default.btn-on.active {
+            background-color: #f09609;
+            color: white;
+        }
+
+        .btn-default.btn-off.active {
+            background-color: #f09609;
+            color: white;
+        }
+    </style>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- left navigation -->
+        <nav class="sidenav">
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="glyphicon glyphicon-briefcase" aria-hidden="true"></i>About
+                    </a>
+                </li>
+                <li class="card">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#myServices" aria-controls="collapseOne">
+                        <i class="glyphicon glyphicon-cog" aria-hidden="true"></i> Services
+                        <span class="float-right">
+                            <i class="glyphicon glyphicon-chevron-right gly-right-icon"></i>
+                            <i class="glyphicon glyphicon-chevron-down gly-down-icon"></i>
+                        </span>
+                    </a>
+                    <ul id="myServices" class="sub-menu collapse" role="tabpanel" arialabelledby="headingOne" aria-expanded="false">
+                        <li>
+                            <a>
+                                <i class="glyphicon glyphicon-cog" aria-hidden="true"></i> Sub Menu 1
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <i class="glyphicon glyphicon-cog" aria-hidden="true"></i> Sub Menu 2
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <i class="glyphicon glyphicon-cog" aria-hidden="true"></i> Sub Menu 3
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="glyphicon glyphicon-question-sign" aria-hidden="true"></i>Contact
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- End of left navigation -->
+        <!-- Header section -->
+        <header>
+            <div id="main">
+                <img class="w-200 img-responsive d-ib" src="/sites/rsyspedia/AppLibrary/webparts/EditTable/images/logo.png" />
+                <span class="openbtn top-btn" onClick="openNav()">&#9776; </span>
+            </div>
+        </header>
+        <div class="h-20"></div>
+        <!-- End of Header section -->
+
+
+        <div id="Content_section" class="content_full">
+            <div class="container">
+
+                <!-- Tab section -->
+                <div class="row">
+                    <div class="col-sm-12 my-4">
+                        <ul id="concertotab" class="nav nav-tabs text-w nav-pill" role="tablist">
+                            <li id="tabTables" class="nav-item active">
+                                <a class="nav-link active" data-toggle="tab" href="#addTable" role="tab">Table Info</a>
+                            </li>
+
+                            <li id="tabColumns" class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#columns" role="tab">Columns</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#indexes" role="tab">Indexes</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#constraint" role="tab">Constraints</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#parent-relationships" role="tab">Parent Relationships</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#child-relationships" role="tab">Child Relationships</a>
+                            </li>
+
+                            <li id="tabObjects" class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#otherObjects" role="tab">Interdependency Objects</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#erDiagram" role="tab">E-R Diagram</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End of tab section -->
+                <!-- Tabulation Section -->
+                <div class="tab-content">
+                    <div style="display:flex;" class="row mb-1">
+                        <div id="divHeader" class="col-sm-8 text-org fs-26 my-auto fs-m-20">MartRiskAdjustmentMembership</div>
+                        <div class="text-right col-sm-4">
+                            <button type="button" onclick="saveTableInfo();" class="btn btn-warning text-right UpdateTable" id="btnUpdateTableTop">Submit</button>
+                        </div>
+                    </div>
+                    <div class="tab-pane active" id="addTable" role="tabpanel">
+                        <div class="border-line"></div>
+                        <div class="row mt-3">
+                            <div class="form-field-data">
+                                <div class="col-lg-6">
+                                    <label class="control-label col-sm-3"> Table: </label>
+                                    <div class="col-sm-9">
+                                        <input id="txtTable" type="text" class="form-control" placeholder="Enter table name">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <!-- <label class="control-label col-sm-3"> Database: </label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control">
+                                            <div class="input-group-btn">
+                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu pull-right">
+                                                    <li>
+                                                        <a href="#">Action</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Another action</a>
+                                                    </li>
+                                                    <li class="divider"></li>
+                                                    <li>
+                                                        <a href="#">Separated link</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <label class="control-label col-sm-3"> Technical Notes </label>
+                                    <div class="col-sm-9">
+
+                                        <textarea id="txtTechnicalNotes" class="form-control" rows="6" placeholder="Technical Notes [Optional] "></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-1">
+                            <div class="form-field-data">
+                                <div class="col-lg-6">
+                                    <label class="control-label col-sm-3"> Description : </label>
+                                    <div class="col-sm-9">
+                                        <!--<textarea id="txtTableDescription" class="form-control" rows="6" placeholder="Description [Optional]"></textarea>-->
+                                        <div class="col-sm-8">
+
+                                            <div class="form-control" id="txtTableDescription" contenteditable="true" style="min-height:130px;border: 1px solid #0072c6 !important;"></div>
+                                        </div>
+
+                                        <div class="col-sm-1" style="padding-left:0px;">
+                                            <a id="anchColumnName" onclick="javascript:OpenPopup(5);" data-toggle="modal" data-target="#myModal" href="#">
+                                                <a class="SearchCtrl" style="cursor:pointer" data-toggle="modal" data-target="#myModal" href="#">
+                                                    <span class="glyphicon glyphicon-search"></span>
+
+                                                </a>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <label class="control-label col-sm-3"> Source Application </label>
+                                    <div class="col-sm-9">
+                                        <textarea id="txtSourceApplication" class="form-control" rows="6" placeholder="Source Application"></textarea>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div class="row mt-1">
+                            <div class="form-field-data">
+
+                                <div class="col-lg-6">
+                                    <label class="control-label col-sm-3"> Data Granularity:</label>
+                                    <div class="col-sm-9">
+                                        <input id="txtDataGranularity" type="text" class="form-control" placeholder="Enter Data Granularity">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <label class="control-label col-sm-3" for="Table Type">Category:</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group">
+                                            <input id="txtCategory" type="text" class="form-control">
+                                            <div class="input-group-btn">
+                                                <button id="btnCategory" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul id="ddlCategory" class="dropdown-menu pull-right">
+                                                    <!--<li>
+                                                        <a href="#">Action</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Another action</a>
+                                                    </li>
+                                                    <li class="divider"></li>
+                                                    <li>
+                                                        <a href="#">Separated link</a>
+                                                    </li>-->
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row mt-1">
+                            <div class="form-field-data">
+                                <div class="col-lg-6">
+                                    <label class="control-label col-sm-3"> DataLoad Frequency </label>
+                                    <div class="col-sm-9">
+                                        <input id="txtDataLoadFrequency" type="text" class="form-control" placeholder="DataLoadFrequency">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label class="control-label col-sm-3"> DataLoad Type </label>
+                                    <div class="col-sm-9">
+                                        <input id="txtDataLoadType" type="text" class="form-control" placeholder="DataLoadType">
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div class="row mt-1">
+                            <div class="form-field-data">
+
+                                <div class="col-lg-6">
+                                    <label class="control-label col-sm-3"> Triggers </label>
+                                    <div class="col-sm-9">
+                                        <textarea id="txtTriggers" class="form-control" rows="6" placeholder="Triggers [Optional] "></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label class="control-label col-sm-3"> SQL Schema:</label>
+                                    <div class="col-sm-9">
+                                        <textarea id="txtSQL" class="form-control" rows="6" placeholder="SQL Schema [Optional]"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-1">
+                            <div class="form-field-data">
+                                <div class="col-lg-6">
+                                    <label class="control-label col-sm-3">Schema Name:</label>
+                                    <div class="col-sm-9">
+                                        <input id="txtSchemaName" type="text" class="form-control" placeholder="Schema Name">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label class="control-label col-sm-3"> Object Used:</label>
+                                    <div class="col-sm-9">
+                                        <input id="txtObjectUsedToPopulate" type="text" class="form-control" placeholder="Object used to populate">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-1">
+                            <div class="form-field-data">
+                                <div class="col-lg-6 col-sm-12 mt-1">
+                                    <label class="col-sm-3"> Properties </label>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-bordered">
+                                            <thead class="bg-org text-w">
+                                                <tr>
+                                                    <th> # </th>
+                                                    <th> Properties </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td> Creation Date </td>
+                                                    <td>
+                                                        <!--<div class="well">
+                                                            <div id="datetimepicker1" class="input-append">
+                                                                <input data-format="MM/dd/yyyy HH:mm:ss PP" type="text" />
+                                                                <span class="add-on">
+                                                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                                                                    </i>
+                                                                </span>
+                                                            </div>
+                                                        </div>-->
+                                                        <!--<div class="form-group">
+                                                            <div class='input-group date' id='datetimepicker1'>
+                                                                <input type='text' class="form-control" />
+                                                                <span class="input-group-addon">
+                                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                                </span>
+                                                            </div>
+                                                        </div>-->
+                                                        <input id="lblTableCreationDate" type="text" class="form-control hasDatepicker" placeholder="Enter Creation Date">
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td> File Group </td>
+                                                    <td>
+                                                        <input id="lblFileGroup" type="text" class="form-control" placeholder="Enter File Group">
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td> System Object </td>
+                                                    <td>
+                                                        <input id="lblSystemObject" type="checkbox">
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td> Rows </td>
+                                                    <td>
+                                                        <input id="lblRows" type="text" class="form-control" placeholder="Enter Rows">
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td> Data Space Used </td>
+                                                    <td>
+                                                        <input id="lblDataSpaceUsed" type="text" class="form-control" placeholder="Enter Data Space Used">
+                                                    </td>
+                                                </tr>
+
+                                                <!--<tr>
+                                                    <td> Index Space Used </td>
+                                                    <td>
+                                                        <input id="lblIndexSpaceUsed" type="text" class="form-control" placeholder="Enter Index Space Used">
+                                                    </td>
+                                                </tr>-->
+
+
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-6" style="display:none;">
+                                    <label class="control-label col-sm-3"> Database:</label>
+                                    <div class="col-sm-9">
+                                        <span id="lblDataBase"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 text-right">
+                            <button type="button" class="btn btn-warning UpdateTable" onclick="saveTableInfo();" id="btnUpdateTableBottom">Submit</button>
+
+
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="columns" role="tabpanel">
+                        <div class="row mt-1">
+                            <div class="col-sm-12 text-right mb-1">
+                                <button id="addNewColumnsRowTop" type="button" onclick="AddRowToColumns()" class="btn btn-warning">Add Row</button>
+                                <!--<button type="button" class="btn btn-warning" id="btnQuickTop">Quick Edit</button>-->
+                                <!--<a id="anchColumnName" onclick="ShowColumnbyId('tblColumns');" class="btn btn-warning" data-toggle="modal" data-target="#ColumnModal" href="#">
+                                        <span class="Pointer">Quick Edit</span>
+                                    </a>-->
+                                <button type="button" class="btn btn-warning" onclick="submitColumns();" id="btnUpdateColumnsTop">Submit</button>
+                            </div>
+                            <div class="col-sm-12" style="overflow:auto;">
+                                <!-- <h5 class="label label-default leftspace"> Columns </h5> -->
+                                <div class="table-responsive" style="min-width:2700px;">
+                                    <table id="tblColumns" class="table table-striped table-bordered">
+                                        <thead class="bg-org text-w">
+                                            <tr>
+                                                <th style="width:600px;"></th>
+                                                <th style="width:600px;"> Name </th>
+                                                <th style="width:650px;"> Metric Description </th>
+                                                <th style="width:650px;"> Formula / Calculation Description </th>
+                                                <th style="width:650px;"> SQL Code </th>
+                                                <th style="width:650px;"> Data Source </th>
+                                                <th class=""> Datatype </th>
+                                                <th style="width:130px;"> Key (PK/FK) </th>
+                                                <!--New-->
+                                                <th class=""> Length </th>
+                                                <th style="width:80px;"> Is Null </th>
+                                                <th class=""> Unique </th>
+                                                <!--New-->
+                                                <th style="width:200px;"> Default Value </th>
+                                                <th class=""> Identity </th>
+                                                <!--New-->
+                                                <th class=""> Seed </th>
+                                                <!--New-->
+                                                <th class=""> Increment </th>
+                                                <!--New-->
+
+                                                <th>FKEntity</th>
+                                                <!--New-->
+                                                <th>FKRelationship</th>
+                                                <!--New-->
+                                                <th style="width:130px;">FK Column</th>
+                                                <!--New-->
+                                                <th class="width-55"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbColumn">
+                                            <!--<tr class="my-auto">
+
+                                                <td>
+                                                    <input type="text" class="form-control">
+                                                </td>
+                                                <td>
+                                                    <textarea class="form-control" rows="1" id="txtDescription"></textarea>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtDatatype">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtKey">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtLength">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtNotNull">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtUnique">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtDefaultValue">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtIdentity">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtSeed">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtIncrement">
+                                                </td>
+
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtFKEntity">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtFKRelationship">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" id="txtFKColumn">
+                                                </td>
+                                                <td class="text-center my-auto">
+                                                    <a>
+                                                        <span class="glyphicon glyphicon-trash text-org" onclick="DeleteItemById(192)"></span>
+                                                    </a>
+                                                </td>
+
+                                            </tr>-->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-12 text-right mt-1">
+                                <button id="addNewColumnsRowBottom" type="button" onclick="AddRowToColumns()" class="btn btn-warning">Add Row</button>
+                                <button type="button" class="btn btn-warning" onclick="submitColumns();" id="btnUpdateColumnsBottom">Submit</button>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="indexes" role="tabpanel">
+                        <div class="row mt-1">
+                            <div class="col-sm-12 text-right mb-1">
+                                <button id="btnAddRowIndex" type="button" onclick="AddNewRowIndex();" class="btn btn-warning">Add Row</button>
+                                <button id="btnSubmitIndex" type="button" onclick="submitIndex();" class="btn btn-warning">Submit</button>
+                            </div>
+                            <div class="col-sm-12">
+                                <!-- <h5 class="label label-default leftspace">Indexes</h5> -->
+                                <div class="table-responsive">
+                                    <table id="tblIndex" class="table table-striped table-bordered">
+                                        <thead class="bg-org text-w">
+                                            <tr>
+                                                <th> Index </th>
+                                                <th class="text-center"> Unique </th>
+                                                <th class="text-center"> Clustered </th>
+                                                <th class="text-center"> Items </th>
+                                                <th class="text-center"> Delete </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbIndex">
+                                            <!--<tr>
+                                                <td style='vertical-align:top;'>
+
+                                                    <input type='text' class='form-control' value='Index'>
+                                                </td>
+                                                <td style='vertical-align:top;'>
+                                                    <textarea class='form-control' rows='5' id='Description'></textarea>
+                                                </td>
+                                                <td style='vertical-align:top;'>
+                                                    <textarea class='form-control' rows='5' id='Items'></textarea>
+                                                </td>
+                                                <td style='vertical-align:top;'>
+                                                    <div class='text-center'>
+                                                        <input id='chkUnique' checked type='checkbox' data-toggle='toggle' data-onstyle='warning' data-on='Yes' data-off='No'>
+                                                    </div>
+                                                </td>
+                                                <td style='vertical-align:top;'>
+                                                    <div class='text-center'>
+                                                        <input id='chkClustered' type='checkbox' data-toggle='toggle' data-onstyle='warning' data-on='Yes' data-off='No'>
+                                                    </div>
+                                                </td>
+                                                <td style='vertical-align:top;' class='text-center my-auto'>
+                                                    <a>
+                                                        <span class='glyphicon glyphicon-trash text-org'></span>
+                                                    </a>
+                                                </td>
+                                            </tr>-->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 text-right mt-1">
+                                <button id="btnAddRowIndex" type="button" onclick="AddNewRowIndex();" class="btn btn-warning">Add Row</button>
+                                <button id="btnSubmitIndex" type="button" onclick="submitIndex();" class="btn btn-warning">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="parent-relationships" role="tabpanel">
+                        <div class="row mt-1">
+                            <div class="col-sm-12 text-right mb-1">
+                                <button type="button" onclick="addNewRowChildRel('tdparent', 'Table_ParentEntities');" class="btn btn-warning">Add Row</button>
+                                <button type="button" onclick="submitEntities('Table_ParentEntities', 'ParentEntityName', 'tblParent');" class="btn btn-warning">Submit</button>
+                            </div>
+                            <div class="col-sm-12">
+                                <!-- <h5 class="label label-default leftspace">Relationships</h5> -->
+                                <div class="table-responsive">
+                                    <table id="tblParent" class="table table-striped table-bordered">
+                                        <thead class="bg-org text-w">
+                                            <tr>
+                                                <th>EntityName</th>
+                                                <th>Object Type</th>
+                                                <th>Attributes</th>
+                                                <th class="text-center"> Delete </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tdparent">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 text-right mt-1">
+                                <button type="button" onclick="addNewRowChildRel('tdparent', 'Table_ParentEntities');" class="btn btn-warning">Add Row</button>
+                                <button type="button" onclick="submitEntities('Table_ParentEntities', 'ParentEntityName', 'tblParent');" class="btn btn-warning">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="child-relationships" role="tabpanel">
+                        <div class="row mt-1">
+                            <div class="col-sm-12 text-right mb-1">
+                                <button type="button" onclick="addNewRowChildRel('tbchild', 'Table_ChildEntities');" class="btn btn-warning">Add Row</button>
+                                <button type="button" onclick="submitEntities('Table_ChildEntities', 'ChildEntityName', 'tblChild');" class="btn btn-warning">Submit</button>
+                            </div>
+                            <div class="col-sm-12">
+                                <!-- <h5 class="label label-default leftspace">Relationships</h5> -->
+                                <div class="table-responsive">
+                                    <table id="tblChild" class="table table-striped table-bordered">
+                                        <thead class="bg-org text-w">
+                                            <tr>
+                                                <th>EntityName</th>
+                                                <th>Object Type</th>
+                                                <th>Attributes</th>
+                                                <th class="text-center"> Delete </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbchild">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 text-right mt-1">
+                                <button type="button" onclick="addNewRowChildRel('tbchild', 'Table_ChildEntities');" class="btn btn-warning">Add Row</button>
+                                <button type="button" onclick="submitEntities('Table_ChildEntities', 'ChildEntityNametbchild', 'tblChild');" class="btn btn-warning">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="otherObjects" role="tabpanel">
+                        <div class="row mt-1">
+                            <div class="col-sm-12 text-right mb-1">
+                                <button type="button" onclick="addNewRowObject();" class="btn btn-warning">Add Row</button>
+                                <button type="button" onclick="submitObjects();" class="btn btn-warning">Submit</button>
+                            </div>
+                            <div class="col-sm-12">
+                                <!-- <h5 class="label label-default leftspace">Interdependency with other objects </h5> -->
+                                <div class="table-responsive">
+                                    <table id="tblObjects" class="table table-striped table-bordered">
+                                        <thead class="bg-org text-w">
+                                            <tr>
+                                                <th> Object </th>
+                                                <th> Description </th>
+                                                <th> Object type </th>
+                                                <th> Object location </th>
+                                                <th class="text-center"> Delete </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbObject">
+
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 text-right mt-1">
+                                <button type="button" onclick="addNewRowObject();" class="btn btn-warning">Add Row</button>
+                                <button type="button" onclick="submitObjects();" class="btn btn-warning">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="constraint" role="tabpanel">
+                        <div class="row mt-1">
+                            <div class="col-sm-12 text-right mb-1">
+                                <button type="button" onclick="addNewRowConstraint();" class="btn btn-warning">Add Row</button>
+                                <button type="button" onclick="submitConstraints();" class="btn btn-warning">Submit</button>
+                            </div>
+                            <div class="col-sm-12">
+                                <!-- <h5 class="label label-default leftspace">Interdependency with other objects </h5> -->
+                                <div class="table-responsive">
+                                    <table id="tblConstraints" class="table table-striped table-bordered">
+                                        <thead class="bg-org text-w">
+                                            <tr>
+                                                <th> Constraint </th>
+                                                <th> Caption </th>
+                                                <th class="text-center"> Delete </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbConstraint">
+
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 text-right mt-1">
+                                <button type="button" onclick="addNewRowConstraint();" class="btn btn-warning">Add Row</button>
+                                <button type="button" onclick="submitConstraints();" class="btn btn-warning">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="erDiagram" role="tabpanel">
+                        <div class="row">
+                            <div class="col-sm-12 text-center text-org fs-26 my-auto">E-R Diagram</div>
+                            <div class="col-sm-12 mb-2">
+                                <div class="border-line"></div>
+                            </div>
+                            <div class="col-sm-4 col-lg-4 mt-1">
+                                <div class="input-group file-caption-main">
+                                    <div class="file-caption form-control  kv-fileinput-caption" tabindex="500">
+                                        <span class="file-caption-icon"></span>
+                                    </div>
+                                    <div class="input-group-btn">
+                                        <div tabindex="500" class="btn btn-primary btn-file">
+                                            <i class="glyphicon glyphicon-upload"></i>
+                                            <span class="hidden-xs">Upload</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 col-lg-4 mt-1">
+                                <div class="input-group file-caption-main">
+                                    <div class="file-caption form-control  kv-fileinput-caption" tabindex="500">
+                                        <span class="file-caption-icon"></span>
+                                    </div>
+                                    <div class="input-group-btn">
+                                        <div tabindex="500" class="btn btn-primary btn-file">
+                                            <i class="glyphicon glyphicon-upload"></i>
+                                            <span class="hidden-xs">Upload</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 col-lg-4 mt-1">
+                                <div class="input-group file-caption-main">
+                                    <div class="file-caption form-control  kv-fileinput-caption" tabindex="500">
+                                        <span class="file-caption-icon"></span>
+                                    </div>
+                                    <div class="input-group-btn">
+                                        <div tabindex="500" class="btn btn-primary btn-file">
+                                            <i class="glyphicon glyphicon-upload"></i>
+                                            <span class="hidden-xs">Upload</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 text-center my-3">
+                                <button type="button" class="btn btn-primary">Submit</button>
+                                <button type="button" class="btn btn-warning">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- End of tabulation Section -->
+
+            </div>
+
+            <div id="divloader" class="form-field-data loader hide">
+                <div class="col-sm-12 col-lg-12 spinner">
+                    <img style="margin-left: 20%;" src="/sites/rsyspedia/AppLibrary/webparts/images/preloader.gif" alt="Concerto" id="Concertoloader"
+                        title="Google">
+                </div>
+            </div>
+        </div>
+
+</body>
+
+
+
+
+
+</html>
+<!-- Modal -->
+<!--Modal Columns-->
+<!-- Modal Popup-->
+<div id="ColumnModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content for Column Details-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Columns</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-field-data">
+                        <div class="col-lg-12 col-sm-12 my-1">
+                            <label class="control-label col-sm-3"> Name: </label>
+                            <div class="col-sm-9">
+                                <!--<span id="txtPopColumnName">MartRiskAdjustmentMembershipHCCID</span>-->
+                                <input id="txtPopColumnName" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                    <div class="form-field-data">
+                        <div class="col-lg-12 col-sm-12 my-1">
+                            <label class="control-label col-sm-3">Metric Description: </label>
+                            <div class="col-sm-9">
+                                <!--<p>
+                                    <span id="txtPopColumnDescription">MartRiskAdjustmentMembershipHCCID</span>
+                                </p>-->
+                                <textarea id="txtPopColumnDescription" class="form-control" rows="6"></textarea>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                    <div class="form-field-data">
+                        <div class="col-lg-12 col-sm-12 my-1">
+                            <label class="control-label col-sm-3"> Key (PK/FK): </label>
+                            <div class="col-sm-9">
+                                <!--<span id="txtPopColumnName">MartRiskAdjustmentMembershipHCCID</span>-->
+                                <input id="txtPopColumnName" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                    <div class="form-field-data">
+                        <div class="col-lg-12 col-sm-12 my-1">
+                            <label class="control-label col-sm-3"> Length: </label>
+                            <div class="col-sm-9">
+                                <!--<span id="txtPopColumnName">MartRiskAdjustmentMembershipHCCID</span>-->
+                                <input id="txtPopColumnName" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                    <div class="form-field-data">
+                        <div class="col-lg-12 col-sm-12 my-1">
+                            <label class="control-label col-sm-3"> Not Null: </label>
+                            <div class="col-sm-9">
+                                <!--<span id="txtPopColumnName">MartRiskAdjustmentMembershipHCCID</span>-->
+                                <input id="txtPopColumnName" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                    <div class="form-field-data">
+                        <div class="col-lg-12 col-sm-12 my-1">
+                            <label class="control-label col-sm-3"> Unique: </label>
+                            <div class="col-sm-9">
+                                <!--<span id="txtPopColumnName">MartRiskAdjustmentMembershipHCCID</span>-->
+                                <input id="txtPopColumnName" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                    <div class="form-field-data">
+                        <div class="col-lg-12 col-sm-12 my-1">
+                            <label class="control-label col-sm-3"> Default Value: </label>
+                            <div class="col-sm-9">
+                                <!--<span id="txtPopColumnName">MartRiskAdjustmentMembershipHCCID</span>-->
+                                <input id="txtPopColumnName" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                    <div class="form-field-data">
+                        <div class="col-lg-12 col-sm-12 my-1">
+                            <label class="control-label col-sm-3"> Identity: </label>
+                            <div class="col-sm-9">
+                                <!--<span id="txtPopColumnName">MartRiskAdjustmentMembershipHCCID</span>-->
+                                <input id="txtPopColumnName" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                    <div class="form-field-data">
+                        <div class="col-lg-12 col-sm-12 my-1">
+                            <label class="control-label col-sm-3"> Seed: </label>
+                            <div class="col-sm-9">
+                                <!--<span id="txtPopColumnName">MartRiskAdjustmentMembershipHCCID</span>-->
+                                <input id="txtPopColumnName" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                    <div class="form-field-data">
+                        <div class="col-lg-12 col-sm-12 my-1">
+                            <label class="control-label col-sm-3"> Increment: </label>
+                            <div class="col-sm-9">
+                                <!--<span id="txtPopColumnName">MartRiskAdjustmentMembershipHCCID</span>-->
+                                <input id="txtPopColumnName" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                    <div class="form-field-data">
+                        <div class="col-lg-12 col-sm-12 my-1">
+                            <label class="control-label col-sm-3"> Formula / Calculation Description: </label>
+                            <div class="col-sm-9">
+                                <!--<p>
+                                    <span id="txtPopFormula">MartRiskAdjustmentMembershipHCCID</span>
+                                </p>-->
+                                <textarea id="txtPopFormula" class="form-control" rows="6" id="comment"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                    <div class="form-field-data">
+                        <div class="col-lg-12 col-sm-12 my-1">
+                            <label class="control-label col-sm-3">SQL Code: </label>
+                            <div class="col-sm-9">
+                                <!--<p>
+                                    <span id="txtPopSQLCode">MartRiskAdjustmentMembershipHCCID</span>
+                                </p>-->
+                                <textarea id="txtPopColumnDescription" class="form-control" rows="6"></textarea>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                    <div class="form-field-data">
+                        <div class="col-lg-12 col-sm-12 my-1">
+                            <label class="control-label col-sm-3">Data Source: </label>
+                            <div class="col-sm-9">
+                                <!--<p>
+                                    <span id="txtPopDataSource">MartRiskAdjustmentMembershipHCCID</span>
+                                </p>-->
+                                <textarea id="txtPopColumnDescription" class="form-control" rows="6"></textarea>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content for Column Details-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                <h4 class="modal-title">Keywords</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-field-data">
+                    <div class="col-lg-12">
+                        <label class="control-label col-sm-3"> Tables: </label>
+
+
+                        <div class="col-sm-9">
+                            <div class="dropdown">
+                                <button id="btnaddKeyword" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" value="Select Type                "
+                                    aria-expanded="false">
+                                    DataWarehouse
+                                </button>
+                                <ul id="ddladdKeyword" class="dropdown-menu">
+                                    <li>
+                                        <a href="https://rsystemsiltd.sharepoint.com/sites/rsyspedia/SitePages/TableDetails.aspx?Kid=3">Dim Member</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://rsystemsiltd.sharepoint.com/sites/rsyspedia/SitePages/TableDetails.aspx?Kid=4">Dim Claim</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://rsystemsiltd.sharepoint.com/sites/rsyspedia/SitePages/TableDetails.aspx?Kid=152">Dim Claim Report</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="javascript:AddKeyWord();">Save changes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- Jquery v3 -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<!-- Bootstrap v3 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- Custom js file -->
+<script src="/sites/rsyspedia/AppLibrary/webparts/EditTable/js/edit.js"></script>

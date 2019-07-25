@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800');
+
+html {
+    height: 100%;
+}
+body {
+    font-family:"Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight:400;
+    line-height: 1.42857;
+    color: #263238;
+	overflow-x:hidden;
+}
+
+ul li { list-style: none; }
+p{margin:0px; padding:0px; }
+ul{padding:0; margin:0}
+@-ms-viewport { width: auto !important; }
+a,
+button {
+    outline: 0 !important;
+}
+a:hover,
+a:focus {
+    text-decoration: none;
+    cursor: pointer;
+}
+a, a:hover { color: #00B7FF; }
+h1, h2, h3, h4, h5, h5 { color:#294F76; font-family: 'Montserrat', arial, sans-serif; font-weight: 300; margin: 0px; padding: 0px; }
+button, input[type="button"], input[type="submit"]{ cursor:pointer; }
+.max-wh-120{ width:120px; height:120px; }
+.th-lg { height: 45px; }
+.img-full-width { width: 100%; }
+.form-section input[readonly], .form-section select[readonly], .form-section textarea[readonly] {
+    background-color: #eee;
+    color: #777;
+    border-color: #ccc;
+}
+.my-auto {
+    margin-top: auto!important;
+    margin-bottom: auto!important;
+}
+
+/*************************Font size**************************/
+.small, small {
+    font-size: 11px;
+}
+.medium {
+    font-size: 12px;
+}
+.fs-14 { font-size: 14px !important; }
+.large {
+    font-size: 16px;
+}
+.x-large {
+    font-size: 20px;
+}
+.fs-36 { font-size: 36px !important; }
+
+
+/*************************Font size**************************/
+.fw-7 { font-weight: 700 !important; }
+
+/*************************Default Common Use**************************/
+hr{ margin:0px; padding:0px; border-color:#cbd5dc; }
+.d-ib { display: inline-block !important; }
+
+/***************************Text Color*********************************/
+.text-grey { color: #aaa !important; }
+.text-w { color: #fff !important; }
+.text-grey-s { color: #666 !important; }
+
+
+/***************************Background Color*********************************/
+.bg-w { background-color: #fff; }
+
+/***************************Common Class*********************************/
+.w-200 { width: 200px !important; }
+.w-250{ width:250px !important; }
+.h-60{ height:60px !important; }
+.mt-1{ margin-top:10px !important; }
+.mt-2{ margin-top:20px !important; }
+.mt-3{ margin-top:30px !important; }
+.mt-4{ margin-top:40px !important; }
+
+/***************************Header Class*********************************/
+header {
+    background-color: #eef3fa;
+    width: 100%;
+    display: block;
+	position:fixed;
+	left:0;
+	top:84px;
+	width:100%;
+	z-index:5;
+}
+/***************************Menu Section*********************************/
+
+
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed;
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #675e57; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 10px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    top: 136px;
+    width: 0px;
+}
+
+
+/* The navigation menu links */
+.sidenav ul{ margin:0 15px; }
+.sidenav ul li{ border-bottom:1px solid #858280; }
+.sidenav a {
+    padding: 8px 8px 8px 12px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #fc9727;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 10px 20px;
+}
+
+
+.top-btn {
+    font-size: 25px;
+    cursor: pointer;
+    color: #f79d56;
+	vertical-align: middle;
+
+}
+
+/***************************Common Section*********************************/
+#Content_section {
+    padding-left: 260px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+	min-width: 300px;
+}
+.content_full {
+    padding-left: 0!important;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+/****************************SharePoint*************************************/
+div#sideNavBox {
+    display: none !important;
+}
+
+div[id$='_QuickLaunchNavigationManager'] {
+    display: none !important;
+}
+
+/*div#RibbonContainer-TabRowRight{
+    display:none !important;
+}*/
+div.topBar2{
+    display:none !important;
+}
+
+div#s4-titlerow {
+    display:none !important;
+}
+
+/*.ml-content {
+        margin-left: -269px;
+}*/
+
+/***************************************************************************/
+
+
+/***********************Media Query Start******************************/
+
+@media screen and (min-width: 992px) {
+
+}
+
+
+@media screen and (min-width: 768px) {
+
+}
+
+@media screen and (max-width: 767px) {
+#Content_section { padding-left: 0px; }
+}
+    
+@media screen and (min-width: 576px) {
+    
+   
+}
+
+@media screen and (max-width: 575px) {
+
+
+}
+ 
+@media screen and (max-width:320px) {
+
+
+}
+
+
+/******************************************************************************
+*******************************************************************************/
+
