@@ -1,0 +1,33 @@
+<!-- Start content section -->
+
+<div class="container">
+    <div class="row px-3">
+        <div class="col-1 col-sm-1 my-auto pl-0"><a class="back-btn" ng-click="goBack()"><i class="fa fa-long-arrow-left"></i></a></div>
+        <div class="col-10 col-sm-10">
+            <h5 class="text-center py-3">Help</h5>
+        </div>
+        <div class="col-1 col-sm-1 pl-0"></div>
+    </div>
+</div>
+<div class="border-box">
+    <!-- Inner section -->
+    <div class="inside-container">
+        <form class="form-section">
+            <p class="text-center my-3">How can we help you?</p>
+            <div class="container">
+                <hr size=2 class="my-2" />
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>Description: </label>
+                        <textarea ng-model="message" class="form-control" id="exampleTextarea" rows="8"></textarea>
+                    </div>
+                    <div class="col-sm-12">
+                        <input type="submit" value="Send" class="btn btn-default my-3" ng-click="sendMemberEmail()"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- End of Inner section -->
+</div>
+<!--- End of content section -->

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Carepoynt></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/cp/img/favicon.ico" type="image/x-icon"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/cp/img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/cp/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/android-chrome-192x192.png" sizes="192x192">
+    <meta name="msapplication-square70x70logo" content="/images/smalltile.png"/>
+    <meta name="msapplication-square150x150logo" content="/images/mediumtile.png"/>
+    <meta name="msapplication-wide310x150logo" content="/images/widetile.png"/>
+    <meta name="msapplication-square310x310logo" content="/images/largetile.png"/>
+
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <script src="https://use.fontawesome.com/2a254fbc49.js"></script>
+
+    <link rel="stylesheet" href="/js/bootstrap-select.min.css" type="text/css" media="screen" charset="utf-8"/>
+
+    <link type="text/css" rel="stylesheet" href="/cp/member-ui/app/app.css">
+    <link type="text/css" rel="stylesheet" href="/cp/staff-portal/css/style.css">
+    <link type="text/css" rel="stylesheet" href="/css/dev-tools/less-space.css"/>
+</head>
+
+<body>
+<div class="cp-background-gradient">
+<!--                      Main                -->
+<div class="main">
+
+    <div class="container xs-mt-40">
+      <div class="container main-wrapper">
+
+        <div class="header">
+            
+            <div class="col-xs-4 xs-mt-20">
+                <div><?php echo $_SESSION['selectedEnterprise']['ent_name']; ?></div>
+                <small id="enterprise-poynts" style="height:20px;display:block"><? echo $this->data['poynts'] . " Poynts"; ?></small>
+               
+            </div> 
+            <div class="center-xs col-xs-4 xs-pt-20">
+                <img id="logo" align="middle" src="/assets/app-new/img/CP-logo-white-header.png">
+            </div>
+            <div class="col-xs-4 text-right xs-mt-10">
+                <div class="cp-fs-14"><?php echo $_SESSION['loginMember']['name'];?></div>
+                <div class="cp-fs-12"><?php echo $_SESSION['loginMember']['email'];?></div>
+                <a  href="/logout" class="xs-mt-5 cp-fs-12">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    logout
+                </a>
+            </div>
+        </div>
+
+        <div class="row button-row">
+            <div class="col-xs-3">
+                <button type="button" id="memberBtn" class="cp-btn xs-mt-30 cp-fs-14">+ Member</button>
+            </div>
+            <div class="center-xs col-xs-6 xs-pt-20">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="btn-group col-xs-12 cp-btn-group" style="display:flex" role="group">
+                        <button id="earnBtn" class="col-xs-6 btn-lg cp-btn-split-left active">Earn</button>
+                        <button id="redeemBtn" class="col-xs-6 btn-lg cp-btn-split-right">Redeem</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="earn-wrapper">
+          <div class="row">
+            <div class="col-xs-8 col-xs-offset-2 xs-mt-50 cp-staff-view">
+              <form id="earn-form" class="col-xs-10 col-xs-offset-1 text-center cp-form-group" >
+                <input type="hidden" id="promo_member_id" name="memberid" value="">
+                <div class="typeahead__container xs-mt-50">
+                    <div class="typeahead__field">
+                        <span class="typeahead__query">
+                            <input class="cp-input js-typeahead-user_v1 xs-mt-0" id="earn-name" name="earn_query" placeholder="Enter First Name, Email, or Phone Number" autocomplete="off" type="search">
+                        </span>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12 selectContainer xs-p-0">
+                        <select id="earn-promo" class="form-control cp-input xs-mt-50" placeholder="Select a Promotion" name="promo_id">
+                            <option value=''> Select Promotion</option>
+                        <?
+                            foreach($this->data['promos'] as $promo) {
+                                echo "<option value='";
+                                echo $promo['id']; 
+                                echo "' > ";
+                                echo $promo['title'];
+                                echo "</option>";
+                            } 
+                        ?>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="earn-response-success" class="response-success col-xs-12 xs-mt-40 text-center"></div>
+                <div id="earn-response-error" class="response-error col-xs-12 xs-mt-40 text-center"></div>
+                <button type="submit" id="send-poynts-button" class="btn btn-primary cp-form-button">Send Poynts</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="redeem-wrapper hide">
+          <div class="row">
+            <div class="col-xs-8 col-xs-offset-2 xs-mt-50 cp-staff-view">
+              <form id="redeem-form" class="col-xs-10 col-xs-offset-1 text-center cp-form-group">
+                <div id="redeem-enter-section">
+                    <input id="redeem-code" name="voucher_code" class="response-error col-xs-12 xs-mt-50 cp-input" type="text" maxlength="10" placeholder="Redemption Code" />
+                    <div id="redeem-error"></div>
+                </div>
+                <div id="redeem-response-section" class="hide" style="text-align: right">
+                    <div class="row xs-pt-40">
+                        <div class="col-xs-4 xs-pr-0">Name:</div>
+                        <strong class="col-xs-8" id="redeem-name" style="text-align: left"></strong>
+                    </div>
+                    <div class="row xs-pt-10">
+                        <div class="col-xs-4 xs-pr-0">Offer:</div>
+                        <strong class="col-xs-8" id="redeem-offer" style="text-align: left"></strong>
+                    </div>
+                    <div class="row xs-pt-10">
+                        <div class="col-xs-4 xs-pr-0">Description:</div>
+                        <strong class="col-xs-8" id="redeem-description" style="text-align: left"></strong>
+                    </div>
+                    <div class="row xs-pt-10">
+                        <div class="col-xs-offset-4 col-xs-8" style="text-align: left;font-size:12px;">Enter the following code into your POS</div>
+                    </div>
+                    <div class="row xs-pt-10">
+                        <div class="col-xs-4 xs-pr-0">POS Code:</div>
+                        <strong class="col-xs-8" id="redeem-pos" style="text-align: left"></strong>
+                    </div>
+                </div>
+                <div id="redeem-success" class="response-success col-xs-12 xs-mt-40 text-center"></div>
+                <button type="submit" id="redeem-code-button" class="btn btn-primary cp-form-button"> Redeem</button>
+                <button type="button" id="redeem-okay-button" class="btn btn-primary cp-form-button" style="display:none"> Okay</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="member-wrapper hide">
+          <div class="row">
+            <div class="col-xs-8 col-xs-offset-2 xs-mt-50 cp-staff-view">
+              <form id="member-form" class="col-xs-10 col-xs-offset-1 text-center cp-form-group">
+                <input id="member-email" name="member_email" class="col-xs-12 xs-mt-50 cp-input" type="text" placeholder="Email" />
+                <div id="member-response-success" class="response-success xs-mt-40"></div>
+                <div id="member-response-error" class="response-error xs-mt-40"></div>
+                <button type="submit" id="member-email-button" class="btn btn-primary cp-form-button">Add Member</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- /append the wrapper sections here -->
+      </div>
+
+    </div><!-- /.container -->
+</div>
+</div>
+
+<div id="loading" class="busy-loading-page" hidden>
+    <img class="busy-loading-image" src="/cp/img/ajax-loader.gif" alt="Loading..." />
+</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/cp/js/jquery.min.js"><\/script>')</script>
+    <link rel="stylesheet" href="/js/jquery.typeahead.min.css">
+    <script src="/js/jquery.typeahead.min.js"></script>
+    <script src="/cp/js/bootstrap.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/cp/staff-portal/js/staff-portal.js">
+        $(document).ready(function() {
+            init();
+        });
+    </script>
+
+</body>
+
+</html>

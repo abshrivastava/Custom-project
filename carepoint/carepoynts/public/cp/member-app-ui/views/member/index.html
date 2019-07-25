@@ -1,0 +1,14 @@
+<div id="wrapper">
+    <div ng-include="'views/shared/flyout-nav-menu/index.html?v=1012'"></div>
+    <div ng-include="'views/shared/header/index.html?v=1017'"></div>
+    <!-- Start ui-view wrapper section -->
+    <div id="member" class="row-container left-pannel">
+        <div class="maincontainer" ng-click="closeFlyout()">
+            <div id="content_wrapper">
+                <div id="memberUiView" ui-view></div>
+                <cp-loader></cp-loader>
+            </div>
+        </div>
+    </div>
+    <!-- Start ui-view wrapper section -->
+</div>

@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "FontAwesomeJiM-Regular";
+  src: url("../fonts/FontAwesomeJiM-Regular.eot?#iefix") format("embedded-opentype"), 
+       url("../fonts/FontAwesomeJiM-Regular.woff") format("woff"), 
+       url("../fonts/FontAwesomeJiM-Regular.ttf")  format("truetype"),
+       url("../fonts/FontAwesomeJiM-Regular.svg#svgFontName") format("svg");
+}

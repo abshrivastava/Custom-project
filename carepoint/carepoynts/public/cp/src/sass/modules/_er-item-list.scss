@@ -1,0 +1,91 @@
+.er-item-list {
+  padding: ($padding-base-vertical * 3) 0 ($padding-base-vertical * 7);
+  background: #fff;
+  margin-top: -21px;
+
+  .item {
+    //@include make-row;
+    margin: ($padding-base-vertical * 7) 0 0;
+
+    p {
+      margin-bottom: 0;
+    }
+    .poynts {
+      @include Montserrat-Bold;
+      //color: $redeem;
+      line-height: 1;
+      font-size: ceil(($font-size-base * 1.05));
+      margin-bottom: 5px;
+
+      small {
+        @include Montserrat-Regular;
+        font-size: ceil(($font-size-base * .85));
+      }
+    }
+
+    .date {
+      font-family: $font-family-sans-serif;
+      color: $gray;
+      font-weight: 600;
+      font-size: ceil(($font-size-base * .65));
+    }
+
+    div[class^="col-"] {
+      padding-right: 7px;
+      padding-left: 7px;
+    }
+  }
+
+  .badge-earn,
+  .badge-redeem {
+    height: 35px;
+    line-height: 1;
+    width: 35px;
+    border-radius: 50%;
+    font-size: ceil(($font-size-base * 1.2));
+
+    .ion-flash {
+      line-height: 1.6;
+    }
+    .ion-heart {
+      line-height: 1.7;
+    }
+  }
+
+  .badge-earn {
+    background-color: $blue-earn;
+  }
+
+  .badge-redeem {
+    background-color: $redeem;
+    color: $redeem-txt;
+  }
+
+  .descrp {
+    font-size: ceil(($font-size-base * .9));
+  }
+
+  .company {
+    font-weight: 700;
+    font-size: ceil(($font-size-base * .65));
+  }
+
+}
+
+
+.show-more {
+  //@include make-row;
+  @include Montserrat-SemiBold;
+  //margin-top: ($padding-base-vertical * 7);
+  padding: ceil(($padding-base-vertical * .95)) 0;
+  border-top: 1px solid $gray-light;
+  border-bottom: 1px solid $gray-light;
+  color: $blue-action;
+  font-size: ceil(($font-size-base * .7));
+  text-transform: uppercase;
+  background: #fff;
+
+  .icon {
+    font-size: ceil(($font-size-base * 1.05));
+  }
+}

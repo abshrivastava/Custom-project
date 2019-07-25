@@ -1,0 +1,70 @@
+<!-- Start content section -->
+
+<div class="container">
+    <div class="row px-3">
+        <div class="col-1 col-sm-1 my-auto pl-0"><a class="back-btn" ng-click="goBack()"><i class="fa fa-long-arrow-left"></i></a></div>
+        <div class="col-10 col-sm-10">
+            <h5 class="text-center py-3">My Careplans</h5>
+        </div>
+        <div class="col-1 col-sm-1 pl-0"></div>
+    </div>
+</div>
+<div class="border-box mb-3" ng-if="!(ctrl.enterprises.joyned.length > 0 || ctrl.enterprises.network.length > 0)">
+    <p class="py-2 sub-title-sm text-center">No careplans found</p>
+</div>
+<div class="border-box mb-3" ng-if="ctrl.enterprises.joyned.length > 0">
+    <p class="py-2 sub-title-sm">My Network</p>
+    <!-- Start Article 1 -->
+    <div class="content-border-box my-2" ng-repeat="enterprise in ctrl.enterprises.joyned">
+        <div class="row mouse-hover" 
+        ng-click="ctrl.onEnterpriseClick(enterprise.ent_id, enterprise.no_of_offers, enterprise.isAffiliated, enterprise.single_promo_id)">        
+            <div class="col-4 col-sm-2 pl-2 text-left my-auto logo-frame">
+                <img ng-src="{{enterprise.profile_logo ? enterprise.profile_logo : '/cp/images/blank-img.png'}}" />
+            </div>
+            <div class="col-8 col-sm-10 pl-0 pr-2">
+                <div class="row">
+                    <div class="col-sm-10 col-9">
+                        <p class="overflow-ellipsis">{{enterprise.ent_name}}</p>
+                        <p class="text-grey overflow-ellipsis">{{enterprise.ent_address}}</p>
+                    </div>
+                    <div class="col-sm-2 col-3 text-right sm-img">
+                        <img src="/cp/images/badge-partner.png" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Article 1 -->
+</div>
+<!-- End of content section -->
+
+<div class="border-box mb-3" ng-if="ctrl.enterprises.network.length > 0">
+    <p class="py-2 sub-title-sm">Carepoynt Network</p>
+    <!-- Start Article 2 -->
+    <div class="content-border-box my-2" ng-repeat="enterprise in ctrl.enterprises.network">
+        <div class="row mouse-hover" 
+        ng-click="ctrl.onEnterpriseClick(enterprise.ent_id, enterprise.no_of_offers, enterprise.isAffiliated, enterprise.single_promo_id)">
+            <div class="col-4 col-sm-2 text-left my-auto logo-frame">
+                <img ng-src="{{enterprise.profile_logo ? enterprise.profile_logo : '/cp/images/blank-img.png'}}" />
+            </div>
+            <div class="col-8 col-sm-10">
+                <div class="row">
+                    <div class="col-sm-10 col-9">
+                        <p>{{enterprise.ent_name}}</p>
+                        <p class="text-grey">{{enterprise.ent_address}}</p>
+                        <!-- <i class="fa fa-heart heart_color" aria-hidden="true"></i>
+                        <i class="fa fa-heart heart_color" aria-hidden="true"></i>
+                        <i class="fa fa-heart heart_color" aria-hidden="true"></i>
+                        <i class="fa fa-heart heart_color" aria-hidden="true"></i>
+                        <i class="fa fa-heart-o heart_color" aria-hidden="true"></i> -->
+                    </div>
+                    <div class="col-sm-2 col-3 text-right sm-img">
+                        <img src="/cp/images/badge-partner.png" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Article 2 -->
+</div>
+<!-- End of content section -->

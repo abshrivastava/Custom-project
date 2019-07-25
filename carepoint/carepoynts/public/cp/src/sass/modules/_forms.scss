@@ -1,0 +1,86 @@
+.form-control {
+  border-width: 0 0 1px 0;
+  border-radius: 0;
+  @include box-shadow(none);
+  border-color: $gray-base;
+  @include Montserrat-Regular;
+  font-size: ceil(($font-size-base * 0.85));
+  color: $gray-base;
+
+
+  &:focus {
+    border-color: $gray-base;
+    @include box-shadow(none);
+    @include placeholder($gray);
+  }
+}
+
+.form-group {
+	margin: $form-group-margin-top auto $form-group-margin-bottom;
+}
+
+.submit-group {
+	margin: ($form-group-margin-top * 1.5) auto $form-group-margin-bottom;
+	padding-right: ($form-group-margin-top * 1.5);
+	padding-left: ($form-group-margin-top * 1.5);
+}
+
+.input-group-addon {
+  color: inherit;
+  font-size: ceil(($font-size-base * 1.65));
+  border-width: 0 0 1px 0;
+  border-radius: 0;
+  @include box-shadow(none);
+  border-color: $gray-base;
+  padding: 4px 0 4px 20px;
+}
+
+.reset-link {
+  a {
+    font-size: ceil(($font-size-small * .8));
+    color: inherit;
+  }
+}
+
+button {
+  outline: 0;
+}
+
+
+// custom checkboxes
+input[type=checkbox] + label {
+  @include Montserrat-Regular;
+  font-size: ceil(($font-size-small * .8));
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid $gray-light;
+  padding: ($padding-small-vertical * 2);
+}
+input[type=checkbox] { display:none; }
+input[type=checkbox] + label:before {
+  display: inline-block;
+}
+
+input[type=checkbox] + label:after {
+  font-family: "Ionicons";
+  content: "\f401";
+  color: $gray-base;
+  font-size: 25px;
+}
+input[type=checkbox] + label:after {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+}
+
+input[type=checkbox]:checked + label:after {
+  font-family: "Ionicons";
+  content: "\f3ff";
+  color: $blue-action;
+  font-size: 25px;
+}
+input[type=checkbox]:checked + label:after {
+  position: absolute;
+  top: 0px;
+  right: 9px;
+}

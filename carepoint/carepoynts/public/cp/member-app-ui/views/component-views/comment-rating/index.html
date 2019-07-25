@@ -1,0 +1,12 @@
+
+<div class="content-border-box my-2" ng-if="ctrl.latestReviews.length > 0" ng-repeat="review in ctrl.latestReviews | limitTo: ctrl.limitCount">
+        <h5 class="sub-text py-1 text-black">{{review.memberName}}</h5>
+        <p class="text-greylite medium">{{review.comment}}</p>
+</div>
+<div class="d-bw " ng-if="ctrl.latestReviews.length > ctrl.limitCount">
+    <a ng-click="ctrl.showMore()" class="d-bw  show-more pt-3 medium-font pb-1 text-right mouse-hover">{{(ctrl.limitCount) ? ctrl.showButton.ShowMore: ctrl.showButton.ShowLess}}</a>
+</div>
+<div class="border-box my-4" ng-if="!ctrl.latestReviews.length > 0">
+    <p class="sub-title-sm text-center">No reviews</p>
+</div>
+    

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Carepoynt - Onboard Promo Keys</title>
+
+
+    <script src="/cp/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/cp/js/jquery-ui.min.js"></script>
+    <script src="/js/mobile-detect.js"></script>
+
+    <!-- In production use:
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+    -->
+    <script src="/cp/onboard-ui/app/bower_components/angular/angular.js"></script>
+    <script src="/cp/onboard-ui/app/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/cp/onboard-ui/app/bower_components/angular-bootstrap/ui-bootstrap-tpls-0.13.4.min.js"></script>
+    <script src="/cp/onboard-ui/app/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="/cp/onboard-ui/app/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+    <link href="./style.css" rel="stylesheet">
+</head>
+<body>
+    <div ng-app="home" ng-controller="homeCtrl" class="main">
+        <!-- <iframe class="gif" src="https://giphy.com/embed/1CrejqXxVZs9q" width="471" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
+        <table class="table-striped">
+            <tr>
+                <th>Key</th>
+                <th>Poynts</th>
+                <th>Landing Page</th>
+                <th>Main Image</th>
+                <th>Cards</th>
+            </tr>
+            <tr ng-repeat="(name, config) in configData">
+                <td><a href="/onb/dsgs/{{name}}" target="_dosgets">{{name}}</a></td>
+                <td>{{config.poynts}}</td>
+                <td>{{config.landingPage}}</td>
+                <td><img src="{{config.imgUrl}}" class="main-img"></td>
+                <td>
+                    <img src="{{config.giftCardUrls[0]}}" class="sub-img">
+                    <img src="{{config.giftCardUrls[1]}}" class="sub-img">
+                    <img src="{{config.giftCardUrls[2]}}" class="sub-img">
+                    <img src="{{config.giftCardUrls[3]}}" class="sub-img">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="./home.js"></script>
+    <script src="/cp/onboard-ui/app/onboard-service/onboard-service.js"></script>
+</body>
+</html>

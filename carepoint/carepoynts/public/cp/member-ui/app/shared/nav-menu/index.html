@@ -1,0 +1,55 @@
+
+      <!-- nav menu -->
+      <div>
+        <nav class="st-menu st-effect-4" id="menu-4">
+          <div class="center-xs center-md"><img class="cp-logo" src="/assets/app-new/img/CP-login-white-navmenu.png" alt="">
+          <!-- <img height="42" src="/images/cp/cp48logo.png"> -->
+          <div class="avatar text-center">
+            <div ng-if="features['dark.member.nav-menu-photo']" >
+              <img class="member-photo"  ng-if="!member.photoPath" src="/cp/img/avatar.jpg" alt="">
+              <img class="member-photo"  ng-if="member.photoPath" ng-src="{{member.photoPath}}" alt="">
+            </div>
+            <p class="name-email">
+              <span id="member-name">{{member.name}}</span><br>
+              <span id="member-email">{{member.email}}</span>
+            </p>
+          </div>
+          <ul>
+            <li ng-if="features['dark.member.checkin']"><a ng-click="getCheckin()"><i class="icon ion-ios-checkmark-outline"></i> CheckIn & Earn</a></li>
+            <li><a ng-click="goTo('dashboard')"><i class="icon ion-speedometer"></i> Dashboard</a></li>
+            <!-- <li ng-if="features['dark.member.my-log']"><a ng-click="goTo('mylog')">My Log</a></li> -->
+                  <!-- drop down for menu childreen items -->
+                  <li ng-if="features['dark.member.my-log']">
+                      <a data-target="#One" role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="collapseOne" class="collapsed clique_down_btn" >
+                      <i class="icon ion-clipboard"></i> My Activity
+                      <span class="icons pull-right d-block cp-pt-5">
+                          <i class="fa fa-chevron-right menu-right-icon"></i>
+                          <i class="fa fa-chevron-down menu-down-icon"></i>
+                      </span>
+                      </a>
+                  </li>
+
+                  <div id="One" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
+                      <div class="sub_menu">
+                        <li ng-if="features['dark.member.poynt-log']" class="text-left clique_medium_txt"><a class="submenu_text" ng-click="goTo('poyntlog')"><i class="icon ion-ios-paper-outline"></i> My Poynts</a></li>
+                        <li ng-if="features['dark.member.my-log']" class="text-left clique_medium_txt" ><a class="submenu_text" ng-click="goTo('mylog')"><i class="icon ion-card"></i> My Purchases</a></li>
+                      </div>
+                  </div>
+                  <!-- end of drop down for menu childreen items -->  
+
+            
+            <li ng-if="!features['dark.member.cliques-multiple']"><a ng-click="goTo('clique')"><i class="icon ion-ios-people"></i> My Clique</a></li>
+            <li ng-if="features['dark.member.cliques-multiple']"><a ng-click="goTo('cliques')"><i class="icon ion-ios-people"></i> My Cliques</a></li>
+            <li ng-if="features['dark.member.careplan']"><a ng-click="goTo('careplan')"><i class="icon ion-ios-book-outline"></i> My Careplan</a></li>
+            <li><a ng-click="goTo('profile')"><i class="icon ion-person"></i> My Profile</a></li>
+            <li ng-if="features['dark.member.refer-business-button']"><a ng-click="goTo('refer-business')"><i class="icon ion-android-person-add"></i> Refer Business</a></li>
+            <li ng-if="showAddToHomescreen"><a ng-click="showAdd()"><i class="icon ion-star"></i> Add to Homescreen</a></li>
+            <li ng-if="features['dark.member.helpbutton']"><a ng-click="goTo('help')"><i class="icon ion-ios-help"></i> Help</a></li>
+            <li><a href="/rewards/logout"><i class="icon ion-log-out"></i> Sign Out</a></li>
+            
+          </ul>
+        </nav>
+      </div>
+      <!-- /nav menu  -->
+
+

@@ -1,0 +1,73 @@
+<style>
+  .review-rate input {
+    font-size: 16px;
+  }
+</style>
+
+<div class="cp-bg-color-white panel-fullscreen review-rate" ng-if="showReviewScreen">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs col-sm-7 col-md-10">
+        <div class="review">
+          <div ng-show="!showReviewDone">
+            <div class="row center-xs text-center" >
+
+              <div class="col-xs-12 cp-pt-20">
+                <div class="">
+                  <strong>1 - 5 hearts</strong>
+                </div>
+              </div>
+
+              <!-- Rating -->
+              <div class="rating rating-heart-color cp-bg-color-white cp-font-size-50 cp-pt-20 cp-mt-20 col-xs-12">
+                
+                <span uib-rating ng-model="review.rating" max="5" state-on="'glyphicon-heart'" state-off="'glyphicon-heart-empty'" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="[]" aria-labelledby="default-rating" class=""></span>
+              </div>
+              <div class="col-xs-12">
+                <div class="form-group text-left">
+                  <label for="comment">Comment:</label>
+                  <textarea class="form-control cp-border-rounded" rows="10" id="comment" ng-model="review.comment"></textarea>
+                </div>
+              </div>
+                <div class="col-xs form-group center-xs">
+                  <div class="col-xs-6">
+                    <button type="button" class="btn btn-earn" ng-click="submitRating()" > Submit </button>
+                  </div>
+
+                  <div class="col-xs-6">
+                    <button type="button" class="btn btn-default" ng-click="closeReview()" data-dismiss="modal"> Cancel </button>
+                  </div>
+                </div>
+                
+              
+              <!-- /Rating -->
+            </div>
+          </div>
+
+          <div class="row center-xs" ng-show="showReviewDone">
+
+            <div class="col-xs cp-pt-20">
+              <div class="form-group text-center">
+                
+                <div class="cp-pt-10">
+                  <strong>Thank you for your feedback</strong>
+                </div>
+              </div>
+
+              <div class="col-xs form-group center-xs">
+
+                <div class="col-xs-12">
+                  <button type="button" class="btn btn-default" ng-click="closeReview()" > Close </button>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+          
+            </div>
+          </div>
+        </div>
+        <!-- /.review -->
+      </div>
+    </div>
+  </div>
+</div>
+

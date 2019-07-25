@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="280" height="280" viewBox="0 0 280 280">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+        filter: url(#filter);
+      }
+    </style>
+    <filter id="filter" x="2109" y="2940" width="280" height="280" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#09f"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <path id="logomark" class="cls-1" d="M2279.04,3103.86a33.765,33.765,0,1,1,0-47.73l2.45,2.46,11.25-11.26-2.41-2.45a49.05,49.05,0,0,0-35.22-14.67,49.79,49.79,0,1,0,35.2,85.05l2.43-2.43-11.23-11.44Zm84.94-23.86-37.24,37.24,12.51,12.51L2389,3080l-50.33-50.33-12.5,12.51ZM2249,3194.99l-37.82-37.82-12.51,12.5L2249,3220l49.61-49.62-12.5-12.5ZM2134.02,3080l37.1-37.11-12.51-12.5L2109,3080l49.04,49.04,12.51-12.51ZM2249,2965.01l36.53,36.54,12.51-12.51L2249,2940l-49.75,49.75,12.51,12.51Z" transform="translate(-2109 -2940)"/>
+</svg>

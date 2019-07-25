@@ -1,0 +1,159 @@
+<style>
+  input {
+    font-size: 16px;
+  }
+
+  body {
+    background-color: #fff;
+  }
+</style>  
+
+  <div class=""> 
+    <div id="st-container" class="st-container">
+      <!-- nav menu -->
+      <div ng-include="'shared/nav-menu/index.html'"></div>
+      <!-- /nav menu  -->
+
+      <!-- content push wrapper -->
+      <div class="st-pusher">
+        <div class="st-content"><!-- this is the wrapper for the content -->
+          <div class="st-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+          
+            <!-- header - navbar -->
+            <div ng-include="'shared/header/index.html'" ></div>
+            <!-- /header - navbar -->
+
+
+            <div class="container">
+              <div class="row center-md">
+                <div class=" col-xs col-sm-7 col-md-10 between-xs middle-xs">
+                  <!-- page-heading  -->
+                  <div class="cp-mlr-5">
+                    <div class="row center-xs top-xs heading">
+                      <div class="col-xs">
+                        <div class="start-xs back-link pull-left">
+                          <a ng-click="goBack()"><i class="icon ion-ios-arrow-thin-left"></i></a>
+                        </div>
+                        <div class="col-xs center-xs page-heading">
+                          <h1>
+                            My Careplans
+                          </h1>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /page-heading  -->
+
+
+                  <!-- start show list view -->
+                  <div ng-show="showListView">
+                    <ul ng-repeat="careplan in careplans" class="cp-border-rounded cp-ptb-10 cp-mtb-10" style="padding-left:5px">
+                      <li ng-click="showCareplan(careplan.tag)" class="" style="text-align:left; font-size:16px; display:inline;">
+                        <div class="container-fluid">
+                          <div class="row">
+                            <i class="{{careplan.img}} col-xs-2 cp-pt-5" aria-hidden="true"></i> 
+                            <div class="col-xs-8 cp-ptb-10">{{careplan.name}}</div>
+                            <i class="col-xs-1 cp-pt-10 fa fa-lg fa-chevron-right" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <!--  end show list view -->
+
+                  <!-- start careplan view -->
+                  <div ng-show="showCareplanView" class="cp-pt-15">
+                    <label ng-show="features['dark.member.careplan-search']">Search: <input ng-model="searchText"></label>
+                    <div id="searchTextResults">
+                      <div ng-if="enterprises.joyned.length > 0" style="text-align:left;font-size:1.1em">
+                        <label>My Network</label>
+                      </div>
+                      <div ng-if="enterprises.joyned.length > 0" ng-repeat="enterprise in enterprises.joyned | filter:searchText">
+                        <div ng-click="showEnterprise(enterprise.ent_id)" class="item cp-p-5 cp-border-rounded cp-mtb-10">
+                          <div class="">
+                            <div class="">
+                              <div class="col-xs-3 col-sm-2 center-xs cp-p-5 logo-frame" >
+                                <span class="cp-bg-color-transparent cp-p-5"> 
+                                  <img ng-src="{{enterprise.profile_logo}}"> 
+                                </span>
+                              </div>
+                              <div class="col-xs-7 col-sm-8 start-xs">
+                                <p class="cp-pt-5 descrp text-left cp-font-size-14" style="margin-bottom:0px">{{enterprise.ent_name}}</p>
+                                <p class="p-pt-10 descrp text-left cp-font-size-12" style="text-transform: none;margin-bottom:0px"></p>
+                                <p class="p-pt-10 descrp text-left cp-font-size-14" style="text-transform: none;margin-bottom:0px">{{enterprise.ent_address}}</p>
+
+                                
+                              </div>
+                              <div class="col-xs-2 end-xs cp-p-10 cp-pt-0">
+                                  <span class="badge cp-bg-color-transparent"> <img src="/assets/app-new/img/badge-partner.png" height="30" width="30"> </span>
+                              </div>
+                              <!-- depends on what they are.  -->
+                              <div class="clearfix"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div ng-if="enterprises.network.length > 0" style="text-align:left;font-size:1.1em">
+                        <label>Carepoynt Network</label>
+                      <div ng-repeat="enterprise in enterprises.network | filter:searchText">
+                        <div ng-click="showEnterprise(enterprise.ent_id)" class="item cp-p-5 cp-border-rounded cp-mtb-10">
+                          <div class="">
+                            <div class="">
+                              <div class="col-xs-3 col-sm-2 center-xs cp-p-5 logo-frame" >
+                                <span class="cp-bg-color-transparent cp-p-5"> 
+                                  <img ng-src="{{enterprise.profile_logo}}"> 
+                                </span>
+                              </div>
+                              <div class="col-xs-7 col-sm-8 start-xs">
+                                <p class="cp-pt-5 descrp text-left cp-font-size-14" style="margin-bottom:0px">{{enterprise.ent_name}}</p>
+                                <p class="p-pt-10 descrp text-left cp-font-size-12" style="text-transform: none;margin-bottom:0px"></p>
+                                <p class="p-pt-10 descrp text-left cp-font-size-14" style="text-transform: none;margin-bottom:0px">{{enterprise.ent_address}}</p>
+                              
+                              </div>
+                              <div class="col-xs-2 end-xs cp-p-10 cp-pt-0">
+                                  <span class="badge cp-bg-color-transparent"> <img src="/assets/app-new/img/badge-partner.png" height="30" width="30"> </span>
+                              </div>
+                              <!-- depends on what they are.  -->
+                              <div class="clearfix"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>                    
+                  <!-- end careplan view -->
+
+                </div>
+              </div>
+               
+            </div><!-- /.container  -->
+
+          </div><!-- /st-content-inner -->
+        </div><!-- /st-content -->
+      </div><!-- /st-pusher -->
+    </div><!-- /st-container -->
+
+    <!-- search-->
+    <div ng-include="'shared/search/index.html'" ></div>
+    <!--search  -->
+  </div>
+
+
+  <!-- loading -->
+  <div ng-show="loading" class="loading-page">
+    <!-- <img id="loading-image" src="images/ajax-loader.gif" alt="Loading..." /> -->
+    <i class="icon ion-ios-loop-strong spin big" style="color: #fff"></i>
+  </div>
+  
+  <div ng-show="showBusy" class="busy-loading-page">
+    <img class="busy-loading-image" src="/cp/img/ajax-loader.gif" alt="Loading..." />
+  </div>
+
+
+  <!-- some css custom magic -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+  <!-- <link href="/cp/css/bootstrap-form-button-inputs.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/cp/member-ui/app/app.css?v=0.1">
+  

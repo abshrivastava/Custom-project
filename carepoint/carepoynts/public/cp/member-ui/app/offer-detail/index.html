@@ -1,0 +1,457 @@
+<style>
+  .offer-details input {
+    font-size: 16px;
+  }
+
+  .modal-backdrop {
+    background-color: #fff;
+  }
+
+  .checkbox {
+    display: inline;
+  }
+
+</style>
+
+
+
+  <div class="offer-details">
+    <div id="st-container" class="st-container">
+      <!-- nav menu -->
+      <div ng-include="'shared/nav-menu/index.html'"></div>
+      <!-- /nav menu  -->
+
+      <!-- content push wrapper -->
+      <div class="st-pusher">
+        <div class="st-content"><!-- this is the wrapper for the content -->
+          <div class="st-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+            <!-- header - navbar -->
+            <div ng-include="'shared/header/index.html'" ></div>
+            <!-- /header - navbar -->
+
+            <div class="main container cp-plr-10">
+              <div class="row center-xs">
+                <div class="col-xs-12 col-sm-7 col-md-10 cp-plr-10">
+
+                  <div class="row top-xs center-xs cp-mlr-5">
+                    <div class="col-xs-12 heading cp-plr-10 cp-mb-0">
+                      <div class="start-xs back-link pull-left">
+                        <a ng-click="goBack()"><i class="icon ion-ios-arrow-thin-left"></i></a>
+                      </div>
+                      <div class="col-xs center-xs page-heading">
+                        <h1>
+                          <strong>{{enterprise.ent_name}}</strong>
+                        </h1>
+                      </div>
+                    </div>
+                  </div> 
+
+                  <div class="row center-xs ">
+                    <div class="col-xs-12 col-sm-12 col-md-12 ">
+
+        <div id="enterprise" class="cp-mb-5" ng-if="showCompanyDetail">
+          <div id="main">
+            <div ng-if="enterprise.profile_photo" class="enterprise-header" ng-class="{'cp-gradient-blue' : !enterprise.profile_photo}" style="background-image:url({{enterprise.profile_photo}})">
+              <div class="pure-g">
+                <div style="height:160px; white-space: nowrap;text-align: center;margin:0 auto;overflow-x: hidden;
+                      overflow-y: hidden;
+                      background: #ffffff;
+                      text-align: center;
+                      white-space: nowrap;
+                      border-radius:50%;
+                      width: 160px;">
+                  <span style="display: inline-block;
+                        height: 100%;
+                        vertical-align: middle;line-height: 150px;">
+                  <img ng-src="{{enterprise.profile_logo}}" style="height:auto;width: 130px;vertical-align: middle;"/></span>
+
+                  <!-- <div class="logo-frame">
+                    <span class="cp-bg-color-transparent"> 
+                      <img ng-src="{{enterprise.profile_logo}}"> 
+                    </span>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+            <div ng-if="!enterprise.profile_photo" class="enterprise-header" ng-class="{'cp-gradient-blue' : !enterprise.profile_photo}">
+              <div class="pure-g">
+                <div style="height:160px; white-space: nowrap;text-align: center;margin:0 auto;overflow-x: hidden;
+                      overflow-y: hidden;
+                      background: #ffffff;
+                      text-align: center;
+                      white-space: nowrap;
+                      border-radius:50%;
+                      width: 160px;">
+                  <span style="display: inline-block;
+                        height: 100%;
+                        vertical-align: middle;line-height: 150px;">
+                  <img ng-src="{{enterprise.profile_logo}}" style="height:auto;width: 130px;vertical-align: middle;"/></span>
+
+                  <!-- <div class="logo-frame">
+                    <span class="cp-bg-color-transparent"> 
+                      <img ng-src="{{enterprise.profile_logo}}"> 
+                    </span>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+                      
+
+                      <!-- video -->
+
+                      <div ng-if="showVideo">
+                        <div ng-include="'offer-detail/video-youtube.html'" ></div>
+                      </div>
+                      <!-- /video -->
+
+                      
+
+
+                      <!-- Redeem Offer-->
+                      <div ng-if="!isEarn()">
+                        <div class="row center-xs cp-pt-10 cp-pb-5 cp-m-5 cp-bg-color-white cp-border-rounded" ng-if="!isEarn()">
+                          <div class="col-xs-12 col-sm-12 col-md-12 ">
+                            <!-- <div class="alert alert-success cp-mb-0" ng-show="redeemSuccessful">
+                              <a class="close" ng-click="redeemSuccessful=!redeemSuccessful">&times;</a>
+                              <div class="text-left"><strong>  <span ng-if="offer.action.type=='SNACK'">Please stop by the Carepoynt booth to pick up your snack.</span></strong></div>
+                            </div> -->
+                          
+                            <div class="o-snapshot">
+                              <div class="row center-xs">
+                                <div class="col-xs-12">
+                                  <div ng-show="offer.donate">
+                                    <div class="col-xs-6 cp-plr-0">
+                                      <img class="responsive-image" style="height: 90px;" src="/cp/img/cp-coins.png">
+                                    </div>
+                                    <div class="col-xs-6 cp-plr-0">
+                                     <!-- Connect and Clique for a Cause -->
+                                      <img class="responsive-image" style="height: 90px;" src="/cp/img/CMN_logo.jpg">
+                                    </div>
+                                    <div class="clearfix"></div>
+                                  </div>
+                                  <p class="name">{{offer.title}}</p>
+                                  
+                                  <p class="intro">{{offer.enterprise.name}}</p>
+                                  <p class="amt cp-redeem">{{offer.redem_value | number}}<small> poynts</small></p>
+                                  <div ng-if="!offer.donate">
+                                    <!-- <div ng-if="enoughPoynts">
+                                      <a class="btn btn-redeem btn-lg btn-block" role="button" ng-click="redeemClick()">Redeem Now</a>
+                                    </div> -->
+                                     <!-- <div ng-if="enoughPoynts && !userEarned">
+                                      <a class="btn btn-redeem btn-lg btn-block" role="button" ng-click="redeemClick()" ng-if="offer.isRedeemable && !userEarned">Redeem Now</a>
+                                    </div>  -->
+                                    <div ng-if="!enoughPoynts && !userEarned">
+                                      <!-- <a class="btn btn-default btn-lg btn-block" role="button" ng-if="offer.isRedeemable">
+                                        Earn More To Redeem
+                                      </a> -->
+                                      You do not have enough poynts for this redemption.
+                                    </div>
+                                    <!-- <div ng-if="offer.isRedeemable && userEarned" class="cp-redeem">
+                                      <h2><strong>You have redeemed this offer!</strong></h2>
+                                    </div> -->
+                                     
+                                  </div>
+                                  <div ng-if="offer.donate">
+                                    <div ng-if="userEarned">
+                                      <h2><strong>You have maxed out this redemption offer!</strong></h2>
+                                    </div>
+                                    <div ng-if="enoughPoynts && !userEarned">
+                                      <a class="btn btn-redeem btn-lg btn-block" role="button" ng-click="redeemClick()" ng-if="offer.isRedeemable">Donate</a>
+                                    </div>
+                                    <div ng-if="!enoughPoynts && !userEarned">
+                                      <a class="btn btn-default btn-lg btn-block" role="button" ng-if="offer.isRedeemable">Earn More To Donate</a>
+                                    </div>
+                                  </div>
+                                  <!-- <p class="exp" ng-if="offer.daysRemaining"><i class="icon ion-android-time"></i> Offer Ends in 2 Days</p> -->
+
+                                  
+                                  
+                                  <!-- <div ng-if="redeemSuccessful">
+                                    <p class="cp-redeem cp-font-size-16" >You have earned this promotion.</p>
+                                  </div> -->
+                                </div>
+                              </div>
+                              </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                              <div class="o-details text-center cp-mt-20">
+                                <h1><strong>About the Offer</strong></h1>
+                                <div class="cp-font-size-14">
+                                  <p>{{offer.description}}</p>
+                                    <div ng-if="enoughPoynts && !userEarned">
+                                      <a class="btn btn-block btn-lg btn-redeem cp-mt-20" role="button" ng-disabled="redeemSuccessful" ng-click="redeemClick()" ng-if="offer.isRedeemable && !userEarned">Purchase</a>
+                                    </div>
+                                    <div ng-if="offer.isRedeemable && userEarned" class="cp-redeem text-center">
+                                      <strong>Max redemption limit reached!</strong>
+                                    </div>
+                                    <div ng-if="redeemSuccessful" class="text-center text-success">
+                                      <a ng-click="goTo('mylog')">
+                                        <h4>Redeemed! Find the voucher in My Purchases<h4>
+                                      </a>
+                                      <strong></strong>
+                                    </div>
+                                  <div class="cp-mt-20">
+                                      <p><strong>Date valid {{offer.startdate | date:'MM/dd/yyyy'}} - {{offer.enddate | date:'MM/dd/yyyy'}}</strong></p>
+                                  </div>
+
+                                  <div ng-if="!offer.action">
+                                      <p><strong>* Visit location to take advantage of this offer.</strong></p>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /Redeem Offer-->
+
+
+                      <!-- Earn Offer-->
+                      <div ng-if="isEarn() && !isTypeStep" class="col-xs-12">
+                        <div class="row center-xs cp-plr-5 cp-pb-5 cp-mlr-5 cp-bg-color-white cp-border-rounded" >
+                          <div class="col-xs-12 col-sm-12 col-md-12 ">
+                            <div class="o-snapshot">
+                              <div class="row center-xs">
+                                <div class="col-xs-12">
+
+                                  <p class="name">{{offer.title}}</p>
+                                  <!-- <p class="city">{{offer.enterprise.ent_city}}</p> -->
+                                  <p ng-if="showVariable" class="amt cp-blue-earn">{{offer.variable_promo.percentage}}<small> Poynts per Dollar</small></p>
+                                  <p ng-if="!showVariable" class="amt cp-blue-earn">{{poynts | number}}<small> poynts</small></p>
+                                  <div ng-if="!userEarned && showEarnButton" class="cp-plr-10">
+                                    
+                                    <a class="btn btn-earn btn-lg btn-block" role="button" ng-click="earnClick()" ng-if="isActionable">Earn Now</a>
+                                  </div>
+
+                                  <div ng-if="!userEarned && showCheckInButton" class="cp-plr-10">
+                                    
+                                    <a class="btn btn-earn btn-lg btn-block" role="button" ng-click="earnClick()">Check-in for {{offer.reward_value}}</a>
+                                  </div>
+
+                                   <div ng-show="showFacebook" class="cp-ptb-10">
+                                    <!-- Your like button code -->
+                                    <div id="fb-root">
+                                    </div>
+                                    <div class="fb-like" data-href="{{offer.enterprise.profile_rating_fb}}" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="false">
+                                    </div>
+                                  </div>
+                                  
+                                  <!-- link to onboard -->
+                                    <div ng-if="offer.activity == 'profile_complete' && offer.user_earned == false">
+                                      <div class="form-group center-xs">
+                                        <button type="button" class="btn btn-earn " ng-click="goToOnboard()">Complete Your Profile</button>
+                                      </div>
+                                    </div>
+                                    <!-- /link to onboard -->
+                                  
+                                  <div ng-if="userEarned">
+                                    <p class="cp-blue-earn cp-font-size-16" >You have earned this promotion.</p>
+                                     </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                              <div class="o-details text-left cp-mt-20">
+                                <h1><strong>About the Offer</strong></h1>
+
+                                <div class="cp-font-size-14">
+                                  <p>{{offer.description}}</p>
+                                  <div>
+                                      <p><Offer valid {{offer.startdate | date:'MM/dd/yyyy'}} - {{offer.enddate | date:'MM/dd/yyyy'}}</p>
+                                  </div>
+
+                                  <div ng-if="!offer.action">
+                                      <p><strong>* Visit location to take advantage of this offer.</strong></p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /Earn Offer-->
+
+
+
+
+                      <!-- steps Offer-->
+                      <!-- step -->
+                      <div ng-if="isTypeStep">
+                        <div class="row center-xs cp-pt-10 cp-pb-5 cp-m-5 cp-bg-color-white cp-border-rounded">
+                          <div class="col-xs-12 col-sm-12 col-md-12 cp-p-0">
+                            <div class="">
+                              <div class="text-center">
+                                <p class="name">Your Steps Today :</p>
+                                  <small>( Sync your device )</small>
+
+                                <div>
+                                  <p class="amt">{{steps | number}}<small> steps</small></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /step -->
+
+                      <div ng-if="isEarn() && isTypeStep" class="col-xs-12 cp-plr-0">
+                        <div class="row center-xs cp-plr-5 cp-pb-5 cp-mlr-5 cp-bg-color-white cp-border-rounded" >
+                          <div class="col-xs-12 col-sm-12 col-md-12 ">
+                            <div class="o-snapshot">
+                              <div class="row center-xs">
+                                <div class="col-xs-12">
+
+                                  <p class="name">{{offer.title}}</p>
+                                  <!-- <p class="city">{{offer.enterprise.ent_city}}</p> -->
+                                  <p class="amt cp-blue-earn">{{offer.reward_value | number}}<small> poynts</small></p>
+                                  <div ng-if="!userEarned && showEarnButton" class="cp-plr-10">
+
+                                    <!-- <a ng-if="steps < stepThreshold" class="btn btn-default btn-lg btn-block disabled" disabled role="button">
+                                    <span class="glyphicon glyphicon-lock"></span>&nbsp;&nbsp;Get to Stepping</a> -->
+
+                                    
+                                    
+                                   <!--  <a ng-if="steps >= stepThreshold" class="btn btn-earn btn-lg btn-block" role="button" ng-click="earnClick()" ng-if="isActionable">Earn Now</a> -->
+                                  </div>
+
+                                  <!-- human api -->
+                                    <div ng-if="features['dark.member.link-acct-fitbit']">
+                                      <div class="form-group center-xs" ng-if="!humanApiProfile || (!humanApiProfile.clientId || !humanApiProfile.publicToken)">
+                                        <button type="button" class="btn btn-earn " ng-click="openHumanApi()">Link an Account</button>
+                                      </div>
+                                    </div>
+                                    <!-- /human api-->
+                                  
+                                  <div ng-if="userEarned">
+                                    <p class="cp-blue-earn cp-font-size-16" >You have earned this promotion.</p>
+                                  </div>
+                                 
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                              <div class="o-details text-left cp-mt-20">
+                                <h1><strong>About the Offer</strong></h1>
+
+                                <div class="cp-font-size-14">
+                                  <p>{{offer.description}}</p>
+                                  <div>
+                                      <p><strong>Offer valid {{offer.startdate | date:'MM/dd/yyyy'}} - {{offer.enddate | date:'MM/dd/yyyy'}}</strong></p>
+                                  </div>
+
+                                  <div ng-if="!offer.action">
+                                      <p><strong>* Visit location to take advantage of this offer.</strong></p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /steps Offer-->
+
+
+                      <!-- Location -->
+                      <!-- <div ng-if="showCompanyDetail"> -->
+                      <div ng-if="showCompanyDetail && enterprise.geo_lat">
+                        <div class="row center-xs cp-pt-10 cp-pb-5 cp-m-5 cp-bg-color-white cp-border-rounded">
+                          <div class="col-xs-12 col-sm-12 col-md-12 cp-p-0">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                              <div class="text-left cp-font-size-12">
+                                <strong>Address:</strong><br>
+                                <address>
+                                  <a class="cp-color-black" href="{{address}}">
+                                    {{enterprise.ent_address}}<br>
+                                    {{enterprise.ent_city}} {{enterprise.ent_state}}, {{enterprise.ent_zip}}
+                                  </a>
+                                </address>
+                                <a class="cp-color-black" href="tel:{{enterprise.ent_phone}}">{{enterprise.ent_phone | telephone}}</a>
+                                <br>
+                                <div>
+                                  
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                              <div class="gmap-location cp-p-0 cp-mb-10" >
+                                 <div map-lazy-load="https://maps.google.com/maps/api/js" style="height: 130px">
+                                  <a href="{{address}}">
+                                    <ng-map center="[{{enterprise.geo_lat}}, {{enterprise.geo_long}}]" zoom="12" style="height:100%">
+                                      <marker position="[{{enterprise.geo_lat}}, {{enterprise.geo_long}}]"></marker>
+                                    </ng-map>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                            </div>
+                        </div>
+                      </div>
+                      <!-- /Location -->
+
+
+
+                    </div>
+                  </div>
+                  <!-- /c-details -->
+
+                </div>
+              </div>
+
+            </div><!-- /main -->
+          </div><!-- /st-content-inner -->
+        </div><!-- /st-content -->
+      </div><!-- /st-pusher -->
+    </div><!-- /st-container -->
+
+    <!-- search-->
+    <div ng-include="'shared/search/index.html'" ></div>
+    <!--search  -->
+
+  </div>
+
+
+
+  <!-- review-rating-->
+  <div ng-if="isTypeReview" >
+    <div ng-include="'offer-detail/hearts-rating.html?v=0.1234'" ></div>
+  </div>
+  <!-- /review-rating  -->
+
+  <!-- review-rating-->
+  <div ng-if="isTypeSocialReview" >
+    <div ng-include="'offer-detail/hearts-rating-social.html?v=0.1234'" ></div>
+  </div>
+  <!-- /review-rating  -->
+
+    <!-- referral -->
+  <div ng-if="isTypeReferral" >
+    <div ng-include="'offer-detail/referral.html?v=0.123'" ></div>
+  </div>
+  <!-- /referral  -->
+
+  <!-- partner creds form -->
+  <div ng-if="features['dark.member.link-acct-fitbit']" >
+    <div ng-include="'offer-detail/human-api-integration.html'"></div>
+  </div>
+  <!-- /partner creds form  -->
+
+  <!-- loading -->
+  <div ng-show="loading" class="loading-page">
+    <!-- <img id="loading-image" src="images/ajax-loader.gif" alt="Loading..." /> -->
+    <i class="icon ion-ios-loop-strong spin big" style="color: #fff"></i>
+  </div>
+
+  <div ng-if="showBusy" class="busy-loading-page">
+    <img class="busy-loading-image" src="/cp/img/ajax-loader.gif" alt="Loading..." />
+  </div>
+
+    <!-- css hacking override : begin -->
+    <link href="/assets/app-new/css/styles.css" rel="stylesheet">
+    <!-- css hacking override : end -->

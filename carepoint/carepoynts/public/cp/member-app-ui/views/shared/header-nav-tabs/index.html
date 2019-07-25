@@ -1,0 +1,25 @@
+<nav class="menu-shadow">
+    <div class="container" ng-click="closeFlyout()">
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav-menu">
+                    <li ng-class="{'current-active': currentStateIncludes[stateNames.Dashboard]}">
+                        <a ui-sref="member.dashboard">Dashboard</a>
+                    </li>
+                    <li ng-class="{'current-active': currentStateIncludes[stateNames.Earn]}">
+                        <a ui-sref="member.earn">Earn</a>
+                    </li>
+                    <li ng-class="{'current-active': currentStateIncludes[stateNames.Redeem]}">
+                        <a ui-sref="member.redeem">Redeem</a>
+                    </li>
+                    <li ng-class="{'current-active': currentStateIncludes[stateNames.Careplan]}">
+                        <a ui-sref="member.careplan">Plans</a>
+                    </li>
+                    <li ng-class="{'current-active': currentStateIncludes[stateNames.Cliques]}">
+                        <a ui-sref="member.cliques">Cliques</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,178 @@
+*,
+*:after,
+*::before {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html,
+body,
+.st-container,
+.st-pusher,
+.st-content {
+	height: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.st-content {
+	overflow-y: scroll;
+  padding-top: ($padding-large-vertical * 6);
+}
+
+.st-content,
+.st-content-inner {
+	position: relative;
+}
+
+.st-container {
+	position: relative;
+	overflow: hidden;
+}
+
+.st-pusher {
+	position: relative;
+	left: 0;
+	z-index: 99;
+	height: 100%;
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+}
+
+.st-pusher::after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 0;
+	height: 0;
+	content: '';
+	opacity: 0;
+	-webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+	transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+}
+
+.st-menu-open .st-pusher::after {
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	-webkit-transition: opacity 0.5s;
+	transition: opacity 0.5s;
+}
+
+.st-menu {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	visibility: hidden;
+	width: 300px;
+	height: 100%;
+	background: $gray-dark;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+
+  ul {
+  	margin: 0 15px;
+  	padding: 0;
+  	list-style: none;
+
+    li a {
+    	display: block;
+    	padding: 12px;
+    	outline: none;
+    	color: #fff;
+      background: $gray-dark;
+      @include Montserrat-Light;
+      font-size: 16px;
+      border-bottom: 1px solid rgba($gray-light, .15);
+      -webkit-transition: background 0.3s;
+    	transition: background 0.3s;
+
+      &:hover {
+        text-decoration: none;
+        background: rgba(0,0,0,0.2);
+      }
+
+      &:focus {
+        text-decoration: none;
+      }
+
+      .icon {
+        font-size: 22px;
+        margin-right: 5px;
+      }
+    }
+
+  }
+
+  .cp-logo {
+    max-width: 143px;
+    margin: ceil(($padding-small-vertical * 2.85));
+  }
+  .avatar {
+    color: #fff;
+
+    img {
+      max-width: 100px;
+    }
+
+    .name-email {
+      margin-top: $padding-base-vertical;
+      @include Montserrat-Light;
+      font-size: ceil(($font-size-base * .75));
+    }
+  }
+
+
+  &::after {
+  	position: absolute;
+  	top: 0;
+  	right: 0;
+  	width: 100%;
+  	height: 100%;
+  	content: '';
+  	opacity: 1;
+  	-webkit-transition: opacity 0.5s;
+  	transition: opacity 0.5s;
+  }
+}
+
+.st-menu-open .st-menu::after {
+	width: 0;
+	height: 0;
+	opacity: 0;
+	-webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+	transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+}
+
+
+
+
+/* Effect 4: Slide along */
+.st-effect-4.st-menu-open .st-pusher {
+	-webkit-transform: translate3d(300px, 0, 0);
+	transform: translate3d(300px, 0, 0);
+}
+
+.st-effect-4.st-menu {
+	z-index: 1;
+	-webkit-transform: translate3d(-50%, 0, 0);
+	transform: translate3d(-50%, 0, 0);
+}
+
+.st-effect-4.st-menu-open .st-effect-4.st-menu {
+	visibility: visible;
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.st-effect-4.st-menu::after {
+	display: none;
+}
+
+/* Fallback example for browsers that don't support 3D transforms (and no JS fallback) */
+.no-csstransforms3d .st-pusher,
+.no-js .st-pusher {
+	padding-left: 300px;
+}

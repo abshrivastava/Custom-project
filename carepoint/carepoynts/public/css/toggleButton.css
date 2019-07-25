@@ -1,0 +1,384 @@
+@CHARSET "UTF-8";
+
+/*toggle button csas */
+.tgb_blue {
+	background-color: #033E8C;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	border: 2px solid #033E8C;
+	display: inline-block;
+	padding: 4px;
+	height: 36px;
+	width: 36px;
+	margin-right: 5px;
+	font-size: 9px;
+}
+
+.tgb_grey {
+	-moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	background-color: #ededed;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	border: 2px solid #dcdcdc;
+	display: inline-block;
+	padding: 4px;
+	margin-right: 5px;
+	height: 36px;
+	width: 36px;
+	font-size: 9px;
+}
+
+.tgbl_grey {
+	-moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	background-color: #ededed;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	border: 2px solid #dcdcdc;
+	display: inline-block;
+	padding: 4px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	height: 64px;
+	width: 64px;
+	float: left;
+	font-size: 11px;
+	color: #555555;
+}
+
+.tgbl_blue {
+	background-color: #428BCA;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	border: 2px solid #2481fb;
+	display: inline-block;
+	padding: 4px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	height: 64px;
+	width: 64px;
+	float: left;
+	font-size: 11px;
+	color: #FFFFFF;
+}
+
+.tgbl_grey:hover {
+	background-color: #dfdfdf;
+	border: 2px solid #336699;
+	cursor: pointer;
+}
+
+.tgb_grey:hover {
+	background-color: #dfdfdf;
+	border: 2px solid #336699;
+	cursor: pointer;
+}
+
+.tgb_blue:hover {
+	cursor: pointer;
+}
+
+.tgb_icon {
+	height: 25px;
+	width: 25px;
+	margin: 5px auto auto;
+}
+
+.img_Dashboard {
+	height: 23px;
+	width: 23px;
+	background-image: url("/images/dashboard.png");
+}
+
+.img_Dashboard_white {
+	height: 23px;
+	width: 23px;
+	background-image: url("/images/dashboard_w.png");
+}
+
+.img_Case_Work {
+    height: 23px;
+    width: 23px;
+    background-image: url("/images/case_info.png");
+}
+
+.img_Case_Info {
+	height: 23px;
+	width: 23px;
+	background-image: url("/images/case_info.png");
+}
+
+.img_Case_Work_white {
+    height: 23px;
+    width: 23px;
+    background-image: url("/images/case_info_w.png");
+}
+
+.img_Case_Info_white {
+	height: 23px;
+	width: 23px;
+	background-image: url("/images/case_info_w.png");
+}
+.img_Timeline {
+	background-image: url("/images/11-clock_grey.png");
+}
+
+.img_Timeline_white {
+	background-image: url("/images/11-clock_w.png");
+}
+
+.img_Calendar {
+	height: 25px;
+	width: 23px;
+	background-image: url("/images/calendar_grey.png");
+}
+
+.img_Calendar_white {
+	height: 25px;
+	width: 23px;
+	background-image: url("/images/calendar_w.png");
+}
+
+.img_Medical {
+	margin-top: 8px;
+	height: 22px;
+	width: 22px;
+	background-image: url("/images/10-medical_grey.png");
+}
+
+.img_Medical_white {
+	margin-top: 8px;
+	height: 22px;
+	width: 22px;
+	background-image: url("/images/10-medical_w.png");
+}
+
+.img_CarePlan {
+	margin-top: 8px;
+	height: 21px;
+	width: 30px;
+	background-image: url("/images/nurse.png");
+}
+
+.img_CarePlan_white {
+	margin-top: 8px;
+	height: 21px;
+	width: 30px;
+	background-image: url("/images/nurse_w.png");
+}
+
+.img_Patients {
+	margin-top: 8px;
+	height: 21px;
+	width: 32px;
+	background-image: url("/images/112-group.png");
+}
+
+.img_Patients_white {
+	margin-top: 8px;
+	height: 21px;
+	width: 32px;
+	background-image: url("/images/112-group_w.png");
+}
+
+.img_Members {
+	margin-top: 8px;
+	height: 21px;
+	width: 32px;
+	background-image: url("/images/112-group.png");
+}
+
+.img_Members_white {
+	margin-top: 8px;
+	height: 21px;
+	width: 32px;
+	background-image: url("/images/112-group_w.png");
+}
+
+.img_CareTeam {
+	margin-top: 8px;
+	height: 21px;
+	width: 32px;
+	background-image: url("/images/112-group.png");
+}
+
+.img_CareTeam_white {
+	margin-top: 8px;
+	height: 21px;
+	width: 32px;
+	background-image: url("/images/112-group_w.png");
+}
+
+.img_Cliques {
+	margin-top: 8px;
+	height: 21px;
+	width: 32px;
+	background-image: url("/images/112-group.png");
+}
+
+.img_Cliques_white {
+	margin-top: 8px;
+	height: 21px;
+	width: 32px;
+	background-image: url("/images/112-group_w.png");
+}
+
+.img_Config {
+	margin-top: 8px;
+	margin-bottom: 3px;
+	height: 22px;
+	width: 22px;
+	background-image: url("/images/config.png");
+}
+
+.img_Config_white {
+	margin-top: 8px;
+	margin-bottom: 3px;
+	height: 22px;
+	width: 22px;
+	background-image: url("/images/config_w.png");
+}
+
+.img_Admin {
+	margin-top: 8px;
+	margin-bottom: 3px;
+	height: 22px;
+	width: 22px;
+	background-image: url("/images/config.png");
+}
+
+.img_Admin_white {
+	margin-top: 8px;
+	margin-bottom: 3px;
+	height: 22px;
+	width: 22px;
+	background-image: url("/images/config_w.png");
+}
+
+.img_Enterprise {
+	margin-top: 0px;
+	height: 24px;
+	width: 21px;
+	background-image: url("/images/enterprise.png");
+}
+
+.img_Enterprise_white {
+	margin-top: 0px;
+	height: 24px;
+	width: 21px;
+	background-image: url("/images/enterprise_w.png");
+}
+
+.img_Reports {
+	margin-top: 8px;
+	height: 21px;
+	width: 22px;
+	background-image: url("/images/report.png");
+}
+
+.img_Reports_white {
+	margin-top: 8px;
+	height: 21px;
+	width: 22px;
+	background-image: url("/images/report_w.png");
+}
+
+.img_Msg {
+	margin-top: 6px;
+}
+
+.img_Msg_white {
+
+}
+
+.wrk_badge {
+	background-color: red;
+	border: 2px solid #FFFFFF;
+	color: #FFFFFF;
+	font-size: 11px;
+	position: absolute;
+	right: 5px;
+	top: 13px;
+}
+.msg_badge {
+	background-color: #ffb366;
+	border: 2px solid #FFFFFF;
+	color: #FFFFFF;
+	font-size: 11px;
+	left: -10px;
+	position: relative;
+	top: -10px !important;
+}
+
+.tgl_element {
+	position: relative;
+}
+
+/*replace the content value with the
+corresponding value from the list below*/
+.tgl_element:before {
+	content: "\f0e0";
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	/*--adjust as necessary--*/
+	font-size: 24px;
+	padding-right: 0.5em;
+	position: absolute;
+	top: 0;
+	left: 18px;
+}
+.tgl_element_promo {
+	position: relative;
+}
+.tgl_element_promo:before {
+	content: "\f091";
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	/*--adjust as necessary--*/
+	font-size: 24px;
+	padding-right: 0.5em;
+	position: absolute;
+	top: 2;
+	left: 18px;
+}
+.tgl_element_redeem {
+	position: relative;
+}
+.tgl_element_redeem:before {
+	content: "\f0d6";
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	/*--adjust as necessary--*/
+	font-size: 24px;
+	padding-right: 0.5em;
+	position: absolute;
+	top: 2;
+	left: 18px;
+}
+.itext_white {
+	padding-top: 2px;
+	font-family: arial;
+	text-align: center;
+	color: #FAFAFA;
+}
+
+.itext_grey {
+	padding-top: 2px;
+	font-family: arial;
+	text-align: center;
+	color: black;
+}
+/* toggle button css end */

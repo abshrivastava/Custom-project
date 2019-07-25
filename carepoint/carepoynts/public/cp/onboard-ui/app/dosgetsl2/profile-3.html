@@ -1,0 +1,54 @@
+
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+    <div class="cp-pt-10">
+      <p class="text-center">
+        <span class="cp-promo-headline">
+          <strong>Joyn Carepoynt for FREE</strong>
+          <br>
+          <strong>Earn 500 CarePoynts with 3 easy steps!</strong>
+        </span>
+        </p>
+    </div>
+    <div class="col-xs-8 col-xs-offset-2 cp-pt-5">
+      <hr class="xs-mb-0 xs-mt-0">
+    </div>
+    <div class="clearfix"></div>
+    <div class="text-center">
+      <h3>Step 3 &gt; Create a Clique</h3>
+    </div>
+
+    <div class="xs-p-5 cp-promo-headline-subtext col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <ul class="cp-pl-10">
+        <li>Create a Clique so your Poynts can be easily pooled and shared.</li>
+        <li>Invite 1 family member or friend to joyn your Clique.</li>
+        <li>They will receive a friendly email invitation to connect and joyn.</li>
+      </ul>
+    </div>
+    <div class="clearfix"></div>
+    
+    <!-- <br> -->
+    
+    <form class="clique-form">
+      <div class="form-group">
+      <label for="name">Name</label>
+        <input type="text" class="form-control" placeholder="Clique Name" ng-model="clique.name" ng-init="clique.name='My Family Clique'">
+      </div>
+      <div class="form-group">
+        <label for="email">Invite</label>
+        <!-- <input type="text" ng-model="clique.invite" class="form-control" placeholder="Email"  typeahead="email for email in myemails | filter:$viewValue" typeahead-wait-ms="300" typeahead-min-length="1" autocomplete="off"> -->
+        <input type="email" ng-model="clique.invite" class="form-control" placeholder="Email" autocomplete="off">
+      </div>
+
+      <div class="xs-pt-10">
+        <div class="form-group col-xs-6 xs-pl-0 xs-pr-5">
+          <button class="btn btn-info btn-block" ng-click="goBack(1)"> &lt; Back </button>
+        </div>
+        <div class="form-group col-xs-6 xs-pl-5 xs-pr-0">
+          <button class="btn btn-info btn-block" ng-click="goDosgetsValidateAndGo()"> Next &gt; </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

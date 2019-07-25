@@ -1,0 +1,89 @@
+<!-- Start content section -->
+
+<!-- <div class="container" ng-if="showReviewScreen">
+    <div class="row px-3">
+        <div class="col-2 col-sm-1 my-auto pl-0"><a class="back-btn" ng-click="goBack()"><i class="fa fa-long-arrow-left"></i></a></div>
+        <div class="col-10 col-sm-11">
+            <h5 class="text-center py-3">Feedback</h5>
+        </div>
+    </div>
+</div> --> 
+
+<div class="border-box mb-3" ng-if="showReviewScreen">
+    <!-- Inner section -->
+    <div class="inside-container">
+        <form class="form-section">
+            <p class="main-sub-title">1 - 5 hearts</p>
+            <div class="container">
+                <hr size=2 class="my-2" />
+                <div class="row">
+                    <div class="col-12 col-sm-12 heart-icons py-2 rating rating-heart-color">
+                        <span uib-rating ng-model="review.rating" max="5" state-on="'fa fa-3x fa-heart'" state-off="'fa fa-3x fa-heart-o'" read-only="isReadonly"
+                            on-hover="hoveringOver(value)" on-leave="overStar = null" titles="[]" aria-labelledby="default-rating"
+                            class="mouse-hover"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>Comment </label>
+                        <textarea class="form-control" id="exampleTextarea" rows="8" ng-model="review.comment"></textarea>
+                    </div>
+                </div>
+                <div ng-show='showSocial'>
+                    <div class="row social-info">
+                        <div class="col-sm-6">
+                            <div class="content-border-box social-box">
+                                <img src="/cp/images/fb-icon.png" />
+                                <button ng-show="showFacebookAuth" class="btn btn-primary btn-block w-50" ng-click="authorizeFacebook()">Connect</button>
+                                <div ng-show="showFacebookCheck">
+                                    <div class="social-text">Share to Earn<br/><b>{{offer.subPromos[1].reward_value}} Poynts</b></div>
+                                    <input type="checkbox" ng-model="socialChecks.facebook"></input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="content-border-box social-box">
+                                <img src="/cp/images/twitter-icon.png" />
+                                <button ng-show="showTwitterAuth" class="btn btn-primary btn-block w-50" ng-click="authorizeTwitter()">Connect</button>
+                                <div id="twitterCheck" ng-show="showTwitterCheck">
+                                    <div class="social-text">Share to Earn<br/><b>{{offer.subPromos[2].reward_value}} Poynts</b></div>
+                                    <input type="checkbox" ng-model="socialChecks.twitter"></input>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 text-center my-3">
+                        <input ng-show="showSocial" type="submit" value="Submit" ng-click="submitSocialRating()" class="btn btn-default btn-w90"
+                        />
+                        <input ng-show="!showSocial" type="submit" value="Submit" ng-click="submitRating()" class="btn btn-default btn-w90" />
+                        <input type="submit" value="Cancel" ng-click="cancelReview()" class="btn btn-secondary btn-w90 ml-4" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- End of Inner section -->
+
+</div>
+<div class="container" ng-show="showReviewDone">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6 cp-pt-20">
+            <div class="form-group text-center">
+                <div class="cp-pt-10">
+                    <strong>Thank you for your feedback</strong>
+                </div>
+            </div>
+            <div class="col-sm form-group center-sm">
+                <div class="col-sm-12">
+                    <button type="button" class="btn btn-default" ng-click="closeReview()"> Close </button>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<!-- End of content section -->

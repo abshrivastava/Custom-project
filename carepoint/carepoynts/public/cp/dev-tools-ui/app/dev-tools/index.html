@@ -1,0 +1,570 @@
+    <!-- Fixed navbar -->
+    <div ng-include="'shared/nav-bar.html'"></div>
+    <!-- /Fixed navbar -->
+
+    <div class="container" role="main">
+
+      <div class="row">
+        <div class="well well-sm text-center margin-none  cp-gradient-blue text-white">
+          <h2 class="xs-m-0">DevTools</h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="panel panel-primary">
+
+            <div class="panel-heading" ng-click="collapseSms=!collapseSms">
+              <h3 class="panel-title">SMS</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapseSms}">
+
+              <!-- bulk sms : Begin-->
+              <div>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <div class="row" >
+                      <div class="col-xs-12 col-md-4">
+                        <label>Phone Numbers</label>
+                        <div class="form-group">
+                          <textarea class="form-control" rows="5" ng-model="bulkSms.numbers"></textarea>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-md-8">
+                        <label>Message</label>
+                        <div class="form-group">
+                          <textarea class="form-control" rows="10" ng-model="bulkSms.msg"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" >
+                      <div class="col-xs-12">
+                        <div class="form-group ">
+                          <button type="button" class="btn btn-primary" ng-click="sendBulkSms()">Send It</button>
+                        </div>
+                      </div>
+                      </div>
+                  </li>
+
+                </ul>
+              </div>
+              <!-- bulk sms: end-->
+
+
+            </div> <!-- /panel-body -->
+          </div><!-- /panel -->
+        </div><!-- /.col-xs-12 -->
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="panel panel-primary">
+
+            <div class="panel-heading" ng-click="collapseEmail=!collapseEmail">
+              <h3 class="panel-title">Email</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapseEmail}">
+
+              <!-- buld smsbutton : Begin-->
+              <div>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <div class="row" >
+                      <div class="col-xs-12">
+                        <label>Emails</label>
+                        <div class="form-group">
+                          <textarea class="form-control" placeholder="comma seperated no spaces" rows="2" ng-model="sendEmail.emails"></textarea>
+                        </div>
+                      </div>
+                      <div class="col-xs-12">
+                        <label>Subject</label>
+                        <div class="form-group">
+                          <input class="form-control" ng-model="sendEmail.subject"></input>
+                        </div>
+                      </div>
+                      <div class="col-xs-12">
+                        <label>Content/Body of email</label>
+                        <div class="form-group">
+                          <textarea class="form-control" placeholder="What do you want the body to hold?" rows="5" ng-model="sendEmail.body"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" >
+                      <div class="col-xs-12">
+                        <div class="form-group ">
+                          <button type="button" class="btn btn-primary" ng-click="sendOutEmail()">Send It</button>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+
+                </ul>
+              </div>
+              <!-- bulk sms: end-->
+
+
+            </div> <!-- /panel-body -->
+          </div><!-- /panel -->
+        </div><!-- /.col-xs-12 -->
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="panel panel-primary">
+
+            <div class="panel-heading" ng-click="collapseOnboardEmail=!collapseOnboardEmail">
+              <h3 class="panel-title">Onboard Some Emails</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapseOnboardEmail}">
+
+              <!-- bulk invites : Begin-->
+              <div>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <div class="row" >
+                    <div class="col-xs-12">
+                        <label>Entid</label>
+                        <div class="form-group">
+                          <input class="form-control" ng-model="bulkEmail.entid"></input>
+                        </div>
+                      </div>
+                      <div class="col-xs-12">
+                        <label>Emails</label>
+                          <div class="form-group">
+                            <textarea class="form-control" placeholder="comma seperated no spaces" rows="15" ng-model="bulkEmail.emails"></textarea>
+                          </div>
+                      </div>
+                      
+                    </div>
+                    <div class="row" >
+                      <div class="col-xs-12">
+                        <div class="form-group ">
+                          <button type="button" class="btn btn-primary" ng-click="sendBulkInvites()">Send it to everyone</button>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+
+                </ul>
+              </div>
+              <!-- bulk invites: end-->
+
+
+            </div> <!-- /panel-body -->
+          </div><!-- /panel -->
+        </div><!-- /.col-xs-12 -->
+      </div>
+      
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="panel panel-primary">
+
+            <div class="panel-heading" ng-click="collapsePromoRank=!collapsePromoRank">
+              <h3 class="panel-title">Promo Ranks</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapsePromoRank}">
+
+              <!-- buld smsbutton : Begin-->
+              <div>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <div class="row" >
+                      <div class="col-xs-6" style="font-size:.9em">
+                        <label>Promos</label>
+                        <div>
+                          <input  ng-change="getPromos()" class="form-control" ng-model="promo.name" />
+                        </div>
+                        <table class="form-group" style="margin-top:15px;">
+                          <div style="height:400px;overflow-y:auto;overflow-x: visible;">
+                            <div class="well well-sm" ng-repeat="promo in promos | limitTo : 10" style="margin-bottom: 0px;margin-top: 5px;">
+                              <div class="row" style="margin-bottom: 5px">
+                                <h5 class="col-xs-6"> {{promo.ent_name}} </h5>
+                                <h5 class="col-xs-6"> {{promo.title}} </h5>
+                              </div>
+                              <div class="row">
+                                <div class="col-xs-2" style="margin-top: 5px;"> 
+                                  ID: {{promo.id}} 
+                                </div>
+                                <div class="col-xs-4">
+                                  <button class="btn btn-warning" id="priority" ng-click="updatePromoPriority(promo, 5)">Make Sticky</button>
+                                </div>
+                                <div class="col-xs-3">
+                                  <input class="col-xs-3 form-control"  id="rank" value="{{promo.rank}}" ng-model="promo.rank"/>
+                                </div>
+                                <div class="col-xs-3">
+                                  <button class="btn btn-primary" id="priority" ng-click="savePromoRank(promo)">Set Rank</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div style="height:250px;overflow-y:auto;overflow-x: visible;">
+                            <label>Stickies</label>
+                            <div class="well well-sm" ng-repeat="sticky in stickies | limitTo : 10" style="margin-bottom: 0px;margin-top: 5px;padding-bottom:5px">
+                              <div class="row" style="margin-bottom: 5px">
+                                <h5 class="col-xs-6"> {{sticky.ent_name}} </h5>
+                                <h5 class="col-xs-6"> {{sticky.title}} </h5>
+                              </div>
+                              <div class="row">
+                                <div class="col-xs-2" style="margin-top: 5px;">
+                                  ID: {{sticky.id}} 
+                                </div>
+                                <div class="col-xs-4">
+                                  <button class="btn btn-warning" ng-click="updatePromoPriority(sticky, 0)">Make Low Priority</button>
+                                </div>
+                                <div class="col-xs-4">
+                                  <button class="btn btn-warning" ng-click="updatePromoPriority(sticky, 1)">Make High Priority</button>
+                                </div>
+                                <div class="col-xs-2">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </table>
+                      </div>
+                      <div class="col-xs-6">
+                        <label>Ranks</label>
+                        <table class="table table-striped panel-default col-xs-12" style="height:684px;font-size:.9em;overflow-y:auto;">
+                          <tr>
+                            <th></th>
+                            <th>Rank</th>
+                            <th>Promo ID</th>
+                            <th>Promo Title</th>
+                            <th>Enterprise Name</th>
+                          </tr>
+                          <tr ng-repeat="rank in promoRankings">
+                            <td><button class="btn btn-xs btn-danger" style="font-size:8px;" ng-click="inactivatePromoRank(rank)">X</button></td>
+                            <td>{{rank.rank}}</td>
+                            <td>{{rank.id}}</td>
+                            <td>{{rank.title}}</td>
+                            <td>{{rank.ent_name}}</td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </li>
+
+                </ul>
+              </div>
+              <!-- bulk sms: end-->
+
+
+            </div> <!-- /panel-body -->
+          </div><!-- /panel -->
+        </div><!-- /.col-xs-12 -->
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="panel panel-primary">
+
+            <div class="panel-heading" ng-click="collapseEnterpriseRank=!collapseEnterpriseRank">
+              <h3 class="panel-title">Enterprise Ranks</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapseEnterpriseRank}">
+
+              <!-- buld smsbutton : Begin-->
+              <div>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <div class="row" >
+                      <div class="col-xs-6" style="font-size:.9em">
+                        <label>Enterprises</label>
+                        <div>
+                          <input ng-change="getEnterprises()" class="form-control" ng-model="enterprise.name" />
+                        </div>
+                        <table class="form-group" style="margin-top:15px;">
+                          <div style="height:650px;overflow-y:auto;overflow-x: visible;">
+                            <div class="well well-sm" ng-repeat="enterprise in enterprises | limitTo : 10" style="margin-bottom: 0px;margin-top: 5px;">
+                              <div class="row" style="margin-bottom: 5px">
+                                <h5 class="col-xs-6 col-xs-offset-1"> {{enterprise.ent_name}} </h5>
+                              </div>
+                              <div class="row">
+                                <div class="col-xs-3 col-xs-offset-1" style="margin-top: 5px;"> 
+                                  ID: {{enterprise.ent_id}} 
+                                </div>
+                                <div class="col-xs-3">
+                                  <input class="col-xs-3 form-control"  id="rank" value="{{enterprise.rank}}" ng-model="enterprise.rank"/>
+                                </div>
+                                <div class="col-xs-3">
+                                  <button class="btn btn-primary" id="priority" ng-click="saveEnterpriseRank(enterprise)">Set Rank</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </table>
+                      </div>
+                      <div class="col-xs-6">
+                        <label>Ranks</label>
+                        <table class="table table-striped panel-default col-xs-12" style="height:650px;font-size:.9em;overflow-y:auto;">
+                          <tr>
+                            <th></th>
+                            <th>Rank</th>
+                            <th>Ent ID</th>
+                            <th>Enterprise Name</th>
+                          </tr>
+                          <tr ng-repeat="rank in enterpriseRankings">
+                            <td><button class="btn btn-xs btn-danger" style="font-size:8px;" ng-click="inactivateEnterpriseRank(rank)">X</button></td>
+                            <td>{{rank.rank}}</td>
+                            <td>{{rank.id}}</td>
+                            <td>{{rank.ent_name}}</td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </li>
+
+                </ul>
+              </div>
+              <!-- bulk sms: end-->
+
+
+            </div> <!-- /panel-body -->
+          </div><!-- /panel -->
+        </div><!-- /.col-xs-12 -->
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="panel panel-primary">
+
+            <div class="panel-heading"  ng-click="collapseConfig=!collapseConfig">
+              <h3 class="panel-title">Configs</h3>
+            </div>
+            <div class="panel-body"  ng-class="{'collapse':!collapseConfig}">
+
+              <!-- Add new config button : Begin-->
+              <div>
+                <div class="xs-pb-10" >
+                  <button type="button" class="btn btn-primary" ng-show="!showNewConfigForm" ng-click="showNewConfigForm=!showNewConfigForm">Add New Config</button>
+                  <button type="button" class="btn btn-primary" ng-show="showNewConfigForm" ng-click="showNewConfigForm=!showNewConfigForm">Cancel Add</button>
+                </div>
+                <ul  ng-show="showNewConfigForm" class="list-group">
+                  <li class="list-group-item">
+                    <div class="row" >
+                      <div class="col-xs-3">
+                        <label for="carepoynt-value">Name</label>
+                        <div class="xs-pb-10">
+                          <input type="text" class="form-control" ng-model="newConfig.name" >
+                        </div>
+                        <div class="form-group">
+                          <button type="button" class="btn btn-primary" ng-click="addConfig(newConfig)">Add</button>
+                        </div>
+                      </div>
+                      <div class="col-xs-9">
+                        <div class="form-group col-xs-12">
+                          <textarea class="form-control" rows="15" ng-model="newConfig.value"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <!-- Add new config button : end-->
+
+              <hr>
+
+              <div>
+                <ul class="list-group">
+                  <li class="list-group-item " ng-repeat="config in appConfigs track by $index">
+                    <div class="row" >
+                      <div class="col-xs-2">
+                        <div class="xs-pb-10">{{config.name}}</div>
+                        <div class="form-group ">
+                          <button type="button" class="btn btn-primary" ng-click="updateConfig(config)">Update</button>
+                        </div>
+                      </div>
+                      <div class="col-xs-10">
+                        <div class="form-group col-xs-12">
+                          <textarea class="form-control" rows="15" ng-model="config.value" ng-init="config.value=(config.value | json:2)"></textarea>
+                        </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+            </div> <!-- /panel-body -->
+          </div><!-- /panel -->
+        </div><!-- /.col-xs-12 -->
+      </div>
+
+
+
+      <div class="row hide">
+        <div class="col-xs">
+          <div class="panel panel-primary">
+
+            <div class="panel-heading">
+              <h3 class="panel-title">Dev Toys</h3>
+            </div>
+            <div class="panel-body">
+
+
+               <div class="form-group">
+                <div>
+                  <button type="button" class="btn btn-default" ng-click="openScanner()">Barcode Scanner</button>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div>
+                  <img src="/command-center/barcode" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div>
+                  <a href="https://dev.carepoynt.com/cp/member-ui/app/index.html">Member App</a>
+                </div>
+              </div> 
+
+            </div> <!-- /panel-body -->
+          </div><!-- /panel -->
+        </div><!-- /.col-sm -->
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="panel panel-primary">
+
+            <div class="panel-heading" ng-click="collapserd=!collapserd">
+              <h3 class="panel-title">Referral Data</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapserd}">
+
+              <!-- buld smsbutton : Begin-->
+              <div class="col-xs-3">
+                <label for="referral-email">Referee email</label>
+                <div class="xs-pb-10">
+                  <input type="text" class="form-control" ng-model="member.email" >
+                </div>
+                <div class="form-group">
+                  <button type="button" class="btn btn-primary" ng-click="getReferralStatuses()">Check it out</button>
+                </div>
+              </div>
+
+              <!-- iterate throguh list and print out -->
+              <div class="col-xs-6">
+                <div ng-repeat="referral in referrals">
+                  <div class="row">
+                    <label> Email: </label>
+                      {{referral.email}} 
+                  </div>
+                  <div class="row">
+                    <label> Status: </label>
+                      {{referral.status}}
+                  </div>
+                </div>
+              </div>
+            
+
+
+            </div> <!-- /panel-body -->
+          </div><!-- /panel -->
+        </div><!-- /.col-xs-12 -->
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="panel panel-primary">
+
+            <div class="panel-heading" ng-click="collapsede=!collapsede">
+              <h3 class="panel-title">Send Me Report Email</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapsede}">
+
+              <!-- buld smsbutton : Begin-->
+              <div class="col-xs-6">
+                <div class="form-group">
+                  <label for="from" class="control-label">Enterprise</label>
+                  <select class="col-xs-12 xs-pb-10" ng-model="reportmember.entid" ng-change="getEnterpriseMembers(selectedEnt)">
+                    <option ng-repeat="ent in enterprises" value="{{ent.ent_id}}">{{ent.ent_name}} | {{ent.ent_id}}</option>
+                  </select>
+                </div>
+                <label for="referral-email">Send email to... </label>
+                <div class="xs-pb-10">
+                  <input type="text" class="form-control" ng-model="reportmember.email" >
+                </div>
+                <div class="form-group col-xs-6">
+                  <button type="button" class="btn btn-primary" ng-click="sendDailyReport()">Send email day</button>
+                </div>
+                <div class="form-group col-xs-6">
+                  <button type="button" class="btn btn-primary" ng-click="sendDailyReportWeek()">Send email week</button>
+                </div>
+              </div>
+            </div> <!-- /panel-body -->
+          </div><!-- /panel -->
+        </div><!-- /.col-xs-12 -->
+      </div>
+
+      <div class="row hide">
+        <div class="col-xs-12">
+          <div class="panel panel-primary">
+
+            <div class="panel-heading" ng-click="collapsers=!collapsers">
+              <h3 class="panel-title">Report by dates name</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapsers}">
+
+              <!-- buld smsbutton : Begin-->
+              <div class="col-xs-6">
+                <div class="form-group">
+                  <label for="from" class="control-label">Enterprise</label>
+                  <select class="col-xs-12 xs-pb-10" ng-model="report.entid">
+                    <option ng-repeat="ent in enterprises" value="{{ent.ent_id}}">{{ent.ent_name}} | {{ent.ent_id}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="clearfix">
+              </div>
+
+              <div class="col-xs-6">
+                <label for="from" class="control-label">Start</label>
+                <input type="date" name="startdate" ng-model="report.start" class="form-control" placeholder="Start">
+              </div>
+
+              <div class="col-xs-6">
+                <label for="from" class="control-label">End</label>
+                <input type="date" name="enddate" ng-model="report.end" class="form-control" placeholder="End">
+              </div>
+
+              <div class="col-xs-12">
+<!--                 <label for="referral-email">Send email to... </label>
+                <div class="xs-pb-10">
+                  <input type="text" class="form-control" ng-model="report.email" >
+                </div> -->
+                <div class="form-group text-center">
+                  <button type="button" class="btn btn-primary" ng-click="sendMeVariableReport()">Send it off</button>
+                </div>
+              </div>
+              
+            </div> <!-- /panel-body -->
+          </div><!-- /panel -->
+        </div><!-- /.col-xs-12 -->
+      </div>
+
+      <div class="row hide">
+        <div class="col-xs">
+          <div class="panel panel-primary">
+
+            <div class="panel-heading">
+              <h3 class="panel-title">Reset Test Data</h3>
+            </div>
+            <div class="panel-body">
+              <div>
+                Placeholder...The Good Stuff is on its way.
+              </div>
+
+            </div> <!-- /panel-body -->
+          </div><!-- /panel -->
+        </div><!-- /.col-sm -->
+      </div>
+
+
+    </div> <!-- /container -->
+
+    <div ng-show="showBusy" class="busy-loading-page">
+      <img class="busy-loading-image" src="/cp/img/ajax-loader.gif" alt="Loading..." />
+    </div>
+
+  
+

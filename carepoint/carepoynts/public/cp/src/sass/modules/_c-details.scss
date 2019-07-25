@@ -1,0 +1,16 @@
+.c-details {
+  position: relative;
+  background: #fff;
+  border-radius: 6px;
+  border: 1px solid $gray-light;
+  padding: ($padding-large-vertical * 1.5);
+  margin-bottom: ($padding-large-vertical * 3);
+
+  h1 {
+    @include Montserrat-Light;
+    font-size: ceil(($font-size-base * 1.33));
+    margin: ceil(($padding-small-vertical * 2)) auto;
+  }
+
+
+}

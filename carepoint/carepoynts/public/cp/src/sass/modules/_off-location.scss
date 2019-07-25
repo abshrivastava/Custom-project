@@ -1,0 +1,241 @@
+body.modal-open .st-container{
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+    filter: url("img/blur.svg"#blur);
+filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='10');
+}
+
+.modal-backdrop {
+  background-color: $blue-base;
+}
+
+.modal-backdrop.in {
+    opacity: .8;
+    filter: alpha(opacity=80);
+}
+
+#offLocation {
+  .modal-content {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .close {
+      float: right;
+      font-size: 30px;
+      font-weight: normal;
+      line-height: 1;
+      color: #fff;
+      text-shadow: none;
+      opacity: 1;
+      filter: alpha(opacity=1);
+  }
+
+  .modal-header {
+    border-bottom: none;
+    padding: 0;
+
+    .modal-title {
+      margin: 0 auto;
+      color: #fff;
+      @include Montserrat-Light;
+      font-size: 20px;
+    }
+  }
+
+  .modal-body {
+    padding: 0;
+  }
+
+  .form-control {
+    border-width: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-color: transparent;
+    font-family: 'Montserrat-Regular', arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+    color: #263238;
+    background: #fff;
+  }
+
+  .form-group {
+    button {
+      border: none;
+      border-radius: 0;
+      position: absolute;
+      top: 2px;
+      right: 0px;
+      font-size: ceil(($font-size-base * 1.2));
+      padding: 4px 12px;
+
+      &:hover,&:focus {
+        background: #fff;
+      }
+    }
+  }
+
+  .nav-tabs>li {
+
+    &:last-child {
+      margin-right: -2px;
+    }
+}
+
+  .nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 1.428571429;
+    border: 1px solid transparent;
+    border-radius: 0;
+    @include Montserrat-Regular;
+    font-size: ceil(($font-size-base * .85));
+    padding: 5px 15px;
+    color: #fff;
+
+    .icon {
+      font-size: ceil(($font-size-base * 1.2));
+    }
+  }
+
+
+  .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus,
+  .nav-tabs>li>a:hover, .nav-tabs>li>a:focus {
+    color: $gray-base;
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-bottom-color: transparent;
+    cursor: default;
+  }
+
+  .tab-content {
+    background: #fff;
+  }
+
+  #ol-categories {
+    text-align: left;
+  }
+
+  #ol-location {
+
+    li {
+      border-bottom: 1px solid $gray-light;
+      padding: ($padding-small-vertical * 2);
+
+      .input-group-addon {
+        border: none;
+        padding: 0;
+        font-size: 20px;
+      }
+
+      .ion-navigate {
+        padding-right: 10px;
+        font-size: 20px;
+      }
+
+      .form-group {
+        margin: auto;
+      }
+
+      button {
+        @include Montserrat-Regular;
+        font-size: 13px;
+        padding: 0;
+        background: none;
+        border: none;
+      }
+
+      #amount {
+        @include Montserrat-Regular;
+        font-size: 18px;
+      }
+
+      .ui-slider-horizontal {
+        background: $gray-light;
+        height: 2px;
+      }
+
+      .ui-widget-header {
+        background: $blue-action;
+      }
+
+      label {
+        @include Montserrat-Regular;
+        font-size: 10px;
+      }
+
+
+      .ui-slider {
+      	position: relative;
+      	text-align: left;
+      }
+      .ui-slider .ui-slider-handle {
+      	position: absolute;
+      	z-index: 2;
+      	width: 1.2em;
+      	height: 1.2em;
+      	cursor: default;
+      	-ms-touch-action: none;
+      	touch-action: none;
+      }
+      .ui-slider .ui-slider-range {
+      	position: absolute;
+      	z-index: 1;
+      	font-size: .7em;
+      	display: block;
+      	border: 0;
+      	background-position: 0 0;
+      }
+
+      /* support: IE8 - See #6727 */
+      .ui-slider.ui-state-disabled .ui-slider-handle,
+      .ui-slider.ui-state-disabled .ui-slider-range {
+      	filter: inherit;
+      }
+
+      .ui-slider-horizontal {
+      	height: 2px;
+      }
+      .ui-slider-horizontal .ui-slider-handle {
+      	top: -.9em;
+      	margin-left: -.6em;
+        height: 29px;
+        width: 29px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 2px 6px rgba($gray-base, 0.3);
+
+        &:focus {
+          outline: 0;
+        }
+      }
+      .ui-slider-horizontal .ui-slider-range {
+      	top: 0;
+      	height: 100%;
+      }
+      .ui-slider-horizontal .ui-slider-range-min {
+      	left: 0;
+      }
+      .ui-slider-horizontal .ui-slider-range-max {
+      	right: 0;
+      }
+
+      // .form-control {
+      //   border-width: 0 0 1px 0;
+      //   border-color: $gray-base;
+      // }
+    }
+  }
+
+
+
+
+
+}

@@ -1,0 +1,26 @@
+
+<!-- Header start-->
+<div id="header" class="row-container left-pannel">
+    <div class="maincontainer">
+        <header>
+            <div class="container">
+                <div class="row row-padding">
+                    <div class="col-3 col-sm-2">
+                        <a ng-click="toggleFlyout()" id="main_toggle"><i class="fa fa-bars mouse-hover" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="col-6 col-sm-8 text-center my-auto" ng-click="closeFlyout()">
+                        <p class="x-large">Carepoynt</p>
+                    </div>
+                    <div class="col-3 col-sm-2 text-right mouse-hover" ng-click="goTo('member.poyntLog')">
+                        <span class="points">{{member.reward.points | number}}</span><br /> poynts
+                    </div>
+                </div>
+            </div>
+            <div ng-include="'views/shared/header-nav-tabs/index.html'" onload="loadScript()"></div>
+        </header>
+    </div>
+</div>
+<!-- End of Header-->
+
+
+

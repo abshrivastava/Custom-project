@@ -1,0 +1,152 @@
+  <div class="dashboard ">
+
+     <!-- splash-page -->
+<!--       <div ng-if="showSplashScreen">
+        <div ng-include="'splash-page/index.html'" ></div>
+      </div> -->
+      <!-- /splash-page -->
+
+    <div id="st-container" class="st-container">
+      <!-- nav menu -->
+      <div ng-include="'shared/nav-menu/index.html'" ></div>
+      <!-- /nav menu  -->
+
+      <!-- content push wrapper -->
+      <div class="st-pusher">
+        <div class="st-content"><!-- this is the wrapper for the content -->
+          <div class="st-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+            
+            <!-- header - navbar -->
+            <div ng-include="'shared/header/index.html'" ></div>
+            <!-- /header - navbar -->
+    
+
+                <div class="overviewBG overview text-center  cp-pb-10">
+                    <div class="hide">
+                        <img src="/cp/img/cp-icon-symbol.png" alt="just to help with the cache">
+                    </div>
+                    <div class="container">
+                        <div class="row center-xs">
+                            <div class="col-xs col-sm-7 col-md-10 tier cp-mt-10">
+                                <h1><span class="total-poynts ng-binding">{{memberBalance | number}}</span></h1>
+                                <h4>Poynts</h4>
+                            </div>
+                        </div>
+                        <div class="hide row center-xs overview-poynts">
+                            <div class="col-xs col-sm-7 col-md-10">
+                                <div class="col-xs-6">
+                                    <div class="earn-poynts">
+                                        <i class="icon ion-heart"></i> Earn
+                                        <div class="poynt-count ng-binding">6</div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="redeem-poynts">
+                                        <i class="icon ion-flash"></i> Redeem
+                                        <div class="poynt-count ng-binding">46</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mrg-10"></div>
+                <div class="mrg-top-57">
+                    <div class="center-xs cp-bg-color-white">
+                        <div class="container">
+                            <div class="row center-xs text-center">
+                                <div class="col-xs col-sm-7 col-md-10 pd0">
+                                    <div class="row">
+                                        <div class="col-xs-3 text-left back-link ">
+                                            <a ng-click="goBack()"><i class="icon ion-ios-arrow-thin-left"></i></a> 
+                                        </div>
+                                        <div class="col-xs-6 text-center page_name">
+                                            <h4>My Poynts</h4>
+                                        </div>
+                                        <div class="col-xs-3"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mrg-10"></div>
+
+                    <div ng-repeat="item in transactions">
+                        <div class="er-item-list cp-pb-5 cp-pt-10">
+                            <div class="section-header special-offers promotions-header">
+                                <div class="container">
+                                    <div class="row center-xs">
+                                        <div class="col-xs col-sm-7 col-md-10 text-left">
+                                            <h1>{{item.transaction_date}}</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container" ng-repeat="tItem in item.transactionData">
+                                <div class="row center-xs">
+                                    <div class="col-xs col-sm-7 col-md-10">
+                                        <div class="cp-mt-15">
+                                            <div class="item cp-mtb-5 cp-p-5 cp-border-rounded " role="button">
+                                                <!-- <div class="col-xs-3 col-sm-2 center-xs cp-p-5 " ng-if="tItem.entity_type!='GiftCard' && tItem.entity_type!='Point Transfer'">
+                                                    <span class="cp-bg-color-transparent cp-p-5">
+                                                        <img src="/cp/img/company/dev/1_logo-photo.png" width="80%">
+                                                    </span>
+                                                </div> -->
+                                                <div class="col-xs-3 col-sm-2 center-xs cp-p-5 " >
+                                                    <span class="cp-bg-color-transparent cp-p-5">
+                                                        <img ng-src={{tItem.imageUrl}} width="80%">
+                                                    </span>
+                                                </div>
+                                                <div class="col-xs-7 col-sm-8 start-xs" ng-if="tItem.entity_type=='GiftCard'">
+                                                    <p class="descrp text-left ng-binding cp-font-size-14">{{tItem.promo_name}}</p>
+                                                    <p class="company ng-binding cp-font-size-12" style="text-transform: none;">{{tItem.card_details}}</p>
+                                                </div>
+                                                <div class="col-xs-7 col-sm-8 start-xs" ng-if="tItem.entity_type!='Point Transfer' && tItem.entity_type!='GiftCard' && 
+                                                tItem.entity_type!='Carepoynt Support'">
+                                                    <p class="descrp text-left ng-binding cp-font-size-14">{{tItem.ent_name}}</p>
+                                                    <p class="company ng-binding cp-font-size-12" style="text-transform: none;">{{tItem.promo_name}}</p>
+                                                </div>
+                                                <div class="col-xs-7 col-sm-8 start-xs" ng-if="tItem.entity_type=='Point Transfer'">
+                                                    <p class="descrp text-left ng-binding cp-font-size-14">{{tItem.entity_type}}</p>
+                                                    <p class="company ng-binding cp-font-size-12" style="text-transform: none;" ng-if="tItem.from==''" >To: {{tItem.to}}</p>
+                                                    <p class="company ng-binding cp-font-size-12" style="text-transform: none;" ng-if="tItem.to==''">From: {{tItem.from}}</p>
+                                                </div>
+                                                <div class="col-xs-7 col-sm-8 start-xs" ng-if="tItem.entity_type=='Carepoynt Support'">
+                                                    <p class="descrp text-left ng-binding cp-font-size-14">{{tItem.entity_type}}</p>    
+                                                    <p class="company ng-binding cp-font-size-12" style="text-transform: none;" >{{tItem.reason}}</p>
+                                                </div>                                                
+                                                <div class="col-xs-2 end-xs cp-p-10 cp-pt-0 text-right" >
+                                                    <span class="cp-bg-color-transparent text-danger" ng-if="tItem.value<0" > {{tItem.value}}</span>
+                                                    <span class="cp-bg-color-transparent text-success" ng-if="tItem.value>0"> {{tItem.value}}</span>
+                                                    <div class="clearfix"></div>
+                                                    <span class="cp-bg-color-transparent "> {{tItem.balance}} </span>
+                                                </div>
+                                                <!--EARN BUTTON-->
+                                                <!--REDEEM BUTTON-->
+
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <!-- end ngRepeat: offer in offers | limitTo : 3 -->
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /st-content-inner -->
+        </div><!-- /st-content -->
+      </div><!-- /st-pusher -->
+    </div><!-- /st-container -->
+
+</div>
+<!-- /st-container -->
+
+<div ng-show="loading" class="loading-page">
+    <!-- <img id="loading-image" src="images/ajax-loader.gif" alt="Loading..." /> -->
+    <i class="icon ion-ios-loop-strong spin big" style="color: #fff"></i>
+</div>

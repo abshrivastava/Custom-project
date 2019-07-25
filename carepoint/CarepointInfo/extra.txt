@@ -1,0 +1,74 @@
+    font-family: 'Montserrat-Light', arial, sans-serif;
+
+--------top title with header--------------------------------------------------------
+
+<div class="clr20"></div>
+  <div class="text-center heading_page">
+    <a class="back_arrow" href="index.html"><i class="fa fa-long-arrow-left"></i></a>
+    <h5>Freshly</h5>
+  </div>
+  <div class="volet_bg">
+    <img src="images/268_logo-photo.png" class="img-fluid max-width-120 icon_bg" />
+  </div>
+  <div class="gradient_bg"></div>
+  <div class="clr15"></div>
+
+--------------------popUp-------------------------------------------------------------
+
+-----------in HTML----------
+
+	  <a href="" data-toggle="modal" data-target="#myModal">Show more</a>
+	  <div class="modal fade" id="myModal">
+		<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+			<h4 class="modal-title">Redemption Warning</h4>
+			</div>
+			<div class="modal-body">
+			<p>Get 1000 Carepoynts per order for the first 4 orders! Freshly provides chef cooked, healthy meals delivered to you. How the offer works: 1) Click the Earn Now button 2) You will be taken to the Freshly online store 3).</p>
+			<div class="model-inner_sec">
+				<input type="checkbox" />D'not Show Again
+			</div>
+			</div>
+			<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+			<button type="button" class="btn btn-default">Activate</button>
+			</div>
+		</div>
+		</div>
+	</div>
+
+------------in CSS(For center the containtet)------------
+
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+/* .modal-backdrop.fade {
+opacity: 0;
+filter: alpha(opacity=0);
+} */
+.model-inner_sec {
+    display: table;
+    margin: 0px auto;
+    padding-top: 20px;
+}
+.model-inner_sec input[type= 'checkbox'] { 
+    border: 1px solid #666;
+    background: #333;
+}
+

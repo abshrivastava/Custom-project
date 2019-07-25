@@ -1,0 +1,1664 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "<p>Welcome to the RaaS&reg; API – with this RESTful API you can integrate a global reward or incentive program into your app or platform.<br /><br /> This console works in our Sandbox environment. To receive your own credentials or to ask questions, please contact us <a href=\"mailto:sdk@tangocard.com\">sdk@tangocard.com</a>. <input type=\"hidden\" id=\"platformNameHolder\" value=\"QAPlatform2\" /><input type=\"hidden\" id=\"platformKeyHolder\" value=\"apYPfT6HNONpDRUj3CLGWYt7gvIHONpDRUYPfT6Hj\" /></p>",
+		"version": "2",
+		"title": "Tango Card RaaS API",
+		"termsOfService": "TOSurl",
+		"contact": {},
+		"license": {
+			"name": "Apache 2.0",
+			"url": "http://www.apache.org"
+		}
+	},
+	"host": "integration-api.tangocard.com",
+	"basePath": "/",
+	"tags": [{
+		"name": "3. Fund",
+		"description": " "
+	}, {
+		"name": "2. Accounts",
+		"description": " "
+	}, {
+		"name": "4. Catalogs",
+		"description": " "
+	}, {
+		"name": "1. Customers",
+		"description": " "
+	}, {
+		"name": "5. Orders",
+		"description": " "
+	}],
+	"paths": {
+		"/raas/v2/accounts": {
+			"get": {
+				"tags": ["2. Accounts"],
+				"summary": "Get a list of Accounts created on this Platform.",
+				"operationId": "listCustomerAccounts",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/AccountView"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"security": [{
+					"basicAuth": []
+				}]
+			}
+		},
+		"/raas/v2/accounts/{identifier}": {
+			"get": {
+				"tags": ["2. Accounts"],
+				"summary": "Get details for a specific Account on this Platform.",
+				"operationId": "getAccount",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "identifier",
+					"in": "path",
+					"description": "identifier",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/AccountView"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"security": [{
+					"basicAuth": []
+				}]
+			}
+		},
+		"/raas/v2/catalogs": {
+			"get": {
+				"tags": ["4. Catalogs"],
+				"summary": "Get all items in the Platform's Catalog.",
+				"operationId": "getCatalog",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "verbose",
+					"in": "query",
+					"description": "Verbose payload",
+					"required": false,
+					"type": "boolean",
+					"default": true,
+					"enum": ["false", "true"]
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/CatalogViewVerbose"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"security": [{
+					"basicAuth": []
+				}]
+			}
+		},
+		"/raas/v2/creditCardDeposits": {
+			"post": {
+				"tags": ["3. Fund"],
+				"summary": "Fund an Account.",
+				"operationId": "createCreditCardDeposit",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"in": "body",
+					"name": "criteria",
+					"description": "<strong>customerIdentifier</strong> - specify the customer associated with the credit card. Must be the customer the accountIdentifier is associated with.<br/><br/>\n<strong>accountIdentifier</strong> - specify the account this credit card is associated with<br/><br/>\n<strong>creditCardToken</strong> - specify the credit card token to fund with<br/><br/>\n<strong>amount</strong> - specify the amount to fund in USD<br/><br/>\n",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/CreateCreditCardDepositCriteria"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/CreditCardDepositView"
+						}
+					},
+					"400": {
+						"description": "Bad Request"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"security": [{
+					"basicAuth": []
+				}]
+			}
+		},
+		"/raas/v2/creditCardUnregisters": {
+			"post": {
+				"tags": ["3. Fund"],
+				"summary": "Unregister a Credit Card.",
+				"operationId": "createCreditCardUnregister",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"in": "body",
+					"name": "criteria",
+					"description": "<strong>customerIdentifier</strong> - specify the customer associated with the credit card. Must be the customer the accountIdentifier is associated with.<br/><br/>\n<strong>accountIdentifier</strong> - specify the account this credit card is associated with<br/><br/>\n<strong>creditCardToken</strong> - specify the credit card token to unregister<br/><br/>\n",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/CreateCreditCardUnregisterCriteria"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/CreditCardUnregisterView"
+						}
+					},
+					"400": {
+						"description": "Bad Request"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"security": [{
+					"basicAuth": []
+				}]
+			}
+		},
+		"/raas/v2/creditCards": {
+			"get": {
+				"tags": ["3. Fund"],
+				"summary": "List all credit cards registered on this Platform.",
+				"operationId": "listCreditCards",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/CreditCardView"
+						}
+					},
+					"400": {
+						"description": "Bad Request"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"security": [{
+					"basicAuth": []
+				}]
+			},
+			"post": {
+				"tags": ["3. Fund"],
+				"summary": "Register a new Credit Card.",
+				"operationId": "createCreditCard",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"in": "body",
+					"name": "creditCardCriteria",
+					"description": "<strong>customerIdentifier</strong> - specify the customer associated with the credit card. Must be the customer the accountIdentifier is associated with.<br/><br/>\n<strong>accountIdentifier</strong> - specify the account this credit card is associated with<br/><br/>\n<strong>label</strong> - specify a label for the credit card<br/><br/>\n<strong>ipAddress</strong> - specify the The IP address of the person adding the credit card<br/><br/>\n<strong>creditCard - number</strong> - specify the account this order will be deducted from<br/><br/>\n<strong>creditCard - expiration</strong> - specify the card expiration date in YYYY-MM format<br/><br/>\n<strong>creditCard - verificationNumber</strong> - specify the 3 or 4-digit card security code on back of card (CVV2, CVC2, or CID)<br/><br/>\n<strong>billingAddress - firstName</strong> - specify the billing address first name<br/><br/>\n<strong>billingAddress - lastName</strong> - specify the billing address last name<br/><br/>\n<strong>billingAddress - addressLine1</strong> - specify the billing address line 1<br/><br/>\n<strong>billingAddress - addressLine2</strong> - Optional. Specify the billing address line 2<br/><br/>\n<strong>billingAddress - city</strong> - specify the billing address city<br/><br/>\n<strong>billingAddress - state</strong> - specify the billing address state<br/><br/>\n<strong>billingAddress - postalCode</strong> - specify the billing address postal code<br/><br/>\n<strong>billingAddress - country</strong> - specify the billing address 2-letter country code<br/><br/>\n<strong>billingAddress - emailAddress</strong> - specify the billing address email<br/><br/>\n",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/CreateCreditCardCriteria"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/CreditCardView"
+						}
+					},
+					"201": {
+						"description": "Created",
+						"schema": {
+							"$ref": "#/definitions/CreditCardView"
+						}
+					},
+					"400": {
+						"description": "Bad Request"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"security": [{
+					"basicAuth": []
+				}]
+			}
+		},
+		"/raas/v2/creditCards/{token}": {
+			"get": {
+				"tags": ["3. Fund"],
+				"summary": "Get details for a specific Credit Card.",
+				"operationId": "getCreditCard",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "token",
+					"in": "path",
+					"description": "Credit card token",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/CreditCardView"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"security": [{
+					"basicAuth": []
+				}]
+			}
+		},
+		"/raas/v2/customers": {
+			"get": {
+				"tags": ["1. Customers"],
+				"summary": "Get a list of all Customers on this Platform.",
+				"operationId": "listCustomers",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/CustomerViewSummary"
+						}
+					},
+					"400": {
+						"description": "Bad Request"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"security": [{
+					"basicAuth": []
+				}]
+			},
+			"post": {
+				"tags": ["1. Customers"],
+				"summary": "Create a new Customer on this Platform.",
+				"operationId": "createCustomer",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"in": "body",
+					"name": "form",
+					"description": "<strong>displayName</strong> - a friendly name for this customer <br /><br /><strong>customerIdentifier</strong> - an official identifier for this customer. This identifier needs to be lowercase if alphabetic characters are used.",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/CreateCustomerCriteria"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/CustomerViewNew"
+						}
+					},
+					"201": {
+						"description": "Created",
+						"schema": {
+							"$ref": "#/definitions/CreateCustomerCriteria"
+						}
+					},
+					"400": {
+						"description": "Bad Request"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"409": {
+						"description": "Conflict; Duplicate Exists"
+					}
+				},
+				"security": [{
+					"basicAuth": []
+				}]
+			}
+		},
+		"/raas/v2/customers/{customerIdentifier}": {
+			"get": {
+				"tags": ["1. Customers"],
+				"summary": "Get details for a specific Customer on this Platform.",
+				"operationId": "getCustomer",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "customerIdentifier",
+					"in": "path",
+					"description": "customerIdentifier",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/CustomerViewSummary"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"security": [{
+					"basicAuth": []
+				}]
+			}
+		},
+		"/raas/v2/customers/{customerIdentifier}/accounts": {
+			"get": {
+				"tags": ["1. Customers"],
+				"summary": "Get a list of all Accounts created for a specific Customer on this Platform.",
+				"operationId": "listCustomerAccounts_1",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "customerIdentifier",
+					"in": "path",
+					"description": "customerIdentifier",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/AccountViewSummary"
+						}
+					},
+					"400": {
+						"description": "Bad Request"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"security": [{
+					"basicAuth": []
+				}]
+			},
+			"post": {
+				"tags": ["1. Customers"],
+				"summary": "Create an Account under a specific Customer on this Platform.",
+				"operationId": "createCustomerAccount",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "customerIdentifier",
+					"in": "path",
+					"description": "The customerIdentifier for the Customer under which you are creating a new account",
+					"required": false,
+					"type": "string"
+				}, {
+					"in": "body",
+					"name": "accountCriteria",
+					"description": "<strong>contactEmail</strong> - An email address for a designated representative for this account.<br /><br /><strong>displayName</strong> - A friendly name for this account<br /><br /><strong>identifier</strong> - A unique identifier for this account. This identifier must be lowercase if alphabetic characters are used.",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/CreateAccountCriteria"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/AccountView"
+						}
+					},
+					"201": {
+						"description": "Created",
+						"schema": {
+							"$ref": "#/definitions/CreateAccountCriteria"
+						}
+					},
+					"400": {
+						"description": "Bad Request"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"409": {
+						"description": "Conflict; Duplicate Exists"
+					}
+				},
+				"security": [{
+					"basicAuth": []
+				}]
+			}
+		},
+		"/raas/v2/orders": {
+			"get": {
+				"tags": ["5. Orders"],
+				"summary": "Get a list of Orders placed under this Platform.",
+				"operationId": "listOrders",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "accountIdentifier",
+					"in": "query",
+					"description": "specify the account to be queried.",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "customerIdentifier",
+					"in": "query",
+					"description": "specify the customer to be queried",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "externalRefID",
+					"in": "query",
+					"description": "specify the external reference ID to be queried",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "startDate",
+					"in": "query",
+					"description": "specify the starting date or date time to be queried according to RFC 3339, i.e. \"2016-01-01\" or \"2016-01-01T00:00:00Z\". See https://www.ietf.org/rfc/rfc3339.txt\n",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "endDate",
+					"in": "query",
+					"description": "specify the ending date or date time to be queried according to RFC 3339, i.e. \"2016-01-01\" or \"2016-01-01T00:00:00Z\". See https://www.ietf.org/rfc/rfc3339.txt\n",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "elementsPerBlock",
+					"in": "query",
+					"description": "specify the number of elements in a block.",
+					"required": false,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "page",
+					"in": "query",
+					"description": "specify the page number to return.",
+					"required": false,
+					"type": "integer",
+					"format": "int32"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OrderListView"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"security": [{
+					"basicAuth": []
+				}]
+			},
+			"post": {
+				"tags": ["5. Orders"],
+				"summary": "Create an Order under a specific Account.",
+				"operationId": "createOrder",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"in": "body",
+					"name": "createOrderCriteria",
+					"description": "<strong>accountIdentifier</strong> - specify the account this order will be deducted from<br/><br/><strong>amount</strong> - specify the face value of of the reward. Always required, including for fixed value items.<br/><br/><strong>campaign</strong> - optional campaign that may be used to administratively categorize a specific order or, if applicable, call a designated campaign email template.<br/><br/><strong>customerIdentifier</strong> - specify the customer associated with the order. Must be the customer the accountIdentifier is associated with.<br/><br/><strong>emailSubject</strong> - Optional. If not specified, a default email subject will be used for the specified reward.<br/><br/><strong>externalRefID</strong> - Optional field that can be used for client-side order cross reference. Will be returned in order response, order details and order history. Tango Card does not currently perform any validation on this field.<br/><br/><strong>message</strong> - optional gift message<br/><br/><strong>recipient - email</strong> - required if sendEmail is true<br/><br/><strong>recipient - firstName</strong> - required if sendEmail is true<br/><br/><strong>recipient - lastName</strong> - always optional<br/><br/><strong>sendEmail</strong> - should Tango Card send the email to the recipient?<br/><br/><strong>sender - firstName</strong> - always optional<br/><br/><strong>sender - lastName</strong> - always optional<br/><br/><strong>sender - email</strong> - always optional<br/><br/><strong>utid</strong> - the unique identifier for the reward you are sending as provided in the Get Catalog call<br/><br/><strong>notes</strong> - Optional order notes (up to 150 characters)",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/CreateOrderCriteria"
+					}
+				}],
+				"responses": {
+					"201": {
+						"description": "Created",
+						"schema": {
+							"$ref": "#/definitions/OrderViewSummary"
+						}
+					},
+					"400": {
+						"description": "Bad Request"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"402": {
+						"description": "Insufficient Funds"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"503": {
+						"description": "Service Unavailable"
+					}
+				},
+				"security": [{
+					"basicAuth": []
+				}]
+			}
+		},
+		"/raas/v2/orders/{referenceOrderID}": {
+			"get": {
+				"tags": ["5. Orders"],
+				"summary": "Get details for a specific Order.",
+				"operationId": "getOrder",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "referenceOrderID",
+					"in": "path",
+					"description": "Reference order ID is returned in the order response payload",
+					"required": false,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/OrderViewVerbose"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				},
+				"security": [{
+					"basicAuth": []
+				}]
+			}
+		},
+		"/raas/v2/orders/{referenceOrderID}/resends": {
+			"post": {
+				"tags": ["5. Orders"],
+				"summary": "Resend a specific Order.",
+				"operationId": "getOrderResends",
+				"consumes": ["application/json"],
+				"produces": ["application/json"],
+				"parameters": [{
+					"name": "referenceOrderID",
+					"in": "path",
+					"description": "Reference order ID is returned in the order response payload",
+					"required": false,
+					"type": "string"
+				}],
+				"responses": {
+					"201": {
+						"description": "Created",
+						"schema": {
+							"$ref": "#/definitions/ResendView"
+						}
+					},
+					"400": {
+						"description": "Bad Request"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					}
+				},
+				"security": [{
+					"basicAuth": []
+				}]
+			}
+		}
+	},
+	"securityDefinitions": {
+		"basicAuth": {
+			"type": "basic"
+		}
+	},
+	"definitions": {
+		"ItemViewVerbose": {
+			"type": "object",
+			"required": ["countries", "createdDate", "currencyCode", "exchangeRateRule", "faceValue", "lastUpdateDate", "maxValue", "minValue", "rewardName", "rewardType", "status", "utid", "valueType"],
+			"properties": {
+				"countries": {
+					"type": "array",
+					"description": "Countries",
+					"items": {
+						"type": "string"
+					}
+				},
+				"createdDate": {
+					"type": "string",
+					"description": "Created Date"
+				},
+				"currencyCode": {
+					"type": "string",
+					"description": "Currency Code"
+				},
+				"exchangeRateRule": {
+					"type": "string",
+					"description": "Exchange Rate Rule"
+				},
+				"faceValue": {
+					"type": "number",
+					"format": "double",
+					"description": "Face Value"
+				},
+				"lastUpdateDate": {
+					"type": "string",
+					"description": "Last Updated Date"
+				},
+				"maxValue": {
+					"type": "number",
+					"format": "double",
+					"description": "Max Value"
+				},
+				"minValue": {
+					"type": "number",
+					"format": "double",
+					"description": "Min Value"
+				},
+				"rewardName": {
+					"type": "string",
+					"description": "Reward Name"
+				},
+				"rewardType": {
+					"type": "string",
+					"description": "Reward Type"
+				},
+				"status": {
+					"type": "string",
+					"description": "Status"
+				},
+				"utid": {
+					"type": "string",
+					"description": "Utid - Unique Tango Card ID."
+				},
+				"valueType": {
+					"type": "string",
+					"description": "Value Type"
+				}
+			}
+		},
+		"CreateCreditCardUnregisterCriteria": {
+			"type": "object",
+			"required": ["accountIdentifier", "creditCardToken", "customerIdentifier"],
+			"properties": {
+				"accountIdentifier": {
+					"type": "string",
+					"description": "Account Identifier"
+				},
+				"creditCardToken": {
+					"type": "string",
+					"description": "Credit Card token"
+				},
+				"customerIdentifier": {
+					"type": "string",
+					"description": "Customer Identifier"
+				}
+			}
+		},
+		"CreditCardView": {
+			"type": "object",
+			"required": ["accountIdentifier", "activationDate", "createdDate", "customerIdentifier", "expirationDate", "label", "lastFourDigits", "status", "token"],
+			"properties": {
+				"accountIdentifier": {
+					"type": "string",
+					"description": "Account Identifier"
+				},
+				"activationDate": {
+					"type": "string",
+					"description": "Date when the the credit card will be activated for use in funding"
+				},
+				"createdDate": {
+					"type": "string",
+					"description": "Date the credit card was created"
+				},
+				"customerIdentifier": {
+					"type": "string",
+					"description": "Customer Identifier"
+				},
+				"expirationDate": {
+					"type": "string",
+					"description": "Expiration date of the registered card in YYYY-MM format"
+				},
+				"label": {
+					"type": "string",
+					"description": "Credit Card label"
+				},
+				"lastFourDigits": {
+					"type": "string",
+					"description": "Last four digits of the registered credit card"
+				},
+				"status": {
+					"type": "string",
+					"description": "Status of the registered card"
+				},
+				"token": {
+					"type": "string",
+					"description": "Credit Card token identifier"
+				}
+			}
+		},
+		"ResendView": {
+			"type": "object",
+			"required": ["createdAt", "id"],
+			"properties": {
+				"createdAt": {
+					"type": "string",
+					"description": "Created Date"
+				},
+				"id": {
+					"type": "integer",
+					"format": "int64",
+					"description": "ID"
+				}
+			}
+		},
+		"CatalogViewVerbose": {
+			"type": "object",
+			"required": ["brands", "catalogName"],
+			"properties": {
+				"brands": {
+					"type": "array",
+					"description": "List of Brands inside of this Catalog",
+					"items": {
+						"$ref": "#/definitions/BrandViewWithItemsVerbose"
+					}
+				},
+				"catalogName": {
+					"type": "string",
+					"description": "Catalog Name"
+				}
+			}
+		},
+		"RecipientInfoCriteria": {
+			"type": "object",
+			"properties": {
+				"email": {
+					"type": "string",
+					"description": "Email"
+				},
+				"firstName": {
+					"type": "string",
+					"description": "First Name"
+				},
+				"lastName": {
+					"type": "string",
+					"description": "Last Name"
+				}
+			}
+		},
+		"SenderInfoView": {
+			"type": "object",
+			"properties": {
+				"firstName": {
+					"type": "string",
+					"description": "First Name"
+				},
+				"lastName": {
+					"type": "string",
+					"description": "Last Name"
+				}
+			}
+		},
+		"CustomerViewSummary": {
+			"type": "object",
+			"required": ["accounts", "createdAt", "customerIdentifier", "displayName", "status"],
+			"properties": {
+				"accounts": {
+					"type": "array",
+					"description": "List of Accounts this Customer has",
+					"items": {
+						"$ref": "#/definitions/AccountViewSummary"
+					}
+				},
+				"createdAt": {
+					"type": "string",
+					"description": "Created Date"
+				},
+				"customerIdentifier": {
+					"type": "string",
+					"description": "Customer Identifier"
+				},
+				"displayName": {
+					"type": "string",
+					"description": "Customer Display Name"
+				},
+				"status": {
+					"type": "string",
+					"description": "Customer Status"
+				}
+			}
+		},
+		"OrderListView": {
+			"type": "object",
+			"required": ["orders", "page"],
+			"properties": {
+				"orders": {
+					"type": "array",
+					"description": "Order elements for the current page",
+					"items": {
+						"$ref": "#/definitions/OrderListItemView"
+					}
+				},
+				"page": {
+					"description": "Page data for matching orders",
+					"$ref": "#/definitions/PageView"
+				}
+			}
+		},
+		"CreateCreditCardDepositCriteria": {
+			"type": "object",
+			"required": ["accountIdentifier", "amount", "creditCardToken", "customerIdentifier"],
+			"properties": {
+				"accountIdentifier": {
+					"type": "string",
+					"description": "Account Identifier"
+				},
+				"amount": {
+					"type": "number",
+					"format": "double",
+					"description": "The amount in USD to fund"
+				},
+				"creditCardToken": {
+					"type": "string",
+					"description": "Credit Card token"
+				},
+				"customerIdentifier": {
+					"type": "string",
+					"description": "Customer Identifier"
+				}
+			}
+		},
+		"AccountView": {
+			"type": "object",
+			"required": ["accountIdentifier", "contactEmail", "createdAt", "currencyCode", "currentBalance", "displayName", "status"],
+			"properties": {
+				"accountIdentifier": {
+					"type": "string",
+					"description": "Account Identifier"
+				},
+				"contactEmail": {
+					"type": "string",
+					"description": "Contact Email"
+				},
+				"createdAt": {
+					"type": "string",
+					"description": "Account Creation Timestamp"
+				},
+				"currencyCode": {
+					"type": "string",
+					"description": "Currency Code"
+				},
+				"currentBalance": {
+					"type": "number",
+					"format": "double",
+					"description": "Current Balance"
+				},
+				"displayName": {
+					"type": "string",
+					"description": "Account Display Name"
+				},
+				"status": {
+					"type": "string",
+					"description": "Account Status"
+				}
+			}
+		},
+		"CreditCardUnregisterView": {
+			"type": "object",
+			"required": ["createdDate", "message", "token"],
+			"properties": {
+				"createdDate": {
+					"type": "string",
+					"description": "Date the credit card was un-registered"
+				},
+				"message": {
+					"type": "string",
+					"description": "Friendly message that the credit card has been un-registered successfully"
+				},
+				"token": {
+					"type": "string",
+					"description": "Credit Card Unregister token identifier"
+				}
+			}
+		},
+		"CatalogView": {
+			"type": "object"
+		},
+		"CreateCreditCardCriteria": {
+			"type": "object",
+			"required": ["accountIdentifier", "customerIdentifier", "ipAddress", "label"],
+			"properties": {
+				"accountIdentifier": {
+					"type": "string",
+					"description": "Account Identifier"
+				},
+				"billingAddress": {
+					"$ref": "#/definitions/BillingAddressCriteria"
+				},
+				"creditCard": {
+					"$ref": "#/definitions/CreditCardCriteria"
+				},
+				"customerIdentifier": {
+					"type": "string",
+					"description": "Customer Identifier"
+				},
+				"ipAddress": {
+					"type": "string",
+					"description": "Account Identifier"
+				},
+				"label": {
+					"type": "string",
+					"description": "Credit Card label"
+				}
+			}
+		},
+		"CreateOrderCriteria": {
+			"type": "object",
+			"required": ["accountIdentifier", "amount", "customerIdentifier", "sendEmail", "utid"],
+			"properties": {
+				"accountIdentifier": {
+					"type": "string",
+					"description": "Account Identifier"
+				},
+				"amount": {
+					"type": "number",
+					"format": "double",
+					"description": "Amount"
+				},
+				"campaign": {
+					"type": "string",
+					"description": "Campaign"
+				},
+				"customerIdentifier": {
+					"type": "string",
+					"description": "Customer Identifier"
+				},
+				"emailSubject": {
+					"type": "string",
+					"description": "Email subject"
+				},
+				"externalRefID": {
+					"type": "string",
+					"description": "External Reference ID"
+				},
+				"message": {
+					"type": "string",
+					"description": "Message"
+				},
+				"notes": {
+					"type": "string",
+					"description": "Notes"
+				},
+				"recipient": {
+					"description": "Recipient Details",
+					"$ref": "#/definitions/RecipientInfoCriteria"
+				},
+				"sendEmail": {
+					"type": "boolean",
+					"description": "Send Email"
+				},
+				"sender": {
+					"description": "Sender Details",
+					"$ref": "#/definitions/SenderInfoCriteria"
+				},
+				"utid": {
+					"type": "string",
+					"description": "Unique Tango Card Identifier"
+				}
+			}
+		},
+		"OrderListItemView": {
+			"type": "object",
+			"required": ["accountIdentifier", "amountCharged", "campaign", "createdAt", "customerIdentifier", "denomination", "emailSubject", "externalRefID", "message", "referenceOrderID", "rewardName", "sendEmail", "status", "utid"],
+			"properties": {
+				"accountIdentifier": {
+					"type": "string",
+					"description": "Account Identifier"
+				},
+				"amountCharged": {
+					"description": "Amount Charged",
+					"$ref": "#/definitions/MoneyView"
+				},
+				"campaign": {
+					"type": "string",
+					"description": "Reward Campaign"
+				},
+				"createdAt": {
+					"type": "string",
+					"description": "Created Date"
+				},
+				"customerIdentifier": {
+					"type": "string",
+					"description": "Customer Identifier"
+				},
+				"denomination": {
+					"description": "Denomination",
+					"$ref": "#/definitions/MoneyView"
+				},
+				"emailSubject": {
+					"type": "string",
+					"description": "Email Subject"
+				},
+				"externalRefID": {
+					"type": "string",
+					"description": "External Reference ID"
+				},
+				"message": {
+					"type": "string",
+					"description": "Email Message"
+				},
+				"notes": {
+					"type": "string",
+					"description": "Notes"
+				},
+				"recipient": {
+					"description": "Recipient Details",
+					"$ref": "#/definitions/RecipientInfoView"
+				},
+				"referenceOrderID": {
+					"type": "string",
+					"description": "Reference Order ID"
+				},
+				"rewardName": {
+					"type": "string",
+					"description": "Reward Name"
+				},
+				"sendEmail": {
+					"type": "boolean",
+					"description": "Send Email?"
+				},
+				"sender": {
+					"description": "Sender Details",
+					"$ref": "#/definitions/SenderInfoView"
+				},
+				"status": {
+					"type": "string",
+					"description": "Reward Status"
+				},
+				"utid": {
+					"type": "string",
+					"description": "Utid - Unique Tango Card ID."
+				}
+			}
+		},
+		"PageView": {
+			"type": "object",
+			"required": ["elementsPerBlock", "number", "resultCount", "totalCount"],
+			"properties": {
+				"elementsPerBlock": {
+					"type": "integer",
+					"format": "int32",
+					"description": "Total number of elements per page"
+				},
+				"number": {
+					"type": "integer",
+					"format": "int32",
+					"description": "Current page number"
+				},
+				"resultCount": {
+					"type": "integer",
+					"format": "int32",
+					"description": "Total number of elements in the current page"
+				},
+				"totalCount": {
+					"type": "integer",
+					"format": "int64",
+					"description": "Total number of elements"
+				}
+			}
+		},
+		"OrderViewVerbose": {
+			"type": "object",
+			"required": ["accountIdentifier", "amountCharged", "campaign", "createdAt", "customerIdentifier", "denomination", "emailSubject", "externalRefID", "message", "referenceOrderID", "reward", "rewardName", "sendEmail", "status", "utid"],
+			"properties": {
+				"accountIdentifier": {
+					"type": "string",
+					"description": "Account Identifier"
+				},
+				"amountCharged": {
+					"description": "Amount Charged",
+					"$ref": "#/definitions/MoneyView"
+				},
+				"campaign": {
+					"type": "string",
+					"description": "Reward Campaign"
+				},
+				"createdAt": {
+					"type": "string",
+					"description": "Created Date"
+				},
+				"customerIdentifier": {
+					"type": "string",
+					"description": "Customer Identifier"
+				},
+				"denomination": {
+					"description": "Denomination",
+					"$ref": "#/definitions/MoneyView"
+				},
+				"emailSubject": {
+					"type": "string",
+					"description": "Email Subject"
+				},
+				"externalRefID": {
+					"type": "string",
+					"description": "External Reference ID"
+				},
+				"message": {
+					"type": "string",
+					"description": "Email Message"
+				},
+				"notes": {
+					"type": "string",
+					"description": "Notes"
+				},
+				"recipient": {
+					"description": "Recipient Details",
+					"$ref": "#/definitions/RecipientInfoView"
+				},
+				"referenceOrderID": {
+					"type": "string",
+					"description": "Reference Order ID"
+				},
+				"reward": {
+					"description": "The Reward",
+					"$ref": "#/definitions/OrderRewardView"
+				},
+				"rewardName": {
+					"type": "string",
+					"description": "Reward Name"
+				},
+				"sendEmail": {
+					"type": "boolean",
+					"description": "Send Email?"
+				},
+				"sender": {
+					"description": "Sender Details",
+					"$ref": "#/definitions/SenderInfoView"
+				},
+				"status": {
+					"type": "string",
+					"description": "Reward Status"
+				},
+				"utid": {
+					"type": "string",
+					"description": "Utid - Unique Tango Card ID."
+				}
+			}
+		},
+		"CreateAccountCriteria": {
+			"type": "object",
+			"required": ["accountIdentifier", "contactEmail", "displayName"],
+			"properties": {
+				"accountIdentifier": {
+					"type": "string",
+					"description": "Account Identifier"
+				},
+				"contactEmail": {
+					"type": "string",
+					"description": "Email"
+				},
+				"displayName": {
+					"type": "string",
+					"description": "Display Name"
+				}
+			}
+		},
+		"OrderView": {
+			"type": "object",
+			"required": ["referenceOrderID"],
+			"properties": {
+				"referenceOrderID": {
+					"type": "string",
+					"description": "Reference Order ID"
+				}
+			}
+		},
+		"CreditCardDepositView": {
+			"type": "object",
+			"required": ["amount", "amountCharged", "createdDate", "feePercent", "referenceDepositID"],
+			"properties": {
+				"amount": {
+					"type": "number",
+					"format": "double",
+					"description": "Amount funded in USD"
+				},
+				"amountCharged": {
+					"type": "number",
+					"format": "double",
+					"description": "Amount charged in USD"
+				},
+				"createdDate": {
+					"type": "string",
+					"description": "Date the credit card deposit was created"
+				},
+				"feePercent": {
+					"type": "number",
+					"format": "double",
+					"description": "Fee percent charged for credit card processing"
+				},
+				"referenceDepositID": {
+					"type": "string",
+					"description": "Credit Card Deposit order reference ID"
+				}
+			}
+		},
+		"CreateCustomerCriteria": {
+			"type": "object",
+			"required": ["customerIdentifier", "displayName"],
+			"properties": {
+				"customerIdentifier": {
+					"type": "string",
+					"description": "Customer Identifier"
+				},
+				"displayName": {
+					"type": "string",
+					"description": "Display Name"
+				}
+			}
+		},
+		"OrderViewSummary": {
+			"type": "object",
+			"required": ["accountIdentifier", "amountCharged", "campaign", "createdAt", "customerIdentifier", "denomination", "emailSubject", "message", "recipient", "redemptionInstructions", "referenceOrderID", "reward", "rewardName", "sendEmail", "sender", "status", "utid"],
+			"properties": {
+				"accountIdentifier": {
+					"type": "string",
+					"description": "Account Identifier"
+				},
+				"amountCharged": {
+					"description": "Amount Charged",
+					"$ref": "#/definitions/MoneyView"
+				},
+				"campaign": {
+					"type": "string",
+					"description": "Reward Campaign"
+				},
+				"createdAt": {
+					"type": "string",
+					"description": "Created Date"
+				},
+				"customerIdentifier": {
+					"type": "string",
+					"description": "Customer Identifier"
+				},
+				"denomination": {
+					"description": "Denomination",
+					"$ref": "#/definitions/MoneyView"
+				},
+				"emailSubject": {
+					"type": "string",
+					"description": "Email Subject"
+				},
+				"message": {
+					"type": "string",
+					"description": "Email Message"
+				},
+				"recipient": {
+					"description": "Recipient Details",
+					"$ref": "#/definitions/RecipientInfoView"
+				},
+				"redemptionInstructions": {
+					"type": "string",
+					"description": "Redemption Instructions"
+				},
+				"referenceOrderID": {
+					"type": "string",
+					"description": "Reference Order ID"
+				},
+				"reward": {
+					"description": "The Reward",
+					"$ref": "#/definitions/OrderRewardView"
+				},
+				"rewardName": {
+					"type": "string",
+					"description": "Reward Name"
+				},
+				"sendEmail": {
+					"type": "boolean",
+					"description": "Send Email?"
+				},
+				"sender": {
+					"description": "Sender Details",
+					"$ref": "#/definitions/SenderInfoView"
+				},
+				"status": {
+					"type": "string",
+					"description": "Reward Status"
+				},
+				"utid": {
+					"type": "string",
+					"description": "Utid - Unique Tango Card ID."
+				}
+			}
+		},
+		"RecipientInfoView": {
+			"type": "object",
+			"properties": {
+				"email": {
+					"type": "string",
+					"description": "Email"
+				},
+				"firstName": {
+					"type": "string",
+					"description": "First Name"
+				},
+				"lastName": {
+					"type": "string",
+					"description": "Last Name"
+				}
+			}
+		},
+		"OrderRewardView": {
+			"type": "object",
+			"required": ["credentials"],
+			"properties": {
+				"credentialList": {
+					"type": "array",
+					"description": "Verbose list of credentials",
+					"items": {
+						"$ref": "#/definitions/CredentialView"
+					}
+				},
+				"credentials": {
+					"type": "object",
+					"description": "Credentials as a map with String label key and credential value String",
+					"additionalProperties": {
+						"type": "string"
+					}
+				},
+				"redemptionInstructions": {
+					"type": "string"
+				}
+			}
+		},
+		"CustomerView": {
+			"type": "object"
+		},
+		"MoneyView": {
+			"type": "object",
+			"properties": {
+				"currencyCode": {
+					"type": "string"
+				},
+				"exchangeRate": {
+					"type": "number",
+					"format": "double"
+				},
+				"fee": {
+					"type": "number",
+					"format": "double"
+				},
+				"total": {
+					"type": "number",
+					"format": "double"
+				},
+				"value": {
+					"type": "number",
+					"format": "double"
+				}
+			}
+		},
+		"CredentialView": {
+			"type": "object",
+			"properties": {
+				"label": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string"
+				},
+				"value": {
+					"type": "string"
+				}
+			}
+		},
+		"BillingAddressCriteria": {
+			"type": "object",
+			"properties": {
+				"addressLine1": {
+					"type": "string"
+				},
+				"addressLine2": {
+					"type": "string"
+				},
+				"city": {
+					"type": "string"
+				},
+				"country": {
+					"type": "string"
+				},
+				"emailAddress": {
+					"type": "string"
+				},
+				"firstName": {
+					"type": "string"
+				},
+				"lastName": {
+					"type": "string"
+				},
+				"postalCode": {
+					"type": "string"
+				},
+				"state": {
+					"type": "string"
+				}
+			}
+		},
+		"CustomerViewNew": {
+			"type": "object",
+			"required": ["createdAt", "customerIdentifier", "displayName", "status"],
+			"properties": {
+				"createdAt": {
+					"type": "string",
+					"description": "Created Date"
+				},
+				"customerIdentifier": {
+					"type": "string",
+					"description": "Customer Identifier"
+				},
+				"displayName": {
+					"type": "string",
+					"description": "Customer Display Name"
+				},
+				"status": {
+					"type": "string",
+					"description": "Customer Status"
+				}
+			}
+		},
+		"AccountViewSummary": {
+			"type": "object",
+			"required": ["accountIdentifier", "createdAt", "displayName", "status"],
+			"properties": {
+				"accountIdentifier": {
+					"type": "string",
+					"description": "Account Identifier"
+				},
+				"createdAt": {
+					"type": "string",
+					"description": "Account Created At"
+				},
+				"displayName": {
+					"type": "string",
+					"description": "Account Display Name"
+				},
+				"status": {
+					"type": "string",
+					"description": "Account Status"
+				}
+			}
+		},
+		"BrandViewWithItemsVerbose": {
+			"type": "object",
+			"required": ["brandKey", "brandName", "createdDate", "description", "disclaimer", "imageUrls", "items", "lastUpdateDate", "shortDescription", "status", "terms"],
+			"properties": {
+				"brandKey": {
+					"type": "string",
+					"description": "Brand Key"
+				},
+				"brandName": {
+					"type": "string",
+					"description": "Brand Display Name"
+				},
+				"createdDate": {
+					"type": "string",
+					"description": "Created Date"
+				},
+				"description": {
+					"type": "string",
+					"description": "Brand Description"
+				},
+				"disclaimer": {
+					"type": "string",
+					"description": "Brand Disclaimer"
+				},
+				"imageUrls": {
+					"type": "object",
+					"description": "Brand Images in various sizes",
+					"additionalProperties": {
+						"type": "string"
+					}
+				},
+				"items": {
+					"type": "array",
+					"description": "List of Items associated with this Brand",
+					"items": {
+						"$ref": "#/definitions/ItemViewVerbose"
+					}
+				},
+				"lastUpdateDate": {
+					"type": "string",
+					"description": "Last Updated Date"
+				},
+				"shortDescription": {
+					"type": "string",
+					"description": "Short Description"
+				},
+				"status": {
+					"type": "string",
+					"description": "Brand Status"
+				},
+				"terms": {
+					"type": "string",
+					"description": "Brand Terms and Conditions"
+				}
+			}
+		},
+		"CreditCardCriteria": {
+			"type": "object",
+			"properties": {
+				"expiration": {
+					"type": "string"
+				},
+				"number": {
+					"type": "string"
+				},
+				"verificationNumber": {
+					"type": "string"
+				}
+			}
+		},
+		"SenderInfoCriteria": {
+			"type": "object",
+			"properties": {
+				"email": {
+					"type": "string",
+					"description": "Email"
+				},
+				"firstName": {
+					"type": "string",
+					"description": "First Name"
+				},
+				"lastName": {
+					"type": "string",
+					"description": "Last Name"
+				}
+			}
+		}
+	}
+}

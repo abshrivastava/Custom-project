@@ -1,0 +1,113 @@
+      <div class="my-carepoynt">
+    <div id="st-container" class="st-container">
+      <!-- nav menu -->
+      <div ng-include="'shared/nav-menu/index.html'"></div>
+      <!-- /nav menu  -->
+
+      <!-- content push wrapper -->
+      <div class="st-pusher">
+        <div class="st-content"><!-- this is the wrapper for the content -->
+          <div class="st-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+
+            <!-- header - navbar -->
+            <div ng-include="'shared/header/index.html'" ></div>
+            <!-- /header - navbar -->
+
+            <div class="container main" >
+
+              <div class="row center-xs" ng-show="!showBarcodeFlag">
+                <div class="col-xs-12 col-sm-7 col-md-10 cp-mt-10 cp-p-10">
+
+                  <div class="col-xs-6">
+                    <div class="list-group">
+                      <a class="list-group-item">
+                        <h4 class="list-group-item-heading">My Account</h4>
+                        <hr>
+                        <p class="list-group-item-text">Some text description</p>
+                        <br>
+                        <p>
+                          <button class="btn btn-info btn-block">Let's Go</button>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-xs-6">
+                    <div class="list-group">
+                      <a class="list-group-item" ng-click="showBarcode(true)">
+                        <h4 class="list-group-item-heading">My Barcode</h4>
+                        <hr>
+                        <p class="list-group-item-text">Some text description</p>
+                        <br>
+                        <p>
+                          <button class="btn btn-info btn-block" ng-click="showEntAwardPoynts()">Let's Go</button>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="clearfix"></div>
+                  <div class="col-xs-6">
+                    <div class="list-group">
+                      <a class="list-group-item">
+                        <h4 class="list-group-item-heading">My Devices</h4>
+                        <hr>
+                        <p class="list-group-item-text">My Placeholder</p>
+                        <p class="list-group-item-text">My Placeholder</p>
+                        <br>
+                        <p>
+                          <button class="btn btn-default btn-block" ng-click="nothingYet()">Do Something</button>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-xs-6">
+                    <div class="list-group">
+                      <a href="" class="list-group-item">
+                        <h4 class="list-group-item-heading">My Activities</h4>
+                        <hr>
+                        <p class="list-group-item-text">My Placeholder</p>
+                        <p class="list-group-item-text">My Placeholder</p>
+                        <br>
+                        <p>
+                          <button class="btn btn-info btn-block" ng-click="showInviteReport()">Let's Go</button>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- barcode screen-->
+              <div class="row center-xs" ng-show="showBarcodeFlag" >
+                <div class="col-xs-12 cp-mt-20">
+                  <div class="form-group cp-pt-20">
+                    <img src="/rewards/mem/barcode">
+                  </div>
+                </div>
+                <div class="col-xs-6 col-md-4 center-xs cp-pt-20">
+                  <div class="form-group cp-pt-20">
+                    <p>
+                      <button class="btn btn-info btn-block" ng-click="showBarcode(false)">Close</button>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- /barcode screen  -->
+            </div><!-- /main -->
+
+          </div><!-- /st-content-inner -->
+        </div><!-- /st-content -->
+      </div><!-- /st-pusher -->
+    </div><!-- /st-container -->
+  </div>
+
+    <!-- loading -->
+  <div ng-show="loading" class="loading-page">
+    <!-- <img id="loading-image" src="images/ajax-loader.gif" alt="Loading..." /> -->
+    <i class="icon ion-ios-loop-strong spin big" style="color: #fff"></i>
+  </div>
+
+  <div ng-show="showBusy" class="busy-loading-page">
+    <img class="busy-loading-image" src="/cp/img/ajax-loader.gif" alt="Loading..." />
+  </div>

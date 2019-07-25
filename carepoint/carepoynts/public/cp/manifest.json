@@ -1,0 +1,16 @@
+{
+  "name": "Carepoynt",
+  "short_name": "Carepoynt",
+  "start_url": "/login",
+  "icons": [
+    {
+      "src": "/cp/img/cp-icon.jpg",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#000000",
+  "background_color": "#FFFFFF",
+  "display": "browser",
+  "orientation": "portrait"
+}

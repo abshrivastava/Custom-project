@@ -1,0 +1,911 @@
+<style>
+  .clique input {
+    font-size: 16px;
+  }
+</style>
+
+<div class="clique">
+  <div id="st-container" class="st-container">
+    <!-- nav menu -->
+    <div ng-include="'shared/nav-menu/index.html'"></div>
+    <!-- /nav menu  -->
+
+    <!-- content push wrapper -->
+    <div class="st-pusher">
+      <div class="st-content">
+        <!-- this is the wrapper for the content -->
+        <div class="st-content-inner">
+          <!-- extra div for emulating position:fixed of the menu -->
+
+          <!-- header - navbar -->
+          <div ng-include="'shared/header/index.html'"></div>
+          <!-- /header - navbar -->
+
+
+          <div class="container">
+
+
+            <!-- page-heading  -->
+            <div class="cp-mlr-5">
+              <div class="row center-xs top-xs heading">
+                <div class="col-xs-12 col-sm-7 col-md-10">
+                  <div class="start-xs back-link pull-left">
+                    <a ng-click="goBack()"><i class="icon ion-ios-arrow-thin-left"></i></a>
+                  </div>
+                  <div class="col-xs center-xs page-heading">
+                    <h1>
+                      My Cliques
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /page-heading  -->
+
+            <div class="row center-xs">
+              <div class="col-xs-12 col-sm-7 col-md-10">
+
+                <div ng-if="features['dark.member.clique']">
+                  <div class="cp-plr-0">
+                    <div class="row center-xs">
+                      <div class="col-xs-12 cp-p-0">
+
+                        <div ng-show="showMyCliques" class="">
+                          <img width="100%" src="/assets/app-new/img/cliques-bg.jpg" />
+                        </div>
+                        <div ng-show="resultStatus=='success'" class="alert alert-success alert-dismissable">
+                          <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                          <strong>Success!</strong>
+                        </div>
+
+                        <div ng-show="resultStatus== 'failure'" class="alert alert-danger alert-dismissable">
+                          <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                          <strong>Failure!</strong> Something went wrong.
+                        </div>
+                        <div class="cp-p-10">
+
+                          <div class="cp-bg-color-white" style="min-height: 340px;">
+
+                            <div class="col-xs cp-plr-0">
+                              <div class="col-xs-6 cp-pb-10 cp-pl-10 text-left">
+                                <div ng-show="myCliques.length>0 && !showCreateClique && showMyCliques">
+                                  {{myCliques.length}} Clique(s)
+                                </div>
+                              </div>
+                              <div class="col-xs-6 cp-pb-10 cp-pr-10 text-right" ng-show="myCliques.length<2 && !showCreateClique && !showInviteForm">
+                                <button type="button" class="btn btn-xs cp-btn-action" ng-click="showCreateCliqueForm()"> + Clique </button>
+                              </div>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+
+                            <!-- List Cliques-->
+                            <div ng-if="showMyCliques">
+
+                              <div>
+                                <div class="cp-border-rounded cp-mb-5 cp-plr-10 cp-ptb-10" ng-repeat="myClique in myCliques| limitTo:2" ng-class="{'cp-border-color-manager' : isCliqueManager(myClique.type)}">
+                                  <!-- why is this here. isCliqueManager(myClique.type) doesn't ever work -->
+                                  <div ng-if="myClique.status !== 'invited'">
+
+                                    <div class="col-xs-12 cp-plr-0">
+                                      <div class="col-xs-11 cp-plr-0">
+                                        <div class="col-xs-8 start-xs cp-plr-0">
+                                          <div>
+                                            {{myClique.name}}
+                                          </div>
+                                        </div>
+                                        <div class="col-xs-2 center-xs cp-plr-0 cp-color-action">
+                                          <span class="glyphicon glyphicon-transfer" aria-hidden="true" ng-click="managePoynts(myClique)"></span>
+                                        </div>
+                                        <div class="col-xs-2 center-xs top-xs cp-plr-0 cp-color-action" ng-click="manageMembers(myClique)">
+                                          <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
+                                        </div>
+                                        <div class="col-xs-5 start-xs cp-plr-0">
+                                          <small>{{myClique.memberCount}} member(s)</small>
+                                        </div>
+                                        <div class=" col-xs-7 cp-plr-5">
+                                          <strong>{{myClique.poyntTotal | number}} total poynts</strong>
+                                        </div>
+                                      </div>
+                                      <div class="col-xs-1 cp-plr-0 middle-xs cp-color-action" ng-click="expandMe(myClique)">
+                                        <span ng-if="!myClique.expanded" class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                                        <span ng-if="myClique.expanded" class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+                                      </div>
+                                      <div class="clearfix"></div>
+
+                                      <!-- Show Clique-->
+                                      <div ng-if="myClique.expanded">
+                                        <hr>
+                                        <!-- View Member View -->
+                                        <div ng-if="myClique.showDetailView">
+                                          <div class="cp-mb-5 cp-plr-0 cp-ptb-5" ng-repeat="mem in myClique.members" ng-class="{'cp-border-color-manager1' : isCliqueManager(mem)}">
+                                            <div ng-if="mem.status !== 'invited'">
+                                              <div class="col-xs-6 start-xs cp-plr-0">
+
+                                                <div>
+                                                  <span class="glyphicon glyphicon-trash cp-pr-5" aria-hidden="true" ng-if="myClique.showManageView" ng-click="confirmDeleteClique()"></span>
+                                                  <span ng-if="!isYou(mem)">{{mem.details.name}}</span>
+                                                  <span ng-if="isYou(mem)">You</span>
+                                                </div>
+
+                                              </div>
+
+                                              <div class=" col-xs-2 cp-plr-5 text-left">
+                                                <small>{{mem.type}}</small>
+                                              </div>
+
+                                              <div class="col-xs-4 cp-plr-0 text-right">
+                                                <div class="poynts">
+                                                  {{mem.details.reward.points | number}}
+                                                  <small>poynts</small>
+                                                </div>
+                                              </div>
+
+
+                                            </div>
+
+                                            <div ng-if="mem.status === 'invited'">
+                                              <div class="col-xs-8 start-xs cp-plr-0 cp-pt-10">
+                                                <div>{{mem.details.email}}</div>
+                                                <br>
+                                              </div>
+                                              <div class="col-xs-2 start-xs cp-plr-0 cp-pt-10">
+                                                <div>{{mem.status}}</div>
+                                              </div>
+
+                                              <div class=" col-xs-2 center-xs cp-plr-5 cp-mt-5">
+                                                <div class="cp-p-5" ng-click="removeMember(mem)">
+                                                  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                                </div>
+                                              </div>
+                                            </div>
+
+                                            <div class="clearfix"></div>
+                                          </div>
+
+                                        </div>
+                                        <!-- /View Member View -->
+
+                                        <!-- Manage Member View -->
+                                        <div ng-if="myClique.showManageView">
+                                          <div class="cp-mb-5 cp-plr-0 cp-ptb-5" ng-repeat="mem in myClique.members" ng-class="{'cp-border-color-manager1' : isCliqueManager(mem)}">
+                                            <div ng-if="mem.status !== 'invited'">
+                                              <div class="col-xs-6 start-xs cp-plr-0">
+                                                <span class=" cp-pr-5 cp-mlr-10" ng-if="!showTrash(mem)" aria-hidden="true"></span>
+                                                <span class=" cp-pr-5 glyphicon glyphicon-trash" ng-if="showTrash(mem)" aria-hidden="true" ng-click="removeMember(mem, myClique)"></span>
+                                                <span ng-if="!isYou(mem)">{{mem.details.name}}</span>
+                                                <span ng-if="isYou(mem)">You</span>
+                                              </div>
+
+                                              <div class=" col-xs-2 cp-plr-5 text-left">
+                                                <small>{{mem.type}}</small>
+                                              </div>
+
+                                              <div class="col-xs-4 cp-plr-0 text-right">
+                                                <div class="poynts">
+                                                  {{mem.details.reward.points | number}}
+                                                  <small>poynts</small>
+                                                </div>
+                                              </div>
+                                            </div>
+
+                                            <div ng-if="mem.status === 'invited'">
+                                              <div class="col-xs-8 start-xs cp-plr-0 cp-pt-10">
+                                                <div>{{mem.details.email}}</div>
+                                                <br>
+                                              </div>
+                                              <div class="col-xs-2 start-xs cp-plr-0 cp-pt-10">
+                                                <div>{{mem.status}}</div>
+                                              </div>
+
+                                              <div class=" col-xs-2 center-xs cp-plr-5 cp-mt-5">
+                                                <div class="cp-p-5" ng-click="removeMember(mem)">
+                                                  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                                </div>
+                                              </div>
+                                            </div>
+
+                                            <div class="clearfix"></div>
+                                          </div>
+
+                                          <div class="col-xs center-xs cp-plr-5 cp-pt-10">
+                                            <div ng-if="myClique.members.length>1" class="">
+                                              <div ng-if="myClique.members.length<6" class="col-md-6 col-md-offset-3">
+                                                <button type="button" class="btn btn-xs cp-btn-action" style="width:75%; height:75%;" ng-click="showInvite(myClique)">Add Member</button>
+                                              </div>
+                                            </div>
+
+                                            <div ng-if="myClique.members.length<2" class="col-xs-6 col-md-6">
+                                              <div ng-if="myClique.members.length<6" class="col-md-6 col-md-offset-3">
+                                                <button type="button" class="btn btn-xs cp-btn-action full-width-height" ng-click="showInvite(myClique)">Add Member</button>
+                                              </div>
+                                            </div>
+
+
+
+                                            <div class="col-xs-6 col-md-6">
+                                              <div ng-if="myClique.member_id==member.memberid && myClique.members.length<2" class="col-md-6 col-md-offset-3">
+                                                <button type="button" class="btn btn-xs cp-btn-action full-width-height" ng-click="deactivateClique(myClique)">Delete Clique</button>
+                                              </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                          </div>
+
+                                        </div>
+                                        <!-- /Manage Member View -->
+
+
+                                        <!-- Manage Poynts View -->
+                                        <div ng-if="myClique.showPoyntsView">
+                                          <div class="cp-mb-5 cp-plr-0 cp-ptb-5" ng-repeat="mem in myClique.members" ng-class="{'cp-border-color-manager1' : isCliqueManager(mem)}">
+                                            <div ng-if="mem.status !== 'invited'">
+
+                                              <div class="col-xs-6 start-xs cp-plr-0">
+                                                <div class="col-xs-2 col-md-1 cp-max-width-20 cp-plr-0 cp-mr-10 text-left" ng-click="selectMember(mem, myClique)">
+                                                  <span aria-hidden="true" ng-if="mem.member_id!=selectedMem.member_id && !isYou(mem)" class="cp-font-size-16"><i class="icon ion-ios-circle-outline"></i></span>
+                                                  <span aria-hidden="true" ng-if="mem.member_id==selectedMem.member_id" class="cp-color-action cp-font-size-16"><i class="icon ion-ios-checkmark"></i></span>
+                                                </div>
+
+                                                <div class="col-xs-10 col-md-11 start-xs cp-plr-0">
+                                                  <span ng-if="!isYou(mem)">{{mem.details.name}}</span>
+                                                  <span ng-if="isYou(mem)">You</span>
+                                                </div>
+                                              </div>
+
+                                              <div class=" col-xs-2 cp-plr-5 text-left">
+                                                <small>{{mem.type}}</small>
+                                              </div>
+
+                                              <div class="col-xs-4 cp-plr-0 text-right">
+                                                <div class="poynts">
+                                                  {{mem.details.reward.points | number}}
+                                                  <small>poynts</small>
+                                                </div>
+                                              </div>
+
+                                            </div>
+
+                                            <div ng-if="mem.status === 'invited'">
+                                              <div class="col-xs-8 start-xs cp-plr-0 cp-pt-10">
+                                                <div>{{mem.details.email}}</div>
+                                                <br>
+                                              </div>
+                                              <div class="col-xs-2 start-xs cp-plr-0 cp-pt-10">
+                                                <div>{{mem.status}}</div>
+                                              </div>
+
+                                              <div class=" col-xs-2 center-xs cp-plr-5 cp-mt-5">
+                                                <div class="cp-p-5" ng-click="removeMember(mem)">
+                                                  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                                </div>
+                                              </div>
+                                            </div>
+
+                                            <div class="clearfix"></div>
+                                          </div>
+                                          <div ng-if="showTransfer2">
+                                            <div class="form-group cp-pb-10 cp-pt-10">
+                                              <label for="name">Amount</label>
+                                              <input type="text" class="form-control" id="name" name="name" placeholder="Amount of Poynts" ng-model="transfer.amount">
+                                            </div>
+                                            <span ng-show="showInvalidAmount" style="color: red;">Insufficient poynts</span>
+                                            <span ng-show="showSameMember" style="color: red;">Sender and Receiver cannot be the same</span>
+                                            <div class="col-xs-12 cp-plr-0">
+                                              <div class="col-xs center-xs cp-plr-0 ">
+                                                <div ng-if="showPull">
+                                                  <div class="col-xs-4 col-md-2 col-md-offset-3">
+                                                    <button type="button" class="btn cp-btn-action full-width-height" ng-click="transferPoynts(myMember, selectedMem)">Send</button>
+                                                  </div>
+
+                                                  <div class="col-xs-4 col-md-2 ">
+                                                    <button type="button" class="btn btn-default full-width-height" ng-click="transferPoynts(selectedMem, myMember)">Pull</button>
+                                                  </div>
+
+                                                  <div class="col-xs-4 col-md-2 ">
+                                                    <button type="button" class="btn btn-default full-width-height" ng-click="cancelTransfer()">Cancel</button>
+                                                  </div>
+                                                </div>
+
+                                                <div ng-if="!showPull">
+                                                  <div class="col-xs-6 col-md-3 col-md-offset-3">
+                                                    <button type="button" class="btn cp-btn-action full-width-height" ng-click="transferPoynts(myMember, selectedMem)">Send</button>
+                                                  </div>
+                                                  <div class="col-xs-6 col-md-3">
+                                                    <button type="button" class="btn btn-default full-width-height" ng-click="cancelTransfer()">Cancel</button>
+                                                  </div>
+                                                </div>
+
+                                              </div>
+                                            </div>
+                                          </div>
+
+
+                                        </div>
+                                        <!-- /Manage Poynts View -->
+
+                                      </div>
+                                      <!-- /Show Clique-->
+
+                                    </div>
+
+                                  </div>
+
+                                  <div ng-if="myClique.status === 'invited'">
+                                    <div class="col-xs-12 cp-plr-0 cp-pb-10">
+                                      <div class="col-xs-7 start-xs cp-plr-0">
+                                        <div>{{myClique.name}}</div>
+                                      </div>
+                                      <div class="col-xs-3 start-xs cp-plr-0">
+                                        <div><strong>{{myClique.status}}</strong></div>
+                                      </div>
+                                      <div class=" col-xs-2 center-xs cp-plr-5 cp-mt-5">
+                                      </div>
+                                    </div>
+                                    <div class="col-xs-12 start-xs cp-plr-0">
+                                      <div class="center-xs">
+                                        <div class="col-xs center-xs cp-plr-5 ">
+                                          <div class="col-xs-2"></div>
+                                          <div class="col-xs-4">
+                                            <button type="button" class="btn btn-xs cp-btn-action " ng-click="acceptInvite(myClique)"> Accept </button>
+                                          </div>
+                                          <div class="col-xs-4">
+                                            <button type="button" class="btn btn-xs btn-default " ng-click="denyInvite(myClique)">&nbsp;Deny&nbsp;</button>
+                                          </div>
+                                          <div class="col-xs-2"></div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                  </div>
+
+                                  <div class="clearfix"></div>
+                                </div>
+
+                              </div>
+
+                            </div>
+
+
+                            <!-- show invite(this is seperated because that's how it looked like on jira. including it in above div will include # cliques) -->
+                            <div ng-show="showInviteForm">
+                              <div ng-if="myClique.members.length < 6">
+                                <div class="cp-border-rounded cp-mb-10 cp-plr-10 cp-ptb-10">
+                                  <div class="col-xs-12">
+                                    <h4 id="name">Add Family Member</h4>
+                                    <div class="col-xs-12 col-md-6 cp-mb-5 cp-plr-0 cp-ptb-5" ng-click="selectInviteType('email')">
+                                      <div class="col-xs-1 cp-max-width-20 cp-plr-0 text-left">
+                                        <span aria-hidden="true" ng-if="invite.type!='email'" class="cp-font-size-16"><i class="icon ion-ios-circle-outline"></i></span>
+                                        <span aria-hidden="true" ng-if="invite.type=='email'" class="cp-color-action cp-font-size-16"><i class="icon ion-ios-checkmark"></i></span>
+                                      </div>
+                                      <div class="col-xs-11 start-xs cp-plr-0">
+                                        <span><strong>Add Clique Member</strong></span>
+                                        <div class="cp-font-size-10">
+                                          Add either a member of Carepoynt or invite someone new!
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- <div class="clearfix"></div> -->
+                                    <div ng-if="showDependentCheck" class="col-xs-12 col-md-6 cp-mb-5 cp-plr-0 cp-ptb-5" ng-click="selectInviteType('dependent')">
+                                      <div class="col-xs-1 cp-max-width-20 cp-plr-0 text-left">
+                                        <span aria-hidden="true" ng-if="invite.type!='dependent'" class="cp-font-size-16"><i class="icon ion-ios-circle-outline"></i></span>
+                                        <span aria-hidden="true" ng-if="invite.type=='dependent'" class="cp-color-action cp-font-size-16"><i class="icon ion-ios-checkmark"></i></span>
+                                      </div>
+                                      <div class="col-xs-11 start-xs cp-plr-0">
+                                        <span><strong>Add Dependent</strong></span>
+                                        <div class="cp-font-size-10">
+                                          Add a child, grandma, or someone not able to use Carepoynt by themselves and allow them to still earn Carepoynts.
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <br>
+                                    <div class="col-xs-12 cp-plr-0 text-left" ng-show="invite.type=='email'">
+                                      <div class="cp-mt-10">
+                                        <label> Email</label>
+                                        <input type="email" class="form-control" id="name" name="name" placeholder="Email" ng-model="invite.email">
+                                      </div>
+                                      <div ng-show="showNotCurrentMember" class="cp-text-color-red cp-font-size-12">Can only invite current Carepoynt members.</div>
+                                      <div ng-show="showFull" class="cp-text-color-red cp-font-size-12">Member already a member of 2 cliques.</div>
+
+                                      <div class="col-xs form-group center-xs">
+                                        <div class="col-xs-6 col-md-3 col-md-offset-3">
+                                          <button type="button" class="cp-mb-10 btn cp-btn-action full-width-height" ng-click="inviteMember()">Invite</button>
+                                        </div>
+                                        <div class="col-xs-6 col-md-3">
+                                          <button type="button" class="btn btn-default full-width-height" ng-click="cancelInvite()">Cancel</button>
+                                        </div>
+                                      </div>
+                                    </div>
+
+
+                                    <div ng-show="invite.type=='dependent'">
+                                      <div class="center-xs">
+                                        <div class="col-xs-12 cp-plr-0 text-left">
+                                          <div class="form-group cp-mt-10">
+                                            <label for="name">First Name</label>
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="First" ng-model="newMember.fname">
+                                          </div>
+                                          <div class="form-group cp-mt-20">
+                                            <label for="name">Last Name</label>
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Last" ng-model="newMember.lname">
+                                          </div>
+
+
+
+
+
+                                          <div class="form-group cp-mt-20">
+                                            <div class="">
+                                              <div class="">
+                                                <div>
+                                                  <label for="birthdate">Birthdate</label>
+                                                </div>
+                                                <input type="text" class="form-control" id="datepicker" is-open="opened" name="uibDatePicker" uib-datepicker-popup="MM-dd-yyyy"
+                                                  ng-model="newMember.dob" show-button-bar="false" datepicker-options="dateOptions"
+                                                  ng-click="open($event)" hidden-time="true" required="true" ng-if="checkBrowser">
+                                                <div ng-if="checkBrowser" ng-show="angUIBootstrapDatePickerForm.uibDatePicker.$touched && angUIBootstrapDatePickerForm.uibDatePicker.$invalid">
+                                                  <small style="color:red; text-align:center;  display:block;">Please select date</small>
+                                                </div>
+                                                <input id="birthdate" class="form-control" type="date" ng-model="newMember.dob" required ng-if="!checkBrowser">
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          <div class="col-xs form-group center-xs">
+
+                                            <div class="col-xs-6 col-md-3 col-md-offset-3">
+                                              <button type="button" class="btn cp-btn-action full-width-height" ng-click="addDependent()">Add</button>
+                                            </div>
+                                            <div class="col-xs-6 col-md-3">
+                                              <button type="button" class="btn btn-default full-width-height" ng-click="cancelInvite()">Cancel</button>
+                                            </div>
+
+                                            <div class="clearfix"></div>
+                                          </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                      </div>
+                                    </div>
+
+                                  </div>
+
+                                  <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+
+                            <!-- /List Cliques-->
+
+                            <!-- Show Clique-->
+                            <div ng-if="showCliqueOLD">
+                              <div ng-if="!readOnly">
+                                <div class="cp-border-rounded cp-mb-5 cp-plr-10 cp-ptb-5" ng-repeat="mem in clique.members" ng-class="{'cp-border-color-manager' : isCliqueManager(mem)}">
+                                  <div ng-if="mem.status !== 'invited'">
+                                    <div class="col-xs-7 start-xs cp-plr-0">
+                                      <div>
+                                        {{mem.details.name}}
+                                        <br>
+                                        <small>{{mem.type}}</small>
+                                      </div>
+
+                                    </div>
+
+                                    <div class="col-xs-3 start-xs cp-plr-0">
+                                      <div class="poynts cp-blue-earn">
+                                        {{mem.details.reward.points | number}}<br>
+                                        <small>poynts</small>
+                                      </div>
+                                    </div>
+                                    <div class=" col-xs-2 center-xs cp-plr-5 cp-mt-5">
+                                      <div class="cp-p-5" ng-click="confirmDeleteClique()" ng-if="isCliqueManager(mem)">
+                                        <strong><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span></strong>
+                                      </div>
+                                      <div class="cp-p-5" ng-click="removeMember(mem)" ng-if="!isCliqueManager(mem)">
+                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                      </div>
+                                    </div>
+
+                                  </div>
+
+                                  <div ng-if="mem.status === 'invited'">
+                                    <div class="col-xs-7 start-xs cp-plr-0">
+                                      <div>{{mem.details.email}}</div>
+                                      <br>
+                                    </div>
+                                    <div class="col-xs-3 start-xs cp-plr-0">
+                                      <div>{{mem.status}}</div>
+                                    </div>
+
+                                    <div class=" col-xs-2 center-xs cp-plr-5 cp-mt-5">
+                                      <div class="cp-p-5" ng-click="removeMember(mem)">
+                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="clearfix"></div>
+                                </div>
+
+                                <div ng-if="clique.members.length < 6">
+                                  <div class="cp-border-rounded cp-mb-10 cp-plr-10 cp-ptb-10" ng-click="" role="button">
+
+                                    <div ng-show="showInviteForm">
+                                      <div class="cp-mtb-10">
+                                        <div class="col-xs-12">
+                                          <div class="">
+                                            <label for="name">Invite Email</label>
+                                            <input type="email" class="form-control" id="name" name="name" placeholder="Email" ng-model="invite.email">
+                                            <div ng-show="showNotCurrentMember" class="cp-text-color-red cp-font-size-12">Can only invite current Carepoynt members.</div>
+                                          </div>
+
+                                          <div class="col-xs form-group center-xs cp-plr-5 ">
+                                            <div class="col-xs-6">
+                                              <button type="button" class="btn btn-primary full-width-height" ng-click="inviteMember()">Invite</button>
+                                            </div>
+                                            <div class="col-xs-6 ">
+                                              <button type="button" class="btn btn-default full-width-height" ng-click="cancelInvite()">Cancel</button>
+                                            </div>
+                                          </div>
+
+                                        </div>
+                                        <div class="clearfix"></div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-xs-12 cp-plr-0" ng-show="!showInviteForm">
+                                      <div class="col-xs form-group1 center-xs cp-plr-0 ">
+                                        <div class="col-xs-6">
+                                          <button type="button" class="btn btn-sm btn-primary" ng-click="showAddDependentForm()">Add Dependent</button>
+                                        </div>
+                                        <div class="col-xs-6">
+                                          <button type="button" class="btn btn-sm btn-primary" ng-click="showInvite()">Invite Member</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+
+                                  </div>
+                                  <div class="clearfix"></div>
+                                </div>
+
+                                <!-- Transfer Button -->
+                                <div class="row center-xs cp-mt-10" ng-if="!showInviteForm && features['dark.member.cliques-transfer-poynts']">
+                                  <div class="col-xs-8">
+                                    <button type="button" class="btn btn-primary full-width-height" ng-click="showTransferForm()">Transfer Poynts</button>
+                                  </div>
+                                  <div class="clearfix"></div>
+                                </div>
+                                <!-- /Transfer Button -->
+                              </div>
+
+                              <!-- ReadOnly Button -->
+                              <div ng-if="readOnly">
+                                <div class="cp-border-rounded cp-mb-5 cp-plr-10 cp-ptb-5" ng-repeat="mem in clique.members" ng-class="{'cp-border-color-manager' : isCliqueManager(mem)}">
+                                  <div ng-if="mem.status !== 'invited'">
+                                    <div class="col-xs-7 start-xs cp-plr-0">
+                                      <div>
+                                        {{mem.details.name}}
+                                        <br>
+                                        <small>{{mem.type}}</small>
+                                      </div>
+
+                                    </div>
+
+                                    <div class="col-xs-3 start-xs cp-plr-0">
+                                      <div class="poynts cp-blue-earn">
+                                        {{mem.details.reward.points | number}}<br>
+                                        <small>poynts</small>
+                                      </div>
+                                    </div>
+                                    <div class=" col-xs-2 center-xs cp-plr-5 cp-mt-5">
+                                      <div ng-if="readOnly">
+
+                                        <div class="cp-p-5" ng-click="removeMember(mem)" ng-if="member.memberid == mem.member_id">
+                                          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                  </div>
+
+                                  <div ng-if="mem.status === 'invited'">
+                                    <div class="col-xs-7 start-xs cp-plr-0">
+                                      <div>{{mem.details.email}}</div>
+                                      <br>
+                                    </div>
+                                    <div class="col-xs-3 start-xs cp-plr-0">
+                                      <div>{{mem.status}}</div>
+                                    </div>
+
+                                    <div class=" col-xs-2 center-xs cp-plr-5 cp-mt-5">
+                                      <div ng-if="!readOnly">
+                                        <div class="cp-p-5" ng-click="removeMember(mem)" ng-if="!readOnly">
+                                          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="clearfix"></div>
+                                </div>
+                              </div>
+                              <!-- /ReadOnly Button -->
+                            </div>
+                            <!-- /Show Clique-->
+
+                            <!-- Create Clique-->
+                            <div ng-if="showCreateClique" class="col-md-6 col-md-offset-3">
+                              <div>
+                                <p>Earn Carepoynts for every health-conscious decision that you and your Clique make. Your Clique
+                                  are the people who are connected to your Carepoynt account. </p>
+                              </div>
+                              <hr>
+                              <div class="col-xs-12 ">
+                                <div class="">
+                                  <label for="name">Clique Name</label>
+                                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter a Clique Name" ng-model="clique.name">
+                                </div>
+                                <div class="col-xs form-group center-xs cp-plr-5 ">
+                                  <div class="col-xs-6 col-md-6">
+                                    <button type="button" class="btn cp-btn-action full-width-height" ng-click="createClique()">Create</button>
+                                  </div>
+                                  <div class="col-xs-6 col-md-6">
+                                    <button type="button" class="btn btn-default full-width-height" ng-click="createCancel()">Cancel</button>
+                                  </div>
+                                  <div class="clearfix"></div>
+                                </div>
+                              </div>
+                              <div class="clearfix"></div>
+                            </div>
+                            <!-- /Create Clique -->
+
+                            <!-- Add Dependent form -->
+                            <div ng-if="showAddDependent">
+                              <div class="center-xs">
+                                <div class="col-xs-12">
+                                  <div class="form-group cp-mt-10">
+                                    <label for="name">First Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="First" ng-model="newMember.fname">
+                                  </div>
+                                  <div class="form-group cp-mt-20">
+                                    <label for="name">Last Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Last" ng-model="newMember.lname">
+                                  </div>
+                                  <div class="form-group cp-mt-20">
+                                    <label for="name">Birthdate</label>
+                                    <input type="date" class="form-control" id="exampleInput" name="input" ng-model="newMember.dob" placeholder="yyyy-MM-dd"
+                                      min="1940-01-01" max="2016-12-10" required />
+                                  </div>
+                                  <div class="form-group cp-mt-20">
+                                    <label for="name">Gender</label>
+                                    <div class="row center-xs" ng-if="!showInviteForm">
+                                      <div class="row center-xs col-xs-8">
+                                        <div class="btn-group col-xs-12 col-md-4" role="group">
+                                          <button type="button" class="btn btn-xs btn-default col-xs-6" ng-class="{'btn-info' : newMember.gender == 'female'}" ng-click="setGender('female')">Female</button>
+                                          <button type="button" class="btn btn-xs btn-default col-xs-6" ng-class="{'btn-info' : newMember.gender == 'male'}" ng-click="setGender('male')"> Male </button>
+                                        </div>
+                                      </div>
+                                      <div class="clearfix"></div>
+                                    </div>
+                                  </div>
+                                  <div class="form-group row center-xs cp-pt-20">
+                                    <div class="col-xs-12 cp-mt-20">
+                                      <div class="col-xs-6 col-md-3">
+                                        <button type="button" class="btn btn-primary full-width-height" ng-click="addDependent()">Add</button>
+                                      </div>
+                                      <div class="col-xs-6 col-md-3">
+                                        <button type="button" class="btn btn-default full-width-height" ng-click="cancelAddDependent()">Cancel</button>
+                                      </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                  </div>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+                            <!-- /Add Dependent form -->
+
+                            <!-- Transfer form -->
+                            <div ng-if="showTransfer">
+                              <div class="text-left">
+                                <div class="col-xs-12">
+                                  <div class="text-center">
+                                    <h3 class="cp-mt-0">Transfer</h3>
+                                    <hr>
+                                  </div>
+                                  <div class="form-group cp-pb-10 cp-mt-0">
+                                    <label for="name">From</label>
+                                    <div class="dropdown">
+                                      <button class="btn btn-default dropdown-toggle col-xs-12" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="true">
+                                          <span ng-if="!transfer.from">
+                                            Transfer From... 
+                                          </span>
+                                          <span ng-if="transfer.from">
+                                            {{transfer.from.details.name}}
+                                          </span>
+                                          &nbsp;&nbsp;<span class="caret"></span>
+                                        </button>
+                                      <ul class="dropdown-menu col-xs-12" aria-labelledby="dropdownMenu1">
+                                        <li ng-repeat="mem in clique.members | filter:{ status: 'active' }">
+                                          <a class="cp-ptb-5" ng-click="transferFromSelect(mem)">{{mem.details.name}} - {{mem.details.reward.points | number}} pts</a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <div class="form-group cp-pb-20">
+                                    <label for="name">To</label>
+                                    <div class="dropdown">
+                                      <button class="btn btn-default dropdown-toggle col-xs-12" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="true">
+                                          <span ng-if="!transfer.to">
+                                            Transfer To... 
+                                          </span>
+                                          <span ng-if="transfer.to">
+                                            {{transfer.to.details.name}}
+                                          </span>
+                                          &nbsp;&nbsp;<span class="caret"></span>
+                                        </button>
+                                      <ul class="dropdown-menu col-xs-12" aria-labelledby="dropdownMenu1">
+                                        <li ng-repeat="mem in clique.members | filter:{ status: 'active' }">
+                                          <a class="cp-ptb-5" ng-click="transferToSelect(mem)">{{mem.details.name}} - {{mem.details.reward.points | number}} pts</a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <div class="form-group cp-pb-10 cp-pt-10">
+                                    <label for="name">Amount</label>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Amount of Poynts" ng-model="transfer.amount">
+                                  </div>
+                                  <span ng-show="showInvalidAmount" style="color: red;">Insufficient poynts</span>
+                                  <span ng-show="showSameMember" style="color: red;">Sender and Receiver cannot be the same</span>
+                                  <div class="col-xs-12 cp-plr-0">
+                                    <div class="col-xs form-group center-xs cp-plr-0 ">
+                                      <div class="col-xs-6">
+                                        <button type="button" class="btn btn-primary full-width-height" ng-click="transferPoynts()">Transfer</button>
+                                      </div>
+                                      <div class="col-xs-6">
+                                        <button type="button" class="btn btn-default full-width-height" ng-click="cancelTransfer()">Cancel</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+                            <!-- /Transfer form -->
+
+                            <!-- Transfer Success -->
+                            <div ng-if="showTransferSuccess">
+                              <div class="text-left">
+                                <div class="col-xs-12">
+                                  <div class="text-center">
+                                    <h3>Transfer Complete</h3>
+                                    <hr>
+                                  </div>
+                                  <div class="form-group center-xs">
+                                    <div class="text-center">
+                                      <button type="button" class="btn btn-primary" ng-click="showCliqueHome()">Back to My Clique</button>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+                            <!-- /Transfer form -->
+
+                            <!-- Remove Manager -->
+                            <div ng-if="showConfirmDelete && !showCreateClique">
+                              <div class="text-left">
+                                <div class="col-xs-12">
+                                  <div class="text-center">
+                                    <h3>Remove?</h3>
+                                    <hr>
+                                  </div>
+
+                                  <div>
+                                    Removing yourself from the Clique will remove all Clique members from the Clique. All poynt balances from dependents will
+                                    be transferred to your account.
+                                  </div>
+                                  <div class="form-group center-xs">
+                                    <div class="col-xs form-group center-xs cp-plr-5 ">
+                                      <div class="col-xs-6">
+                                        <button type="button" class="btn btn-primary full-width-height" ng-click="deactivateClique()">Delete</button>
+                                      </div>
+                                      <div class="col-xs-6 ">
+                                        <button type="button" class="btn btn-default full-width-height" ng-click="cancelDeleteClique()">Cancel</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+                            <!-- /Remove Manager -->
+
+                            <!-- Accept Invite Form -->
+                            <div ng-if="showAcceptInviteFormOLD">
+                              <div class="text-left">
+                                <div class="col-xs-12">
+                                  <div class="text-center">
+                                    <h3>Invite</h3>
+                                    <hr>
+                                  </div>
+                                  <div class="text-center">
+                                    You have been invited to join <br>
+                                    <strong>{{clique.name}}</strong>
+                                    <br> by <br>
+                                    <strong>{{clique.members[0].details.name}}</strong>
+                                  </div>
+                                  <div class="form-group center-xs">
+                                    <div class="col-xs form-group center-xs cp-plr-5 ">
+                                      <div class="col-xs-6">
+                                        <button type="button" class="btn cp-button-action full-width-height" ng-click="acceptInvite()">Accept</button>
+                                      </div>
+                                      <div class="col-xs-6 ">
+                                        <button type="button" class="btn btn-default full-width-height" ng-click="denyInvite()">Deny</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                            </div>
+                            <!-- /Accept Invite Form -->
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+          <!-- /.container  -->
+        </div>
+        <!-- /st-content-inner -->
+      </div>
+      <!-- /st-content -->
+    </div>
+    <!-- /st-pusher -->
+  </div>
+  <!-- /st-container -->
+
+  <!-- search-->
+  <div ng-include="'shared/search/index.html'"></div>
+  <!--search  -->
+</div>
+
+
+<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/base-min.css">
+<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD"
+  crossorigin="anonymous">
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-old-ie-min.css">
+  <![endif]-->
+<!--[if gt IE 8]><!-->
+<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css">
+<!--<![endif]-->
+<link href="/assets/app-new/css/styles.css" rel="stylesheet">
+
+<!-- loading -->
+<div ng-show="loading" class="loading-page">
+  <!-- <img id="loading-image" src="images/ajax-loader.gif" alt="Loading..." /> -->
+  <i class="icon ion-ios-loop-strong spin big" style="color: #fff"></i>
+</div>
+
+<div ng-show="showBusy" class="busy-loading-page">
+  <img class="busy-loading-image" src="/cp/img/ajax-loader.gif" alt="Loading..." />
+</div>
+
+<script src="/cp/js/sidebarEffects.js"></script>
+
+<!-- some css custom magic -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+<link href="/cp/css/bootstrap-form-button-inputs.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/cp/member-ui/app/app.css?v=0.1">

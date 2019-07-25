@@ -1,0 +1,762 @@
+<!-- Fixed navbar -->
+<div ng-include="'shared/nav-bar.html'"></div>
+<!-- /Fixed navbar -->
+
+<div class="container reports" role="main">
+
+  <div class="row">
+    <div class="well well-sm text-center margin-none cp-gradient-blue text-white">
+      <h2 class="xs-m-0">Analytics</h2>
+    </div>
+  </div>
+
+  <div class="row" >
+
+    <div class="col-xs-9">
+      <div class="dropdown">
+        <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+           
+          <strong>
+            <span ng-if="!selectedEnt || selectedEnt==-1">All</span>
+            <span ng-if="selectedEnt">{{selectedEnt.ent_name}}</span>
+          </strong>
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a ng-click="selectEnterprise(-1)">All</a></li>
+          <li ng-repeat="ent in enterprises track by $index">
+            <a ng-click="selectEnterprise(ent)">{{ent.ent_name}}</a>
+          </li>
+        </ul>
+      </div>
+      <br>
+    </div>
+
+    <div class="col-xs-3 text-right">
+      <div class="dropdown">
+        <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+          <strong>
+            <!-- <span ng-if="interval">{{interval}}</span> -->
+          </strong>
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <li><a ng-click="refreshPage(1)">1</a></li>
+          <li><a ng-click="refreshPage(2)">2</a></li>
+          <li><a ng-click="refreshPage(3)">3</a></li>
+          <li><a ng-click="refreshPage(5)">5</a></li>
+          <li><a ng-click="refreshPage(10)">10</a></li>
+          <li><a ng-click="refreshPage(15)">15</a></li>    
+          <li><a ng-click="refreshPage(20)">20</a></li> 
+        </ul>
+      </div>
+      <br>
+    </div>
+    
+
+    <div class="col-xs-12 col-md-4">
+      <div class="list-group">
+        <a class="list-group-item">
+          <h4 class="list-group-item-heading">Members</h4>
+          <ul class="list-group xs-mb-0">
+            <li class="list-group-item">
+              <div class="row">
+                <strong>
+                  <div class="col-xs-8">Total</div>
+                  <div class="col-xs-4 text-right"><strong>{{membersData.totalCount}}</strong></div>
+                </strong>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-xs-8"><span>&nbsp;&nbsp;</span>Have Logins</div>
+                <div class="col-xs-4 text-right">{{membersData.onboardedCount}}</div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-xs-8"><span>&nbsp;&nbsp;</span>Dependents</div>
+                <div class="col-xs-4 text-right" ng-if="!selectedEnt || selectedEnt.ent_id==1">{{membersData.dependentCount}}</div>
+                <div class="col-xs-4 text-right" ng-if="selectedEnt.ent_id>1"></div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                  <div class="col-xs-8"><span>&nbsp;&nbsp;</span>Ignored us</div>
+                  <div class="col-xs-4 text-right">{{membersData.notOnboardedCount}}</div>
+              </div>
+            </li>
+          </ul>
+          <br>
+          <p>
+            <button class="btn btn-info btn-block" ng-click="showMeMoreMember()">Okay, show me more...</button>
+          </p>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-4">
+      <div class="list-group">
+        <a class="list-group-item">
+          <h4 class="list-group-item-heading">Referral Stats</h4>
+          <ul class="list-group xs-mb-0">
+            <li class="list-group-item">
+              <div class="row">
+                <strong>
+                  <div class="col-xs-8">Total</div>
+                  <div class="col-xs-4 text-right"><strong>{{referralData.totalCount}}</strong></div>
+                </strong>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-xs-8"><span>&nbsp;</span>Accepted</div>
+                <div class="col-xs-4 text-right">{{referralData.acceptedCount}}</div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-xs-8"><span>&nbsp;</span>Ignored us</div>
+                <div class="col-xs-4 text-right">{{referralData.outstandingCount}}</div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-xs-8"><span>&nbsp;</span>Second hop</div>
+                <div class="col-xs-4 text-right">{{referralData.secondHop}}</div>
+              </div>
+            </li>
+          </ul>
+          <br>
+          <p>
+            <button class="btn btn-info btn-block" ng-click="showInviteReport()">Okay, show me more...</button>
+          </p>
+        </a>
+      </div>
+    </div>
+    
+
+    <div class="col-xs-12 col-md-4">
+      <div class="list-group">
+        <a class="list-group-item">
+          <h4 class="list-group-item-heading">Transactions</h4>
+          <ul class="list-group xs-mb-0">
+            <li class="list-group-item">
+              <div class="row">
+                <strong>
+                  <div class="col-xs-8">Total</div>
+                  <div class="col-xs-4 text-right"><strong>{{transactionData.totalCount}}</strong></div>
+                </strong>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-xs-8"><span>&nbsp;</span>Promotions</div>
+                <div class="col-xs-4 text-right">{{transactionData.promotionCount}}</div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-xs-8"><span>&nbsp;</span>Redemptions</div>
+                <div class="col-xs-4 text-right">{{transactionData.redemptionCount}}</div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row" >
+                  <div class="col-xs-8"><span>&nbsp;</span>Gift Cards</div>
+                  <div class="col-xs-4 text-right"  ng-if="!selectedEnt || selectedEnt.ent_id==1">{{transactionData.giftCardCount}}</div>
+                  <div class="col-xs-4 text-right" ng-if="selectedEnt.ent_id>1">N/A</div>
+              </div>
+            </li>
+          </ul>
+          <br>
+          <p>
+            <button class="btn btn-info btn-block" ng-click="showInviteReport()">Okay, show me more...</button>
+          </p>
+        </a>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="col-xs-12 col-md-4 hide">
+      <div class="list-group">
+        <a class="list-group-item">
+          <h4 class="list-group-item-heading">Promotion Stats</h4>
+          <ul class="list-group xs-mb-0">
+            <li class="list-group-item">
+              <div class="row">
+                <strong>
+                  <div class="col-xs-8">Total</div>
+                  <div class="col-xs-4 text-right"><strong>100</strong></div>
+                </strong>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-xs-8"><span>&nbsp;</span>Have Logins</div>
+                <div class="col-xs-4 text-right">100</div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-xs-8"><span>&nbsp;</span>Dependents</div>
+                <div class="col-xs-4 text-right">100</div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                  <div class="col-xs-8"><span>&nbsp;</span>Ignored us</div>
+                  <div class="col-xs-4 text-right">100</div>
+              </div>
+            </li>
+          </ul>
+          <br>
+          <p>
+            <button class="btn btn-info btn-block" ng-click="showInviteReport()">Okay, show me more...</button>
+          </p>
+        </a>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4 hide">
+      <div class="list-group">
+        <a class="list-group-item">
+          <h4 class="list-group-item-heading">Redemption Stats</h4>
+          <ul class="list-group xs-mb-0">
+            <li class="list-group-item">
+              <div class="row">
+                <strong>
+                  <div class="col-xs-8">Total</div>
+                  <div class="col-xs-4 text-right"><strong>100</strong></div>
+                </strong>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-xs-8"><span>&nbsp;</span>Have Logins</div>
+                <div class="col-xs-4 text-right">100</div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-xs-8"><span>&nbsp;</span>Dependents</div>
+                <div class="col-xs-4 text-right">100</div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                  <div class="col-xs-8"><span>&nbsp;</span>Ignored us</div>
+                  <div class="col-xs-4 text-right">100</div>
+              </div>
+            </li>
+          </ul>
+          <br>
+          <p>
+            <button class="btn btn-info btn-block" ng-click="showInviteReport()">Okay, show me more...</button>
+          </p>
+        </a>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4 hide">
+      <div class="list-group">
+        <a href="" class="list-group-item">
+          <h4 class="list-group-item-heading">Gift Card Stats</h4>
+          <ul class="list-group xs-mb-0">
+            <li class="list-group-item">
+              <div class="row">
+                <strong>
+                  <div class="col-xs-8">Total Redeemed</div>
+                  <div class="col-xs-4 text-right"><strong>{{giftcards.orders.length}}</strong></div>
+                </strong>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-xs-8"><span>&nbsp;</span>Poynts Spent</div>
+                <div class="col-xs-4 text-right">100</div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-xs-8"><span>&nbsp;</span>Top 3</div>
+                <div class="col-xs-4 text-right">100</div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                  <div class="col-xs-8"><span>&nbsp;</span>Starbucks</div>
+                  <div class="col-xs-2 text-right">$5</div>
+                  <div class="col-xs-2 text-right">4</div>
+              </div>
+            </li>
+          </ul>
+          <br>
+          <p>
+            <button class="btn btn-info btn-block" ng-click="showInviteReport()">Okay, show me more...</button>
+          </p>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-12" ng-show="selectedEnt && selectedEnt.ent_id>-1">
+      <hr>
+      <div class="panel panel-primary">
+          <div class="panel-heading" ng-click="collapse0=!collapse0">
+            <h3 class="panel-title">For Ross the Boss</h3>
+          </div>
+          <div class="panel-body" ng-class="{'collapse':!collapse0}">
+          <div class="list-group">
+            <div class="list-group-item">
+              <h4 class="list-group-item-heading">Report by dates name temp</h4>
+              <form>
+                <div class="col-xs col-md-4 xs-p-0 md-pl-0 md-pr-10">
+                  <div class="form-group">
+                  <label class="control-label">Pick One</label>
+                    <div class="dropdown">
+                      <button class="btn btn-default btn-block dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                         
+                        <strong>
+                          <span ng-if="!selectedPartner || selectedPartner==-1">Pick a Partner</span>
+                          <span ng-if="selectedPartner">{{selectedPartner.ent_name}} | {{selectedPartner.ent_id}}</span>
+                        </strong>
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li ng-repeat="ent in enterprises">
+                          <a ng-click="selectPartner(ent)">{{ent.ent_name}} | {{ent.ent_id}}</a>
+                        </li>
+                      </ul>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-xs-6 col-md-4 xs-pl-0 xs-pr-5">
+                  <div class="form-group">
+                    <label class="control-label">Start Date</label>
+                    <input type="date" name="startdate" ng-model="report.start" class="form-control">
+                  </div>
+                </div>
+                <div class="col-xs-6 col-md-4 xs-pl-5 xs-pr-0">
+                  <div class="form-group">
+                    <label class="control-label">End Date</label>
+                    <input type="date" name="enddate" ng-model="report.end" class="form-control" >
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="xs-pb-10">
+                  <button type="button" class="btn btn-info" ng-click="getMeVariableReport()">Go get it</button>
+                </div>
+
+                <div class="col-xs-6 col-md-4 xs-pl-5 xs-pr-0">
+                  <div class="form-group">
+                    <label class="control-label hide">Email</label>
+                    <input type="email" name="email" ng-model="report.email" class="form-control" >
+                  </div>
+                </div>                
+                <div class="clearfix"></div>
+                <div class="">
+                  <button type="button" class="btn btn-info" ng-click="sendVariableReportEmail()">Go send me this in an email</button>
+                </div>
+              </form>
+
+              <br>
+              <ul class="list-group xs-mb-0">
+                <li class="list-group-item">
+                  <div class="row">
+                    <strong>
+                      <div class="col-xs-12" ng-show="entReport">Data for {{displayDateOnly(report.start)}} - {{displayDateOnly(report.end)}}</div>
+                    </strong>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <strong>
+                      <div class="col-xs-8"><span>&nbsp;</span>Total members</div>
+                      <div class="col-xs-4 text-right"><strong>{{entReport.totalMembers}}</strong></div>
+                    </strong>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-xs-8"><span>&nbsp;</span>New members</div>
+                    <div class="col-xs-4 text-right">{{entReport.newMembers}}</div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-xs-8"><span>&nbsp;</span>Checkin from members</div>
+                    <div class="col-xs-4 text-right">{{entReport.totalCheckins}}</div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-xs-8"><span>&nbsp;</span>Total poynts awarded</div>
+                    <div class="col-xs-4 text-right">{{entReport.totalAwarded}}</div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-xs-8"><span>&nbsp;</span>Total poynts redeemed</div>
+                    <div class="col-xs-4 text-right">{{entReport.totalRedeemed}}</div>
+                  </div>
+                </li>                
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-xs-8"><span>&nbsp;</span>Poynts balance</div>
+                    <div class="col-xs-4 text-right">{{entReport.enterprisePoynts}}</div>
+                  </div>
+                </li>            
+              </ul>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="clearfix"></div>
+    <div class="col-xs-12 col-md-12 col-md-offset-0 hide">
+      <hr>
+      <p>Last 15 days transaction poynt comparison</p>
+      <cp-chart id="lineChart" cp-chart-type="line" cp-chart-data="cpChartData" cp-chart-labels="cpChartLabels">
+      </cp-chart>
+    </div>
+
+    <div class="col-xs-12 col-md-12 col-md-offset-0">
+      <hr>
+      <p><strong>What's Going on with Members</strong></p>
+      <cp-chart cp-chart-type="bar" cp-chart-data="cpChartData" cp-chart-labels="cpChartLabels" cp-chart-options="cpChartOptions">
+      </cp-chart>
+    </div>
+
+<!--     <canvas id="bar" class="chart chart-bar"
+  chart-data="data" chart-labels="labels"> chart-series="series"
+</canvas -->
+
+
+    <div class="clearfix"></div>
+    <br>
+    <div class="col-xs-12">
+      <hr>
+
+      <div class="col-xs">
+        <div class="col-xs-5 xs-pl-0 xs-pb-10">
+          <h5 class="list-group-item-heading">Transactions</h5>
+        </div>
+        <div class="col-xs-7 text-right xs-p-0">Show : 
+          <button class="btn btn-default btn-xs" ng-class="{'btn-info': recentTransLimit==25}" ng-click="updateTransLimit(25)">25</button>&nbsp;
+          <button class="btn btn-default btn-xs" ng-class="{'btn-info': recentTransLimit==50}" ng-click="updateTransLimit(50)">50</button>&nbsp;
+          <button class="btn btn-default btn-xs" ng-class="{'btn-info': recentTransLimit==100}" ng-click="updateTransLimit(100)">100</button>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+
+      <ul class="list-group xs-mb-0">
+
+        <li class="list-group-item xs-p-0">
+          <div class="table-responsive">
+              <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Member</th>
+                  <th>Enterprise</th>
+                  <th>Title</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="tran in totalPoynts.trans | limitTo:recentTransLimit">
+                  <td>{{tran.transaction_date}}</td>
+                  <td>{{tran.memberName}}</td>
+                  <td>{{displayName(tran)}}</td>
+                  <td>{{displayTitle(tran)}}</td>
+                  <td>{{displayReward(tran)}}</td>
+                </tr>
+              </tbody>
+              </table>
+          </div>  
+        </li>
+      </ul>
+    </div>
+
+    <div class="clearfix"></div>
+    <br>
+    <div class="col-xs-12">
+      <hr>
+      <div class="col-xs">
+        <div class="col-xs-5 xs-pl-0 xs-pb-10">
+          <h5 class="list-group-item-heading">Logins</h5>
+        </div>
+        <div class="col-xs-7 text-right xs-p-0">
+          Filter : 
+          <button class="btn btn-default btn-xs" ng-class="{'btn-info': filterCPLogins}" ng-click="filterCPLogins=!filterCPLogins">CP Members</button>&nbsp;
+          Limit : 
+          <button class="btn btn-default btn-xs" ng-class="{'btn-info': recentLoginsLimit==25}" ng-click="updateLoginsLimit(25)">25</button>&nbsp;
+          <button class="btn btn-default btn-xs" ng-class="{'btn-info': recentLoginsLimit==50}" ng-click="updateLoginsLimit(50)">50</button>&nbsp;
+          <button class="btn btn-default btn-xs" ng-class="{'btn-info': recentLoginsLimit==100}" ng-click="updateLoginsLimit(100)">100</button>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+        <ul class="list-group xs-mb-0">
+          <li class="list-group-item xs-p-0">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Member Name</th>
+                    <th>Email</th>
+                    <th>Enterprise</th>
+                    <th>Application</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="login in dailyLogins | filter: (filterCPLogins || '') && {username: '!carepoynt'} | limitTo:recentLoginsLimit">
+                    <td>{{login.date}}</td>
+                    <td>{{login.time}}</td>
+                    <td>{{login.name}}</td>
+                    <td>{{login.username}}</td>
+                    <td>{{login.ent_name}}</td>
+                    <td>{{login.application}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>  
+          </li>
+        </ul>
+    </div>
+
+    <div class="clearfix"></div>
+    <br>
+    <div class="col-xs-12 col-md-12 col-md-offset-0 hide">
+      <p>Most Poynts Chart</p>
+      <cp-chart id="line" cp-chart-type="line" cp-chart-data="cpChartData1" cp-chart-labels="cpChartLabels1" cp-chart-options="cpChartOptions">
+      </cp-chart>
+    </div>
+
+    <div class="clearfix"></div>
+    <br>
+    <div class="col-xs-12 col-md-12">
+      <hr>
+      <div class="panel panel-primary">
+          <div class="panel-heading" ng-click="collapse1=!collapse1">
+            <h3 class="panel-title">I want to look who did this promo</h3>
+          </div>
+          <div class="panel-body" ng-class="{'collapse':!collapse1}">
+          <div class="list-group">
+            <div class="list-group-item">
+              <h4 class="list-group-item-heading">Report by dates name temp</h4>
+              <form>
+                <div class="col-xs col-md-4 xs-p-0 md-pl-0 md-pr-10">
+                  <div class="form-group">
+                  <label class="control-label">Pick One Partner</label>
+                    <div class="dropdown">
+                      <button class="btn btn-default btn-block dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                         
+                        <strong>
+                          <span ng-if="!selectedPartner || selectedPartner==-1">Pick a Partner</span>
+                          <span ng-if="selectedPartner">{{selectedPartner.ent_name}} | {{selectedPartner.ent_id}}</span>
+                        </strong>
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li ng-repeat="ent in enterprises">
+                          <a ng-click="getPromotions(ent)">{{ent.ent_name}} | {{ent.ent_id}}</a>
+                        </li>
+                      </ul>
+                    </div>
+
+                  </div>
+                  <div class="form-group" ng-show="selectedPartner || selectedPartner==-1">
+                  <label class="control-label">Pick One Promo</label>
+                    <div class="dropdown">
+                      <button class="btn btn-default btn-block dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                         
+                        <strong>
+                          <span ng-if="!selectedPromo || selectedPromo==-1">Pick a Promo</span>
+                          <span ng-if="selectedPromo">{{selectedPromo.title}} | {{selectedPromo.id}}</span>
+                        </strong>
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li ng-repeat="promo in promotions">
+                          <a ng-click="selectPromo(promo)">{{promo.title}} | {{promo.id}}</a>
+                        </li>
+                      </ul>
+                    </div>
+
+                  </div>                  
+                </div>
+
+                <div class="col-xs-6 col-md-4 xs-pl-0 xs-pr-5">
+                  <div class="form-group">
+                    <label class="control-label">Start Date</label>
+                    <input type="date" name="startdate" ng-model="report.start" class="form-control">
+                  </div>
+                </div>
+                <div class="col-xs-6 col-md-4 xs-pl-5 xs-pr-0">
+                  <div class="form-group">
+                    <label class="control-label">End Date</label>
+                    <input type="date" name="enddate" ng-model="report.end" class="form-control" >
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="xs-pb-10">
+                  <button type="button" class="btn btn-info" ng-click="getMePromoReport()">Go get it</button>
+                </div>             
+                <div class="clearfix"></div>
+              </form>
+
+              <br>      
+              <div class="clearfix"></div>        
+              <ul class="list-group xs-mb-0" ng-show="promoData">
+                <li class="list-group-item xs-p-0">
+                  <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Date Time</th>
+                            <th>Member</th>
+                            <th>Title</th>
+                            <th>Value</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr ng-repeat="promo in promoData">
+                            <!-- | limitTo:promoLimit -->
+                            <td>{{promo.date}}</td>
+                            <td>{{promo.name}}</td>
+                            <td>{{promo.promo_title}}</td>
+                            <td>{{promo.reward_value}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>  
+                </li>
+              </ul>
+              <div class="text-right" ng-show="promoData">
+                Total Transactions: {{promoData.length}}
+              </div>               
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <br>
+    <div class="col-xs-12 col-md-12">
+      <hr>
+      <div class="panel panel-primary">
+          <div class="panel-heading" ng-click="collapse2=!collapse2">
+            <h3 class="panel-title">I want to look who did this redemption</h3>
+          </div>
+          <div class="panel-body" ng-class="{'collapse':!collapse2}">
+          <div class="list-group">
+            <div class="list-group-item">
+              <h4 class="list-group-item-heading">Report by dates name temp</h4>
+              <form>
+                <div class="col-xs col-md-4 xs-p-0 md-pl-0 md-pr-10">
+                  <div class="form-group">
+                  <label class="control-label">Pick One Partner</label>
+                    <div class="dropdown">
+                      <button class="btn btn-default btn-block dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                         
+                        <strong>
+                          <span ng-if="!selectedPartner || selectedPartner==-1">Pick a Partner</span>
+                          <span ng-if="selectedPartner">{{selectedPartner.ent_name}} | {{selectedPartner.ent_id}}</span>
+                        </strong>
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li ng-repeat="ent in enterprises">
+                          <a ng-click="getRedemptions(ent)">{{ent.ent_name}} | {{ent.ent_id}}</a>
+                        </li>
+                      </ul>
+                    </div>
+
+                  </div>
+                  <div class="form-group" ng-show="selectedPartner || selectedPartner==-1">
+                  <label class="control-label">Pick One Redemption</label>
+                    <div class="dropdown">
+                      <button class="btn btn-default btn-block dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                         
+                        <strong>
+                          <span ng-if="!selectedRedem || selectedRedem==-1">Pick a Redemption</span>
+                          <span ng-if="selectedRedem">{{selectedRedem.title}} | {{selectedRedem.id}}</span>
+                        </strong>
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li ng-repeat="redem in redemptions">
+                          <a ng-click="selectRedem(redem)">{{redem.title}} | {{redem.id}}</a>
+                        </li>
+                      </ul>
+                    </div>
+
+                  </div>                  
+                </div>
+
+                <div class="col-xs-6 col-md-4 xs-pl-0 xs-pr-5">
+                  <div class="form-group">
+                    <label class="control-label">Start Date</label>
+                    <input type="date" name="startdate" ng-model="report.start" class="form-control">
+                  </div>
+                </div>
+                <div class="col-xs-6 col-md-4 xs-pl-5 xs-pr-0">
+                  <div class="form-group">
+                    <label class="control-label">End Date</label>
+                    <input type="date" name="enddate" ng-model="report.end" class="form-control" >
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="xs-pb-10">
+                  <button type="button" class="btn btn-info" ng-click="getMeRedemReport()">Go get it</button>
+                </div>             
+                <div class="clearfix"></div>
+              </form>
+
+              <br>      
+              <div class="clearfix"></div>        
+              <ul class="list-group xs-mb-0" ng-show="redemData">
+                <li class="list-group-item xs-p-0">
+                  <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Date Time</th>
+                            <th>Member</th>
+                            <th>Title</th>
+                            <th>Value</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr ng-repeat="redem in redemData">
+                            <!-- | limitTo:promoLimit -->
+                            <td>{{redem.date}}</td>
+                            <td>{{redem.name}}</td>
+                            <td>{{redem.redemption_title}}</td>
+                            <td>{{redem.redem_value}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>  
+                </li>
+              </ul>
+              <div class="text-right" ng-show="redemData">
+                Total Transactions: {{redemData.length}}
+              </div>               
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+       
+  </div>
+
+</div>

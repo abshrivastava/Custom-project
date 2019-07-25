@@ -1,0 +1,696 @@
+  
+                                       
+    <!-- Fixed navbar -->
+    <div ng-include="'shared/nav-bar.html'"></div>
+    <!-- /Fixed navbar -->
+
+    <div class="container" role="main">
+      <div class="row">
+        <div class="well well-sm text-center margin-none cp-gradient-blue text-white">
+          <h2 class="xs-m-0">These People Pay Us</h2>
+        </div>
+      </div>
+
+      <div ng-show="showAddEnt">
+      <br><br>
+        <div class="col-xs-2 col-sm-1 text-left" >
+          <button type="button" class="btn btn-default btn-sm" ng-click="cancelAdd()"><-- Go Back </button>
+        </div>
+        <div class="form-group col-xs-12">
+          <label for="term">Admin name</label>
+          <input type="text" class="form-control" placeholder="Admin name" ng-model="addEnt.admin_name" >
+        </div>
+        
+        <div class="form-group col-xs-12">
+          <label for="term">Enterprise name</label>
+          <input type="text" class="form-control" placeholder="Ent name" ng-model="addEnt.name" >
+        </div>
+        <div class="form-group col-xs-5">
+          <label for="term">Admin email</label>
+          <input type="text" class="form-control" placeholder="Admin email" ng-model="addEnt.admin_email" >
+        </div>
+        <div class="form-group col-xs-12">
+          <button type="button" class="btn btn-info" ng-click="addEnterprise(addEnt)">Add</button>
+        </div>
+      </div>
+
+
+      <div ng-show="!selectedEnt" ng-hide="showAddEnt">
+        <!-- Search Results: Begin -->
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">All Our Enterprises</h3>
+              </div>
+              <div class="panel-body">
+
+                <div class="">
+                  <div class="col-xs pull-right xs-pb-15">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-default" ng-click="showAdd()">
+                        <span class="glyphicon glyphicon-plus-sign"></span> Enterprise
+                      </button>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <ul class="list-group">
+                    <li class="list-group-item " ng-repeat="ent in enterprises track by $index">
+                      <div class="row" >
+                      
+                        <div class="col-sm-4">{{ent.ent_name}}</div>
+                        <div class="col-sm-6">{{ent.ent_address}}</div>
+                        <div class="col-sm-2"><button type="button" class="btn btn-info" ng-click="selectEnt(ent)">Select Me</button></div>
+                      
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div><!-- /.col-sm-4 -->
+        </div>
+        <!-- Search Results : End -->
+      </div>
+
+      <div ng-show="selectedEnt">
+        <div class="row xs-pb-10">
+          <div class="col-xs-1 text-left xs-pl-0" >
+            <button type="button" class="btn btn-info btn-md" ng-click="goBackToList()"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> <strong> Go Back</strong> </button>
+          </div>
+          <div class="col-xs-10 text-center" >
+            <h3 class="xs-mt-0">{{selectedEnt.ent_name}}</h3>
+          </div>
+        </div>
+
+        <!-- Profile Details -->
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading" ng-click="collapsepd=!collapsepd">
+                <h2 class="panel-title">Profile Details</h2>
+              </div>
+              <div class="panel-body" ng-class="{'collapse':!collapsepd}">
+                
+                <div class="col-sm-5 xs-pl-0 xs-pr-0">
+                  <div class="panel panel-primary">
+                    <!-- <h2 class="text-center">{{selectedEnt.ent_name}}</h2> -->
+                    <div class="panel-body xs-p-0">
+                      <div class="">
+                        <div class="form-group col-xs-12 xs-pt-10">
+                          <label for="term"> id : {{selectedEnt.ent_id}}</label> 
+                          <!-- <input type="text" class="form-control" placeholder="id" ng-model="selectedEnt.ent_id" readonly> -->
+                        </div>
+                        
+                        <div class="form-group col-xs-12">
+                          <label for="term">name</label>
+                          <input type="text" class="form-control" placeholder="name" ng-model="selectedEnt.ent_name" >
+                        </div>
+                        
+                        <div class="form-group col-xs-12">
+                          <label for="term">address</label>
+                          <input type="text" class="form-control" placeholder="address" ng-model="selectedEnt.ent_address" >
+                        </div>
+
+                        <div class="form-group col-xs-5">
+                          <label for="term">city</label>
+                          <input type="text" class="form-control" placeholder="city" ng-model="selectedEnt.ent_city" >
+                        </div>
+
+                        <div class="form-group col-xs-3">
+                          <label for="term">state</label>
+                          <input type="text" class="form-control" placeholder="state" ng-model="selectedEnt.ent_state" >
+                        </div>
+
+                        <div class="form-group col-xs-4">
+                          <label for="term">zip</label>
+                          <input type="text" class="form-control" placeholder="zip" ng-model="selectedEnt.ent_zip" >
+                        </div>
+
+                        <div class="form-group col-xs-12">
+                          <label for="term">Phone</label>
+                          <input type="text" class="form-control" placeholder="(949) 999-9999" ng-model="selectedEnt.ent_phone" >
+                        </div>
+
+                        <div class="form-group col-xs-6">
+                          <label for="term">Latitude</label>
+                          <input type="text" class="form-control" placeholder="33.6189" ng-model="selectedEnt.geo_lat" >
+                        </div>
+
+                        <div class="form-group col-xs-6">
+                          <label for="term">Longitude</label>
+                          <input type="text" class="form-control" placeholder="-117.900" ng-model="selectedEnt.geo_long" >
+                        </div>  
+
+                        <div class="form-group col-xs-6">
+                          <label for="term">Status</label>
+                          <input type="text" class="form-control" placeholder="active" ng-model="selectedEnt.ent_status" >
+                        </div>       
+
+                        <div class="form-group col-xs-6">
+                          <label for="term">Type</label>
+                          <input type="text" class="form-control" placeholder="active" ng-model="selectedEnt.ent_type" >
+                        </div>             
+
+                        <div class="form-group col-xs-12">
+                            <label for="term">Add Profile Photo</label>                 
+                            <input type="file" file-model="myFile" />  
+                            <button type="button" class="btn btn-info" ng-click="onFileSelect('profile')" value="Upload">Upload</button>
+                            <img src="{{selectedEnt.profile_photo}}" height="50" >
+                        </div>
+
+                        <div class="form-group col-xs-12">
+                          <label for="term">Image Url &nbsp;&nbsp; ex: /cp/img/company/env/your_image.png</label>
+                          <input type="text" class="form-control" id="xxmc" ng-model="selectedEnt.profile_photo" >
+                        </div>
+
+                        <div class="form-group col-xs-12">
+                            <label for="term">Add Logo Photo</label>                 
+                            <input type="file" file-model="myFile" />  
+                            <button type="button" class="btn btn-info" ng-click="onFileSelect('logo')" value="Upload">Upload</button>
+                            <img src="{{selectedEnt.profile_logo}}" height="50" >
+                        </div>
+
+                        <div class="form-group col-xs-12">
+                          <label for="term">Image Url &nbsp;&nbsp; ex: /cp/img/company/env/your_image.png</label>
+                          <input type="text" class="form-control" id="xxmc" ng-model="selectedEnt.profile_logo" >
+                        </div>
+
+                        <div class="form-group col-xs-12">
+                          <label for="term">Description</label>
+                          <textarea class="form-control" rows="3" ng-model="selectedEnt.ent_desc"></textarea>
+                        </div>
+
+                        <div class="form-group col-xs-12">
+                          <label for="term">facebook Url &nbsp;&nbsp; </label>
+                          <input type="text" class="form-control" placeholder="www.facebook.com/carepoynt" ng-model="selectedEnt.profile_rating_fb" >
+                        </div>
+
+                        <div class="form-group col-xs-12">
+                          <button type="button" class="btn btn-info" ng-click="saveEnterprise()">S a v e</button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Search Yelp : Begin -->
+                <div class="col-sm-7 xs-pr-0">
+                  <div class="col-sm">
+                    <div class="panel panel-primary">
+                      <div class="panel-heading" ng-click="collapse0=!collapse0">
+                        <h3 class="panel-title">Search For Them on Yelp</h3>
+                      </div>
+                      <div class="panel-body" ng-class="{'collapse': collapse0}">
+                        <div class="row" style="height:75px">
+                          <div class="col-sm_12">
+                            <form>
+                              <div class="col-sm-5">
+                                <div class="form-group">
+                                  <label for="term"> &nbsp;&nbsp;Search </label>
+                                  <input type="text" class="form-control" placeholder="Food, Name, etc" ng-model="search.term" >
+                                </div>
+                              </div>
+
+                              <div class="col-sm-5">
+                                <div class="form-group">
+                                  <label for="location">Location</label>
+                                  <input type="text" class="form-control" placeholder="Address, City, State, Zip" ng-model="search.location" >
+                                </div>
+                              </div>
+                              
+                              <div class="col-sm-2">
+                                <div class="form-group">
+                                  <label for="">&nbsp;hi</label>
+                                  <button type="button" class="btn btn-info" ng-click="doSearch()">Search</button>
+                                </div>
+                              </div>
+
+                            </form>
+                          </div>
+                        </div>
+                      
+                        <div class="">
+                          <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="business in businesses">
+                              <div class="row" >
+                                <div class="col-sm-4">{{business.name}}</div>
+
+                                <div class="col-sm-6">
+                                  {{business.location.address1}}, {{business.location.address2}} <br>
+                                  {{business.location.city}} {{business.location.state}} {{business.location.zip_code}} <br>
+                                  {{business.coordinates.latitude}}, {{business.coordinates.longitude}}
+
+                                </div>
+                                <div class="col-sm-2"><button type="button" class="btn btn-info" ng-click="setEnterpriseData(business)">Select</button></div>
+
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Yelp Search Results : End -->
+              </div>
+            </div>
+          </div><!-- /.col-sm-4 -->
+        </div>
+        <!-- /Profile Details -->
+
+        <!-- Promotions -->
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading" ng-click="collapsepromo=!collapsepromo">
+                <h2 class="panel-title">Promotions</h2>
+              </div>
+              <div class="panel-body" ng-class="{'collapse':!collapsepromo}">
+                
+                <div class="row"
+
+                  <!-- Promo List : Begin -->
+                  <div class="col-sm-6">
+                    <div class="col-sm">
+                      <div class="panel panel-primary">
+
+                        <div class="panel-body" ng-class="{'collapse': collapse0}">
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <form>
+                               
+                                
+                                <div class="col-xs-12">
+                                  <div class="form-group">
+                                    <button type="button" class="btn btn-info" ng-click="getEnterprisePromotions(selectedEnt.ent_id)">Get Promotions</button>
+                                  </div>
+                                </div>
+
+                              </form>
+                            </div>
+                          </div>
+                        
+                          <div class="">
+                            <ul class="list-group">
+                              <li class="list-group-item" ng-repeat="promo in promos">
+                                <div class="row" >
+                                  <div class="col-xs-9"><strong>{{promo.title}}</strong></div>
+
+                                 <!--  <div class="col-sm-6">
+                                    {{business.location.address1}}, {{business.location.address2}} <br>
+                                    {{business.location.city}} {{business.location.state}} {{business.location.zip_code}} <br>
+                                    {{business.coordinates.latitude}}, {{business.coordinates.longitude}}
+
+                                  </div> -->
+                                  <div class="col-xs-3"><button type="button" class="btn btn-info" ng-click="selectPromoData(promo)">Select</button></div>
+
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Promo List : End -->
+
+                  <div class="col-sm-6">
+                    <div class="panel panel-primary">
+                      <!-- <h2 class="text-center">{{selectedEnt.ent_name}}</h2> -->
+                      <div class="panel-body xs-p-0">
+                        <div class="">
+                          <div class="form-group col-xs-12 xs-pt-10">
+                            <label for="term"> id : {{selectedPromo.id}}</label> 
+                            <!-- <input type="text" class="form-control" placeholder="id" ng-model="selectedEnt.ent_id" readonly> -->
+                          </div>
+                          <div class="form-group col-xs-12">
+                            <label for="term">title</label>
+                            <input type="text" class="form-control" ng-model="selectedPromo.title" >
+                          </div>
+                        
+                          <div class="form-group col-xs-12">
+                            <label for="term">description</label>
+                            <textarea class="form-control" rows="3" ng-model="selectedPromo.description"></textarea>
+                          </div>
+                          <div class="form-group col-xs-4">
+                            <label for="term">priority</label>
+                            <input type="text" class="form-control" ng-model="selectedPromo.priority" >
+                          </div>
+                          <div class="form-group col-xs-4">
+                            <label for="term">promo_freq</label>
+                            <input type="text" class="form-control" ng-model="selectedPromo.promo_freq" >
+                          </div>
+                          <div class="form-group col-xs-4">
+                            <label for="term">status</label>
+                            <input type="text" class="form-control" ng-model="selectedPromo.status" >
+                          </div>
+                          
+                          <div class="form-group col-xs-6">
+                            <label for="term">start date</label>
+                            <input type="text" class="form-control"  ng-model="selectedPromo.sdate" readonly>
+                          </div>
+                          <div class="form-group col-xs-6">
+                            <label for="term">end date</label>
+                            <input type="text" class="form-control" ng-model="selectedPromo.edate" readonly>
+                          </div>
+                
+                          <div class="form-group col-xs-6">
+                            <label for="term">promo_type</label>
+                            <input type="text" class="form-control" ng-model="selectedPromo.promo_type">
+                          </div>
+                          <div class="form-group col-xs-6">
+                            <label for="term">fielo_promo_id</label>
+                            <input type="text" class="form-control" ng-model="selectedPromo.fielo_promo_id" readonly>
+                          </div>
+
+                          <div class="form-group col-xs-6">
+                            <label for="term">reward_value</label>
+                            <input type="text" class="form-control" ng-model="selectedPromo.reward_value" readonly>
+                          </div>
+                          <div class="form-group col-xs-6">
+                            <label for="term">entid</label>
+                            <input type="text" class="form-control" ng-model="selectedPromo.entid" readonly>
+                          </div>
+                          
+
+                          <div class="form-group col-xs-4">
+                            <label for="term">promoBase_id</label>
+                            <input type="text" class="form-control" ng-model="selectedPromo.promoBase_id" readonly>
+                          </div>
+                          <div class="form-group col-xs-4">
+                            <label for="term">renewal_rule</label>
+                            <input type="text" class="form-control" ng-model="selectedPromo.renewal_rule" readonly>
+                          </div>
+                          <div class="form-group col-xs-4">
+                            <label for="term">pgroup</label>
+                            <input type="text" class="form-control" ng-model="selectedPromo.pgroup" readonly>
+                          </div>
+                          
+
+                          <div class="form-group col-xs-4">
+                            <label for="term">daysactive</label>
+                            <input type="text" class="form-control" ng-model="selectedPromo.daysactive" readonly>
+                          </div>
+                          <div class="form-group col-xs-4">
+                            <label for="term">daysleft</label>
+                            <input type="text" class="form-control" ng-model="selectedPromo.daysleft" readonly>
+                          </div>
+                          <div class="form-group col-xs-4">
+                            <label for="term">activity</label>
+                            <input type="text" class="form-control" ng-model="selectedPromo.activity">
+                          </div>
+
+                          <div class="form-group col-xs-12">
+                            <button type="button" class="btn btn-info" ng-click="updatePromotion()">Update</button>
+                          </div>
+
+                          <div class="col-xs-3">
+                            <input type="radio" ng-model="selectedPromo.affiliateNetwork" value="SAS" name="optradio"> SAS
+                          </div>
+                          <div class="col-xs-3">
+                            <input type="radio" ng-model="selectedPromo.affiliateNetwork" value="CJ" name="optradio"> CJ
+                          </div>
+                          <div class="col-xs-3">
+                            <input type="radio" ng-model="selectedPromo.affiliateNetwork" value="IR" name="optradio"> IR
+                          </div>
+                          <div class="col-xs-3">
+                            <input type="radio" ng-model="selectedPromo.affiliateNetwork" value="RAK" name="optradio"> RAK
+                          </div>                          
+
+
+                          <div class="form-group col-xs-12">
+                            <label for="affLink">Affiliate url</label>
+                            <input type="text" class="form-control" ng-model="selectedPromo.affiliateLink">
+                          </div>
+
+                          <div class="form-group col-xs-12">
+                            <button type="button" class="btn btn-info" ng-click="makeAffiliate()">Make affiliate</button>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div><!-- /.col-sm-4 -->
+        </div>
+        <!-- /Promotions -->
+
+        <!-- Redemptions -->
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading" ng-click="collapseredemption=!collapseredemption">
+                <h2 class="panel-title">Redemptions</h2>
+              </div>
+              <div class="panel-body" ng-class="{'collapse':!collapseredemption}">
+                
+                <div class="row"
+
+                  <!-- Redemptions List : Begin -->
+                  <div class="col-sm-6">
+                    <div class="col-sm">
+                      <div class="panel panel-primary">
+
+                        <div class="panel-body" ng-class="{'collapse': collapse0}">
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <form>
+                               
+                                
+                                <div class="col-xs-12">
+                                  <div class="form-group">
+                                    <button type="button" class="btn btn-info" ng-click="getEnterpriseRedemptions(selectedEnt.ent_id)">Get Redemptions</button>
+                                  </div>
+                                </div>
+
+                              </form>
+                            </div>
+                          </div>
+                        
+                          <div class="">
+                            <ul class="list-group">
+                              <li class="list-group-item" ng-repeat="redemption in redemptions">
+                                <div class="row" >
+                                  <div class="col-xs-9"><strong>{{redemption.title}}</strong></div>
+
+                                 <!--  <div class="col-sm-6">
+                                    {{business.location.address1}}, {{business.location.address2}} <br>
+                                    {{business.location.city}} {{business.location.state}} {{business.location.zip_code}} <br>
+                                    {{business.coordinates.latitude}}, {{business.coordinates.longitude}}
+
+                                  </div> -->
+                                  <div class="col-xs-3"><button type="button" class="btn btn-info" ng-click="selectRedemptionData(redemption)">Select</button></div>
+
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /Redemptions List : End -->
+
+                  <div class="col-sm-6">
+                    <div class="panel panel-primary">
+                      <!-- <h2 class="text-center">{{selectedEnt.ent_name}}</h2> -->
+                      <div class="panel-body xs-p-0">
+                        <div class="">
+                          <div class="form-group col-xs-12 xs-pt-10">
+                            <label for="term"> id : {{selectedRedemption.id}}</label> 
+                            <!-- <input type="text" class="form-control" placeholder="id" ng-model="selectedEnt.ent_id" readonly> -->
+                          </div>
+                          <div class="form-group col-xs-12">
+                            <label for="term">title</label>
+                            <input type="text" class="form-control" ng-model="selectedRedemption.title" >
+                          </div>
+                        
+                          <div class="form-group col-xs-12">
+                            <label for="term">description</label>
+                            <textarea class="form-control" rows="3" ng-model="selectedRedemption.description"></textarea>
+                          </div>
+                          <div class="form-group col-xs-4">
+                            <label for="term">priority</label>
+                            <input type="text" class="form-control" ng-model="selectedRedemption.priority" >
+                          </div>
+                          <div class="form-group col-xs-4">
+                            <label for="term">frequency</label>
+                            <input type="text" class="form-control" ng-model="selectedRedemption.frequency" >
+                          </div>
+                          <div class="form-group col-xs-4">
+                            <label for="term">status</label>
+                            <input type="text" class="form-control" ng-model="selectedRedemption.status" >
+                          </div>
+                          
+                          <div class="form-group col-xs-6">
+                            <label for="term">start date</label>
+                            <input type="text" class="form-control"  ng-model="selectedRedemption.sdate" readonly>
+                          </div>
+                          <div class="form-group col-xs-6">
+                            <label for="term">end date</label>
+                            <input type="text" class="form-control" ng-model="selectedRedemption.edate" readonly>
+                          </div>
+                
+                          <div class="form-group col-xs-6">
+                            <label for="term">promo_type</label>
+                            <input type="text" class="form-control" ng-model="selectedRedemption.promo_type" readonly>
+                          </div>
+                          <div class="form-group col-xs-6">
+                            <label for="term">fielo_promo_id</label>
+                            <input type="text" class="form-control" ng-model="selectedRedemption.fielo_promo_id" readonly>
+                          </div>
+
+                          <div class="form-group col-xs-6">
+                            <label for="term">reward_value</label>
+                            <input type="text" class="form-control" ng-model="selectedRedemption.reward_value" readonly>
+                          </div>
+                          <div class="form-group col-xs-6">
+                            <label for="term">entid</label>
+                            <input type="text" class="form-control" ng-model="selectedRedemption.entid" readonly>
+                          </div>
+                          
+
+                          <div class="form-group col-xs-4">
+                            <label for="term">promoBase_id</label>
+                            <input type="text" class="form-control" ng-model="selectedRedemption.promoBase_id" readonly>
+                          </div>
+                          <div class="form-group col-xs-4">
+                            <label for="term">renewal_rule</label>
+                            <input type="text" class="form-control" ng-model="selectedRedemption.renewal_rule" readonly>
+                          </div>
+                          <div class="form-group col-xs-4">
+                            <label for="term">pgroup</label>
+                            <input type="text" class="form-control" ng-model="selectedRedemption.pgroup" readonly>
+                          </div>
+                          
+
+                          <div class="form-group col-xs-4">
+                            <label for="term">daysactive</label>
+                            <input type="text" class="form-control" ng-model="selectedRedemption.daysactive" readonly>
+                          </div>
+                          <div class="form-group col-xs-4">
+                            <label for="term">daysleft</label>
+                            <input type="text" class="form-control" ng-model="selectedRedemption.daysleft" readonly>
+                          </div>
+                          <div class="form-group col-xs-4">
+                            <label for="term">activity</label>
+                            <input type="text" class="form-control" ng-model="selectedRedemption.activity" readonly>
+                          </div>
+
+                          <div class="form-group col-xs-12">
+                            <button type="button" class="btn btn-info" ng-click="updateRedemption()">Update</button>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div><!-- /.col-sm-4 -->
+        </div>
+        <!-- /Redemptions -->
+
+        <!-- Tags -->
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading" ng-click="collapsetag=!collapsetag">
+                <h2 class="panel-title">Tags</h2>
+              </div>
+              <div class="panel-body" ng-class="{'collapse':!collapsetag}">
+                
+                <div class="row"
+
+                  <!-- Redemptions List : Begin -->
+                  <div class="col-sm-6">
+                    <div class="col-sm">
+                      <div class="panel panel-primary">
+
+                        <div class="panel-body" ng-class="{'collapse': collapse0}">
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <form>
+                               
+                                
+                                <div class="col-xs-12">
+                                  <div class="form-group">
+                                    <button type="button" class="btn btn-info" ng-click="getEnterpriseTags(selectedEnt.ent_id)">Get Tags</button>
+                                  </div>
+                                </div>
+
+                              </form>
+                            </div>
+                          </div>
+                        
+                          <div class="">
+                            <ul class="list-group">
+                              <li class="list-group-item" ng-repeat="tag in tags">
+                                <div class="row" >
+                                  <div class="col-xs-9"><strong>{{tag.tag_name}}</strong></div>
+                                  <button type="button" class="col-xs-3 btn btn-info" ng-click="removeEnterpriseTag(tag)">Remove</button>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <div class="panel panel-primary">
+                      <!-- <h2 class="text-center">{{selectedEnt.ent_name}}</h2> -->
+                      <div class="panel-body xs-p-0">
+                        <div class="">
+                          <div class="form-group col-xs-12 xs-pt-10">
+                            <label for="term"> id : {{selectedEnt.ent_id}}</label> 
+                            <!-- <input type="text" class="form-control" placeholder="id" ng-model="selectedEnt.ent_id" readonly> -->
+                          </div>
+                          <div class="form-group col-xs-12">
+                            <label for="term">tagName</label>
+                            <input type="text" class="form-control" ng-model="newTag.tagName" >
+                          </div>
+
+                          <div class="form-group col-xs-12">
+                            <button type="button" class="btn btn-info" ng-click="createEnterpriseTag(selectedEnt.ent_id)">Add</button>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div><!-- /.col-sm-4 -->
+        </div>
+        <!-- /Tags -->
+
+      </div>
+
+    </div> <!-- /container -->
+
+  <div ng-show="loading" class="loading-page">
+    <!-- <img id="loading-image" src="images/ajax-loader.gif" alt="Loading..." /> -->
+    <i class="icon ion-ios-loop-strong spin big" style="color: #fff"></i>
+  </div>
+
+
+  <div ng-show="showBusy" class="busy-loading-page">
+    <img class="busy-loading-image" src="/cp/img/ajax-loader.gif" alt="Loading..." />
+  </div>
+

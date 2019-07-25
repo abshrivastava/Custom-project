@@ -1,0 +1,24 @@
+<!-- Start content section -->
+
+<div class="container">
+    <div class="row px-3">
+        <div class="col-1 col-sm-1 my-auto pl-0"><a class="back-btn" ng-click="goBack()"><i class="fa fa-long-arrow-left"></i></a></div>
+        <div class="col-10 col-sm-10">
+            <h5 class="text-center py-3">My Careplans</h5>
+        </div>
+        <div class="col-1 col-sm-1 pl-0"></div>
+    </div>
+</div>
+<div class="container">
+    <ul class="plan_menu">
+        <li ng-repeat="careplan in ctrl.careplanList">
+            <a ui-sref="member.careplan.careplanType({careplanType: careplan.tag})">
+                <i class="{{careplan.cssClass}}" aria-hidden="true"></i> {{careplan.name}} 
+                <i class="fa fa-chevron-right fa-pull-right fa-fw" aria-hidden="true"></i>
+                
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!--- End of content section -->

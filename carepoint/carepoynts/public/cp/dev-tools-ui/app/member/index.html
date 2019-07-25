@@ -1,0 +1,227 @@
+<!-- Fixed navbar -->
+<div ng-include="'shared/nav-bar.html'"></div>
+<!-- /Fixed navbar -->
+
+<div class="container" role="main">
+
+  <div class="row">
+    <div class="well well-sm text-center margin-none cp-gradient-blue text-white">
+      <h2 class="xs-m-0">Members</h2>
+    </div>
+  </div>
+
+
+  <div ng-show="true">
+    <!-- Search Results: Begin -->
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Members</h3>
+          </div>
+          <div class="panel-body xs-p-10">
+
+            <div ng-if="showMemberList" class="wrapper">
+        			<div class="dropdown">
+        			  <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        			    Enterprise : <strong>{{selectedEnt.ent_name}}</strong>
+        			    <span class="caret"></span>
+        			  </button>
+        			  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        			    <li  ng-repeat="ent in enterprises track by $index"><a ng-click="selectEnterprise(ent)">{{ent.ent_name}}</a></li>
+        			  </ul>
+                <div class="xs-p-10">
+                  <strong>{{members.length}} members </strong>
+                </div>
+        			</div>
+
+              <div class="wrapper">
+                <ul class="list-group">
+                  <li class="list-group-item xs-p-10" ng-repeat="member in members | orderBy : sortToNum">
+                    <div class="row" ng-click="getMemberDetails(member.memberid)">
+                      <!-- <div class="col-xs-1 xs-plr-5" >
+                        {{members.length-$index}}
+                      </div> -->
+                      <div class="col-xs-8 xs-plr-5">
+                        {{member.name}}<br>
+                        {{member.email}}<br>
+                        {{member.mPhone}}&nbsp;
+                      </div>
+                      <div class="col-xs-4 xs-plr-5">
+                        {{member.memberDate|date:'MM/dd/yyyy'}}<br>
+                        {{member.am_demog}}
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div ng-if="showMemberDetail" class="wrapper">
+              <div class="row xs-pb-10">
+                <div class="col-xs-12 text-left" >
+                  <button type="button" class="btn btn-info btn-md" ng-click="goBackToList()"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> <strong> Go Back</strong> </button>
+                </div>
+                
+              </div>
+              <div class="">
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="list-group">
+                    <a class="list-group-item">
+                      <h4 class="list-group-item-heading">Member Details</h4>
+                      <p class="list-group-item-text">{{member.name}}</p>
+                      <p class="list-group-item-text">{{member.email}}</p>
+                      <p class="list-group-item-text">{{member.mPhone}}</p>
+                      <p class="list-group-item-text">{{member.reward.points}} poynts</p>
+                      <hr>
+                      <!-- <p>
+                        <button class="btn btn-info btn-block" ng-click="showAwardPoynts()">Let's Go</button>
+                      </p> -->
+                    </a>
+                    
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="list-group">
+                    <a class="list-group-item">
+                      <h4 class="list-group-item-heading">{{member.name}} is a member of...</h4>
+                      <p class="list-group-item-text" ng-repeat="ent in member.enterprises">{{ent.ent_name}}</p>
+                      <hr>
+                      <!-- <p>
+                        <button class="btn btn-info btn-block" ng-click="showAwardPoynts()">Let's Go</button>
+                      </p> -->
+                    </a>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+
+                
+                <h4>Transactions</h4>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <div class="row">
+                      <strong>
+                        <div class="col-xs-3">Member</div>
+                        <div class="col-xs-2">Date</div>
+                        <div class="col-xs-3">Description</div>
+                        <div class="col-xs-2">Enterprise</div>
+                        <div class="col-xs-1 text-right">Value</div>
+                        <div class="col-xs-1 text-right">Balance</div>
+                      </strong>
+                    </div>
+                  </li>
+                  <li class="list-group-item" ng-repeat="trans in transactions">
+                    <div class="row">
+
+                      <div class="col-xs-3">
+                        <div style="width:40px; float:left;">
+                          {{transactions.length-$index}}&nbsp;
+                        </div>
+                        <div style="float:left;">
+                        {{trans.name}}<br>
+                        {{trans.email}}
+                        </div>
+                      </div>
+                      <div class="col-xs-2" ng-init="dateForDisplay(trans)">{{trans.trans_date}}</div>
+                      <div class="col-xs-3">{{trans.title}}</div>
+                      <div class="col-xs-2">{{trans.ent_name}}</div>
+                      <div class="col-xs-1 text-right">
+                        <div ng-if="trans.entity_type == 'promo'">{{trans.poynts}}</div>
+                        <div ng-if="trans.entity_type == 'redemption'">{{trans.poynts}}</div>
+                        <div ng-if="trans.entity_type == 'giftcard'">{{trans.poynts}}</div>
+                      </div>
+                      <div class="col-xs-1 text-right" ng-init="runningBalance(trans, $index)">{{trans.balance}}</div>
+                      
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+            <div ng-if="showMemberDetail" class="wrapper row">
+              <div class="col-xs-12">
+                <div class="panel panel-primary">
+                  <div class="panel-heading" ng-click="collapsetag=!collapsetag">
+                    <h2 class="panel-title">Tags</h2>
+                  </div>
+                  <div class="panel-body" ng-class="{'collapse':!collapsetag}">
+                    
+                    <div class="row"
+
+                      <!-- Redemptions List : Begin -->
+                      <div class="col-sm-6">
+                        <div class="col-sm">
+                          <div class="panel panel-primary">
+
+                            <div class="panel-body" ng-class="{'collapse': collapse0}">
+                              <div class="row">
+                                <div class="col-sm-12">          
+                                  <div class="col-xs-12">
+                                    <div class="form-group">
+                                      <button type="button" class="btn btn-info" ng-click="getMemberTags(member.memberid)">Get Tags</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            
+                              <table class="table table-striped panel-default col-xs-12">
+                                <tr>
+                                  <th>Tag name</th>
+                                  <th>Tag type</th>
+                                  <th></th>
+                                </tr>
+                                <tr ng-repeat="tag in tags">
+                                  <td>{{tag.tag_name}}</td>
+                                  <td>{{tag.type}}</td>
+                                  <td><button type="button" class="btn btn-danger" ng-click="removeMemberTag(tag)">Remove</button></td>
+                                </tr>
+                              </table>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-6">
+                        <div class="panel panel-primary">
+                          <!-- <h2 class="text-center">{{selectedEnt.ent_name}}</h2> -->
+                          <div class="panel-body">
+                            <div>
+                              <div class="form-group col-xs-6">
+                                <label for="term">Tag Name</label>
+                                <input type="text" class="form-control" ng-model="newTag.tagName" >
+                              </div>
+
+                              <div class="form-group col-xs-6">
+                                <label for="term">Tag Type</label>
+                                <input type="text" class="form-control" ng-model="newTag.tagType" >
+                              </div>                                                           
+
+                              <div class="form-group col-xs-12">
+                                <button type="button" class="btn btn-info" ng-click="createMemberTag(member.memberid)">Add</button>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div><!-- /.col-sm-4 -->
+            </div>            
+
+          </div><!-- /.panel-body -->
+        </div><!-- /.panel panel-primary -->
+      </div>
+    </div>
+  </div> <!-- /end : class="row" -->
+
+
+</div>

@@ -1,0 +1,127 @@
+<!-- TODO : Latest mock ups (NOV 2017 does not include back ad ent name) -->
+<!-- <div class="container">
+    <div class="row px-3">
+        <div class="col-1 col-sm-1 my-auto pl-0"><a class="back-btn" ng-click="goBack()"><i class="fa fa-long-arrow-left"></i></a></div>
+        <div class="col-10 col-sm-10">
+            <h5 class="text-center py-3">{{offer.enterprise.ent_name}}</h5>
+        </div>
+        <div class="col-1 col-sm-1 pl-0"></div>
+    </div>
+</div> -->
+
+<div ng-show="showOffer">
+    <!-- Start image section -->
+    <div class="banner-relate banner-img" ng-if="!showVideo">
+        <img class="w-100" ng-src="{{offer.enterprise.profile_logo ? offer.enterprise.profile_logo : '/cp/images/blank-img.png'}}"
+        />
+    </div>
+    <!-- End image section -->
+    <div ng-if="showVideo">
+        <div class="row border-box video-container">
+
+            <iframe id="yt_player_iframe" ng-src="{{offer.action.url}}" frameborder="0" allowfullscreen></iframe>
+
+        </div>
+    </div>
+    <!-- dashboardOffer section -->
+
+    <!-- Start mid content section -->
+    <div class="border-box my-3">
+        <div class="row text-center pb-4">
+            <div class="col-12">
+                <h5 class="text-center pt-2 text-title text-black">{{offer.enterprise.ent_name}}</h5>
+                <h5 class="text-xs text-center medium-font main-text py-2">{{offer.title}}</h5>
+
+                <div ng-if="isEarn()">
+                    <p ng-if="!showVariable" class="earn_poynts large fw-5">{{poynts|number}}
+                        <small class="fs-27 fw-5"> poynts</small>
+                    </p>
+                    <p ng-if="showVariable" class="earn_poynts large fw-5">{{offer.variable_promo.percentage}}
+                        <small class="fs-27 fw-5">Poynts per Dollar</small>
+                    </p>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <button ng-if="!userEarned  && (showEarnButton || showCheckInButton)" data-target="#myModal" ng-click="earnClick()" data-toggle="modal"
+                                class="btn btn-default btn-sm-default bg-blue auto-h large mt-2">
+                                {{showCheckInButton ? 'Check-in for ' + offer.reward_value : 'Earn Now'}}</button>
+                        </div>
+                    </div>
+                    <p ng-if="userEarned" class="mt-3">You have earned this promotion.</p>
+                </div>
+                <!-- TODO : Redeem section -->
+                <div ng-if="!isEarn()">
+                    <p class="earn_poynts large fw-5">{{offer.redem_value | number}}
+                        <small class="fs-27 fw-5"> poynts</small>
+                    </p>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <button ng-if="enoughPoynts && offer.isRedeemable && !userEarned" ng-disabled="redeemSuccessful" data-toggle="modal" ng-click="redeemClick()"
+                                data-target="#myPurchaseModal" class="btn btn-default btn-sm-default bg-blue auto-h large mt-3">
+                                Redeem Now</button>
+                        </div>
+                    </div>
+                    <p ng-if="offer.isRedeemable && userEarned" class="mt-3">Max redemption limit reached!</p>
+                    <p ng-if="!offer.donate && !enoughPoynts && !userEarned" class="py-4">
+                        You do not have enough poynts for this redemption.
+                    </p>
+                </div>
+                <!-- TODO : Redeem section -->
+
+            </div>
+        </div>
+        <h5 class="py-1 sub-text">Offer Detail</h5>
+        <p class="text-greylite medium" ng-if="offer.description">{{offer.description}}</p>
+        <!-- TODO : Need to change description of "How it works with controller response" -->
+        <h5 class="pt-3 pb-1 sub-text">How it Works</h5>
+        <p class="pb-3 text-greylite medium">Get 1000 Carepoynts per order for the first 4 orders! Freshly provides chef cooked, healthy meals delivered to you.
+            How the offer works: 1) Click the Earn Now button 2) You will be taken to the Freshly online store 3) Enter your
+            email and zip code to get started 4) Purchase an amazing meal 5) Carepoynts will be awarded within 48 hours after
+            shipment.
+        </p>
+
+        <p class="pb-2 date-text" ng-if="offer.startdate">Offer valid {{offer.startdate | date:'MM/dd/yyyy'}} - {{offer.enddate | date:'MM/dd/yyyy'}}</p>
+
+        <!-- Start about care point -->
+        <div ng-show="offer.enterprise.ent_address && offer.enterprise.ent_address.length > 0" class="my-1">
+            <div class="row">
+                <div class="col-12 col-sm-6 push-sm-6">
+                    <a href="{{addressUri}}">
+                        <ng-map center="{{latLong}}" id="offerMap" ng-if="latLong" zoom="12" class="map-container" scrollwheel="false" draggable="false"
+                            gestureHandling="none">
+                            <marker position="{{latLong}}"></marker>
+                        </ng-map>
+                    </a>
+                </div>
+                <!-- <div class="col-12 col-sm-6 pull-sm-6">
+                    <h6 class="pt-4">Location</h6>
+                    <a href="{{addressUri}}" class="text-info">
+                        {{offer.enterprise.ent_address}}
+                        <br> {{offer.enterprise.ent_city}} {{offer.enterprise.ent_state ? offer.enterprise.ent_state + ',': ''}}
+                        {{offer.enterprise.ent_zip}}
+                    </a>
+                    <h6 class="pt-4">Contact</h6>
+                    <a href="tel:{{offer.enterprise.ent_phone}}" class="text-info pb-4">{{offer.enterprise.ent_phone}}</a>
+                </div> -->
+            </div>
+        </div>
+
+    </div>
+    <!-- end of dashboardOffer section -->
+
+    <!-- End of content section -->
+
+    <div ng-include="'views/shared/model-popup/earn-model-popup.html'" ng-show="needEarnPopUp"></div>
+    <!-- ToDo: Need to move this pop to a commmon component -->
+
+    <div ng-include="'views/shared/model-popup/purchase-model-popup.html'" ng-show="needReedemPopUp"></div>
+    <!-- ToDo: Need to move this pop to a commmon component -->
+
+    <div ng-include="'views/shared/model-popup/dailytask-model-popup.html'" ng-show="dailytaskPopup"></div>
+    <!-- ToDo: Need to move this pop to a commmon component -->
+
+</div>
+<div ng-if="isTypeSocialReview || isTypeReview">
+    <div ng-include="'/cp/member-app-ui/views/feedback/index.html'"></div>
+</div>

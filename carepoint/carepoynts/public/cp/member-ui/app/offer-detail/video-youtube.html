@@ -1,0 +1,36 @@
+
+<style>
+	.video-container {
+	    position:relative;
+	    padding-bottom:56.25%;
+	    padding-top:30px;
+	    height:0;
+	    overflow:hidden;
+	}
+
+	.video-container iframe, .video-container object, .video-container embed {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+	}
+
+</style>
+
+
+<!-- video -->
+<div ng-if="offer.action.url">
+	<script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
+	<div class="video-player-wrapper video-container cp-border-rounded cp-m-5">
+	  <div class="row center-xs cp-p-10 cp-bg-color-white">
+	    <div class="video row center-xs ">
+	     <div class="col-xs">                       
+	        <iframe id="yt_player_iframe" ng-src="{{offer.action.url}}" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>
+
+<!-- /video -->

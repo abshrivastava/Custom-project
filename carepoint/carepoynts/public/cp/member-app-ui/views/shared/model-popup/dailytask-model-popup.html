@@ -1,0 +1,73 @@
+<div class="modal fade" id="dailyTaskModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content modal-content-md w-100">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Daily Quiz</h5>
+                <button type="button" class="close" aria-label="Close">
+                    <span ng-click="cancelModal()" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class=" mb-3">
+                    <!-- Inner section -->
+                    <div class="inside-container">
+                        <form class="form-section">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                       
+                                        <label>{{offer.question.prompt}} </label>
+                                       
+                                        <!-- 
+                                        <input ng-if="offer.question.type == 'text'" type="text" name="dtAnswer" id="dtAnswer" class="form-control" ng-model="offer.answer" />
+
+                                        <div ng-if="offer.question.type == 'y/n'" class="btn-group" role="group">       
+                                            <button type="button" class="btn btn-secondary" ng-class="{'btn btn-default active': offer.answer=='Y', 'btn btn-secondary': offer.answer!='Y'}" ng-click="offer.answer = 'Y'">Yes</button>
+                                            <button type="button" class="btn btn-secondary" ng-class="{'btn btn-default active': offer.answer=='N', 'btn btn-secondary': offer.answer!='N'}" ng-click="offer.answer = 'N'">No</button>
+                                        </div>
+
+                                        <div class="text-center" ng-if="offer.question.type == 'radio'" >
+                                            <div class="text-left" ng-repeat="option in offer.question.options">
+                                                <input type="radio" name="options" ng-click="offer.answer = option" value="{{option}}"/><span>{{option}}</span>
+                                            </div>
+                                        </div>
+                                         -->
+
+
+                                        <div ng-if="offer.question.type == 'text'" class="btn-group" role="group">       
+                                            <button type="button" class="btn btn-secondary" ng-class="{'btn btn-default active': offer.answer=='1', 'btn btn-secondary': offer.answer!='1'}" ng-click="offer.answer = '1'">1</button>
+                                            <button type="button" class="btn btn-secondary" ng-class="{'btn btn-default active': offer.answer=='2', 'btn btn-secondary': offer.answer!='2'}" ng-click="offer.answer = '2'">2</button>
+                                            <button type="button" class="btn btn-secondary" ng-class="{'btn btn-default active': offer.answer=='3', 'btn btn-secondary': offer.answer!='3'}" ng-click="offer.answer = '3'">3</button>
+                                            <button type="button" class="btn btn-secondary" ng-class="{'btn btn-default active': offer.answer=='4', 'btn btn-secondary': offer.answer!='4'}" ng-click="offer.answer = '4'">4</button>
+                                            <button type="button" class="btn btn-secondary" ng-class="{'btn btn-default active': offer.answer=='5', 'btn btn-secondary': offer.answer!='5'}" ng-click="offer.answer = '5'">5</button>
+                                        </div>
+
+                                        
+                                        <div ng-if="offer.question.type == 'y/n'" class="btn-group" role="group">       
+                                            <button type="button" class="btn btn-secondary" ng-class="{'btn btn-default active': offer.answer=='Y', 'btn btn-secondary': offer.answer!='Y'}" ng-click="offer.answer = 'Y'">Yes</button>
+                                            <button type="button" class="btn btn-secondary" ng-class="{'btn btn-default active': offer.answer=='N', 'btn btn-secondary': offer.answer!='N'}" ng-click="offer.answer = 'N'">No</button>
+                                        </div>
+
+                                        <div ng-if="offer.question.type == 'radio'" class="btn-group" role="group">       
+                                            <button type="button" class="btn btn-secondary" ng-class="{'btn btn-default active': offer.answer=='Y', 'btn btn-secondary': offer.answer!='Y'}" ng-click="offer.answer = 'Y'" ng-repeat="option in offer.question.options">{{option}}</button>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 text-center my-3">
+                                        <input type="submit" value="Submit" ng-click="processDailyTasks()" class="btn btn-default btn-w40 btn-w90" />
+                                        <input type="submit" value="Cancel" ng-click="cancelModal()" class="btn btn-secondary btn-w90 ml-4" />
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- End of Inner section -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

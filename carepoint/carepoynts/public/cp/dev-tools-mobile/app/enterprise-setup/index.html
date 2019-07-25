@@ -1,0 +1,196 @@
+
+    <!-- Fixed navbar -->
+    <div ng-include="'shared/nav-bar.html'"></div>
+    <!-- /Fixed navbar -->
+
+    <div class="container" role="main">
+      <div class="row">
+        <div class="well well-sm text-center margin-none">
+          <h2 class="xs-m-0" style="color: #fec905">Carepoynt Enterprises</h2>
+        </div>
+      </div>
+
+
+      <div ng-show="!selectedEnt">
+        <!-- Search Results: Begin -->
+        <div class="row">
+          <div class="col-sm">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">All Our Enterprises</h3>
+              </div>
+              <div class="panel-body">
+
+                <div class="">
+                  <div class="col-xs pull-right xs-pb-15">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-default" ng-click="addNewEnterprise()">
+                        <span class="glyphicon glyphicon-plus-sign"></span> Enterprise
+                      </button>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <ul class="list-group">
+                    <li class="list-group-item " ng-repeat="ent in enterprises">
+                      <div class="row" >
+                      
+                        <div class="col-sm-4">{{ent.ent_name}}</div>
+                        <div class="col-sm-6">{{ent.ent_address}}</div>
+                        <div class="col-sm-2"><button type="button" class="btn btn-info" ng-click="selectEnt(ent)">Select Me</button></div>
+                      
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div><!-- /.col-sm-4 -->
+        </div>
+        <!-- Search Results : End -->
+      </div>
+
+      <div ng-show="selectedEnt">
+        <div class="row">
+          <div class="col-sm">
+            <div class="panel panel-primary">
+              <div class="panel-heading" >
+                <h2 class="panel-title">{{selectedEnt.ent_name}}</h2>
+              </div>
+              <div class="panel-body" >
+                
+                <div class="col-sm-5">
+                  <div class="panel panel-primary">
+                    <h2 class="text-center">{{selectedEnt.ent_name}}</h2>
+                    <div class="panel-body" ng-class="{'collapse':collapse2}">
+                      <div class="">
+                        <div class="form-group col-xs-12">
+                          <label for="term"> id</label>
+                          <input type="text" class="form-control" placeholder="id" ng-model="selectedEnt.ent_id" readonly>
+                        </div>
+                        <div class="form-group col-xs-12">
+                          <label for="term">name</label>
+                          <input type="text" class="form-control" placeholder="name" ng-model="selectedEnt.ent_name" >
+                        </div>
+                        
+                        <div class="form-group col-xs-12">
+                          <label for="term">address</label>
+                          <input type="text" class="form-control" placeholder="address" ng-model="selectedEnt.ent_address" >
+                        </div>
+                        <div class="form-group col-xs-5">
+                          <label for="term">city</label>
+                          <input type="text" class="form-control" placeholder="city" ng-model="selectedEnt.ent_city" >
+                        </div>
+                        <div class="form-group col-xs-3">
+                          <label for="term">state</label>
+                          <input type="text" class="form-control" placeholder="state" ng-model="selectedEnt.ent_state" >
+                        </div>
+                        <div class="form-group col-xs-4">
+                          <label for="term">zip</label>
+                          <input type="text" class="form-control" placeholder="zip" ng-model="selectedEnt.ent_zip" >
+                        </div>
+                        <div class="form-group col-xs-12">
+                          <label for="term">Phone</label>
+                          <input type="text" class="form-control" placeholder="(949) 999-9999" ng-model="selectedEnt.ent_phone" >
+                        </div>
+                        <div class="form-group col-xs-6">
+                          <label for="term">Latitude</label>
+                          <input type="text" class="form-control" placeholder="33.6189" ng-model="selectedEnt.geo_lat" >
+                        </div>
+                        <div class="form-group col-xs-6">
+                          <label for="term">Longitude</label>
+                          <input type="text" class="form-control" placeholder="-117.900" ng-model="selectedEnt.geo_long" >
+                        </div>
+
+                        <div class="form-group col-xs-12">
+                          <label for="term">Description</label>
+                          <textarea class="form-control" rows="3" ng-model="selectedEnt.profile_details"></textarea>
+                        </div>
+
+                        <div class="form-group col-xs-12">
+                          <button type="button" class="btn btn-info" ng-click="saveEnterprise()">S a v e</button>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Search Yelp : Begin -->
+                <div class="col-sm-7">
+                  <div class="col-sm">
+                    <div class="panel panel-primary">
+                      <div class="panel-heading" ng-click="collapse0=!collapse0">
+                        <h3 class="panel-title">Search For Them on Yelp</h3>
+                      </div>
+                      <div class="panel-body" ng-class="{'collapse': collapse0}">
+                        <div class="row" style="height:75px">
+                          <div class="col-sm_12">
+                            <form>
+                              <div class="col-sm-5">
+                                <div class="form-group">
+                                  <label for="term"> &nbsp;&nbsp;Search </label>
+                                  <input type="text" class="form-control" placeholder="Food, Name, etc" ng-model="search.term" >
+                                </div>
+                              </div>
+
+                              <div class="col-sm-5">
+                                <div class="form-group">
+                                  <label for="location">Location</label>
+                                  <input type="text" class="form-control" placeholder="Address, City, State, Zip" ng-model="search.location" >
+                                </div>
+                              </div>
+                              
+                              <div class="col-sm-2">
+                                <div class="form-group">
+                                  <label for="">&nbsp;</label>
+                                  <button type="button" class="btn btn-info" ng-click="doSearch()">Search</button>
+                                </div>
+                              </div>
+
+                            </form>
+                          </div>
+                        </div>
+                      
+                        <div class="">
+                          <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="business in businesses">
+                              <div class="row" >
+                                <div class="col-sm-4">{{business.name}}</div>
+
+                                <div class="col-sm-6">
+                                  {{business.location.address1}}, {{business.location.address2}} <br>
+                                  {{business.location.city}} {{business.location.state}} {{business.location.zip_code}} <br>
+                                  {{business.coordinates.latitude}}, {{business.coordinates.longitude}}
+
+                                </div>
+                                <div class="col-sm-2"><button type="button" class="btn btn-info" ng-click="setEnterpriseData(business)">Select</button></div>
+
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Yelp Search Results : End -->
+              </div>
+            </div>
+          </div><!-- /.col-sm-4 -->
+        </div>
+
+      </div>
+
+    </div> <!-- /container -->
+
+  <div ng-show="loading" class="loading-page">
+    <!-- <img id="loading-image" src="images/ajax-loader.gif" alt="Loading..." /> -->
+    <i class="icon ion-ios-loop-strong spin big" style="color: #fff"></i>
+  </div>
+
+
+  <div ng-show="showBusy" class="busy-loading-page">
+    <img class="busy-loading-image" src="/cp/img/ajax-loader.gif" alt="Loading..." />
+  </div>
+

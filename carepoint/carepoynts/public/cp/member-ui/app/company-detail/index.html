@@ -1,0 +1,478 @@
+
+<div class="company-detail">
+    <div id="st-container" class="st-container">
+      <!-- nav menu -->
+      <div ng-include="'shared/nav-menu/index.html'"></div>
+      <!-- /nav menu  -->
+
+      <!-- content push wrapper -->
+      <div class="st-pusher">
+        <div class="st-content"><!-- this is the wrapper for the content -->
+          <div class="st-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+            <!-- header - navbar -->
+            <div ng-include="'shared/header/index.html'" ></div>
+            <!-- /header - navbar -->
+
+            <div class="main container cp-plr-5">
+              <div class="row center-xs">
+                <div class="col-xs-12 col-sm-7 col-md-10">
+
+                  <div class="row top-xs center-xs cp-mlr-5">
+                    <div class="col-xs heading cp-plr-10">
+                      <div class="start-xs back-link pull-left col-xs-2 cp-plr-0">
+                        <a ng-click="goBack()"><i class="icon ion-ios-arrow-thin-left"></i></a>
+                      </div>
+                      <div class="center-xs page-heading col-xs-8 cp-plr-0">
+                        <h1>
+                          <strong>{{enterprise.ent_name}}</strong>
+                        </h1>          
+                      </div>
+                      <!-- Joyn Button-->
+                      <div class="end-xs pull-right col-xs-2 cp-ptb-10 cp-plr-0">
+                        <div ng-if="features['dark.member.enterprise-joyn']">
+                          <button type="button" class="btn btn-primary btn-xs" ng-if="!isEnterpriseMember.status" ng-click="joyn()">Joyn</button>
+                        </div>
+                      </div>
+                       <!-- /Joyn Button-->
+                    </div>
+                  </div> 
+
+                  <div class="page-body"> 
+                  <div class="hide old-wrapper-div">
+
+                    <div class="col-xs cp-plr-5" >
+                      <div class="alert alert-success cp-mtb-10" ng-show="showJoynSuccess">
+                        <a class="close" ng-click="showJoynSuccess=!showJoynSuccess">&times;</a>
+                        <div class="text-left"><strong>Welcome to {{enterprise.ent_name}}</strong> </div>
+                      </div>
+                      <div class="alert alert-warning cp-mtb-10" ng-show="showJoynError">
+                        <a class="close" ng-click="showJoynError=!showJoynError">&times;</a>
+                        <div class="text-left">Unfortunately something went wrong.<br>Please try again later.</div>
+                      </div>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="row center-xs cp-pt-10 cp-pb-5 cp-m-5 cp-bg-color-white cp-border-rounded" >
+                      <div class="col-xs-12 col-sm-12 col-md-12 cp-p-0">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="text-left" style="font-size: 12px">
+                            
+                            <strong>Address:</strong><br>
+                            <address>
+                              <a class="cp-color-black" href="{{address}}">
+                                {{enterprise.ent_address}}<br>
+                                {{enterprise.ent_city}} {{enterprise.ent_state}}, {{enterprise.ent_zip}}
+                              </a>
+                            </address>
+                            <a class="cp-color-black" href="tel:{{enterprise.ent_phone}}">{{enterprise.ent_phone | telephone}}</a>
+                            <br>
+                            <div>
+                              <!-- Healthcare, Rewards -->
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                          <div class="gmap-location" style="padding:0px;">
+                            <div map-lazy-load="https://maps.google.com/maps/api/js" style="height: 130px">
+                              <a href="{{address}}">
+                                <ng-map center="[{{enterprise.geo_lat}}, {{enterprise.geo_long}}]" zoom="12" style="height:100%">
+                                  <marker position="[{{enterprise.geo_lat}}, {{enterprise.geo_long}}]"></marker>
+                                </ng-map>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                    </div>
+                    <!-- /Location -->
+
+                    <!-- Earn and Redeeem -->
+                    <div class="row cp-bg-color-none cp-m-5">
+                      <div class="col-xs cp-border-rounded cp-bg-color-white">
+
+                        <div class="row center-xs cp-ptb-10 cp-gradient-blue">
+                          <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="pill-counts hide">
+                              <div class="col-xs-6">
+                                <div class="poynt-count cp-blue-earn">{{promotions.length}}</div>
+                                <div class="earn-poynts cp-font-size-14"  style="color:white;" role="button" ng-click="showEarnList()">
+                                  <i class="icon ion-heart"></i> Earn
+                                </div>
+                              </div>
+                              <div class="col-xs-6">
+                                <div class="poynt-count cp-redeem">{{redemptions.length}}</div>
+                                <div class="redeem-poynts cp-font-size-14"  role="button" ng-click="showRedeemList()">
+                                  <i class="icon ion-flash"></i> Redeem
+                                </div>
+                              </div>
+                            </div><!-- /pill-counts -->
+
+                            <div class="btn-group col-xs-12 " role="group">
+                              <button class="col-xs-6 btn-lg cp-btn-split-left" ng-class="{'active' : type == 'earn'}" ng-click="showEarnList()">Earn</button>
+                              <button class="col-xs-6 btn-lg cp-btn-split-right" ng-class="{'active' : type == 'redeem'}" ng-click="showRedeemList()">Redeem</button>
+                            </div>
+
+                          </div>
+                        </div>
+                    
+                        <div class="row center-xs er-item-list cp-bg-color-white cp-pb-10 cp-pt-0">
+                          <div class="col-xs-12 col-sm-12 col-md-12">
+
+                            <div ng-if="!offers.length" class="text-left cp-pt-10">
+                              <div class="col-xs cp-border-rounded cp-p-10">
+                                There are no {{offers == redemptions ? 'redemption' : 'earning'}} opportunities available at this time.<br>
+                              </div>
+                            </div>
+                            <div ng-if="offers.length">
+
+                              <div class="hide item cp-mt-10 cp-p-5 cp-border-rounded" ng-repeat="offer in offers | limitTo:settings.limit" ng-click="goTo('offer',{'type': type, 'id':offer.id})" role="button">
+
+                                <div ng-if="offer.reward_value">
+                                  <div class="col-xs-3 col-sm-2 text-right start-xs" >
+                                    <p class="poynts cp-blue-earn">{{offer.reward_value | number}}<br>
+                                      <small>poynts</small></p>
+                                    <p class="date">{{offer.enddate | date:'M/dd/yy'}}</p>
+                                  </div>
+                                  <div class="col-xs-7 col-sm-8 start-xs">
+                                    <p class="descrp text-left cp-line-height-1">{{offer.title}}</p>
+                                  </div>
+                                  <div class="col-xs-2 end-xs cp-p-10">
+                                      <span class="badge badge-earn"><i class="icon ion-heart"></i></span>
+                                  </div>
+                                </div>
+
+                                <div ng-if="!offer.reward_value">
+                                  <div class="col-xs-3 col-sm-2 text-right start-xs" >
+                                    <p class="poynts cp-redeem">{{offer.redem_value | number}}<br>
+                                      <small>poynts</small></p>
+                                    <p class="date">{{offer.enddate | date:'M/dd/yy'}}</p>
+                                  </div>
+                                  <div class="col-xs-7 col-sm-8 start-xs">
+                                    <p class="descrp text-left cp-line-height-1">{{offer.title}}</p>
+                                  </div>
+                                  <div class="col-xs-2 end-xs cp-p-10">
+                                    <span class="badge badge-redeem"><i class="icon ion-flash"></i></span>
+                                  </div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                              </div>
+
+                              <div class="item cp-mt-10 cp-p-5 cp-border-rounded" ng-repeat="offer in offers | limitTo:settings.limit" role="button">
+                                <div class="col-xs-3 col-sm-2 center-xs cp-p-5 logo-frame" >
+                                  <span class="cp-bg-color-transparent cp-p-5"> 
+                                    <img ng-src="{{offer.ent_profile_logo}}"> 
+                                  </span>
+                                </div>
+                                <div class="col-xs-12 cp-pb-10 cp-pl-0">
+                                  <p class="descrp text-left cp-font-size-14">{{offer.title}}</p>
+                                  <p class="company cp-font-size-12" style="text-transform: none;">{{offer.ent_name}}</p>
+                                </div>
+                                <!-- <div class="col-xs-2 end-xs cp-p-10 cp-pt-0">
+                                    <span class="badge cp-bg-color-transparent"> <img src="/assets/app-new/img/badge-partner.png" height="30" width="30"> </span>
+                                </div> -->
+                                <!--EARN BUTTON-->
+                                <div ng-if="offer.reward_value">
+                                  <div class="col-xs-12 text-center cp-pl-0">
+                                    <button class="cp-btn-earn" ng-click="goTo('offer',{'type': type, 'id':offer.id})" >Earn <strong>{{offer.reward_value | number}}</strong> CarePoynts
+                                    </button>
+                                  </div>
+                                </div>
+                                <!--REDEEM BUTTON-->
+                                <div ng-if="!offer.reward_value">
+                                  <div class="col-xs-12 text-center cp-pl-0">
+                                    <button class="cp-btn-redeem" ng-click="goTo('offer',{'type': type, 'id':offer.id})" >Redeem <strong>{{offer.redem_value | number}}</strong> CarePoynts
+                                    </button>
+                                  </div>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row center-xs show-more cp-border-bottom-none cp-bg-color-transparent" ng-if="offers.length > 3">
+                          <div class="row middle-xs col-xs-12 col-sm-12 col-md-12" ng-if="!settings.showMore" ng-click="showMore()">
+                            <div class="col-xs col-sm start-xs">Show More</div>
+                            <div class="col-xs col-sm end-xs"><i class="icon ion-ios-arrow-right"></i></div>
+                          </div>
+                          <div class="row middle-xs col-xs-12 col-sm-12 col-md-12" ng-if="settings.showMore" ng-click="showLess()">
+                            <div class="col-xs col-sm start-xs">Show Less</div>
+                            <div class="col-xs col-sm end-xs"><i class="icon ion-ios-arrow-right"></i></div>
+                          </div>
+                        </div><!-- /er-item-list -->
+                      </div>
+                    </div>
+                    <!-- Earn and Redeeem -->
+
+                    <div ng-if="enterprise.profile_details">
+                      
+                      <div class="row center-xs cp-m-5">
+                        <div class="col-xs-12 col-sm-12 col-md-12 cp-p-0">
+                          <div class="c-details text-left cp-pt-0" ng-if="enterprise.profile_details">
+                          <div class="row middle-xs center-xs">
+                            <div class="col-xs-12">
+                              <h1>About</h1>
+                            </div>
+                          </div>
+                            <p>{{enterprise.profile_details}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div><!-- /c-details -->
+              </div> <!-- /old-wrapper-div --> 
+
+
+
+        <div id="enterprise">
+          <div id="main">
+            <div class="enterprise-header" style="background-image:url({{enterprise.profile_photo}})">
+              <div class="pure-g">
+                <div style="height:160px; white-space: nowrap;text-align: center;margin:0 auto;overflow-x: hidden;
+    overflow-y: hidden;
+    background: #ffffff;
+    text-align: center;
+    white-space: nowrap;
+    border-radius:50%;
+    width: 160px;">
+                  <span style="display: inline-block;
+                        height: 100%;
+                        vertical-align: middle;line-height: 150px;">
+                  <img ng-src="{{enterprise.profile_logo}}" style="height:auto;width: 130px;vertical-align: middle;"/></span>
+
+                  <!-- <div class="logo-frame">
+                    <span class="cp-bg-color-transparent"> 
+                      <img ng-src="{{enterprise.profile_logo}}"> 
+                    </span>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="enterprise-content">
+              <div class="pure-g">
+                <div class="enterprise-offers pure-u-1">
+                  <!-- Earn and Redeeem -->
+                  <div class="row cp-bg-color-none cp-m-5">
+                    <div class="col-xs cp-border-rounded cp-bg-color-white">
+
+                      <div class="row center-xs cp-ptb-10 cp-gradient-blue">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                          <div class="pill-counts hide">
+                            <div class="col-xs-6">
+                              <div class="poynt-count cp-blue-earn">{{promotions.length}}</div>
+                              <div class="earn-poynts cp-font-size-14"  style="color:white;" role="button" ng-click="showEarnList()">
+                                <i class="icon ion-heart"></i> Earn
+                              </div>
+                            </div>
+                            <div class="col-xs-6">
+                              <div class="poynt-count cp-redeem">{{redemptions.length}}</div>
+                              <div class="redeem-poynts cp-font-size-14"  role="button" ng-click="showRedeemList()">
+                                <i class="icon ion-flash"></i> Redeem
+                              </div>
+                            </div>
+                          </div><!-- /pill-counts -->
+
+                          <div class="btn-group col-xs-12 " role="group">
+                            <button class="col-xs-6 btn-lg cp-btn-split-left" ng-class="{'active' : type == 'earn'}" ng-click="showEarnList()">Earn</button>
+                            <button class="col-xs-6 btn-lg cp-btn-split-right" ng-class="{'active' : type == 'redeem'}" ng-click="showRedeemList()">Redeem</button>
+                          </div>
+
+                        </div>
+                      </div>
+                  
+                      <div class="row center-xs er-item-list cp-bg-color-white cp-pb-10 cp-pt-0">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+
+                          <div ng-if="!offers.length" class="text-left cp-pt-10">
+                            <div class="col-xs cp-border-rounded cp-p-10">
+                              There are no {{offers == redemptions ? 'redemption' : 'earning'}} opportunities available at this time.<br>
+                            </div>
+                          </div>
+                          <div ng-if="offers.length">
+
+                            <div class="hide item cp-mt-10 cp-p-5 cp-border-rounded" ng-repeat="offer in offers | limitTo:settings.limit" ng-click="goTo('offer',{'type': type, 'id':offer.id})" role="button">
+
+                              <div ng-if="offer.reward_value">
+                                <div class="col-xs-3 col-sm-2 text-right start-xs" >
+                                  <p class="poynts cp-blue-earn">{{offer.reward_value | number}}<br>
+                                    <small>poynts</small></p>
+                                  <p class="date">{{offer.enddate | date:'M/dd/yy'}}</p>
+                                </div>
+                                <div class="col-xs-7 col-sm-8 start-xs">
+                                  <p class="descrp text-left cp-line-height-1">{{offer.title}}</p>
+                                </div>
+                                <div class="col-xs-2 end-xs cp-p-10">
+                                    <span class="badge badge-earn"><i class="icon ion-heart"></i></span>
+                                </div>
+                              </div>
+
+                              <div ng-if="!offer.reward_value">
+                                <div class="col-xs-3 col-sm-2 text-right start-xs" >
+                                  <p class="poynts cp-redeem">{{offer.redem_value | number}}<br>
+                                    <small>poynts</small></p>
+                                  <p class="date">{{offer.enddate | date:'M/dd/yy'}}</p>
+                                </div>
+                                <div class="col-xs-7 col-sm-8 start-xs">
+                                  <p class="descrp text-left cp-line-height-1">{{offer.title}}</p>
+                                </div>
+                                <div class="col-xs-2 end-xs cp-p-10">
+                                  <span class="badge badge-redeem"><i class="icon ion-flash"></i></span>
+                                </div>
+                              </div>
+
+                              <div class="clearfix"></div>
+                            </div>
+
+                            <div class="item cp-mt-10 cp-p-5 cp-border-rounded" ng-repeat="offer in offers | limitTo:settings.limit" role="button">
+                              <!-- <div class="col-xs-3 col-sm-2 center-xs cp-p-5 logo-frame" >
+                                <span class="cp-bg-color-transparent cp-p-5"> 
+                                  <img ng-src="{{offer.ent_profile_logo}}"> 
+                                </span>
+                              </div> -->
+                              <div class="col-xs-12 cp-pb-10 cp-pl-0">
+                                <p class="descrp text-left cp-font-size-14">{{offer.title}}</p>
+                                <p class="company cp-font-size-12" style="text-transform: none;">{{offer.ent_name}}</p>
+                              </div>
+                              <!-- <div class="col-xs-2 end-xs cp-p-10 cp-pt-0">
+                                  <span class="badge cp-bg-color-transparent"> <img src="/assets/app-new/img/badge-partner.png" height="30" width="30"> </span>
+                              </div> -->
+                              <!--EARN BUTTON-->
+                              <div ng-if="offer.reward_value && isVariable(offer)">
+                                <div class="col-xs-12 text-center cp-pl-0">
+                                  <button class="cp-btn-earn" ng-click="goTo('offer',{'type': type, 'id':offer.id})" >Earn <strong>{{offer.variable_promo.percentage}}</strong> CarePoynts per Dollar
+                                  </button>
+                                </div>
+                              </div>
+
+                              <div ng-if="offer.reward_value && !isVariable(offer)">
+                                <div class="col-xs-12 text-center cp-pl-0">
+                                  <button class="cp-btn-earn" ng-click="goTo('offer',{'type': type, 'id':offer.id})" >Earn <strong>{{offer.poynts | number}}</strong> CarePoynts
+                                  </button>
+                                </div>
+                              </div>
+
+                              <!--REDEEM BUTTON-->
+                              <div ng-if="!offer.reward_value">
+                                <div class="col-xs-12 text-center cp-pl-0">
+                                  <button class="cp-btn-redeem" ng-click="goTo('offer',{'type': type, 'id':offer.id})" >Redeem <strong>{{offer.redem_value | number}}</strong> CarePoynts
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="clearfix"></div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row center-xs show-more cp-border-bottom-none cp-bg-color-transparent" ng-if="offers.length > 3">
+                        <div class="row middle-xs col-xs-12 col-sm-12 col-md-12" ng-if="!settings.showMore" ng-click="showMore()">
+                          <div class="col-xs col-sm start-xs">Show More</div>
+                          <div class="col-xs col-sm end-xs"><i class="icon ion-ios-arrow-right"></i></div>
+                        </div>
+                        <div class="row middle-xs col-xs-12 col-sm-12 col-md-12" ng-if="settings.showMore" ng-click="showLess()">
+                          <div class="col-xs col-sm start-xs">Show Less</div>
+                          <div class="col-xs col-sm end-xs"><i class="icon ion-ios-arrow-right"></i></div>
+                        </div>
+                      </div><!-- /er-item-list -->
+                    </div>
+                  </div>
+                  <!-- Earn and Redeeem -->
+
+
+                </div>
+              </div>
+            </div>
+
+            <div ng-if="enterprise.ent_desc" class="enterprise-content">
+              <div class="pure-g">
+                <div class="enterprise-info pure-u-1">
+                  <h4>About {{enterprise.ent_name}}</h4>
+                  <p>{{enterprise.ent_desc}}</p>
+                </div>
+              </div>
+            </div>
+
+            <div ng-if="enterprise.geo_lat" class="enterprise-content">
+              <div class="pure-g">    
+                <div class="enterprise-map pure-u-1">
+                      
+                  <div class="gmap-location" style="padding:0px;">
+                    <div map-lazy-load="https://maps.google.com/maps/api/js" style="height: 130px">
+                      <a href="{{address}}">
+                        <ng-map center="[{{enterprise.geo_lat}}, {{enterprise.geo_long}}]" zoom="12" style="height:100%" scrollwheel="false" draggable="false" gestureHandling="none">
+                          <marker position="[{{enterprise.geo_lat}}, {{enterprise.geo_long}}]"></marker>
+                        </ng-map>
+                      </a>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div ng-if="enterprise.geo_lat" class="enterprise-content">
+              <div class="pure-g">
+                <div class="pure-u-1">
+                  <h4>Location</h4>
+                  <span class="enterprise-contact-address">
+                    <address>
+                      <a class="cp-color-black" href="{{address}}">
+                        {{enterprise.ent_address}}<br>
+                        {{enterprise.ent_city}} {{enterprise.ent_state}}, {{enterprise.ent_zip}}
+                      </a>
+                    </address>
+                    <h4>Contact</h4>
+                    <!-- <span class="enterprise-contact-e-mail"><a href="">contact@hylunia.com</a></br></span> -->
+                    <span class="enterprise-contact-phone"><a class="cp-color-black" href="tel:{{enterprise.ent_phone}}">{{enterprise.ent_phone | telephone}}</a></span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div> <!-- /end id="main" -->
+        </div> <!-- /end id="enterprise" -->
+
+
+
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- /main -->
+          </div><!-- /st-content-inner -->
+        </div><!-- /st-content -->
+      </div><!-- /st-pusher -->
+    </div><!-- /st-container -->
+
+    <!-- search-->
+    <div ng-include="'shared/search/index.html'" ></div>
+    <!--search  -->
+
+  </div> <!-- "company-detail" --> 
+
+  <!-- loading -->
+  <div ng-show="loading" class="loading-page">
+    <!-- <img id="loading-image" src="images/ajax-loader.gif" alt="Loading..." /> -->
+    <i class="icon ion-ios-loop-strong spin big" style="color: #fff"></i>
+  </div>
+
+
+    <!-- css hacking override : begin -->
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/base-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+      <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css">
+    <!--<![endif]-->
+    <link href="/assets/app-new/css/styles.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet"> 
+
+    <!-- css hacking override : end -->
+
+

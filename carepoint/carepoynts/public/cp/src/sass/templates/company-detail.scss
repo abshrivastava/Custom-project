@@ -1,0 +1,80 @@
+.company-detail {
+
+  .c-snapshot {
+    background: #fff;
+
+    .col-xs-3 {
+      padding-left: 0;
+    }
+
+    .c-img {
+      padding-left: 0;
+
+      img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: ($padding-small-horizontal * 1.5) 0;
+      }
+    }
+
+    .pill-item {
+      margin-top: ($padding-large-vertical * 1.2);
+    }
+
+
+  }
+
+  .item {
+    margin: ($padding-base-vertical * 6) 0 0;
+  }
+
+  .gmap-location {
+    margin-bottom: ($padding-large-vertical * 1);
+  }
+
+  .section-header {
+    background: none;
+    border: none;
+    margin-top: ($padding-large-vertical * 2.5);
+  }
+  .pill-counts {
+    font-size: 20px;
+    @include Montserrat-Regular;
+    margin-top: auto;
+    padding-right: 0;
+    padding-left: 0;
+
+  }
+  .earn-poynts,
+  .redeem-poynts {
+    border-radius: $btn-border-radius-base;
+    padding: ceil(($padding-small-vertical * 1.5));
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+
+    .icon {
+      font-size: 14px;
+    }
+  }
+
+  .poynt-count {
+    @include Montserrat-SemiBold;
+    font-size: ceil(($font-size-base * 1.45));
+    width: 100%;
+    text-align: center;
+    margin: auto;
+  }
+
+  .earn-poynts {
+    background: $blue-earn;
+    margin: auto;
+
+  }
+  .redeem-poynts {
+    background: $redeem;
+    color: $redeem-txt;
+    margin: auto;
+  }
+}

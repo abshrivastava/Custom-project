@@ -1,0 +1,137 @@
+
+<div>
+  <div class="row xs-mt-10">
+
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 text-center">
+      <!-- <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1"> -->
+        <!-- <img class="img-responsive center-block" style="max-height: 250px;" src="/assets/app-new/img/onboard/dancing-tubbies.gif" alt="Carepoynt"><div class="col-xs-12" style="position : absolute; top: 0; padding:0px; color: white; ">do something -> easy peasy 1 2 3<br><br><br><br><br><br><br><br>get something -> lots of care</div> -->
+      <div class="text-center cp-p-0 col-xs-12 col-sm-10 col-sm-offset-1">
+        <div class="col-xs-12">
+          <img class="cp-promo-bg-img" style="" src="/assets/onboard/img/twitter3.jpg" alt="Carepoynt">
+          <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+        <p class="text-center">
+          <span class="cp-promo-headline">
+            <strong>Joyn Carepoynt for FREE</strong>
+            <br>
+            <strong>Earn 500 CarePoynts with 3 easy steps!</strong>
+          </span>
+          <br>
+          <span class="cp-promo-headline-subtext" style="">Redeem your poynts with our many trusted partners.</span>
+        </p>
+        <div class="center-block cp-promo-cardtiles-img">
+          <div class="col-xs">
+            <div class="col-xs-3 text-center" style="padding: 0 2px 0 2px;">
+              <img src="/assets/onboard/img/local/amazon.png" alt="" class="img-thumbnail cp-border-none" style="border: none !important; padding:0px !important;">
+            </div>
+            <div class="col-xs-3 text-center" style="padding: 0 2px 0 2px;">
+              <img src="/assets/onboard/img/local/hylunia.png" alt="" class="img-thumbnail" style="padding:0px !important">
+            </div>
+            <div class="col-xs-3 text-center" style="padding: 0 2px 0 2px;">
+              <img src="/assets/onboard/img/local/porrovita.png" alt="" class="img-thumbnail" style="padding:0px !important">
+            </div>
+            <div class="col-xs-3 text-center" style="padding: 0 2px 0 2px;">
+              <img src="/assets/onboard/img/local/target.png" alt="" class="img-thumbnail" style="border: none !important; padding:0px !important">
+            </div>
+          </div>
+
+        </div>
+        <div class="col-xs-8 col-xs-offset-2">
+          <hr class="xs-mb-0">
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <div class="text-center">
+        <h2>Step 1 &gt; Joyn</h2>
+      </div>
+      <!-- <hr> -->
+      
+      <div class="xs-p-10 text-center">
+        Let's get started creating an account with some basic information.
+      </div>
+
+      <br>
+      <form name="profileForm" novalidate>
+        <div class="form-group col-xs-6 xs-pl-0 xs-pr-5">
+          <label for="fname">First Name <span class="red-asterisk">*</span></label> 
+          <input type="text" name="fname" ng-model="profile.fname" class="form-control" placeholder="First" required>
+        </div>
+        <div class="form-group col-xs-6 xs-pl-5 xs-pr-0">
+          <label for="lname">Last Name <span class="red-asterisk">*</span></label>
+          <input type="text" name="lname" ng-model="profile.lname"  class="form-control" placeholder="Last" required>
+        </div>
+        <!-- <div class="form-group">
+          <label for="email">Email <span class="red-asterisk">*</span></label>
+          <input type="text" name="cpEmail" ng-model="profile.email" ng-blur="checkEmail()" class="form-control" placeholder="Email" typeahead="email for email in myemails | filter:$viewValue" typeahead-wait-ms="300" typeahead-min-length="1" autocomplete="off" required>
+          <p class="text-danger cp-font-size-9 cp-pl-10 cp-mt-5 cp-mb-0" ng-if="emailError">{{emailError}}</p>
+        </div> -->
+
+        <div class="form-group">
+          <label for="email">Email <span class="red-asterisk">*</span></label>
+          <input type="email" name="cpEmail" ng-model="profile.email" class="form-control" placeholder="Email" autocomplete="off" required ng-readonly="emailReadOnly">
+          <p class="text-danger cp-font-size-9 cp-pl-10 cp-mt-5 cp-mb-0" ng-if="emailError">{{emailError}}</p>
+        </div>
+        <div class="form-group">
+          <label for="mobilePhone">Mobile Phone <span class="red-asterisk">*</span></label>
+          <input type="text" name="mobilePhone" ng-model="profile.mPhone" cp-phone-input class="form-control" placeholder="Mobile Phone" maxlength="14" required>
+          <p class="text-danger cp-font-size-9 cp-pl-10 cp-mt-5 cp-mb-0" ng-if="phoneError">{{phoneError}}</p>
+        </div>
+<!--         <div class="form-group col-xs-6 xs-pl-0 xs-pr-5">
+          <label for="dob">Birthdate <span class="red-asterisk">*</span></label>
+          <input type="date" name="dob" ng-model="profile.dob" class="form-control" placeholder="Birthdate">
+        </div> -->
+
+        <div class="form-group col-xs-6 xs-pl-0 xs-pr-5" >
+                <label for="dob">Birthdate <span class="red-asterisk">*</span></label>   
+                <input  type="text" class="form-control" id="datepicker" 
+                        is-open="opened" 
+                        name="uibDatePicker" 
+                        uib-datepicker-popup="MM/dd/yyyy" 
+                        ng-model="profile.dob" 
+                        show-button-bar="false" 
+                        datepicker-options="dateOptions"  
+                        ng-click="open($event)" 
+                        hidden-time="true" 
+                        required="true" 
+                        ng-if="getBrowserDetails()" 
+                        placeholder="Birthdate">
+                <input type="date" name="dob" ng-model="profile.dob" class="form-control" placeholder="Birthdate" ng-if="!getBrowserDetails()" required>
+        </div>
+
+
+
+        <div class="form-group col-xs-6 xs-pl-5 xs-pr-0">
+          <label for="zip">Zip <span class="red-asterisk">*</span></label>
+          <input type="text" name="zip" ng-model="profile.zip"  class="form-control" placeholder="#####" required>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group" ng-class="{'has-error': profileForm.password.$invalid && profileForm.password.$dirty && profileForm.password.$touched}">
+          <label for="password">Password <span class="red-asterisk">*</span></label>
+          <input type="password" name="password" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!$%@#£€*?&]{8,}$/" ng-model="profile.password" class="form-control" placeholder="At least 8 characters. 1 letter. 1 number" required>
+          <p class="text-danger cp-font-size-9 cp-pl-10 cp-mt-5 cp-mb-0" ng-show="profileForm.password.$invalid && profileForm.password.$dirty && profileForm.password.$touched">At least 8 characters. 1 letter. 1 number</p>
+        </div>
+  <!--       <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" name="confirmPassword" ng-model="profile.passwordConfirm"  class="form-control" placeholder="Confirm Password" >
+        </div> -->
+        <div class="form-group">
+          <label for="toscheck" class="pure-checkbox"></label>
+          <input name="tos" ng-model="profile.tos" type="checkbox" required>
+              I have read and accept the <a href="http://www.carepoynt.com/terms-of-service" target="_blank">Terms of Service.</a> <span class="red-asterisk">*</span>
+        </div>
+        <div class="form-group cp-mb-10">
+          <span><em><span class="red-asterisk">*</span> Indicates required field</em></span>
+        </div> 
+        <p class="text-danger cp-font-size-9 cp-pl-10 cp-mt-5 cp-mb-0" ng-show="makeMeError">An error occured. Contact us at support@carepoynt.com for help.</p>
+        <div class="form-group xs-pt-10">
+          <button class="btn btn-info btn-block" ng-click="goMakeMe(1)"  ng-disabled="profileForm.$invalid  || (profileForm.$pristine && !profileForm.$dirty)"> Next &gt; </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+

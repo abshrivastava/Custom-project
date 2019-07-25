@@ -1,0 +1,306 @@
+  <style>
+  .profile input, .profile select {
+    font-size: 16px;
+  }
+  
+</style> 
+
+
+
+  <div class="profile">
+    <div id="st-container" class="st-container">
+      <!-- nav menu -->
+      <div ng-include="'shared/nav-menu/index.html'"></div>
+      <!-- /nav menu  -->
+
+      <!-- content push wrapper -->
+      <div class="st-pusher">
+        <div class="st-content"><!-- this is the wrapper for the content -->
+          <div class="st-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+
+            <!-- header - navbar -->
+            <div ng-include="'shared/header/index.html'" ></div>
+            <!-- /header - navbar -->
+
+            <div class="main container-fluid">
+              <div class="row center-xs top-xs heading">
+                <div class="col-xs-12 col-sm-7 col-md-5">
+                  <div class="start-xs back-link pull-left">
+                    <a ng-click="goBack()"><i class="icon ion-ios-arrow-thin-left"></i></a>
+                  </div>
+                  <div class="col-xs center-xs page-heading">
+                    <h1>
+                      My Profile
+                    </h1>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row center-xs" ng-if="!member.username">
+                <div class="col-xs-12 col-sm-10 col-md-7">
+                    <!-- link to onboard -->
+                    <div>
+                      <div class="form-group center-xs">
+                        <button type="button" class="btn btn-earn " ng-click="goToOnboard()">Create Your Account</button>
+                      </div>
+                    </div>
+                    <!-- /link to onboard -->
+                    
+                </div>
+              </div>
+
+
+              <div class="row center-xs" ng-if="features['dark.member.profile'] && member.username">
+                <div class="col-xs-12 col-sm-10 col-md-7">
+                  <!-- <form> -->
+                    <div ng-if="features['dark.member.link-acct-fitbit']">
+                      <div class="form-group center-xs">
+                        <button type="button" class="btn btn-primary" ng-click="openHumanApi()">Link an Account</button>
+                      </div>
+                    </div>
+                    <div class="form-group" ng-show="features['dark.member.barcode']">
+                      <div class="form-group center-xs">
+                          <img src="/rewards/mem/barcode">
+                        </div>
+                      </div>
+                  <!-- </form> -->
+
+                  <div id="profile">
+                    <div id="main">
+                      <div class="profile-content cp-mt-0">
+                        <div class="pure-g">
+                          <div class="pure-u-1">
+                            <form class="pure-form pure-form-stacked">
+                                <fieldset>
+                                  <legend class="ptop-20 cp-font-size-16 cp-pt-0">Name</legend>
+                                  <div class="pure-g">
+                                    <div class="pure-u-1 pure-u-md-1-2">
+                                            <label for="first-name">First Name</label>
+                                            <input id="first-name" class="pure-u-23-24" type="text" ng-model="member.fname" required>
+                                          </div>
+
+                                        <div class="pure-u-1 pure-u-md-1-2">
+                                            <label for="last-name">Last Name</label>
+                                            <input id="last-name" class="pure-u-23-24" type="text"  ng-model="member.lname" required>
+                                          </div>
+                                  </div>
+
+                                  <legend class="ptop-20 cp-font-size-16">Contact Info</legend>
+                                  <div class="pure-g">
+                                    <div class="pure-u-1 pure-u-md-1-2">
+                                            <label for="email">E-mail</label>
+                                            <input id="email" class="pure-u-23-24" type="email"  ng-model="member.email" required readonly>
+                                          </div>
+                                        <div class="pure-u-1 pure-u-md-1-2">
+                                            <label for="phone">Mobile Phone</label>
+                                            <input id="phone" class="pure-u-23-24" type="text" ng-model="member.mPhone" required>
+                                          </div>
+                                    </div>
+
+                                  <legend class="ptop-20 cp-font-size-16">Address</legend>
+                                <div class="pure-g">
+                                  <div class="pure-u-1">
+                                              <label for="address">Address</label>
+                                              <input id="address" class="pure-u-23-24" type="text" ng-model="member.address">
+                                          </div>
+                                    </div>
+
+                                  <div class="pure-g">
+                                    <div class="pure-u-1 pure-u-md-1-3">
+                                            <label for="city">City</label>
+                                            <input id="city" class="pure-u-23-24" type="text" ng-model="member.city">
+                                        </div>
+
+                                        <div class="pure-u-1 pure-u-md-1-3">
+                                            <label for="state">State</label>
+                                            <select id="state" class="pure-u-23-24" ng-model="member.state">
+                                                <!-- <option value="">Please select</option> -->
+                                                <option value="AL">Alabama</option>
+                                                <option value="AK">Alaska</option>
+                                                <option value="AZ">Arizona</option>
+                                                <option value="AR">Arkansas</option>
+                                                <option value="CA">California</option>
+                                                <option value="CO">Colorado</option>
+                                                <option value="CT">Connecticut</option>
+                                                <option value="DE">Delaware</option>
+                                                <option value="DC">District Of Columbia</option>
+                                                <option value="FL">Florida</option>
+                                                <option value="GA">Georgia</option>
+                                                <option value="HI">Hawaii</option>
+                                                <option value="ID">Idaho</option>
+                                                <option value="IL">Illinois</option>
+                                                <option value="IN">Indiana</option>
+                                                <option value="IA">Iowa</option>
+                                                <option value="KS">Kansas</option>
+                                                <option value="KY">Kentucky</option>
+                                                <option value="LA">Louisiana</option>
+                                                <option value="ME">Maine</option>
+                                                <option value="MD">Maryland</option>
+                                                <option value="MA">Massachusetts</option>
+                                                <option value="MI">Michigan</option>
+                                                <option value="MN">Minnesota</option>
+                                                <option value="MS">Mississippi</option>
+                                                <option value="MO">Missouri</option>
+                                                <option value="MT">Montana</option>
+                                                <option value="NE">Nebraska</option>
+                                                <option value="NV">Nevada</option>
+                                                <option value="NH">New Hampshire</option>
+                                                <option value="NJ">New Jersey</option>
+                                                <option value="NM">New Mexico</option>
+                                                <option value="NY">New York</option>
+                                                <option value="NC">North Carolina</option>
+                                                <option value="ND">North Dakota</option>
+                                                <option value="OH">Ohio</option>
+                                                <option value="OK">Oklahoma</option>
+                                                <option value="OR">Oregon</option>
+                                                <option value="PA">Pennsylvania</option>
+                                                <option value="RI">Rhode Island</option>
+                                                <option value="SC">South Carolina</option>
+                                                <option value="SD">South Dakota</option>
+                                                <option value="TN">Tennessee</option>
+                                                <option value="TX">Texas</option>
+                                                <option value="UT">Utah</option>
+                                                <option value="VT">Vermont</option>
+                                                <option value="VA">Virginia</option>
+                                                <option value="WA">Washington</option>
+                                                <option value="WV">West Virginia</option>
+                                                <option value="WI">Wisconsin</option>
+                                                <option value="WY">Wyoming</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="pure-u-1 pure-u-md-1-3">
+                                            <label for="zipcode">ZIP Code</label>
+                                            <input id="zipcode" class="pure-u-23-24" type="text" ng-model="member.zip">
+                                        </div>
+
+                                    </div>
+
+                                <legend class="ptop-20 cp-font-size-16">Other Info</legend>
+                                <div class="input-group uidatepicker pure-g">
+                                    <div class="pure-u-1 pure-u-md-1-2" >
+                                            <label for="birthdate">Birthdate</label>   
+                                            <input  type="text" class="pure-u-23-24" id="datepicker" 
+                                                    is-open="opened" 
+                                                    name="uibDatePicker" 
+                                                    uib-datepicker-popup="MM-dd-yyyy" 
+                                                    ng-model="member.dob" 
+                                                    show-button-bar="false" 
+                                                    datepicker-options="dateOptions"  
+                                                    ng-click="open($event)" 
+                                                    hidden-time="true" 
+                                                    required="true" 
+                                                    ng-if="checkBrowser">
+                                            <div ng-if="checkBrowser" 
+                                            ng-show="angUIBootstrapDatePickerForm.uibDatePicker.$touched && angUIBootstrapDatePickerForm.uibDatePicker.$invalid">
+                                            <small style="color:red; text-align:center;  display:block;">Please select date</small>
+                                            </div>
+                                            <input id="birthdate" class="pure-u-23-24" type="date" ng-model="member.dob"  required ng-if="!checkBrowser">
+                                        </div>
+                                        <div class="pure-u-1 pure-u-md-1-2">
+                                            <label for="gender">Gender</label>
+                                            <select id="gender" class="pure-u-23-24" ng-model="member.gender" required>
+                                                <!-- <option>Please select</option> -->
+                                                <option value="female">Female</option>
+                                                <option value="male">Male</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                <div ng-if="features['dark.member.interests']">
+                                  <legend class="ptop-20 cp-font-size-16">Interests</legend>
+                                  <div class="pure-g">
+                                    <div class="pure-u pure-u-1-2 cp-font-size-14" >
+                                      <label for="eat_healthy" class="pure-checkbox ">
+                                        <input class="checkbox interest" id="eat_healthy" type="checkbox" style="display:inline" ng-model="interests.eat_healthy">
+                                        <span style="padding-left: 2px">Eat Healthy</span>
+                                      </label>
+                                      <label for="relaxation" class="pure-checkbox ">
+                                        <input class="checkbox interest" id="relaxation" type="checkbox" style="display:inline" ng-model="interests.relaxation"> 
+                                        <span style="padding-left: 2px">Relax</span>
+                                      </label>
+                                      <label for="alternative_medicine" class="pure-checkbox ">
+                                        <input class="checkbox interest" id="alternative_medicine" type="checkbox" style="display:inline" ng-model="interests.alternative_medicine"> 
+                                        <span style="padding-left: 2px">Wellness</span>
+                                      </label>
+                                    </div>
+                                    <div class="pure-u pure-u-1-2 cp-font-size-14" >
+                                      <label for="fitness" class="pure-checkbox ">
+                                        <input class="checkbox interest" id="fitness" type="checkbox" style="display:inline" ng-model="interests.fitness"> 
+                                        <span style="padding-left: 2px">Get Fit</span>
+                                      </label>
+                                      <label for="better_healthcare" class="pure-checkbox ">
+                                        <input class="checkbox interest" id="better_healthcare" type="checkbox" style="display:inline" ng-model="interests.better_healthcare"> 
+                                        <span style="padding-left: 2px">Better Healthcare</span>
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <label>Other</label>
+                                  <input class="pure-u-23-24 interest" type="text" style="display:inline" ng-model="interests.other">
+                                </div>
+
+                                    <div class="pure-controls ptop-20">
+                                        <button type="submit" class="pure-button pure-button-primary button-primary" ng-click="saveProfile()">Save</button>
+                                        </div>
+                                    <div class="pure-controls">
+                                        <button type="submit" class="pure-button pure-button-secondary button-secondary" ng-click="goBack()">Cancel</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                          </div>
+                        </div>
+                        </div>
+                    </div>
+                  </div>
+
+                </div>
+            </div><!-- /c-details -->
+
+
+
+            </div><!-- /main -->
+          </div><!-- /st-content-inner -->
+        </div><!-- /st-content -->
+      </div><!-- /st-pusher -->
+    </div><!-- /st-container -->
+
+    <!-- partner creds form -->
+    <div ng-if="features['dark.member.link-acct-fitbit']" >
+      <div ng-include="'profile/human-api-integration.html'"></div>
+    </div>
+    <!-- /partner creds form  -->
+
+    <!-- search-->
+    <div ng-include="'shared/search/index.html'" ></div>
+    <!--search  -->
+  </div>
+
+    <!-- loading -->
+  <div ng-show="loading" class="loading-page">
+    <!-- <img id="loading-image" src="images/ajax-loader.gif" alt="Loading..." /> -->
+    <i class="icon ion-ios-loop-strong spin big" style="color: #fff"></i>
+  </div>
+
+  <div ng-show="showBusy" class="busy-loading-page">
+    <img class="busy-loading-image" src="/cp/img/ajax-loader.gif" alt="Loading..." />
+  </div>
+
+
+    <!-- css hacking override : begin -->
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/base-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+      <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css">
+    <!--<![endif]-->
+    <link href="/assets/app-new/css/styles.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet"> 
+     
+
+
+    <!-- css hacking override : end -->
+    

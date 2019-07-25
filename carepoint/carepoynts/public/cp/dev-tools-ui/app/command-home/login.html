@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row text-center">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Login</h2>
+        <img style="max-height:203px; max-width:290px" src="http://www.cs.cornell.edu/courses/cs4670/2012fa/projects/p1_iscissors/final_artifacts/files/wj89/webpage/sun_cutout.png" ng-class="{'wobble animated':badPass}">        
+<!--         <div class="form-group">
+          <label for="username" class="sr-only">Username</label>
+          <input type="text" id="inputEmail" class="form-control" placeholder="Username" required="" autofocus="" ng-model="creds.username">
+        </div> -->
+        <div class="form-group">
+          <label for="inputPassword">What should our mascott be?</label>
+          <input type="password" id="inputPassword" ng-keyup="$event.keyCode == 13 ? login() : null" class="form-control" placeholder="Which is the best teletubby?" required="" ng-model="creds.password">
+        </div>
+        <!-- <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div> -->
+        <button class="btn btn-lg btn-primary btn-block purplebutton" type="button" ng-click="login()">Sign in</button>
+      </form>
+  </div>
+  </div>
+
+</div>

@@ -1,0 +1,87 @@
+
+    <!-- Fixed navbar -->
+    <div ng-include="'shared/nav-bar.html'"></div>
+    <!-- /Fixed navbar -->
+
+    <div class="container" role="main">
+      <div class="row">
+        <div class="well well-sm text-center cp-gradient-blue text-white">
+          <h2 class="xs-m-0">Feature Toggles</h2>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm">
+          <div class="panel panel-primary">
+
+            <div class="panel-heading">
+              <h3 class="panel-title">The Features</h3>
+            </div>
+            <div class="panel-body">
+
+              <!-- Add new feature button : Begin-->
+              <div>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <div ng-show="!isAddFeature">
+                      <button type="button" class="btn btn-default" ng-click="addFeature()">Add new feature</button>
+                    </div>
+
+                    <div ng-show="isAddFeature">
+                      <form class="form-horizontal">
+                        <div class="form-group">
+                          <label for="featureName" class="col-sm-2 control-label">Feature Name</label>
+                          <div class="col-sm-6">
+                            <input type="text" class="form-control" placeholder="New Feature Name" ng-model = "newFeatureName">
+                          </div>
+                        </div>
+                      
+                        <div class="form-group">
+                          <div class="col-sm-2"></div>
+                          <div class="col-sm-10">
+                            <button type="button" class="btn btn-primary" ng-click="acceptFeature()">Add Feature</button>
+                            <button type="button" class="btn btn-default" ng-click="isAddFeature=!isAddFeature">Cancel</button>
+                          </div>
+                        </div>
+
+                      </form>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <!-- Add new feature button : end-->
+
+              <div>
+                <ul class="list-group">
+                  <li class="list-group-item " ng-repeat="(key,val) in features track by $index">
+                    <div class="row" >
+                    
+                      <div class="col-sm-10">{{key}}</div>
+                      <div class="col-sm-2">
+                        <div class="btn-group" role="group" aria-label="Default button group"> 
+                          <button type="button" class="btn btn-default" ng-class="{ 'btn-info': val}" ng-click="updateFeature(key, true)">ON</button> 
+                          <button type="button" class="btn btn-default" ng-class="{ 'btn-info': !val}" ng-click="updateFeature(key, false)">OFF</button> 
+                        </div>
+
+                      </div>
+                    
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+            </div> <!-- /panel-body -->
+          </div><!-- /panel -->
+        </div><!-- /.col-sm -->
+      </div>
+
+
+
+    </div> <!-- /container -->
+
+
+  <div ng-show="showBusy" class="busy-loading-page">
+    <img class="busy-loading-image" src="/cp/img/ajax-loader.gif" alt="Loading..." />
+  </div>
+

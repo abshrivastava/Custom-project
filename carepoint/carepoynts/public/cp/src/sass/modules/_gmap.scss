@@ -1,0 +1,37 @@
+.gmap {
+  position: relative;
+  background: #fff;
+
+  #map {
+    height: 320px;
+    position: relative;
+  }
+
+  .col-xs {
+    padding: 0;
+  }
+
+  .gmap-search {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    padding: 15px;
+
+    .form-control {
+      background: rgba(255, 255, 255, .9);
+      border: none;
+    }
+
+    button {
+      border: none;
+      border-radius: 0;
+      position: absolute;
+      top: 41px;
+      right: 15px;
+      font-size: ceil(($font-size-base * 1.2));
+      padding: 4px 12px;
+    }
+  }
+}

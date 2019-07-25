@@ -1,0 +1,83 @@
+  <div class="search-global"> 
+
+    <!-- Modal -->
+    <div class="modal fade" id="offLocation" tabindex="-1" role="dialog" aria-labelledby="offLocation">
+      <div class="modal-dialog" role="document">
+        <div class="row center-xs">
+          <div class="col-xs col-sm-7">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="icon ion-ios-close-outline"></i></span></button>
+                <h4 class="modal-title text-center" id="offLocation">Search Off Location</h4>
+              </div>
+              <div class="modal-body">
+                <div class="col-xs">
+                  <form class="off-loc-search">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Search Carepoynt ...">
+                      <button type="submit" class="btn btn-default"><i class="icon ion-ios-search-strong"></i></button>
+                    </div>
+                  </form>
+                </div>
+                <div class="col-xs">
+
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#ol-categories" aria-controls="ol-categories" role="tab" data-toggle="tab"><i class="icon ion-android-options"></i> Categories</a></li>
+                    <li role="presentation" class="pull-right"><a href="#ol-location" aria-controls="ol-location" role="tab" data-toggle="tab"><i class="icon ion-ios-location"></i> Irvine, CA</a></li>
+                  </ul>
+
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="ol-categories">
+                      <form action="">
+                        <ul class="list-unstyled">
+                          <li><input id="box1" type="checkbox" /><label for="box1">Health &amp; Beauty</label></li>
+                          <li><input id="box2" type="checkbox" /><label for="box2">Gyms</label></li>
+                          <li><input id="box3" type="checkbox" /><label for="box3">Food</label></li>
+                          <li><input id="box4" type="checkbox" /><label for="box4">Medical</label></li>
+                          <li><input id="box4" type="checkbox" /><label for="box4">Dental</label></li>
+                          <li><input id="box4" type="checkbox" /><label for="box4">Vision</label></li>
+                        </ul>
+                      </form>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="ol-location">
+                      <form action="">
+                        <ul class="list-unstyled">
+                          <li class="text-left">
+                            <button><i class="icon ion-navigate"></i> Use My Location</button>
+                          </li>
+                          <li>
+                            <div class="form-group input-group">
+                              <span class="input-group-addon" id="change-location"><i class="ion-compass"></i></span>
+                              <input type="text" class="form-control" placeholder="Change Location" aria-describedby="change-location">
+                            </div>
+                          </li>
+                          <li>
+                            <div class="row center-xs middle-xs">
+                              <div class="col-xs-2 text-left">
+                                <label for="amount">Range:</label>
+                              </div>
+                              <div class="col-xs">
+                                <div id="slider-range-min"></div>
+                              </div>
+                              <div class="col-xs-3 text-left">
+                                <span id="amount"></span><small>mi</small>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div> 
+
+

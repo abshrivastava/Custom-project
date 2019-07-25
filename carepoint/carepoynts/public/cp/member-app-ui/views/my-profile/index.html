@@ -1,0 +1,124 @@
+<!-- Start content section -->
+
+<div class="container">
+    <div class="row px-3">
+        <div class="col-1 col-sm-1 my-auto pl-0"><a class="back-btn" ng-click="goBack()"><i class="fa fa-long-arrow-left"></i></a></div>
+        <div class="col-10 col-sm-10">
+            <h5 class="text-center py-3">My Profile</h5>
+        </div>
+        <div class="col-1 col-sm-1 pl-0"></div>
+    </div>
+</div>
+<div class="border-box mb-3">
+    <div class="container">
+        <!-- Inner section -->
+        <div class="text-center my-2" ng-if="ctrl.features['dark.member.link-acct-fitbit']">
+            <button class="btn btn-default" ng-click="ctrl.openHumanApi()">Link an Account</button>
+        </div>
+        <div ng-if="ctrl.features['dark.member.profile']">
+            <form class="form-section">
+                <p class="form-text">Name</p>
+                <hr size=2 />
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label>First Name</label>
+                        <input type="text" name="fname" id="fname" class="form-control" ng-model="ctrl.member.fname" ng-required="true" />
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Last Name</label>
+                        <input type="text" name="lname" id="lname" class="form-control" ng-model="ctrl.member.lname" ng-required="true" />
+                    </div>
+                </div>
+
+                <p class="form-text">Contact Info</p>
+                <hr size=2 />
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label>E-mail</label>
+                        <input type="text" name="email" id="email" class="form-control" ng-model="ctrl.member.email" ng-readonly="true" ng-required="true" />
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Mobile Phone</label>
+                        <input type="text" name="mPhone" id="mPhone" class="form-control" 
+                        ui-mask="999-999-9999" ng-model="ctrl.member.mPhone" ng-required="true" />
+                    </div>
+                </div>
+
+                <p class="form-text">Address</p>
+                <hr size=2 />
+                <label>Address</label>
+                <input type="text" name="address" id="address" class="form-control" ng-model="ctrl.member.address" />
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label>City</label>
+                        <input type="text" name="city" id="city" class="form-control" ng-model="ctrl.member.city" />
+                    </div>
+                    <div class="col-sm-4">
+                        <label>State</label>
+                        <select type="text" name="state" id="state" class="form-control" ng-model="ctrl.member.state" ng-options="state.value as state.id for state in ctrl.StateList">
+                            <option value="" ng-selected="selected">Select</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <label>ZIP Code</label>
+                        <input type="text" name="zip" id="zip" class="form-control" ng-model="ctrl.member.zip" />
+                    </div>
+                </div>
+
+                <p class="form-text">Other Info</p>
+                <hr size=2 />
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label>Birthdate</label>
+                        <cp-date-picker date-model="ctrl.member.dob" date-required="true"></cp-date-picker>
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Gender</label>
+                        <select name="gender" id="gender" class="form-control" ng-model="ctrl.member.gender" ng-required="true">
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                        </select>
+                    </div>
+                </div>
+                <div ng-if="ctrl.features['dark.member.interests']">
+                    <p class="form-text">Interests</p>
+                    <hr size=2 class="mb-2" />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="form-check-label mt-2">
+                            <input type="checkbox" class="form-check-input" ng-model="ctrl.interests.eat_healthy"/>
+                            Eat Healthy
+                        </label>
+                            <label class="form-check-label mt-2">
+                            <input type="checkbox" class="form-check-input" ng-model="ctrl.interests.relaxation" />
+                            Relax
+                        </label>
+                            <label class="form-check-label mt-2">
+                            <input type="checkbox" class="form-check-input" ng-model="ctrl.interests.wellness"/>
+                            Wellness
+                        </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-check-label mt-2">
+                            <input type="checkbox" class="form-check-input" ng-model="ctrl.interests.fitness"/>
+                            Get Fit
+                        </label>
+                            <label class="form-check-label mt-2">
+                            <input type="checkbox" class="form-check-input" ng-model="ctrl.interests.better_healthcare"/>
+                            Better Healthcare
+                        </label>
+                        </div>
+                    </div>
+                </div>
+
+                <label>Other</label>
+                <input class="form-control" type="text" name="other" id="other" ng-model="ctrl.interests.other" />
+
+                <div class="mt-3"><input type="submit" name="" id="" value="Save" class="btn btn-default" ng-click="ctrl.saveProfile()" /></div>
+                <div class="profile_btn my-2"><input type="button" name="" id="" value="Cancel" class="btn btn-default cancel" ng-click="goBack()" /></div>
+            </form>
+        </div>
+        <!-- End of Inner section -->
+    </div>
+</div>
+<!--- End of content section -->

@@ -1,0 +1,89 @@
+.search-cards {
+  background: #fff;
+  border: none;
+  text-align: left;
+  padding-top: ($padding-base-vertical * 2.5);
+  padding-bottom: ($padding-base-vertical * 2.5);
+  border-bottom: 1px solid $gray-light;
+  margin-bottom: ($padding-base-vertical * 3);
+
+  .panel-earn,
+  .panel-redeem,
+  .panel-default {
+    margin: auto;
+    background-color: $gray;
+    color: #fff;
+    width: 200px;
+    height: 92px;
+    padding: ceil(($padding-base-vertical * .75)) $padding-base-vertical;
+
+    .btn-default {
+      background: none;
+      border-color: #fff;
+      color: #fff;
+      text-transform: uppercase;
+      @include Montserrat-SemiBold;
+      font-size: ceil(($font-size-base * .7));
+    }
+  }
+
+  .panel-heading {
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 0;
+    line-height: 1;
+    height: 50px;
+    text-align: left;
+
+    .icon {
+      margin-top: -12px;
+    }
+
+    .name {
+      @include Montserrat-Bold;
+      font-size: ceil(($font-size-base * .8));
+    }
+
+    .city {
+      @include Montserrat-Regular;
+      font-size: ceil(($font-size-base * .7));
+      margin-top: 2px;
+    }
+  }
+
+  .panel-earn {
+    background-color: $blue-earn;
+  }
+  .panel-redeem {
+    background-color: $redeem;
+    color: $redeem-txt;
+
+    .panel-heading,
+    .btn-default {
+      color: $redeem-txt;
+    }
+
+    .btn-default {
+      border-color: $redeem-txt;
+    }
+  }
+
+  .panel-body {
+    padding: 0;
+    text-align: left;
+
+    .amt {
+      font-size: ceil(($font-size-base * 1.2));
+      @include Montserrat-SemiBold;
+
+      small {
+        @include Montserrat-Bold;
+        font-size: ceil(($font-size-base * .5));
+      }
+    }
+  }
+
+
+
+}

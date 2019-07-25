@@ -1,0 +1,34 @@
+<!-- Start content section -->
+
+<div class="container">
+    <div class="row px-3">
+        <div class="col-1 col-sm-1 my-auto pl-0"><a class="back-btn" ng-click="goBack()"><i class="fa fa-long-arrow-left"></i></a></div>
+        <div class="col-10 col-sm-10">
+            <h5 class="text-center py-3">My Purchases</h5>
+        </div>
+        <div class="col-1 col-sm-1 pl-0"></div>
+    </div>
+</div>
+<div class="border-box mb-3 pb-3">
+    <!-- Start Article1 -->
+    <div class="content-border-box my-2" ng-repeat="purchase in ctrl.purchases">
+        <div class="row" ng-click="purchase.entity_type=='redemption' ? goTo('member.voucher', {'id':purchase.id}) : '' " ng-class="purchase.entity_type=='redemption' ? 'mouse-hover' : ''">
+            <div class="col-4 col-sm-2 text-center my-auto sm-logo-frame">
+                <img ng-src="{{purchase.imageUrl == '' ? '/cp/images/blank-img.png' : purchase.imageUrl}}">
+            </div>
+            <div class="col-sm-8 col-4 pl-1 pr-0">
+                <h5 class="large overflow-ellipsis">{{purchase.promo_name}}</h5>
+                <span class="text-grey medium overflow-ellipsis">{{purchase.card_details}}</span>
+            </div>
+            <div class="text-danger col-sm-2 col-4 pl-2 text-right my-auto">
+                <span ng-class="purchase.status=='Active' ? 'text-success text-sm':'text-danger text-sm'">{{purchase.status}}</span>
+            </div>
+        </div>
+    </div>
+    <!-- End of Article1 -->
+    <div class="text-center col-12">
+        All of your purchases can be found here. Click on the voucher of choice when redeeming it in store.
+    </div>
+
+</div>
+<!-- End of content section -->

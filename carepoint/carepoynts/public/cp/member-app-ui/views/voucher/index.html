@@ -1,0 +1,59 @@
+<!-- Start content section -->
+
+<div class="container">
+    <div class="row px-3">
+        <div class="col-1 col-sm-1 my-auto pl-0"><a class="back-btn" ng-click="goBack()"><i class="fa fa-long-arrow-left"></i></a></div>
+        <div class="col-10 col-sm-10">
+            <h5 class="text-center py-3">My Voucher</h5>
+        </div>
+        <div class="col-1 col-sm-1 pl-0"></div>
+    </div>
+</div>
+<!-- Start image section -->
+<div class="banner-page py-0">
+    <div class="col-sm-12 banner-relate">
+        <div><span><img src="{{ctrl.voucher.profile_logo}}" /></span></div>
+    </div>
+</div>
+<!-- End of image section -->
+<!-- dashboardOffer section -->
+<div class="border-box my-3">
+    <div class="container">
+        <div class="text-center">
+            <h5 class="py-2 main-title">{{ctrl.voucher.title}}</h5>
+            <p class="text-grey">{{ctrl.voucher.description}}</p>
+            <h5 class="text-danger m-large py-3" ng-if="!(ctrl.voucher.voucherStatus=='Redeemed') && (ctrl.voucher.voucher_type_id!=1)">
+                Do not activate purchase until time of sale.
+            </h5>
+            <h5 class="text-success m-large py-3" ng-if="!(ctrl.voucher.voucherStatus=='Redeemed') && (ctrl.voucher.voucher_type_id==1)">
+                Please present this voucher code to vendor for redemption.
+            </h5>
+            <!-- Open popup on click of Redeem-->
+            <button data-target="#voucher-model" data-toggle="modal" ng-click="ctrl.redeemVoucherWithoutPopUp()" class="btn btn-default btn-sm-default auto-h"
+                ng-if="!(ctrl.voucher.voucherStatus=='Redeemed') && (ctrl.voucher.poynts) && (ctrl.voucher.voucher_type_id!=1)">
+                Redeem
+            </button>
+
+            <!-- Newly added -->
+            <div ng-if="ctrl.voucher.voucher_type_id==1 && !(ctrl.voucher.voucherStatus=='Redeemed')" class="text-center">
+                <h3 class="text-sucess">Active</h3>
+            </div>
+            <div ng-if="(ctrl.voucher.voucher_code && ctrl.voucher.voucher_type_id==1)" class="pos_text py-3">Code: {{ctrl.voucher.voucher_code}}</div>
+            <div ng-if="(ctrl.voucher.voucherStatus=='Redeemed')">
+                <h1 class="text-danger py-2">Redeemed</h1>
+            </div>
+            <div ng-if="(ctrl.voucher.voucherStatus=='Redeemed') && ctrl.voucher.redeem_date">
+                <h3 class="text-redeem py-2">Redemption Date: <br />{{ctrl.voucher.redeem_date | date:'M/dd/yyyy h:mm a'}}</h3>
+            </div>
+            <div ng-if="ctrl.voucher.pos_code && (ctrl.voucher.voucher_type_id==2)" class="pos_text py-3">
+                POS Code: {{ctrl.voucher.pos_code}}
+            </div>
+            <p class="mb-2 text-muted"><strong>Date Valid {{ctrl.voucher.start_date | date:'MM/dd/yyyy'}} - {{ctrl.voucher.end_date | date:'MM/dd/yyyy'}}</strong></p>
+            <!-- Newly added -->
+        </div>
+    </div>
+</div>
+<!-- end of dashboardOffer section -->
+<!-- End of content section -->
+
+<div ng-include="'views/shared/model-popup/voucher-model-popup.html'" ng-show="ctrl.voucher.showModal"></div>

@@ -1,0 +1,85 @@
+<style>
+  body {
+    background-color: #fff;
+  }
+</style>  
+
+<div id="st-container" class="st-container">
+    <!-- nav menu -->
+    <div ng-include="'shared/nav-menu/index.html'"></div>
+    <!-- /nav menu  -->
+
+    <!-- content push wrapper -->
+    <div class="st-pusher">
+        <div class="st-content">
+            <!-- this is the wrapper for the content -->
+            <div class="st-content-inner">
+                <!-- extra div for emulating position:fixed of the menu -->
+
+                <!-- header - navbar -->
+                <div ng-include="'shared/header/index.html'"></div>
+                <!-- /header - navbar -->
+
+                <div class="container">
+                  <div class="row center-md">
+                    <div class=" col-xs col-sm-7 col-md-10 between-xs middle-xs">
+
+                        <!-- page-heading  -->
+                        <div class="cp-mlr-5">
+                            <div class="row center-xs top-xs heading">
+                              <div class="col-xs-12">
+                                <div class="start-xs back-link pull-left">
+                                  <a ng-click="goBack()"><i class="icon ion-ios-arrow-thin-left"></i></a>
+                                </div>
+                                <div class="col-xs center-xs page-heading">
+                                  <h1>
+                                    My Purchases
+                                  </h1>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <!-- /page-heading  -->
+
+                        <div ng-if="showVoucher">
+                            <div class="" ng-repeat="gcItem in giftcards" ng-init="$last ? showFooterMessage() : null">
+                                <div >
+                                    <div class="cp-mt-15" ng-click="gcItem.entity_type=='redemption' ? goTo('voucher', {'id':gcItem.id}) : '' ">
+                                        <div class="item cp-mtb-5 cp-p-5 cp-border-rounded " role="button">
+                                            <div class="col-xs-3 col-sm-2 center-xs cp-p-5 ">
+                                                <span class="cp-bg-color-transparent cp-p-5">
+                                                        <img ng-src={{gcItem.imageUrl}} width="80%">
+                                                    </span>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-8 start-xs">
+                                                <p class="descrp text-left ng-binding cp-font-size-14">{{gcItem.promo_name}}</p>
+                                                <p class="company ng-binding cp-font-size-12" style="text-transform: none;">{{gcItem.card_details}}</p>
+                                            </div>
+                                            <div class="col-xs-3 col-sm-2" style="font-size: 12px;"  ng-if="gcItem.entity_type=='redemption'">
+                                                <p class="text-success" ng-if="gcItem.status=='Active'">{{gcItem.status}}</p>
+                                                <p class="text-danger" ng-if="gcItem.status!='Active'"> {{gcItem.status}}</p>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-if="displayFooter" class="text-center cp-pt-5 cp-pb-15">
+                                All of your purchases can be found here. Click on the voucher of choice when redeeming it in store.
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>   
+            </div>
+        </div>
+        <!-- /st-content -->
+    </div>
+    <!-- /st-pusher -->
+</div>
+<!-- /st-container -->
+
+<div ng-show="loading" class="loading-page">
+    <!-- <img id="loading-image" src="images/ajax-loader.gif" alt="Loading..." /> -->
+    <i class="icon ion-ios-loop-strong spin big" style="color: #fff"></i>
+</div>

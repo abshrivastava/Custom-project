@@ -1,0 +1,44 @@
+<!-- Start content section -->
+
+<div class="container">
+    <div class="row px-3">
+        <div class="col-1 col-sm-1 my-auto pl-0"><a class="back-btn" ng-click="goBack()"><i class="fa fa-long-arrow-left"></i></a></div>
+        <div class="col-10 col-sm-10">
+            <h5 class="text-center py-3">Refer a Business</h5>
+        </div>
+        <div class="col-1 col-sm-1 pl-0"></div>
+    </div>
+</div>
+<div class="border-box mb-3">
+    <div class="container">
+        <!-- Inner section -->
+        <div class="inside-container">
+            <p class="text-center my-3">Refer a business to Carepoynt and earn 10,000 Poynts when they Joyn the network.</p>
+            <hr size=2 class="my-2" />
+            <form class="form-section">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>Business Name</label>
+                        <input class="form-control" type="text" name="" id="" value="" ng-model='ctrl.referBusinessModel.businessname' />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>Business Email</label>
+                        <input class="form-control" type="text" name="" id="" value="" ng-model='ctrl.referBusinessModel.businessemail' />
+                    </div>
+                </div>
+                <div>
+                    <label>Why do you recommend them?</label>
+                    <textarea class="form-control" rows="10" placeholder="Tell us about the business, your relationship to them, and why you think they'd be great for Carepoynt."
+                        ng-model='ctrl.referBusinessModel.message'></textarea>
+                </div>
+                <div class="submit_btn my-3">
+                    <input type="submit" name="" id="" value="Submit" class="btn btn-default" ng-click="ctrl.sendReferralEmail()" />
+                </div>
+            </form>
+        </div>
+        <!-- End of Inner section -->
+    </div>
+</div>
+<!-- End of content section -->

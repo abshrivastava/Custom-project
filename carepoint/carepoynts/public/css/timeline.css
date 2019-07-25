@@ -1,0 +1,296 @@
+.yearS {
+	color: #c7d0e3;
+	font-size: 8px;
+}
+
+.eventStatus0 {
+	width: 16px;
+	height: 16px;
+	float: left;
+	background: lightgreen;
+}
+
+.eventStatus1 {
+	width: 16px;
+	height: 16px;
+	float: left;
+	background: pink;
+}
+
+.eventStatus2 {
+	width: 16px;
+	height: 16px;
+	float: left;
+	background: lightgrey;
+}
+
+.eventStatus3 {
+	width: 16px;
+	height: 16px;
+	float: left;
+	background: lightgreen;
+}
+
+.eventStatus4 {
+	width: 16px;
+	height: 16px;
+	float: left;
+	background: lightgrey;
+}
+
+
+.vital_status0 {
+	margin-left:10px;
+	color: lightgreen;
+}
+
+.vital_status1 {
+	margin-left:10px;
+	color: pink;
+}
+
+#tlCont {
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.subMenuTL {
+	height: 64px;
+	background: #D7DFE7;
+}
+
+
+
+.wall_event_container {
+	background: #ffffff;
+	border-color: #C4CDE0;
+	border-style: solid;
+	border-width: 1px 1px 2px 1px;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding: 5px;
+	overflow: hidden;
+	clear: both;
+}
+
+.hr {
+	float: none;
+	height: 1px;
+	background: #034AA6;
+}
+
+.wall {
+	padding: 10px;
+	float: left;
+}
+
+.hotlist {
+	padding: 10px;
+	float: left;
+	width: 85%;
+}
+
+.hotlist_title {
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0 10px 0 0;
+	text-align: left;
+}
+
+.hotlist_big_title {
+	font-size: 18px;
+	font-weight: bold;
+	padding: 5px;
+	margin: 0 0 15px 0;
+	text-align: left;
+}
+
+.hotlist_content {
+	font-weight: normal;
+	font-size: 12px;
+	text-align: left;
+}
+
+.hotlist_body {
+	padding: 5px;
+	margin: 10px 0px 5px 0;
+	cursor: pointer;
+	border-color: #FFFFFF;
+	min-width: 200px;
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.hotlist_body:hover {
+	padding: 5px;
+	border-color: #C4CDE0;
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+
+
+.event_contentTbl {
+	/* width: 100%;  removed to for vitals with images */
+	
+}
+
+.event_container {
+	position: relative;
+}
+
+.event_contentImgTD a:link {
+	text-decoration: none;
+	outline: 0 none;
+}
+
+.event_contentImgTD a:hover {
+	color: grey;
+}
+
+.removeImgLink {
+	position: absolute;
+	right: 50px;
+	color: #AAAAAA;
+	top: 10px;
+	z-index: 2000;
+}
+
+
+
+.future {
+	clear: both;
+	width: 400px;
+	text-align: center;
+	margin: 0 auto;
+	background: #7595BF;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	color: #ffffff;
+	font-size: 13px;
+	padding: 4px 20px 5px 20px;
+	height:0px;
+}
+
+.future:hover {
+	background: #697cac;
+}
+
+
+
+#addEvent {
+	margin-top: 10px;
+	margin-right: 20px;
+	float: right;
+	border-radius: 4px 4px 4px 4px;
+}
+
+.event_body {
+	padding: 3px;
+	cursor: pointer;
+	text-align: left;
+}
+
+.event_body:hover {
+	padding: 2px;
+	border-color: #C4CDE0;
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.clinEvent_body {
+	padding: 3px;
+	cursor: pointer;
+	text-align: left;
+}
+
+.warn1,.warn2 {
+	color: yellow;
+}
+
+.warn100,.warn101 {
+	color: red !important;
+}
+
+.clinEvent_cont {
+	float: left;
+}
+
+.clinEvent_title {
+	font-weight: bold;
+}
+
+.clinEvent_subtitle {
+	color: #808080;
+	display: block;
+	font-size: 11px;
+	line-height: 12px;
+	margin: 0px 0px 0px 0px;
+	width: auto;
+}
+
+.clinEvent_val {
+	border-color: #C4CDE0;
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	height: 36px;
+	min-width: 64px;
+	cursor: pointer;
+	color: #697CAC;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	padding: 3px;
+	margin: 0 5px 0 5px;
+}
+
+.clinEvent_val:hover {
+	border-color: #697CAC;
+}
+
+.clinEvent_label {
+	font-size: 11px;
+	margin-bottom: 5px;
+	text-align: center;
+}
+
+.now_mark {
+	clear: left;
+    color: #cacaca;
+    font-size: 50px;
+    height: 55px;
+    left: 90px;
+    position: relative;
+    top: -20px;
+}
+
+.now_bar {
+	clear: both;
+	height: 2px;
+	margin: 0 auto;
+	position: relative;
+	text-align: center;
+	top: -28px;
+	width: 90%;
+}

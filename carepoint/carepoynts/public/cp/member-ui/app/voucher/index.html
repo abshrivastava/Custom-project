@@ -1,0 +1,195 @@
+<style>
+    .title_color {  color: #294F76; }
+</style>
+
+
+<div class="offer-details">
+    <div id="st-container" class="st-container">
+      <!-- nav menu -->
+      <div ng-include="'shared/nav-menu/index.html'"></div>
+      <!-- /nav menu  -->
+
+      <!-- content push wrapper -->
+      <div class="st-pusher">
+        <div class="st-content"><!-- this is the wrapper for the content -->
+          <div class="st-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+            <!-- header - navbar -->
+            <div ng-include="'shared/header/index.html'" ></div>
+            <!-- /header - navbar -->
+
+            <div class="main container">
+              <div class="row center-xs">
+                <div class="col-xs-12 col-sm-7 col-md-10">
+
+                    <!-- page-heading  -->
+                      <div class="cp-mlr-5">
+                        <div class="row center-xs top-xs heading">
+                          <div class="col-xs">
+                            <div class="start-xs back-link pull-left">
+                              <a ng-click="goBack()"><i class="icon ion-ios-arrow-thin-left"></i></a>
+                            </div>
+                            <div class="col-xs center-xs page-heading">
+                              <h1>{{voucher.ent_name}}</h1>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  <!-- /page-heading  -->
+
+                  <div class="row top-xs">
+                      
+                    <div class="col-sm-12">
+                      
+
+
+                        <!-- banner sec -->
+                        <div class="banner_sec">
+                            <div class="center-xs">
+                                <div id="enterprise" class="cp-mb-5">
+                                    <div id="main">
+                                        <div ng-if="voucher.profile_photo" class="enterprise-header" ng-class="{'cp-gradient-blue' : !voucher.profile_photo}"
+                                            style="background-image:url({{voucher.profile_photo}})">
+                                            <div class="pure-g">
+                                                <div style="height:160px; white-space: nowrap;text-align: center;margin:0 auto;overflow-x: hidden;
+                                    overflow-y: hidden;
+                                    background: #ffffff;
+                                    text-align: center;
+                                    white-space: nowrap;
+                                    border-radius:50%;
+                                    width: 160px;">
+                                                    <span style="display: inline-block;
+                                        height: 100%;
+                                        vertical-align: middle;line-height: 150px;">
+                                <img ng-src="{{voucher.profile_logo}}" style="height:auto;width: 130px;vertical-align: middle;"/></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div ng-if="!voucher.profile_photo" class="enterprise-header" ng-class="{'cp-gradient-blue' : !voucher.profile_photo}">
+                                            <div class="pure-g">
+                                                <div style="height:160px; white-space: nowrap;text-align: center;margin:0 auto;overflow-x: hidden;
+                                                    overflow-y: hidden;
+                                                    background: #ffffff;
+                                                    text-align: center;
+                                                    white-space: nowrap;
+                                                    border-radius:50%;
+                                                    width: 160px;">
+                                                    <span style="display: inline-block;
+                                                            height: 100%;
+                                                            vertical-align: middle;line-height: 150px;">
+                                                <img ng-src="{{voucher.profile_logo}}" style="height:auto;width: 130px;vertical-align: middle;"/></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- end of banner sec -->
+                        <div class="row cp-bg-color-white cp-border-rounded " style="margin:0px 0px">
+                            <div class="col-xs-12 text-center">
+                                <h3>{{voucher.title}}</h3>
+                            </div>
+                            <!-- mid section of any juice -->
+                            <div class="col-xs-12 text-center" style="min-height: 320px;">
+                                <p class="text_grey">{{voucher.description}}</p>
+                                <h5 ng-if="!redeemSuccessful && (voucher.voucher_type_id!=1)" class="about_offer text-success text-center" style="color: red">Do not activate purchase until time of sale.</h5>
+
+                                <h5 ng-if="voucher.voucher_type_id==1 && !redeemSuccessful" class="about_offer text-success text-center" style="color: #00cc33">Please present this voucher code to vendor for redemption.</h5>
+                                
+
+                                <div class="col-md-6 col-md-offset-3">
+                                    <button class="btn btn-block btn-lg btn-redeem cp-mt-20 cp-mb-10" data-toggle="modal" ng-if="!redeemSuccessful && !showModal && (voucher.poynts) && (voucher.voucher_type_id!=1)" ng-click="redeemVoucher(voucher.id, voucher.poynts, voucher.ent_id, voucher.memberid)" data-backdrop="false">Redeem</button>
+
+                                    <button class="btn btn-block btn-lg btn-redeem cp-mt-20 cp-mb-10" data-toggle="modal" ng-if="!redeemSuccessful && showModal && (voucher.poynts) && (voucher.voucher_type_id!=1)" data-target="#myModal" data-backdrop="false">Redeem</button>
+
+                                </div>
+                                <div class="clearfix"></div>
+
+                                <div ng-if="voucher.voucher_type_id==1 && !redeemSuccessful" class="text-center"><h3 style="color:#00cc33;font-size:1.75em;">Active<h3></div>
+                                <h4 ng-if="(voucher.voucher_code && voucher.voucher_type_id==1)" class="pos_text">Code: {{voucher.voucher_code}}</h4>
+
+                                 <div ng-if="redeemSuccessful" class="text-center">
+                                    <h1 class="cp-font-size-40" style="color: red;">Redeemed<h1>
+                                </div>
+                                 <div ng-if="redeemSuccessful && voucher.redeem_date" class="text-center">
+                                    <h3>Redemption Date: <br />{{voucher.redeem_date | date:'M/dd/yyyy h:mm a'}}<h3>
+                                </div>
+                                <div style="word-break:break-word; word-wrap:break-word;" ng-if="voucher.pos_code && (voucher.voucher_type!=1)" class="pos_text">
+                                    POS Code: {{voucher.pos_code}}
+                                </div>
+
+                                <p class="text_grey">Date Valid {{voucher.start_date | date:'MM/dd/yyyy'}} - {{voucher.end_date | date:'MM/dd/yyyy'}}</p>
+                            </div>
+                            <!-- end of mid section of any juice -->
+                       
+                        </div>
+                      </div> 
+
+                    </div>
+                  </div>
+
+                  <!-- /c-details -->
+
+                </div>
+              </div>
+
+            </div><!-- /main -->
+          </div><!-- /st-content-inner -->
+        </div><!-- /st-content -->
+      </div><!-- /st-pusher -->
+    </div><!-- /st-container -->
+
+    <!-- search-->
+    <div ng-include="'shared/search/index.html'" ></div>
+    <!--search  -->
+
+  </div>
+
+
+<!-- PopUp information -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Redemption Warning</h4>
+            </div>
+            <div class="modal-body">
+                <p>This purchase is a one time redemption and will be void after activating. Make sure you are at the venue and the cashier redeems the purchase.</p>
+                <div class="model-inner_sec">
+                    <input type="checkbox" name="modalConfirmState" style="width: 25px;" ng-model="checkbox"/>Don't Show Again
+                </div>
+            </div>
+            <div class="modal-footer footer_sec">
+                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-default" ng-click="redeemVoucher(voucher.id, voucher.poynts, voucher.ent_id, voucher.memberid)">Activate</button> -->
+
+
+                <div class="row center-xs cp-ptb-10 cp-gradient-blue">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div id="btn_sec" class="btn-group col-xs-12 " role="group">
+                            <button class="col-xs-6 btn-lg cp-btn-split-left" ng-class="{active: activeTab == 'cancel'}" data-dismiss="modal">Cancel</button>
+                            <button class="col-xs-6 btn-lg cp-btn-split-right" ng-class="{active: activeTab == 'activate'}" data-dismiss="modal" ng-click="redeemVoucher()">Got it</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<!-- End of PopUp information -->
+
+<div ng-show="loading" class="loading-page">
+    <!-- <img id="loading-image" src="images/ajax-loader.gif" alt="Loading..." /> -->
+    <i class="icon ion-ios-loop-strong spin big" style="color: #fff"></i>
+</div>
+
+ <div ng-if="showBusy" class="busy-loading-page">
+    <img class="busy-loading-image" src="/cp/img/ajax-loader.gif" alt="Loading..." />
+</div>
+
+    <!-- css hacking override : begin -->
+    <link href="/assets/app-new/css/styles.css" rel="stylesheet">
+    <!-- css hacking override : end -->

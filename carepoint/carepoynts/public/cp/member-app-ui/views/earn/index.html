@@ -1,0 +1,66 @@
+<!-- Start content section -->
+<!-- Start tab -->
+<div ng-hide="true" class="container my-0">
+    <div class="row">
+        <div class="col-12 text-center">
+            <ul class="nav-menu nav-menu-all">
+                <li ng-class="{'active': ctrl.currentTab==ctrl.offerTabs.All}"><a ng-click="ctrl.getEarnOffers(ctrl.offerTabs.All)">All</a></li>
+                <li ng-class="{'active': ctrl.currentTab==ctrl.offerTabs.Local}"><a ng-click="ctrl.getEarnOffers(ctrl.offerTabs.Local)">Local</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- End of tab -->
+
+<!-- Start search section -->
+<!--Search text area with search Component -->
+<div class="search_padding m-3">
+    <div class="container pl-2">
+        <div class="row">
+            <div class="col-2 col-sm-2 my-auto pl-2 text-left">
+                <a class="back-btn" ng-click="(!ctrl.isSearchPerformed) ? goBack() : ctrl.reLoadCurrentState();">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="col-10 col-sm-10 pr-0">
+                <div class="content_center">
+                    <div class="input-group input-group-sm margin_auto ">
+                        <!--Search text enter functionality can be moved to search Component -->
+                        <input type="text" ng-model="ctrl.searchText" class="form-control input-sm" placeholder="Search Enterprises..." ng-keyup="$event.keyCode == 13 ? ctrl.searchEarnOffers() : null">
+                        <span class="add-on input-group-addon">
+                            <button class="btn btn-sm" type="button" data-toggle="modal" ng-click="ctrl.searchEarnOffers()">
+                                <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of Start search section -->
+
+<div class="border-box mb-3" ng-if="(ctrl.earnOffers && ctrl.earnOffers.my_favorites.length == 0
+&& ctrl.earnOffers.nationalPartnersData.length == 0 && ctrl.earnOffers.localPartnersData.length == 0)">
+    <p class="py-2 text-center">No matching enterprises found.</p>
+</div>
+<!--Search text area with search Component -->
+
+<!-- Start My Favorites partner -->
+<cp-enterprise-tile tile-id="myFavorites" tile-title="My Network" offer-list="ctrl.earnOffers.my_favorites" button-text="Earn"
+    default-limit-count="{{ctrl.tileDataLimit.NoLimit}}">
+</cp-enterprise-tile>
+<!-- End Favorites partner -->
+ 
+<!-- Start National partner -->
+<cp-enterprise-tile tile-id="nationalPartner" tile-title="National Partners" offer-list="ctrl.earnOffers.nationalPartnersData"
+    button-text="Earn" default-limit-count="{{ctrl.localandNationalCount}}"></cp-enterprise-tile>
+<!-- End National partner -->
+ 
+<!-- Start Local partner -->
+<cp-enterprise-tile tile-id="localPartner" tile-title="Local Partners" offer-list="ctrl.earnOffers.localPartnersData" button-text="Earn"
+    default-limit-count="{{ctrl.localandNationalCount}}"></cp-enterprise-tile>
+<!-- End Local partner -->
+
+
+

@@ -1,0 +1,66 @@
+.navbar-default {
+  background: $gray-dark;
+  border-radius: 0;
+  border: none;
+  color: #fff;
+  @include box-shadow(0 0 10px rgba(43,44,45,.5));
+  margin-bottom: 0;
+
+  button, a {
+    border: 0;
+    background: none;
+    color: #fff;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  .col-xs-5 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .ion-navicon,
+  .ion-ios-search-strong {
+    font-size: ceil(($font-size-base * 2));
+  }
+
+  .poynts {
+    @include Montserrat-SemiBold;
+    font-size: ($font-size-base * 1.2);
+    line-height: ($font-size-base * .7);
+    margin: 0;
+
+    li {
+      padding: 0 0 0 5px;
+    }
+
+    .tier {
+      @include Montserrat-Regular;
+      font-size: ceil(($font-size-small * .7));
+    }
+
+    .gold {
+      color: $gold;
+    }
+  }
+}
+
+.back-link {
+  a {
+    color: $text-color;
+    font-size: ($font-size-base * 2);
+    padding-top: $padding-large-vertical;
+  }
+}
+
+.avatar {
+  padding: ($padding-small-vertical * 2) 0;
+
+  img {
+    border-radius: 0;
+    border: 0;
+    max-width: 40px;
+  }
+}

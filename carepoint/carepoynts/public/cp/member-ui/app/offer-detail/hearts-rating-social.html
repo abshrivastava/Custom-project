@@ -1,0 +1,151 @@
+<style>
+  .review-rate input {
+    font-size: 16px;
+  }
+  .social-boxes {
+    border: 1px solid #CBD5DC;
+    border-radius: 5px;
+    margin: 2px;
+    margin-top: 10px;
+    width:48%;
+    display:inline;
+    float:left;
+    height:75px;
+  }
+  .social-logo {
+    margin: 10px;
+    margin-right: 7px;
+    display: inline;
+    float: left;
+  }
+  .social-text {
+    margin-top: 20px;
+    font-size: 12px;
+  }
+
+  .social-button {
+    margin-top: 18px;
+    background-color: #cbd5dc;
+    border-color: #cbd5dc;
+  }
+
+  .social-check-box {
+    display: inline;
+    position: relative;
+    margin-top: 10px;
+  }
+</style>
+
+<script>
+  var handleTwitterResponse = (success) => {
+      var scope = angular.element($("#twitterCheck")).scope();
+      scope.$apply(function(){
+          scope.handleTwitterResponse(success);
+      });
+  }
+</script>
+
+<div class="cp-bg-color-white panel-fullscreen review-rate" ng-if="showReviewScreen">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs col-sm-7 col-md-10">
+        <div class="review">
+          <div ng-show="!showReviewDone">
+            <div class="row center-xs text-center" >
+
+              <div class="col-xs-12 cp-pt-20">
+                <div class="">
+                  <strong>1 - 5 hearts</strong>
+                </div>
+              </div>
+
+              <!-- Rating -->
+              <div class="rating rating-heart-color cp-bg-color-white cp-font-size-50 cp-pt-20 cp-mt-20 col-xs-12">
+                
+                <span uib-rating ng-model="review.rating" max="5" state-on="'glyphicon-heart'" state-off="'glyphicon-heart-empty'" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="[]" aria-labelledby="default-rating" class=""></span>
+              </div>
+              
+                <div class="col-xs-12">
+                  <div class="form-group text-left">
+                    <label for="comment">Comment:</label>
+                    <textarea class="form-control cp-border-rounded" rows="10" id="comment" ng-model="review.comment"></textarea>
+                    <div>
+                      <form>
+                        <!-- Facebook Column -->
+                        <div class="social-boxes" style="margin-left: 4px">
+                          
+                            <img src="/cp/img/Facebook_logo.png" class="social-logo" height="50px" width="50px">
+                          
+                          
+                            <div ng-show="showFacebookCheck">
+                              <div class="social-text">Share to Earn<br/><b>{{offer.subPromos[1].reward_value}} Poynts</b></div>
+                              <!-- <div class="social-text"><b>Check the box to share your review</b></div> -->
+                              <input style="display:inline;position:relative;margin-top:10px" type="checkbox" ng-model="socialChecks.facebook" title="Facebook" >
+                              </input>  
+                            </div>
+                            <div ng-show="showFacebookAuth">
+                              <button type="button" class="btn btn-primary social-button" ng-click="authorizeFacebook()" > Connect </button>
+                            </div>
+                          
+                        </div>
+                        <!-- Twitter Column -->
+                        <div class="social-boxes">
+                            <img src="/cp/img/Twitter_logo.png" class="social-logo" height="55px" width="55px">
+                          
+                            <div id="twitterCheck" ng-show="showTwitterCheck">
+                              <div class="social-text">Share to Earn<br/><b>{{offer.subPromos[2].reward_value}} Poynts</b></div>
+                              <!-- <div class="social-text"><b>Check the box to share your review</b></div> -->
+                              <input style="display:inline;position:relative;" type="checkbox" ng-model="socialChecks.twitter">
+                            </div>
+                            <div ng-show="showTwitterAuth">
+                              <button type="button" class="btn btn-primary social-button" ng-click="authorizeTwitter()" > Connect </button>
+                            </div>
+                          
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs form-group center-xs">
+                  <div class="col-xs-6">
+                    <button type="button" class="btn btn-earn" ng-click="submitSocialRating()" > Submit </button>
+                  </div>
+
+                  <div class="col-xs-6">
+                    <button type="button" class="btn btn-default" ng-click="closeReview()" data-dismiss="modal"> Cancel </button>
+                  </div>
+                </div>
+              
+              <!-- /Rating -->
+            </div>
+          </div>
+
+          <div class="row center-xs" ng-show="showReviewDone">
+
+            <div class="col-xs cp-pt-20">
+              <div class="form-group text-center">
+                
+                <div class="cp-pt-10">
+                  <strong>Thank you for your feedback</strong>
+                </div>
+              </div>
+
+              <div class="col-xs form-group center-xs">
+
+                <div class="col-xs-12">
+                  <button type="button" class="btn btn-default" ng-click="closeReview()" > Close </button>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+          
+            </div>
+          </div>
+        </div>
+        <!-- /.review -->
+      </div>
+    </div>
+  </div>
+  <div ng-show="showBusy" class="busy-loading-page">
+    <img class="busy-loading-image" src="/cp/img/ajax-loader.gif" alt="Loading..." />
+  </div>
+</div>

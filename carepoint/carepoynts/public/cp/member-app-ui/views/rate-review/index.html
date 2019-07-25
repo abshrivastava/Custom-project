@@ -1,0 +1,47 @@
+<div class="modal fade" id="{{ctrl.reviewModalId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content w-100">
+            <div class="modal-header">
+                <h5 class="modal-title m-large" id="exampleModalLabel">Rate & Review</h5>
+                <button type="button" class="close" aria-label="Close" ng-click="ctrl.cancelModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <!-- Inner section -->
+                    <div class="inside-container">
+                        <h5 class="text-grey-s m-large" id="exampleModalLabel">{{ctrl.title}}</h5>
+                        <form class="form-section">
+                            <p class="main-sub-title">1 - 5 hearts</p>
+                            <div class="container">
+                                <hr size=2 class="my-2" />
+                                <div class="row">
+                                    <div class="col-12 col-sm-12 heart-icons py-2 rating rating-heart-color">
+                                        <span uib-rating ng-model="ctrl.review.rating" max="5" state-on="'fa fa-3x fa-heart'" state-off="'fa fa-3x fa-heart-o'" read-only="isReadonly"
+                                            on-hover="ctrl.hoveringOver(value)" on-leave="ctrl.overStar = null" titles="[]" aria-labelledby="default-rating"
+                                            class="mouse-hover"></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <label>Comment </label>
+                                        <textarea class="form-control" id="exampleTextarea" rows="8" ng-model="ctrl.review.comment"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 text-center my-3">
+                                        <input type="submit" value="Submit" ng-click="ctrl.submitRating()" class="btn btn-default btn-w40 btn-w90" />
+                                        <input type="submit" value="Cancel" ng-click="ctrl.cancelModal()" class="btn btn-secondary btn-w90 ml-4" />
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- End of Inner section -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

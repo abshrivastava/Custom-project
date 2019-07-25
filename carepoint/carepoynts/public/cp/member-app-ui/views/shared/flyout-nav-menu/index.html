@@ -1,0 +1,148 @@
+<!-- Start Left side bar -->
+<div id="left-sidebar" class="close-sidebar">
+    <div class="left-container">
+        <img src="/cp/images/CP-login-white-navmenu.png" class="img-fluid" />
+        <div class="detail-section">
+            <p>{{member.name}}</p>
+            <p>{{member.email}}</p>
+        </div>
+
+        <!-- menu nav bar -->
+        <ul id="accordion">
+            <!-- <li><a ui-sref='member.dashboard'><i class="fa fa-tachometer fa-lg" aria-hidden="true"></i> Dashboard</a></li> -->
+            <!-- <li ng-if="features['dark.member.checkin']><a ng-click="getCheckin()"><i class="fa fa-check-circle-o fa-lg" aria-hidden="true"></i> Check-In</a></li> -->
+            <li class="card">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#myCarepoynt" aria-expanded="false" aria-controls="collapseOne"
+                    class="collapsed">
+                    <i class="fa fa-clipboard fa-lg" aria-hidden="true"></i> My Carepoynt
+                    <span class="float-right">
+                        <i class="fa fa-chevron-right fa-right-icon"></i>
+                        <i class="fa fa-chevron-down fa-down-icon"></i>
+                    </span>
+                </a>
+                <ul id="myCarepoynt" class="sub-menu collapse" role="tabpanel" arialabelledby="headingOne" aria-expanded="false">
+                    <li ng-if="features['dark.member.poynt-log']">
+                        <a ui-sref='member.myPurchases'>
+                            <i class="fa fa-credit-card" aria-hidden="true"></i> My Purchases</a>
+                    </li>
+                    <li ng-if="features['dark.member.my-log']">
+                        <a ui-sref='member.poyntLog'>
+                            <i class="fa fa-file-text-o" aria-hidden="true"></i> My Poynts</a>
+                    </li>
+                    <li>
+                        <a ui-sref='member.myProfile'>
+                            <i class="fa fa-user" aria-hidden="true"></i> My Profile</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="card">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#ratenRefer" aria-expanded="false" aria-controls="collapseOne"
+                    class="collapsed">
+                    <i class="fa fa-star-half-o fa-lg" aria-hidden="true"></i> Rate and Refer
+                    <span class="float-right">
+                        <i class="fa fa-chevron-right fa-right-icon"></i>
+                        <i class="fa fa-chevron-down fa-down-icon"></i>
+                    </span>
+                </a>
+                <ul id="ratenRefer" class="sub-menu collapse" role="tabpanel" arialabelledby="headingOne" aria-expanded="false">
+                    <li ng-if="features['dark.member.refer-a-friend']">
+                        <a ui-sref="member.referFriend">
+                            <i class="fa fa-user-plus"></i> Refer a friend</a>
+                    </li>
+                    <li ng-if="features['dark.member.refer-business-button']">
+                        <a ui-sref='member.referBusiness'>
+                            <i class="fa fa-user-plus" aria-hidden="true"></i> Refer a business</a>
+                    </li>
+                    <li ng-if="features['dark.member-referral-list']">
+                        <a ui-sref="member.currentReferrals">
+                            <i class="fa fa-share-square-o"></i> View referrals</a>
+                    </li>
+                    <li ng-if="features['dark.member.rate-carepoynt']">
+                    <a data-toggle="modal" data-target="#flyoutReviewModal" ng-click="toggleFlyout()">
+                            <i class="fa fa-heart"></i> Rate Carepoynt</a>
+                    </li>
+                </ul>
+            </li>
+            <li ng-if="features['dark.employee-program'] && member.employer">
+                <a ui-sref="member.earn.enterprise({entId:member.employer})">
+                    <i class="fa fa-money"></i> My Employee Program</a>
+            </li>
+            <li ng-if="features['dark.member.faq']">
+                <a ui-sref='member.faqs'>
+                    <i class="fa fa-comment-o" aria-hidden="true"></i> FAQ </a>
+            </li>
+            <li ng-if="features['dark.member.helpbutton']">
+                <a ui-sref='member.contactUs'>
+                    <i class="fa fa-question-circle-o fa-lg" aria-hidden="true"></i> Contact Us</a>
+            </li>
+            <li ng-if="showAddToHomescreen">
+                    <a ng-click="showAdd()">
+                        <i class="fa fa-star"></i> Add to Homescreen</a>
+            </li>
+            <li>
+                <a href="/rewards/logout">
+                    <i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> Sign Out</a>
+            </li>
+
+            <!-- <li class="card">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#help_sec" aria-expanded="false" aria-controls="collapseOne"
+                    class="collapsed">
+                    <i class="fa fa-question-circle fa-lg" aria-hidden="true"></i> Help and FAQ
+                    <span class="float-right">
+                        <i class="fa fa-chevron-right fa-right-icon"></i>
+                        <i class="fa fa-chevron-down fa-down-icon"></i>
+                    </span>
+                </a>
+                <ul id="help_sec" class="sub-menu collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
+                    <li ng-if="features['dark.member.helpbutton']">
+                        <a ui-sref='member.contactUs'>
+                            <i class="fa fa-question-circle-o" aria-hidden="true"></i> Contact Us</a>
+                    </li>
+                    <li ng-if="features['dark.member.refer-business-button']">
+                        <a ui-sref='member.referBusiness'>
+                            <i class="fa fa-user-plus" aria-hidden="true"></i> Refer Business</a>
+                    </li>
+                    <li ng-if="features['dark.member.faq']">
+                        <a ui-sref='member.faqs'>
+                            <i class="fa fa-comment-o" aria-hidden="true"></i> FAQs </a>
+                    </li>
+                </ul>
+                <li ng-if="showAddToHomescreen">
+                    <a ng-click="showAdd()">
+                        <i class="fa fa-star"></i> Add to Homescreen</a>
+                </li>
+                <li ng-if="features['dark.member.refer-a-friend']">
+                    <a ui-sref="member.referFriend">
+                        <i class="fa fa-user-plus fa-lg"></i> Refer a Friend</a>
+                </li>
+                <li ng-if="features['dark.member-referral-list']">
+                    <a ui-sref="member.currentReferrals">
+                        <i class=""></i> View Current Referrals</a>
+                </li>
+                <li ng-if="features['dark.member.rate-carepoynt']">
+                    <a data-toggle="modal" data-target="#myModal">
+                        <i class=""></i> Rate Carepoynt</a>
+                </li>
+            </li>
+            </li>
+            </li>
+            <li ng-if="features['dark.employee-program'] && member.employer">
+                <a ui-sref="member.earn.enterprise({entId:member.employer})">
+                    <i class="fa fa-money"></i> My Employee Program</a>
+            </li>
+            </li>
+            <li>
+                <a href="/rewards/logout">
+                    <i class="fa fa-sign-out fa-lg" aria-hidden="true"></i> Sign Out</a>
+            </li> -->
+
+
+        </ul>
+        <!-- end of menu nav bar -->
+
+    </div>
+</div>
+<!-- End of Left side bar -->
+
+<cp-rate-review ng-if="features['dark.member.rate-carepoynt']" review-modal-id="flyoutReviewModal" title="{{ctrl.carepoyntEntName}}"
+    on-submit-callback="ctrl.submitCarepoyntRewardsRating(reviewData)"></cp-rate-review>

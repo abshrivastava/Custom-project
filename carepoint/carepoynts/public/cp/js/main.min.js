@@ -1,0 +1,1 @@
+$(document).ready(function(){$(".owl-carousel").owlCarousel({touchDrag:!0,autoWidth:!0,items:2,nav:!1,dots:!1,loop:!0,margin:15,responsive:{300:{items:2},667:{items:3},1e3:{items:5}}})}),$(function(){$("#slider-range-min").slider({range:"min",value:37,min:1,max:700,slide:function(e,i){$("#amount").text(i.value)}}),$("#amount").text($("#slider-range-min").slider("value"))});

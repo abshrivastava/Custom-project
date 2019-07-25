@@ -1,0 +1,758 @@
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">DevTools</a>
+        </div>
+
+      </div>
+    </nav>
+
+    <div class="container" role="main">
+      <div class="row">
+        <div class="well text-center">
+          <h1 style="color: #f06522">Let's Tango</h1>
+        </div>
+      </div>
+
+      <!-- Get Tango Options : Begin -->
+      <div class="row">
+        <div class="col-sm">
+          <div class="panel panel-primary">
+            <div class="panel-heading" ng-click="collapse0=!collapse0">
+              <h3 class="panel-title">Carepoynt Tango Options</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':collapse0}">
+              <p><button type="button" class="btn btn-info" ng-click="getCPTangoOptions()">Get Reward Options</button></p>
+              <div class="row" style="max-height: 550px; overflow: auto; padding-right: 50px;">
+                <div ng-repeat="reward in cpTangoOptions" class="col-md-3" style="height: 350px; overflow: auto; border: 1px solid;">
+                  <div class="team boxed-grey">
+                    <div class="inner">
+                      <h5>{{reward.description}}</h5>
+                      <div class="avatar">
+                        <img  src="{{reward.image_url}}" alt="" class="img-thumbnail" >
+                      </div>
+                      <p class="subtitle">
+                        <ul class="list-group" >
+                          <li class="" ng-repeat="item in reward.rewards ">
+                            {{item.description}}
+                          </li>
+                        </ul>
+                      </p>
+                      <p><button type="button" class="btn btn-info" ng-click="createOrder(reward.order)">Test Order</button></p>
+                    </div>
+                    <div>
+                      <form>
+                        <div class="form-group">
+                          <label for="carepoynt-value">Amt of Carepoynts</label>
+                          <div>
+                            <input type="text" class="form-control" id="carepoynt-value" ng-model="reward.carepoynt_value" >
+                          </div>
+                        </div>
+                      </form>
+                      <p><button type="button" class="btn btn-info" ng-click="saveTangoConfig()">Save</button></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- panel-body : end -->
+          </div>
+        </div>
+      </div>
+      <!-- Get Tango Options : End -->
+
+      <!-- Get All Tango Rewards : Begin -->
+      <div class="row">
+        <div class="col-sm">
+          <div class="panel panel-primary">
+            <div class="panel-heading" ng-click="collapse1=!collapse1">
+              <h3 class="panel-title">GET all the Reward option from Tango</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapse1}">
+              <p><button type="button" class="btn btn-info" ng-click="getRewardsList()">Get Reward Options</button></p>
+              <div class="row" style="max-height: 550px; overflow: auto; padding-right: 50px;">
+                <div ng-repeat="reward in rewardsList" class="col-md-3" style="height: 230px; overflow: auto; border: 1px solid;">
+                  <div class="team boxed-grey">
+                    <div class="inner">
+                      <h5>{{reward.description}}</h5>
+                      <div class="avatar">
+                        <img  src="{{reward.image_url}}" alt="" class="img-thumbnail" >
+                      </div>
+                      <p class="subtitle">
+                        <ul class="list-group" >
+                          <li class="" ng-repeat="item in reward.rewards ">
+                            {{item.description}}
+                            <br>
+                            {{item.sku}}
+                          </li>
+                        </ul>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- panel-body : end -->
+          </div>
+        </div>
+      </div>
+      <!-- Get All Tango Rewards : End -->
+
+      <!-- Create an Account : Begin -->
+      <div class="row">
+        <div class="col-sm">
+          <div class="panel panel-primary">
+            <div class="panel-heading" ng-click="collapse2=!collapse2">
+              <h3 class="panel-title">CREATE an Account</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapse2}">
+              <div class="col-sm-6">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="Customer" class="col-sm-2 control-label">Customer</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="Account" placeholder="Company" ng-model="account.customer" >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="identifier" class="col-sm-2 control-label">Identifier</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="identifier" placeholder="Identifier" ng-model="account.identifier" >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email" class="col-sm-2 control-label">Email</label>
+                  <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" placeholder="Email" ng-model="account.email" >
+                  </div>
+                </div>
+              
+                <div class="form-group">
+                  <div class="col-sm-2"></div>
+                  <div class="col-sm-10">
+                    <button type="button" class="btn btn-info" ng-click="createAcct()">Create Account</button>
+                  </div>
+                </div>
+              </form>
+              </div>
+              <div class="col-sm-6">
+                <div ng-if="acctCreated">
+                  <pre><code>{{acctCreated | json : 2}}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+      </div>
+      <!-- Create an Account : End -->
+
+      <!-- Get Account : Begin -->
+      <div class="row">
+        <div class="col-sm">
+          <div class="panel panel-primary">
+            <div class="panel-heading" ng-click="collapse3=!collapse3">
+              <h3 class="panel-title">GET an Account</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapse3}">
+              <div class="col-sm-6">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="Customer" class="col-sm-2 control-label">Customer</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="Account" placeholder="Company" ng-model="acctRetrieve.customer" >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="identifier" class="col-sm-2 control-label">Identifier</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="identifier" placeholder="Account" ng-model="acctRetrieve.identifier" >
+                  </div>
+                </div>
+              
+                <div class="form-group">
+                  <div class="col-sm-2"></div>
+                  <div class="col-sm-10">
+                    <button type="button" class="btn btn-info" ng-click="getAccount()">Get The Account</button>
+                  </div>
+                </div>
+              </form>
+              </div>
+              <div class="col-sm-6">
+                <div ng-if="acctRetrievedResponse">
+                  <pre><code>{{acctRetrievedResponse | json : 2}}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Get Account : End -->
+
+      <!-- Credit Card Registration : Begin -->
+      <div class="row">
+        <div class="col-sm">
+          <div class="panel panel-primary">
+            <div class="panel-heading" ng-click="collapse4=!collapse4">
+              <h3 class="panel-title">Credit Card Registration</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapse4}">
+              <div class="col-sm-6">
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label for="Customer" class="col-sm-2 control-label">Customer</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="Account" placeholder="Company" ng-model="ccRegister.customer" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="identifier" class="col-sm-2 control-label">Identifier</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="identifier" placeholder="Account" ng-model="ccRegister.account_identifier" >
+                    </div>
+                  </div>
+                  <br>
+                  <div>
+                    <div><h4>Credit Card Info</h2></div>
+                    <div class="form-group">
+                      <label for="CC Number" class="col-sm-2 control-label">CC Number</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="Account" placeholder="4111111111111111" ng-model="ccRegister.credit_card.number" >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="security_code" class="col-sm-2 control-label">Security Code</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="security_code" placeholder="123" ng-model="ccRegister.credit_card.security_code" >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="inline input-group">
+                        <label for="exp_month" class="col-sm-2 control-label">Expiration</label>
+                        <div class="col-sm-5 input-group-item">
+                          <input type="text" class="form-control" id="exp_month" placeholder="Month (1-12)" ng-model="ccRegister.credit_card.exp_month" >
+                        </div>
+                        <div class="col-sm-5">
+                          <input type="text" class="form-control" id="exp_year" placeholder="YYYY" ng-model="ccRegister.credit_card.exp_year" >
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="f_name" class="col-sm-2 control-label">First Name</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="f_name" placeholder="First" ng-model="ccRegister.credit_card.billing_address.f_name" >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="l_name" class="col-sm-2 control-label">Last Name</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="l_name" placeholder="Last" ng-model="ccRegister.credit_card.billing_address.l_name" >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="Customer" class="col-sm-2 control-label">Address</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="Account" placeholder="Address" ng-model="ccRegister.credit_card.billing_address.address" >
+                      </div>
+                    </div>
+                    <div class="inline form-group">
+                      <label for="Customer" class="col-sm-2 control-label"></label>
+                      <div class="col-sm-4">
+                        <input type="text" class="form-control" id="Account" placeholder="City" ng-model="ccRegister.credit_card.billing_address.city" >
+                      </div>
+                      
+                      <!-- <label for="Customer" class="col-sm-2 control-label">State</label> -->
+                      <div class="col-sm-3">
+                        <input type="text" class="form-control" id="Account" placeholder="State" ng-model="ccRegister.credit_card.billing_address.state" >
+                      </div>
+
+                      <!-- <label for="Customer" class="col-sm-2 control-label">Zip</label>  -->
+                      <div class="col-sm-3">
+                        <input type="text" class="form-control" id="Account" placeholder="99999" ng-model="ccRegister.credit_card.billing_address.zip" >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="email" class="col-sm-2 control-label">Email</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="email" placeholder="Billing email" ng-model="ccRegister.credit_card.billing_address.email" >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-10">
+                      <button type="button" class="btn btn-info" ng-click="registerCC()">Register</button>
+                    </div>
+                  </div>
+
+                </form>
+              </div>
+              <div class="col-sm-6">
+                <div ng-if="ccRegisterResponse">
+                  <div>
+                    <pre><code>{{ccRegisterResponse | json : 2}}</code></pre>
+                  </div>
+                </div>
+                <div ng-if="!ccRegisterResponse">
+                  <div>
+                    <pre><code>{{
+                      {
+                        "customer": "CompanyA",
+                        "account_identifier": "Account1",
+                        "client_ip": "127.0.0.1",
+                        "credit_card": {
+                          "number": "4111111111111111",
+                          "security_code": "123",
+                          "expiration": "2016-01",
+                          "billing_address": {
+                            "f_name": "FName",
+                            "l_name": "LName",
+                            "address": "Address",
+                            "city": "Seattle",
+                            "state": "WA",
+                            "zip": "98116",
+                            "country": "USA",
+                            "email": "test@example.com"
+                          }
+                        }
+                      } | json : 2}}</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Credit Card Registration : End -->
+
+      <!-- Credit Card Un-Registration : Begin -->
+      <div class="row">
+        <div class="col-sm">
+          <div class="panel panel-primary">
+            <div class="panel-heading" ng-click="collapse5=!collapse5">
+              <h3 class="panel-title">Credit Card Un-Registration</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapse5}">
+              <div class="col-sm-6">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="Customer" class="col-sm-2 control-label">Customer</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="Account" placeholder="Company" ng-model="ccUnreg.customer" >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="identifier" class="col-sm-2 control-label">Identifier</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="identifier" placeholder="Account Id" ng-model="ccUnreg.account_identifier" >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="cc_token" class="col-sm-2 control-label">CC_Token</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="cc_token" placeholder="33465088" ng-model="ccUnreg.cc_token" >
+                  </div>
+                </div>
+              
+                <div class="form-group">
+                  <div class="col-sm-2"></div>
+                  <div class="col-sm-10">
+                    <button type="button" class="btn btn-info" ng-click="unregistherCC()">Un-Register</button>
+                  </div>
+                </div>
+              </form>
+              </div>
+              <div class="col-sm-6">
+                <div ng-if="unregisterCC">
+                  <pre><code>{{unregisterCC | json : 2}}</code></pre>
+                </div>
+                <div ng-if="!unregisterCC">
+                  <pre><code>{{ 
+                    {
+                      "customer": "CompanyA",
+                      "account_identifier": "Account1",
+                      "cc_token": "33465088"
+                    } | json : 2}}
+                  </code></pre> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Credit Card Un-Registration : End -->
+
+      <!-- Credit Card Fund : Begin -->
+      <div class="row">
+        <div class="col-sm">
+          <div class="panel panel-primary">
+            <div class="panel-heading" ng-click="collapse6=!collapse6">
+              <h3 class="panel-title">ADD Credit Card Fund</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapse6}">
+              <div class="col-sm-6">
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label for="Customer" class="col-sm-2 control-label">Customer</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="Customer" placeholder="Company" ng-model="ccFund.customer" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="identifier" class="col-sm-2 control-label">Identifier</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="identifier" placeholder="Account" ng-model="ccFund.account_identifier" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="amount" class="col-sm-2 control-label">Amount</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="amount" placeholder="Amount in CENTS" ng-model="ccFund.amount" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="client_ip" class="col-sm-2 control-label">Client_IP</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="client_ip" placeholder="127.0.0.1" ng-model="ccFund.client_ip" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="cc_token" class="col-sm-2 control-label">CC_Token</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="cc_token" placeholder="33465088" ng-model="ccFund.cc_token" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="security_code" class="col-sm-2 control-label">Security Code</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="security_code" placeholder="123" ng-model="ccFund.security_code" >
+                    </div>
+                  </div>
+                
+                  <div class="form-group">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-10">
+                      <button type="button" class="btn btn-info" ng-click="addFunds()">Add Funds</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-sm-6">
+                <div ng-if="ccFundResponse">
+                  <pre><code>{{ccFundResponse | json : 2}}</code></pre>
+                </div>
+                <div ng-if="!ccFundResponse">
+                  <pre><code>{{ 
+                    {
+                      "customer": "CompanyA",
+                      "account_identifier": "Account1",
+                      "amount": 1000,
+                      "client_ip": "127.0.0.1",
+                      "cc_token": "33465088",
+                      "security_code": "123"
+                    } | json : 2}}
+                  </code></pre> 
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Credit Card Fund : End -->
+
+      <!-- Create Order : Begin -->
+      <div class="row">
+        <div class="col-sm">
+          <div class="panel panel-primary">
+            <div class="panel-heading" ng-click="collapse7=!collapse7">
+              <h3 class="panel-title">CREATE Order</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapse7}">
+              <div class="col-sm-6">
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label for="Customer" class="col-sm-2 control-label">Customer</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="Customer" placeholder="Company" ng-model="order.customer" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="identifier" class="col-sm-2 control-label">Identifier</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="identifier" placeholder="Account Id" ng-model="order.account_identifier" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="campaign" class="col-sm-2 control-label">Campaign</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="campaign" placeholder="(Optional) emailtemplate1" ng-model="order.campaign" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient_name" class="col-sm-2 control-label">Recipient Name</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="recipient_name" placeholder="First Last" ng-model="order.recipient.name" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="recipient_email" class="col-sm-2 control-label">Recipient Email</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="recipient_email" placeholder="email" ng-model="order.recipient.email" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="sku" class="col-sm-2 control-label">SKU</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="sku" placeholder="TNGO-E-V-STD" ng-model="order.sku" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="amount" class="col-sm-2 control-label">Amount</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="amount" placeholder="(Optional) Amount in CENTS" ng-init="order.amount = 0" ng-model="order.amount" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="reward_from" class="col-sm-2 control-label">Reward From</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="reward_from" placeholder="(Optional) Name" ng-model="order.reward_from" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="subject" class="col-sm-2 control-label">Subject</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="subject" placeholder="(Optional) Subject" ng-model="order.reward_subject" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="message" class="col-sm-2 control-label">Message</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="message" placeholder="(Optional) Message" ng-model="order.reward_message" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="send_reward" class="col-sm-2 control-label">Send Reward</label>
+                    <div class="col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" id="send_reward" ng-init="order.send_reward = true" ng-model="order.send_reward"> Send This Reward
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="external_id" class="col-sm-2 control-label">External Id</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="external_id" placeholder="(Optional: client-side order cross reference) 123456-XYZ" ng-model="order.external_id" >
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-10">
+                      <button type="button" class="btn btn-info" ng-click="createOrder(order)">Order a Card</button>
+                      <button type="button" class="btn btn-default pull-right" ng-click="clearOrderForm()">Clear the form</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-sm-6">
+                <div ng-if="orderResponse">
+                  <pre><code>{{orderResponse | json : 2}}</code></pre>
+                </div>
+                <div ng-if="!orderResponse">
+                  <pre><code>{{ 
+                    {
+                      "customer": "CompanyA",
+                      "account_identifier": "Account1",
+                      "campaign": "emailtemplate1",
+                      "recipient": {
+                        "name": "John To",
+                        "email": "johnto@email.com"
+                      },
+                      "sku": "TNGO-E-V-STD",
+                      "amount": 1000,
+                      "reward_from": "Joan From",
+                      "reward_subject": "Here is your reward!",
+                      "reward_message": "Way to go, John! Thanks!",
+                      "send_reward": true,
+                      "external_id": "123456-XYZ"
+                    } | json : 2}}
+                  </code></pre> 
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Create Order : End -->
+
+      <!-- Get Order : Begin -->
+      <div class="row">
+        <div class="col-sm">
+          <div class="panel panel-primary">
+            <div class="panel-heading" ng-click="collapse8=!collapse8">
+              <h3 class="panel-title">GET an Order</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapse8}">
+              <div class="col-sm-6">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="orderId" class="col-sm-2 control-label">Order_Id</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="orderId" placeholder="115-0999-17" ng-model="orderRequest.order_id" >
+                  </div>
+                </div>
+              
+                <div class="form-group">
+                  <div class="col-sm-2"></div>
+                  <div class="col-sm-10">
+                    <button type="button" class="btn btn-info" ng-click="getOrder()">Get The Order</button>
+                  </div>
+                </div>
+              </form>
+              </div>
+              <div class="col-sm-6">
+                <div ng-if="orderResponse">
+                  <pre><code>{{orderResponse | json : 2}}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Get Order Rewards : End -->
+
+      <!-- Get List of Orders : Begin -->
+      <div class="row">
+        <div class="col-sm">
+          <div class="panel panel-primary">
+            <div class="panel-heading" ng-click="collapse9=!collapse9">
+              <h3 class="panel-title">GET List of Orders</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapse9}">
+              <div class="col-sm-6">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="start_date" class="col-sm-2 control-label">Start_Date</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="start_date" placeholder="Start Date" ng-model="orderListRequest.start_date" >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="end_date" class="col-sm-2 control-label">End_Date</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="end_date" placeholder="End Date" ng-model="orderListRequest.end_date" >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="offset" class="col-sm-2 control-label">Offset</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="offset" placeholder="How far into the result set to start." ng-model="orderListRequest.offset" >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="limit" class="col-sm-2 control-label">Limit</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="limit" placeholder="How many to return (maximum of 100)." ng-model="orderListRequest.limit" >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="account_identifier" class="col-sm-2 control-label">Identifier</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="account_identifier" placeholder="Filter to only a single platform account." ng-model="orderListRequest.account_identifier" >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="customer" class="col-sm-2 control-label">Customer</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="customer" placeholder="Filter to only a single platform account." ng-model="orderListRequest.customer" >
+                  </div>
+                </div>
+
+              
+                <div class="form-group">
+                  <div class="col-sm-2"></div>
+                  <div class="col-sm-10">
+                    <button type="button" class="btn btn-info" ng-click="getOrderList()">Get The Orders</button>
+                  </div>
+                </div>
+              </form>
+              </div>
+              <div class="col-sm-6">
+                <div ng-if="orderListResponse">
+                  <pre><code>{{orderListResponse | json : 2}}</code></pre>
+                </div>
+                <div >
+                  <pre><code>{{ 'GET /raas/v1.1/orders?customer=CompanyA&account_identifier=Account2&offset=0&limit=10&start_date=2015-09-01T00:00:00&end_date=2015-10-01T23:59:59 HTTP/1.1' }}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Get Order Rewards : End -->
+
+      <!-- Resend Email : Begin -->
+      <div class="row">
+        <div class="col-sm">
+          <div class="panel panel-primary">
+            <div class="panel-heading" ng-click="collapse10=!collapse10">
+              <h3 class="panel-title">Resend Reward Email</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapse10}">
+              <div class="col-sm-6">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="orderId" class="col-sm-2 control-label">Order_Id</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="orderId" placeholder="115-0999-17" ng-model="resendEmail.order_id" >
+                  </div>
+                </div>
+              
+                <div class="form-group">
+                  <div class="col-sm-2"></div>
+                  <div class="col-sm-10">
+                    <button type="button" class="btn btn-info" ng-click="emailResend()">Resend the Email</button>
+                  </div>
+                </div>
+              </form>
+              </div>
+              <div class="col-sm-6">
+                <div ng-if="resendEmailResponse">
+                  <pre><code>{{resendEmailResponse | json : 2}}</code></pre>
+                </div>
+                <div ng-if="!resendEmailResponse">
+                  <pre><code>{{ 'POST /raas/v1.1/orders/order_id/resend' }}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Get Order Rewards : End -->
+
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+

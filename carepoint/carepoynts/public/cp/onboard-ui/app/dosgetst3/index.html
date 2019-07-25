@@ -1,0 +1,91 @@
+
+<div class="onboard-ftue xs-pt-10" style="height:100%">
+  <div class="container">
+
+    <div class="onboard" style="height:100%">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="col-xs-12">
+              <img class="img-responsive center-block cp-promo-logo-img" src="/assets/app-new/img/carepoynt_2C_horizontal_tagline2.png" alt="Carepoynt" ng-click="setValuesForDev()">
+            </div>
+          </div>
+        </div>
+
+<!--         <div class="row bs-wizard" style="border-bottom:0;">
+                
+            <div class="col-xs-4 bs-wizard-step complete">
+              <div class="text-center bs-wizard-stepnum">1. Account</div>
+              <div class="progress"><div class="progress-bar"></div></div>
+              <div class="bs-wizard-dot"></div>
+              <div class="bs-wizard-info text-center">1. Account</div>
+            </div>
+            
+            <div class="col-xs-4 bs-wizard-step active">
+              <div class="text-center bs-wizard-stepnum">2. Referral</div>
+              <div class="progress"><div class="progress-bar"></div></div>
+              <a href="#" class="bs-wizard-dot"></a>
+              <div class="bs-wizard-info text-center">2. Referral</div>
+            </div>
+            
+            <div class="col-xs-4 bs-wizard-step disabled">
+              <div class="text-center bs-wizard-stepnum">3. Clique</div>
+              <div class="progress"><div class="progress-bar"></div></div>
+              <a href="#" class="bs-wizard-dot"></a>
+              <div class="bs-wizard-info text-center">3. Clique</div>
+            </div>
+            
+        </div> -->
+
+        <div class="row xs-mt-10" ng-show="step>-1">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+            <ul class="nav nav-wizard">
+              <li class="col-xs-4 xs-p-0 text-center" ng-class="{'active': step>=0}"><a>Joyn</a></li>
+              <li class="col-xs-4 xs-p-0 text-center" ng-class="{'active': step>=1}"><a>Refer</a></li>
+              <li class="col-xs-4 xs-p-0 text-center" ng-class="{'active': step>=2}"><a>Clique</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div ng-show="steps[-1]">
+            <div ng-include="'dosgetst3/landing.html'" ></div>
+          </div>
+          <div ng-show="steps[0]">
+            <div ng-include="'dosgetst3/profile-1.html'" ></div>
+          </div>
+
+          <div ng-show="steps[1]">
+            <div ng-include="'dosgetst3/profile-2.html'" ></div>
+          </div>
+
+          <div ng-show="steps[2]">
+            <div ng-include="'dosgetst3/profile-3.html'" ></div>
+          </div>
+
+          <div ng-show="steps[3]">
+            <div ng-include="'dosgetst3/profile-4.html'" ></div>
+          </div>
+
+          <div ng-show="steps[4]">
+            <div ng-include="'dosgetst3/profile-5.html'" ></div>
+          </div>
+
+          <div ng-show="steps[5]">
+            <div ng-include="'dosgetst3/profile-6.html'" ></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div ng-show="showBusy" class="busy-loading-page">
+  <img class="busy-loading-image" src="/cp/img/ajax-loader.gif" alt="Loading..." />
+</div>
+
+<link href="/assets/app-new/css/dosgets-promo.css" rel="stylesheet">

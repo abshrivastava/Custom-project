@@ -1,0 +1,42 @@
+<!-- refer friend section -->
+<div class="container">
+    <div class="row px-3">
+        <div class="col-2 col-sm-1 my-auto pl-0">
+            <a class="back-btn" ng-click="goBack()">
+                <i class="fa fa-long-arrow-left"></i>
+            </a>
+        </div>
+        <div class="col-10 col-sm-11">
+            <h5 class="text-center py-3">Current Referrals</h5>
+        </div>
+    </div>
+</div>
+<div class="border-box pb-3" ng-if="ctrl.referrals.length > 0">
+    <!-- Start Article 1 -->
+    <div class="content-border-box mt-2 pt-2" ng-repeat="referral in ctrl.referrals">
+        <div class="row text-xs">
+            <div class="col-sm-12 col-4 pr-sm">
+                <div class="row">
+                    <div class="col-sm-4 py-1 my-auto"><strong>Refer To</strong></div>
+                    <div class="col-sm-2 py-1 my-auto"><strong>Refer Date</strong></div>
+                    <div class="col-sm-3 py-1 my-auto"><strong>Refer Source</strong></div>
+                    <div class="col-sm-1 py-1 pl-0 pl-lg my-auto"><strong>Status</strong></div>
+                    <div class="col-sm-2 pdt-xs my-auto" ng-show="referral.status == 'sent'"><strong>Send Invite</strong></div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-8 pl-sm">
+                <div class="row">
+                    <div class="col-sm-4 py-1 th-sm my-auto overflow-ellipsis">{{referral.inviteemail}}</div>
+                    <div class="col-sm-2 py-1 my-auto">{{ctrl.getDate(referral.update_time) | date:'dd/MM/yyyy'}}</div>
+                    <div class="col-sm-3 py-1 my-auto">{{referral.referralsource}}</div>
+                    <div class="col-sm-1 py-1 pl-0 pl-lg my-auto">{{referral.status}}</div>
+                    <div class="col-sm-2 my-auto"><button ng-show="referral.status == 'sent'" class="btn btn-default btn-small my-1" ng-click="ctrl.sendInvite(referral)">Send</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="border-box mb-3" ng-if="ctrl.referrals.length <= 0">
+    <p class="py-2 sub-title-sm text-center">No Referrals Available...</p>
+</div>
+<!-- end of refer friend section -->

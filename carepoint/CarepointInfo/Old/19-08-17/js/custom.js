@@ -1,0 +1,24 @@
+$(document).ready(function () {
+    var window_height = window.innerHeight;
+    var headerHeight = $("header").innerHeight(); //header height
+    $("#content_wrapper").css("padding-top", headerHeight);
+    $("#left-sidebar").css("height", window_height);
+    $("#content_wrapper").css("height", window_height);
+    $("#main_toggle").click(function () {
+        $("#left-sidebar").toggleClass("sidebarclose");
+        $("#Content_section").toggleClass("content_full");
+    })
+    
+    if($(".all_active").length > 0) {
+        $(".all_active").click(function() {
+            $(".local_sec").show()
+            $(".local_active").removeClass("active")
+        $(this).addClass("active")
+        })
+        $(".local_active").click(function() {
+            $(".local_sec").hide()
+            $(".all_active").removeClass("active")
+            $(this).addClass("active")
+        })
+    }
+})

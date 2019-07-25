@@ -1,0 +1,25 @@
+
+      <!-- nav menu -->
+      <div>
+        <nav class="st-menu st-effect-4" id="menu-4">
+          <img class="cp-logo" src="/images/cp/cp48logo.png" alt="">
+          <!-- <img height="42" src="/images/cp/cp48logo.png"> -->
+          <div class="avatar text-center">
+            <img class="member-photo"  ng-if="!member.photoPath" src="/cp/img/avatar.jpg" alt="">
+            <img class="member-photo"  ng-if="member.photoPath" ng-src="{{member.photoPath}}" alt="">
+            <p class="name-email">
+              <span id="member-name">{{member.name}}</span><br>
+              <span id="member-email">{{member.email}}</span>
+            </p>
+          </div>
+          <ul>
+            <li><a ng-click="goTo('dashboard')"><i class="icon ion-speedometer"></i> Dashboard</a></li>
+            <li><a ng-click="goTo('clique')"><i class="icon ion-ios-people"></i> My Clique</a></li>
+            <li><a ng-click="goTo('profile')"><i class="icon ion-person"></i> My Profile</a></li>
+            <li><a href="/rewards/logout"><i class="icon ion-log-out"></i> Sign Out</a></li>
+          </ul>
+        </nav>
+      </div>
+      <!-- /nav menu  -->
+
+

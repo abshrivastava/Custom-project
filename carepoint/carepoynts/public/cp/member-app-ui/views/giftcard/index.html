@@ -1,0 +1,44 @@
+
+<!--Main Title area -->
+<div class="container">
+    <div class="row px-3">
+        <div class="col-1 col-sm-1 my-auto pl-0">
+            <a class="back-btn mouse-hover" ng-click="goBack()">
+                <i class="fa fa-chevron-left font-s-35" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="col-10 col-sm-10">
+            <h5 class="text-center py-3 main-text-title">Gift Card redemption Offer</h5>
+        </div>
+        <div class="col-1 col-sm-1 pl-0"></div>
+    </div>
+</div>
+<!--end of Main Title area -->
+
+<!-- Start mid content section -->
+<div class="border-box mb-3">
+    <div class="container">
+        <div class="row text-center pb-2">
+            <div class="col-12">
+                <img class="sm-img-icon py-3" ng-src="{{ctrl.card.brand.imageUrls['200w-326ppi']}}" alt="" title="" />
+                <h5 class="main-text pb-1">{{ctrl.card.brand.brandName}}</h5>
+                <h5 class="main-text pt-1 pb-2">$ {{ctrl.card.order.amount}} Gift Card</h5>
+                <p class="earn_poynts large fw-5">{{ctrl.card.carepoynt_value | number}}
+                    <small class="fs-27 fw-5"> poynts</small>
+                </p>
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-default btn-sm-default bg-blue auto-h large mt-3" ng-disabled="!ctrl.canRedeem" ng-class="{'disabled btn-default': !ctrl.canRedeem}"
+                        ng-click="ctrl.createOrder(ctrl.card.order, ctrl.card.carepoynt_value)">Redeem Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h5 class="pt-3 pb-1 sub-text">About Gift Card</h5>
+        <p class="pb-2 text-greylite medium" ng-bind-html="ctrl.card.brand.description | safeHtml"></p>
+        <h5 class="pt-3 pb-1 sub-text">Terms</h5>
+        <p class="pb-2 text-greylite medium" ng-bind-html="ctrl.card.brand.terms | safeHtml"></p>
+        <p class="pb-4 pt-1 date-text">Offer valid 08/10/2017 - 11/10/2017</p>
+    </div>
+</div>
+<!-- Start mid content section -->

@@ -1,0 +1,74 @@
+1. index.html -> dashboardOffer.html
+
+2. earn.html -> dashboardOffer.html(National Partner)
+
+3. redeem.html -> dashboardAboutOffer.html
+
+4. plans.html-> PlansDetails -> planOffer -> 
+
+5. clique.html -> myCliques.html
+
+------------------------------------------------------------
+
+Left Section---
+
+6. help.html
+
+7. referBusiness.html
+
+8. myProfile.html
+
+
+
+------------------------------------------------------------
+
+Rmaining---
+
+-Individual_voucher_Active.html
+-Individual_voucher_Redeemed.html
+-My_Transactions.html
+-My_Vouches.html
+-Offer_page.html
+-porroVita.html
+-Redemption_offer.html
+-unsuccessfulRedemption.html
+
+
+
+Total: 22 pages
+
+
+--------------------------------------------------------------
+
+Now Pages Use---
+
+index.html
+Plans.html
+myProfile.html
+referBusiness.html
+help.html
+dashboradOffer.html
+
+
+
+Given Pages-----
+
+dahboard --- (dashboard.html)
+earn --		(Earn.html)
+refferalBussiness-- (referBusiness.html)
+help -- (help.html)
+myprofile -- (myProfile.html)
+left-nav
+header-nav
+
+index.html
+Earn.html
+Cliques.html
+help.html
+My_poyntlog.html
+My_Vouches.html
+myProfile.html
+Plans.html
+Redeem.html
+referBusiness.html
+

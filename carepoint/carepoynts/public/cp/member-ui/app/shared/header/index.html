@@ -1,0 +1,44 @@
+   <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="row center-md">
+        <div class="row col-xs col-sm-7 col-md-10 between-xs middle-xs">
+          <div class="start-xs col-xs-2">
+            <div id="st-trigger-effects" class="text-left">
+              <button data-effect="st-effect-4"><i class="icon ion-navicon"></i></button>
+            </div>
+          </div>
+          <div class="col-xs center-xs avatar">
+            <img class="member-photo" src="/assets/app-new/img/CP-logo-white-header.png" alt="">
+           <!--  <div ng-if="!features['dark.member.photo-upload']">
+              <img class="member-photo" src="/cp/img/cp-logo-C.png" alt="">
+            </div>
+            <div ng-if="features['dark.member.photo-upload']">
+              <img class="member-photo" ng-if="member.photoPath" ng-src="{{member.photoPath}}" alt="">
+            </div> -->
+          </div>
+          <div class="end-xs col-xs-2">
+            <ul class="list-inline poynts">
+              <li ng-if="features['dark.member.poynt-log']">
+                <div ng-click="goTo('poyntlog')">
+                  <span class="total-poynts">{{ member.reward.points.toLocaleString("en") }}</span><br>
+                  <span class="tier gold">poynts</span>
+                </div>
+              </li>
+              <li ng-if="!features['dark.member.poynt-log']">
+                  <span class="total-poynts">{{ member.reward.points.toLocaleString("en") }}</span><br>
+                  <span class="tier gold">poynts</span>
+              </li>
+              <li ng-if="features['dark.member.search-header']">
+                <!-- Button trigger modal -->
+                <button type="button" data-toggle="modal" data-target="#offLocation">
+                  <i class="icon ion-ios-search-strong"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/cp/js/sidebarEffects.js"></script>

@@ -1,0 +1,36 @@
+<style>
+.modal-content { text-align: center; }
+.modal-content .footer_sec { padding:0px 15px; }
+.checkbox_sec #checkbox { display: inline-block; width: 25px; }
+</style>
+<div class="modal" style="padding-top:180px;" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Read First</h4>
+            </div>
+            <div class="modal-body" style="padding: 13px">
+                <p>You will receive your Poynts 24-48 hours after this purchase has been made.</p>
+                <div for="checkbox" class="pure-checkbox checkbox_sec">
+                  <input class="checkbox" id="checkbox" type="checkbox" ng-model="dontShowAgainCheckbox">
+                  <span>Don't show again</span>
+                </div>
+            </div>
+            <div class="modal-footer footer_sec">
+                <!-- <button type="button" class="btn button-primary" data-dismiss="modal" ng-click="confirmEarn(false)"></button>
+                <button type="button" class="btn button-primary" data-dismiss="modal" ng-click="confirmEarn(true)"></button> -->
+
+                <div class="row center-xs cp-ptb-10 cp-gradient-blue">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div id="btn_sec" class="btn-group col-xs-12 " role="group">
+                            <button class="col-xs-6 btn-lg cp-btn-split-left active" data-dismiss="modal" ng-click="confirmEarn(false)">Cancel</button>
+                            <button class="col-xs-6 btn-lg cp-btn-split-right" data-dismiss="modal" ng-click="confirmEarn(true)">Got it</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

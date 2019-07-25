@@ -1,0 +1,62 @@
+25/08/17----------------------------------------
+
+1. Left Side bar font size chnaged
+
+-----------------------------------------
+#left-sidebar ul li a { 
+    display: block; 
+    padding: 12px; 
+    outline: none; 
+    color: #fff; 
+    background: none; 
+    font-family: 'Montserrat', arial, sans-serif; 
+    font-weight: 300; font-style: normal; 
+    font-size: 16px; 
+    border-bottom: 1px solid rgba(203, 213, 220, 0.15); 
+    -webkit-transition: background 0.3s; transition: background 0.3s;
+}
+#left-sidebar #myCarepoynt li a { font-size: 14px; }
+#left-sidebar #help_sec li a { font-size: 14px; }
+---------------------------------------------
+
+2. Clique image size changed
+
+
+3. Dashboard text size maximum in mobile view
+
+-----------------------------------------
+- changed button margin gap with bottom mt-2
+- 
+-----------------------------------------
+
+4. Redme &earn stracture changed
+
+Redme---
+a. My Favriout
+b. local Parameter
+c. Gift card
+
+Earn---
+a. My Favriout
+b. National Partner
+c. Local Parameter
+--------------------------------------
+
+---------------------------------------
+
+5. Referal Bussiness/help Pages width maximun in mobile view
+
+-------------------------------------------------------
+@media screen and (max-width: 575px) {
+ .container { width: 100%; max-width: 100%; }
+ .nav-menu li a { font-size:12px; }
+ .nav-menu li a { padding:0; }
+ .btn-default { font-size: 12px; padding: 7px 5px; }
+ .content-border-box{ padding: 5px 10px; }
+ .referSection { width: 100%; }
+}
+
+------------------------------------------------------
+
+
+

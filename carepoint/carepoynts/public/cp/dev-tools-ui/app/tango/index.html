@@ -1,0 +1,602 @@
+
+
+    <!-- Fixed navbar -->
+    <div ng-include="'shared/nav-bar.html'"></div>
+    <!-- /Fixed navbar -->
+
+    <div class="container" role="main">
+      <div class="row">
+        <div class="well well-sm text-center cp-gradient-blue text-white">
+          <h2  class="xs-m-0">It Takes Two To Tango</h2>
+        </div>
+      </div>
+
+
+
+      <!-- Get Tango Options : Begin -->
+      <!-- change it so that only 1 gets changed when clicking save. -->
+      <div class="row">
+        <div class="col-xs">
+          <div class="panel panel-primary">
+            <div class="panel-heading" ng-click="collapse0=!collapse0">
+              <h3 class="panel-title">Carepoynt Tango Options</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapse0}">
+              <p><button type="button" class="btn btn-info" ng-click="getCPTangoOptions()">Get CarePoynt Reward Options</button></p>
+              <div class="row">
+                <div ng-repeat="reward in cpTangoOptions" class="col-xs-3" >
+
+                  <div class="panel panel-default">
+                    <div class="panel-body xs-p-10">
+                      <div>
+                        <strong>{{reward.brand.brandName}} -  $ {{reward.order.amount}}</strong>
+                        <div class="avatar">
+                          <img  src="{{reward.brand.imageUrls['130w-326ppi']}}" alt="" class="img-thumbnail" style="width: 130px;">
+                          <p><button type="button" class="btn btn-info btn-xs" ng-click="createOrder(reward.order)">Test It!</button></p>
+                        </div>
+                        
+                        
+                        <br>
+                      </div>
+                      <div>
+                        <form>
+                        <div class="form-group">
+                          <label for="carepoynt-value">Amt of Carepoynts</label>
+                          <div>
+                            <input type="text" class="form-control" id="carepoynt-value" ng-model="reward.carepoynt_value" >
+                          </div>
+                        </div>
+                        <!-- display order field -->
+                        <div class="form-group">
+                          <label for="displayOrder">Display Order - <strong>{{reward.displayOrder}}</strong></label>
+                          <div>
+                            <input type="number" class="form-control" ng-model="reward.displayOrder" placeholder="displayOrder">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="col-xs-6 xs-pl-0 xs-pr-5">
+                            <button type="button" class="btn btn-info btn-sm btn-block" ng-click="saveTangoConfig()">Save</button>
+                          </div>
+                          <div class="col-xs-6 xs-pl-5 xs-pr-0">
+                            <button type="button" class="btn btn-default btn-sm btn-block" ng-click="deleteTangoConfig(reward)">Remove</button>
+                          </div>
+                        </div>
+                       </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+            </div> <!-- panel-body : end -->
+          </div>
+        </div>
+      </div>
+      <!-- Get Tango Options : End -->
+
+      <!-- Get All Tango Rewards : Begin -->
+      <div class="row">
+        <div class="col-xs">
+          <div class="panel panel-primary">
+            <div class="panel-heading" ng-click="collapse1=!collapse1">
+              <h3 class="panel-title">GET all the Reward option from Tango</h3>
+            </div>
+
+            <div class="panel-body" ng-class="{'collapse':!collapse1}">
+              <p><button type="button" class="btn btn-info" ng-click="getRewardsList()">Get Tango Reward Options</button></p>
+              <div class="row" style="">
+                <div ng-repeat="brand in brands" class="col-xs-4" >
+                  <div class="panel panel-default" style="height:350px; overflow: auto;">
+                    <div class="panel-body xs-p-10">
+                      <div>
+                        <h5>{{brand.brandName}}</h5>
+                        <div class="avatar">
+                          <img  src="{{brand.imageUrls['130w-326ppi']}}" alt="" class="img-thumbnail" style="width: 130px;">
+                        </div>
+                        <p class="subtitle">
+                          <ul class="list-group" >
+
+                            <li class="list-group-item col-xs">
+                              <div ng-repeat="item in brand.items | orderBy:'faceValue'">
+                                <div ng-if="item.valueType === 'VARIABLE_VALUE'">
+                  
+                                  {{item.utid}}
+                                  <br>
+                                  ${{item.minValue}} - {{item.maxValue}}
+                                  <form class="">
+                                    <div class="form-group">
+                                      <label class="sr-only" for="">cardAmount</label>
+                                      <div class="input-group">
+                                        <div class="input-group-addon">$</div>
+                                        <input type="text" class="form-control" placeholder="Card Amount" ng-model="item.faceValue">
+                                        <!-- cardAmount is local to the function. 
+                                        if it's used in tango.js as vm.cardAmount, it'll probably
+                                        be all screwed up  -->
+                                      </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                      <div class="col-xs xs-pl-0 xs-pr-5">
+                                        <button type="button" class="btn btn-info btn-sm" ng-click="addCardToCarepoynt(brand, item)">Add</button>
+                                      </div>
+                                    </div>
+                         
+                                  </form>
+                                  
+                                </div>
+
+
+                                <div class="col-xs-3 xs-pl-0 xs-pr-5" ng-if="brand.items[0].valueType === 'FIXED_VALUE'">
+                                  {{item.utid}}
+                                  <br>
+                                  <div>
+                                    <button type="button" class="btn btn-info btn-sm" ng-click="addCardToCarepoynt(brand, item)">{{item.faceValue}}</button>
+                                  </div>
+                                </div>
+
+
+                              </div>
+                              <div class="clearfix"></div>
+                            </li>
+
+                          </ul>
+                        </p>
+
+
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+            </div> <!-- panel-body : end -->
+
+          </div>
+        </div>
+      </div>
+      <!-- Get All Tango Rewards : End -->
+
+      <!-- Create a Customer : Begin -->
+      <div class="row">
+        <div class="col-sm">
+          <div class="panel panel-primary">
+            <div class="panel-heading" ng-click="collapse10=!collapse10">
+              <h3 class="panel-title">CREATE an Customer</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapse10}">
+              <div class="col-sm-6">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="Customer" class="col-sm-4 control-label">customerIdentifier</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="customerIdentifier" placeholder="customerIdentifier" ng-model="customer.customerIdentifier" >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="identifier" class="col-sm-4 control-label">displayName</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="displayName" placeholder="displayName" ng-model="customer.displayName" >
+                  </div>
+                </div>
+                
+              
+                <div class="form-group">
+                  <div class="col-sm-4"></div>
+                  <div class="col-sm-8">
+                    <button type="button" class="btn btn-info" ng-click="createCustomer()">Create Customer</button>
+                  </div>
+                </div>
+              </form>
+              </div>
+              <div class="col-sm-6">
+                <div ng-if="customerCreated">
+                  <pre><code>{{customerCreated | json : 2}}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+      </div>
+      <!-- Create a Customer : End -->
+
+
+      <!-- Create an Account : Begin -->
+      <div class="row">
+        <div class="col-sm">
+          <div class="panel panel-primary">
+            <div class="panel-heading" ng-click="collapse2=!collapse2">
+              <h3 class="panel-title">CREATE an Account</h3>
+            </div>
+
+
+            <div class="panel-body" ng-class="{'collapse':!collapse2}">
+              <div class="col-sm-6">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label class="col-sm-4 control-label">customerIdentifier</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" placeholder="customerIdentifier" ng-model="account.customerIdentifier" >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-4 control-label">accountIdentifier</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" placeholder="accountIdentifier" ng-model="account.accountIdentifier" >
+                  </div>
+                </div>
+                 <div class="form-group">
+                  <label class="col-sm-4 control-label">displayName</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" placeholder="displayName" ng-model="account.displayName" >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-4 control-label">contactEmail</label>
+                  <div class="col-sm-8">
+                    <input type="email" class="form-control" placeholder="contactEmail" ng-model="account.contactEmail" >
+                  </div>
+                </div>
+              
+                <div class="form-group">
+                  <div class="col-sm-4"></div>
+                  <div class="col-sm-8">
+                    <button type="button" class="btn btn-info" ng-click="createAcct()">Create Account</button>
+                  </div>
+                </div>
+              </form>
+              </div>
+              <div class="col-sm-6">
+                <div ng-if="acctCreated">
+                  <pre><code>{{acctCreated | json : 2}}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+      </div>
+      <!-- Create an Account : End -->
+
+        <!-- Get Customers : Begin -->
+      <div class="row">
+        <div class="col-sm">
+          <div class="panel panel-primary">
+            <div class="panel-heading" ng-click="collapse3=!collapse3">
+              <h3 class="panel-title">GET all Customers</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapse3}">
+              <div class="col-sm-6">
+              <form class="form-horizontal">
+                
+              
+                <div class="form-group">
+                  <div class="col-sm-12">
+                    <button type="button" class="btn btn-info" ng-click="getCustomers()">Get All Customers</button>
+                  </div>
+                </div>
+              </form>
+              </div>
+              <div class="col-sm-6">
+                <div ng-if="customersRetrieved">
+                  <pre><code>{{customersRetrieved| json : 2}}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Get Customers : End -->
+
+      <!-- Get Accounts : Begin -->
+      <div class="row">
+        <div class="col-sm">
+          <div class="panel panel-primary">
+            <div class="panel-heading" ng-click="collapse4=!collapse4">
+              <h3 class="panel-title">GET All Accounts</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapse4}">
+              <div class="col-sm-6">
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <div class="col-sm-12">
+                      <button type="button" class="btn btn-info" ng-click="getAccounts()">Get  Accounts</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-sm-6">
+                <div ng-if="accountsRetrieved">
+                  <pre><code>{{accountsRetrieved| json : 2}}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Get Accounts : End -->
+
+      <!-- Fund Accounts : Begin -->
+      <div class="row">
+        <div class="col-sm">
+          <div class="panel panel-primary">
+            <div class="panel-heading" ng-click="collapseFund=!collapseFund">
+              <h3 class="panel-title">FUND account</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapseFund}">
+              <div class="col-sm-4">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <button type="button" class="btn btn-info" ng-click="getCreditCards()">Get Accounts</button>
+                  </div>
+                </div> 
+                <div class="row" style="padding-top:10px;" ng-if="fundResponse">
+                  <pre><code>{{fundResponse| json : 2}}</code></pre>
+                </div>
+              </div>
+              <div class="col-sm-8">
+                <div ng-if="creditCardsRetrieved">
+                  <div class="col-xs-4" ng-if="card.status == 'ACTIVE'" ng-repeat="card in creditCards">
+                    <div class="panel panel-default">
+                      <div style="padding:10px">
+                        <span style="font-weight:bold">Account: </span>
+                        {{card.accountIdentifier}}
+                      </div>
+                      <div style="padding:10px">
+                        <span style="font-weight:bold">Card: </span>
+                        {{card.label}}
+                      </div>
+                      <div style="padding:10px">
+                        <span style="font-weight:bold">Last-4 Digits: </span>
+                        {{card.lastFourDigits}}
+                      </div>
+                      <div class="row" style="padding:10px">
+                        <input type="text" class="col-xs-4 col-xs-offset-1" ng-model="card.amount">
+                        <button type="button" class="btn col-xs-offset-2 btn-info btn-md" ng-click="addFunds(card)">Fund</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Get Accounts : End -->
+
+      <!-- Add Card : Begin -->
+      <div class="row">
+          <div class="col-sm">
+            <div class="panel panel-primary">
+              <div class="panel-heading" ng-click="collapseAddCard=!collapseAddCard">
+                <h3 class="panel-title">ADD credit card</h3>
+              </div>
+              <div class="panel-body" ng-class="{'collapse':!collapseAddCard}">
+                <div class="col-sm-6">
+                  <div class="col-sm-12 panel panel-default">
+                    <h3>Billing Address</h3>
+                    <hr>
+                    <div class="row" style="margin:5px">
+                      <div class="col-xs-4">Address Line 1</div>
+                      <input type="text" class="col-xs-8" style="padding:5px;" ng-model="newCard.billingAddress.addressLine1">
+                    </div>
+                    <div class="row" style="margin:5px">
+                      <div class="col-xs-4">Address Line 2</div>
+                      <input type="text" class="col-xs-8" style="padding:5px;" ng-model="newCard.billingAddress.addressLine2">
+                    </div>
+                    <div class="row" style="margin:5px">
+                      <div class="col-xs-4">City</div>
+                      <input type="text" class="col-xs-8" style="padding:5px;" ng-model="newCard.billingAddress.city">
+                    </div>
+                    <div class="row" style="margin:5px">
+                      <div class="col-xs-4">Country</div>
+                      <input type="text" class="col-xs-8" style="padding:5px;" placeholder="ex. US" ng-model="newCard.billingAddress.country">
+                    </div>
+                    <div class="row" style="margin:5px">
+                      <div class="col-xs-4">Email Address</div>
+                      <input type="text" class="col-xs-8" style="padding:5px;" ng-model="newCard.billingAddress.emailAddress">
+                    </div>
+                    <div class="row" style="margin:5px">
+                      <div class="col-xs-4">First Name</div>
+                      <input type="text" class="col-xs-8" style="padding:5px;" ng-model="newCard.billingAddress.firstName">
+                    </div>
+                    <div class="row" style="margin:5px">
+                      <div class="col-xs-4">Last Name</div>
+                      <input type="text" class="col-xs-8" style="padding:5px;" ng-model="newCard.billingAddress.lastName">
+                    </div>
+                    <div class="row" style="margin:5px">
+                      <div class="col-xs-4">Postal Code</div>
+                      <input type="text" class="col-xs-8" style="padding:5px;" ng-model="newCard.billingAddress.postalCode">
+                    </div>
+                    <div class="row" style="margin:5px">
+                      <div class="col-xs-4">State</div>
+                      <input type="text" class="col-xs-8" style="padding:5px;" ng-model="newCard.billingAddress.state">
+                    </div>
+                    <h3>Credit Card</h3>
+                    <hr>
+                    <div class="row" style="margin:5px">  
+                      <div class="col-xs-4">Expiration</div>
+                      <input type="text" class="col-xs-8" style="padding:5px;" placeholder="ex. YYYY-MM" ng-model="newCard.creditCard.expiration">
+                    </div>
+                    <div class="row" style="margin:5px">
+                      <div class="col-xs-4">Card Number</div>
+                      <input type="text" class="col-xs-8" style="padding:5px;" ng-model="newCard.creditCard.number">
+                    </div>
+                    <div class="row" style="margin:5px">
+                      <div class="col-xs-4">Verification Number</div>
+                      <input type="text" class="col-xs-8" style="padding:5px;" ng-model="newCard.creditCard.verificationNumber">
+                    </div>
+                    <h3>Tango Information</h3>
+                    <hr>
+                    <div class="row" style="margin:5px">  
+                      <div class="col-xs-4">Account Identifier</div>
+                      <input type="text" class="col-xs-8" style="padding:5px;" ng-model="newCard.accountIdentifier">
+                    </div>
+                    <div class="row" style="margin:5px">
+                      <div class="col-xs-4">Customer Identifier</div>
+                      <input type="text" class="col-xs-8" style="padding:5px;" ng-model="newCard.customerIdentifier">
+                    </div>
+                    <div class="row" style="margin:5px">
+                      <div class="col-xs-4">IP Address</div>
+                      <input type="text" class="col-xs-8" style="padding:5px;" ng-model="newCard.ipAddress" value="24.248.96.170">
+                    </div>
+                    <div class="row" style="margin:5px">
+                      <div class="col-xs-4">Label</div>
+                      <input type="text" class="col-xs-8" style="padding:5px;" ng-model="newCard.label">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="panel panel-default">
+                    <div class="row">
+                        <button type="button" class="btn btn-info btn-lg col-xs-offset-1" style="margin:20px" ng-click="registerCC()">Register Card</button>
+                    </div>
+                    <div class="row" ng-if="newCardResponse">
+                      <pre style="padding:20px;margin:20px"><code>{{newCardResponse| json : 2}}</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Get Accounts : End -->
+
+      <!-- Unregister : Begin -->
+      <div class="row">
+          <div class="col-sm">
+            <div class="panel panel-primary">
+              <div class="panel-heading" ng-click="collapseUnregisterCC=!collapseUnregisterCC">
+                <h3 class="panel-title">REMOVE card</h3>
+              </div>
+              <div class="panel-body" ng-class="{'collapse':!collapseUnregisterCC}">
+                <div class="col-sm-4">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <button type="button" class="btn btn-info" ng-click="getCreditCards()">Get Cards</button>
+                    </div>
+                  </div> 
+                  <div class="row" style="padding-top:10px;" ng-if="unregisterResponse">
+                    <pre><code>{{unregisterResponse| json : 2}}</code></pre>
+                  </div>
+                </div>
+                <div class="col-sm-8">
+                  <div ng-if="creditCardsRetrieved">
+                    <div class="col-xs-4" ng-if="card.status == 'ACTIVE'" ng-repeat="card in creditCards" >
+                      <div class="panel panel-default">
+                        <div style="padding:10px">
+                          <span style="font-weight:bold">Account: </span>
+                          {{card.accountIdentifier}}
+                        </div>
+                        <div style="padding:10px">
+                          <span style="font-weight:bold">Card: </span>
+                          {{card.label}}
+                        </div>
+                        <div style="padding:10px">
+                          <span style="font-weight:bold">Last-4 Digits: </span>
+                          {{card.lastFourDigits}}
+                        </div>
+                        <div class="row" style="padding:10px">
+                          <button type="button" class="btn col-xs-offset-2 btn-info btn-md" ng-click="unregisterCC(card)">Unregister</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Get Accounts : End -->
+
+      <!-- Get List of Orders : Begin -->
+      <div class="row">
+        <div class="col-sm">
+          <div class="panel panel-primary">
+            <div class="panel-heading" ng-click="collapse5=!collapse5">
+              <h3 class="panel-title">GET List of Orders</h3>
+            </div>
+            <div class="panel-body" ng-class="{'collapse':!collapse5}">
+              <div class="col-sm-8">
+                <form class="form-horizontal">
+
+                  <div class="form-group">
+                    <label for="customerIdentifier" class="col-xs-3 control-label">customerIdentifier</label>
+                    <div class="col-xs-9">
+                      <input type="text" class="form-control" id="customerIdentifier" placeholder="customerIdentifier" ng-model="orderListRequest.customerIdentifier" >
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="accountIdentifier" class="col-xs-3 control-label">accountIdentifier</label>
+                    <div class="col-xs-9">
+                      <input type="text" class="form-control" id="accountIdentifier" placeholder="accountIdentifier" ng-model="orderListRequest.accountIdentifier" >
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="externalRefID" class="col-xs-3 control-label">externalRefID</label>
+                    <div class="col-xs-9">
+                      <input type="text" class="form-control" placeholder="externalRefID" ng-model="orderListRequest.externalRefID" >
+                    </div>
+                  </div>      
+
+                  <div class="form-group">
+                    <label for="startDate" class="col-xs-3 control-label">startDate</label>
+                    <div class="col-xs-9">
+                      <input type="text" class="form-control" id="startDate" placeholder="2016-01-01" ng-init="orderListRequest.startDate='2016-12-01'" ng-model="orderListRequest.startDate" >
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="endDate" class="col-xs-3 control-label">endDate</label>
+                    <div class="col-xs-9">
+                      <input type="text" class="form-control" id="endDate" placeholder="2017-01-01" ng-model="orderListRequest.endDate" >
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="elementsPerBlock" class="col-xs-3 control-label">elementsPerBlock</label>
+                    <div class="col-xs-9">
+                      <input type="text" class="form-control" id="elementsPerBlock" placeholder="specify the number of elements in a block" ng-model="orderListRequest.elementsPerBlock" >
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="page" class="col-xs-3 control-label">page</label>
+                    <div class="col-xs-9">
+                      <input type="text" class="form-control" id="page" placeholder="specify the page number to return" ng-model="orderListRequest.page" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-xs-3"></div>
+                    <div class="col-xs-9">
+                      <button type="button" class="btn btn-info" ng-click="getOrderList()">GET List of Orders</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-sm-4">
+                <div ng-if="false">
+                  <pre><code>{{orderListResponse | json : 2}}</code></pre>
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <ul class="list-group">
+                  <li class="list-group-item" ng-repeat="order in orderListResponse.orders | orderBy:'createdAt'">
+                    <div class="row" >
+                      <div class="col-sm-4">{{order.recipient.email}}</div>
+                      <div class="col-sm-3">{{order.recipient.firstName}}</div>
+                      
+                      <div class="col-sm-4">{{order.rewardName}}</div>
+                      <div class="col-sm-1">$ {{order.denomination.value}}</div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Get List of Orders : End -->
+
+

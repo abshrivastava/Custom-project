@@ -1,0 +1,25 @@
+<!-- Modal PopUp -->
+<div class="modal fade" id="voucher-model" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h6 class="modal-title" id="exampleModalLabel">Activation Alert</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+            </div>
+            <div class="modal-body">
+                <p class="text-grey-s">You can only use your reward once. Your reward will become void after you activate it. <br> Make sure you are at the location where you plan to use your reward before activating.</p>
+                <div class="pure-checkbox">
+                    <input class="checkbox" id="checkbox" type="checkbox" ng-model="ctrl.dontShowVoucherCheckBox">
+                    <span>Don't show again</span>
+                </div>
+            </div>
+            <div class="modal-footer popup-gradient-blue btn-group" role="group">
+                <button type="button" class="btn btn-secondary popup-btn model-btn-active" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-secondary popup-btn" data-dismiss="modal" ng-click="ctrl.redeemVoucher()" >Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Of Modal PopUp -->

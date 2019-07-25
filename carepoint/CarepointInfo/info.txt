@@ -1,0 +1,66 @@
+
+
+URL: https://test.carepoynt.com
+Username : arun.choudhary@rsystems.com
+Password: Carepoynt2017, simsim01
+
+Newly screens can be accessed using below:
+
+URL:   https://dev.carepoynt.com
+username : Akshay.srivastava@rsystems.com
+password: Carepoynt#2017
+
+username : tushar15@tushar.com
+password: Password55
+
+
+Tushar.Pande@rsystems.com
+Password55
+
+
+
+http://10.131.10.86/Protoype_new/index.html
+pass: welcome6rsi
+
+Printer Ip(C40/GF): 10.131.253.47
+
+---------------------------------
+http://10.131.168.10/login
+
+rverma
+
+rverma@12345
+
+
+
+----------------------------------
+Install Sourcetree on your machine and clone code from below url
+ 
+https://Carepoynt_Akshay@bitbucket.org/carepoynt/carepoynt-app
+
+Akshay.Srivastava@rsystems.com
+
+Atlassian#2017
+
+
+
+--------------------------------
+ShashanIp- 10.131.10.86
+
+Provide me access for google chrom extension. #005390
+
+
+
+<meta http-equiv="x-ua-compatible" content="ie=edge"> 
+
+Add the following conditional statements to the of your page but after the Bootstrap 4 CSS.
+
+    <!--[if IE]>
+      <link href="/css/bootstrap-ie9.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/g/html5shiv@3.7.3"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+	  <link href="/css/bootstrap-ie8.css" rel="stylesheet">
+    <![endif]-->
+
+

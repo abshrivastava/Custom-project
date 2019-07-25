@@ -1,0 +1,104 @@
+
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+    
+    <div class="text-center">
+      <h4>Summary Details</h4>
+    </div>
+    <!-- <hr class="xs-mt-5 xs-mb-5"> -->
+    <div class="xs-pl-15 xs-pr-15">
+      You are so close to earning 500 Carepoynts. There are a few fields that you didn't fill out. Go '< Back' and fill in the missing fields and collect your 500 Carepoynts. 
+    </div>
+    
+    <div class="col-xs-12 xs-mb-5">
+      <div class="row">
+        <div class="col-xs-4 text-right"></div>
+        <div class="col-xs-8 xs-pl-0"><h4 class="xs-mb-5">Joyn</h4></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 text-right">Name:</div>
+        <div class="col-xs-8 xs-pl-0">{{profile.fname}} {{profile.lname}}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 text-right">Email:</div>
+        <div class="col-xs-8 xs-pl-0">{{profile.email}}</div>
+      </div><div class="row">
+        <div class="col-xs-4 text-right">Mobile:</div>
+        <div class="col-xs-8 xs-pl-0">{{profile.mPhone | phoneNumber}}</div>
+      </div><div class="row">
+        <div class="col-xs-4 text-right">Birthdate:</div>
+        <div class="col-xs-8 xs-pl-0">{{profile.dobDisplay}}</div>
+      </div><div class="row">
+        <div class="col-xs-4 text-right">Zip:</div>
+        <div class="col-xs-8 xs-pl-0">{{profile.zip}}</div>
+      </div><div class="row">
+        <div class="col-xs-4 text-right">Password:</div>
+        <div class="col-xs-8 xs-pl-0">********</div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="col-xs-12 xs-mb-5">
+      <div class="row">
+        <div class="col-xs-4 text-right"></div>
+        <div class="col-xs-8 xs-pl-0"><h4 class="xs-mb-5">My Referrals</h4></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 text-right">Referral 1:</div>
+        <div ng-if="referral.one" class="col-xs-8 xs-pl-0">{{referral.one}}</div>
+        <div ng-if="!referral.one" ng-click="goToStep(2)" class="col-xs-8 xs-pl-0"></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 text-right">Referral 2:</div>
+        <div ng-if="referral.two" class="col-xs-8 xs-pl-0">{{referral.two}}</div>
+        <div ng-if="!referral.two" ng-click="goToStep(2)" class="col-xs-8 xs-pl-0"></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 text-right">Referral 3:</div>
+        <div ng-if="referral.three" class="col-xs-8 xs-pl-0">{{referral.three}}</div>
+        <div ng-if="!referral.three" ng-click="goToStep(2)" class="col-xs-8 xs-pl-0"></a></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 text-right">Referral 4:</div>
+        <div ng-if="referral.four" class="col-xs-8 xs-pl-0">{{referral.four}}</div>
+        <div ng-if="!referral.four" ng-click="goToStep(2)" class="col-xs-8 xs-pl-0"></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 text-right">Referral 5:</div>
+        <div ng-if="referral.five" class="col-xs-8 xs-pl-0">{{referral.five}}</div>
+        <div ng-if="!referral.five" ng-click="goToStep(2)" class="col-xs-8 xs-pl-0"></div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="col-xs-12 xs-mb-5">
+      <div class="row">
+        <div class="col-xs-4 text-right"></div>
+        <div class="col-xs-8 xs-pl-0"><h4 class="xs-mb-5">My Clique</h4></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 text-right">Name:</div>
+        <div ng-if="clique.name" class="col-xs-8 xs-pl-0">{{clique.name}}</div>
+        <div ng-if="!clique.name" ng-click="goToStep(3)" class="col-xs-8 xs-pl-0"></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 text-right">Invite:</div>
+        <div ng-if="clique.invite" class="col-xs-8 xs-pl-0">{{clique.invite}}</div>
+        <div ng-if="!clique.invite" ng-click="goToStep(3)" class="col-xs-8 xs-pl-0"></div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+    <form>
+      <div class="xs-pt-10">
+        <div class="form-group col-xs-6 xs-pl-0 xs-pr-5">
+          <button class="btn btn-info btn-block" ng-click="goToStep(2)"> &lt; Back </button>
+        </div>
+        <div class="form-group col-xs-6 xs-pl-5 xs-pr-0">
+          <button class="btn btn-info btn-block" ng-click="goDosgets()"> Submit </button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

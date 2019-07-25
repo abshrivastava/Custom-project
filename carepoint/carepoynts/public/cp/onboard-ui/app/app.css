@@ -1,0 +1,683 @@
+/* app css stylesheet */
+
+html, body, button, input, select, textarea, label {
+  font-family: "Nunito", Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li + li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+
+.loading-page {
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   position: fixed;
+   display: block;
+   opacity: 0.98;
+   background-color: #0051a3;
+   z-index: 99;
+   text-align: center;
+}
+
+.busy-loading-page {
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   position: fixed;
+   display: block;
+   opacity: 0.75;
+   background-color: white;
+   z-index: 999;
+   text-align: center;
+   padding-top: 200px;
+}
+
+
+
+
+.responsive-video, .responsive-image {
+  max-width: 100%;  
+  height: auto;  
+}
+
+
+/*offer-details custom/overrrides TODO: this needs to reflect back into the scss files which are th source of truth*/
+.offer-details .heading {
+  margin-bottom: 10px;
+}
+
+.offer-details .name {
+  margin-top: 10px;
+}
+
+.offer-details .amt {
+  margin-top: 10px;
+}
+
+.dashboard .overview {
+    /*background-image: url("/cp/img/cp-banner.png");*/
+}
+
+
+/* some helper padding/margin to make it easier on myselp*/
+.cp-p-0 {
+  padding: 0px !important;
+}
+.cp-p-5 {
+  padding: 5px !important;
+}
+.cp-p-10 {
+  padding: 10px !important;
+}
+
+.cp-pt-0 {
+  padding-top: 0px !important;
+}
+
+.cp-pt-5 {
+  padding-top: 5px !important;
+}
+
+.cp-pt-10 {
+  padding-top: 10px !important;
+}
+
+.cp-pt-15 {
+  padding-top: 15px !important;
+}
+
+.cp-pt-20 {
+  padding-top: 20px !important;
+}
+
+.cp-pb-0 {
+  padding-bottom: 0px !important;
+}
+
+.cp-pb-5 {
+  padding-bottom: 5px !important;
+}
+
+.cp-pb-10 {
+  padding-bottom: 10px !important;
+}
+
+.cp-pb-15 {
+  padding-bottom: 15px !important;
+}
+
+.cp-pb-20 {
+  padding-bottom: 20px !important;
+}
+
+.cp-pl-0 {
+  padding-left: 0px !important;
+}
+
+.cp-pl-5 {
+  padding-left: 5px !important;
+}
+
+.cp-pl-10 {
+  padding-left: 10px !important;
+}
+
+.cp-pl-20 {
+  padding-left: 20px !important;
+}
+
+.cp-pr-0 {
+  padding-right: 0px !important;
+}
+
+.cp-pr-5 {
+  padding-right: 5px !important;
+}
+
+.cp-pr-10 {
+  padding-right: 10px !important;
+}
+
+.cp-pr-20 {
+  padding-right: 20px !important;
+}
+
+
+.cp-plr-0 {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.cp-ptb-5 {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+
+.cp-ptb-10 {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.cp-plr-5 {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+
+.cp-plr-10 {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+.cp-m-5 {
+  margin: 5px !important;
+}
+
+.cp-m-10 {
+  margin: 10px !important;
+}
+
+.cp-mt-0 {
+  margin-top: 0px !important;
+}
+
+.cp-mt-5 {
+  margin-top: 5px !important;
+}
+
+.cp-mt-10 {
+  margin-top: 10px !important;
+}
+
+.cp-mt-15 {
+  margin-top: 15px !important;
+}
+
+.cp-mt-20 {
+  margin-top: 20px !important;
+}
+
+.cp-mb-0 {
+  margin-bottom: 0px !important;
+}
+.cp-mb-5 {
+  margin-bottom: 5px !important;
+}
+
+.cp-mb-10 {
+  margin-bottom: 10px !important;
+}
+
+.cp-mb-15 {
+  margin-bottom: 15px !important;
+}
+
+.cp-mb-20 {
+  margin-bottom: 20px !important;
+}
+
+.cp-mtb-0 {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.cp-mtb-5 {
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+
+.cp-mtb-10 {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.cp-mlr-5 {
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+}
+
+.cp-mlr-10 {
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+}
+
+.cp-mlr-15 {
+  margin-left: 15px !important;
+  margin-right: 15px !important;
+}
+
+.cp-mlr-20 {
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+}
+
+
+.cp-bg-color-none {
+  background-color: #f2f5f7 !important;
+}
+.cp-bg-color-white {
+  background-color: #fff !important;
+}
+
+.cp-bg-color-transparent {
+  background-color: transparent !important;
+}
+
+.cp-border-rounded {
+    border-radius: 6px !important;
+    border: 1px solid #cbd5dc !important;
+}
+
+.cp-border {
+    border: 1px solid #cbd5dc !important;
+}
+
+.cp-border-bottom {
+    border-bottom: 1px solid #cbd5dc !important;
+}
+
+.cp-border-bottom-none {
+    border-bottom: none !important;
+}
+
+.cp-line-height-1 {
+  line-height: 1 !important;
+}
+
+.cp-border-lr {
+    border-left: 1px solid #cbd5dc !important;
+    border-right: 1px solid #cbd5dc !important;
+}
+
+
+/* Fonts */
+.cp-font-size-12 {
+  font-size: 12px !important;
+}
+
+.cp-font-size-14 {
+  font-size: 14px !important;
+}
+
+.cp-font-size-15 {
+  font-size: 15px !important;
+}
+
+.cp-font-size-16 {
+  font-size: 16px !important;
+}
+
+.cp-font-size-40 {
+  font-size: 40px !important;
+}
+
+.cp-font-size-50 {
+  font-size: 50px !important;
+}
+
+.cp-background-size-contain {
+  background-size: contain !important;
+}
+
+.promotions .badge-earn {
+    left: 15px;
+}
+
+.full-width-height {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.cp-bg-coin {
+  background: url(/cp/img/carepoynt-coin.png) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.cp-border-color-earn {
+  border: 1px solid #09f !important; 
+}
+
+.cp-border-color-redeem {
+  border: 1px solid #f8c823 !important; 
+}
+
+.cp-text-color-earn {
+  text-color:  #09f !important; 
+}
+
+.cp-text-color-redeem {
+  text-color: #f8c823 !important; 
+}
+
+.clique .cp-border-color-manager {
+  border: 1px solid #297ab2 !important;
+}
+
+.rating *:focus {
+    outline: none !important;
+    -webkit-focus-ring-color:  rgba(0, 0, 0, 0);
+}
+
+.rating-heart-color {
+    color: #09f;
+  }
+
+.cp-text-color-red {
+  color: #a94442;
+}
+
+.cp-logo {
+    max-width: 250px !important;
+}
+
+.cp-redeem-img-card {
+    width: 118px;
+    height: 74px;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.cp-redeem-img-wrapper {
+    width: 118px;
+    height: 74px;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* font sizes for mobile broswer no zooming*/
+.review input, textarea {
+  font-size: 16px;
+}
+  
+.referral input, textarea {
+  font-size: 16px;
+}
+
+
+
+/* some colors */
+.cp-ucla-blue {
+  color: #007dc3 !important;
+  background-color: #007dc3 !important;
+  border-color: #007dc3 !important;
+}
+
+.cp-bg-color-ucla-blue {
+  background-color: #007dc3 !important;
+  border-color: #007dc3 !important;
+}
+
+.cp-blue {
+  color: #5279b0 !important;
+  background-color: #5279b0 !important;
+  border-color: #5279b0 !important;
+}
+
+.cp-bg-color-blue {
+  background-color: #5279b0 !important;
+  border-color: #5279b0 !important;
+}
+
+.cp-purple {
+  color: #6f4f8b !important;
+  background-color: #6f4f8b !important;
+  border-color: #6f4f8b !important;
+}
+
+.cp-bg-color-purple {
+  background-color: #6f4f8b !important;
+  border-color: #6f4f8b !important;
+}
+
+
+.cp-lightpurple {
+  color: #ece6f4 !important;
+  background-color: #ece6f4 !important;
+  border-color: #ece6f4 !important;
+}
+
+.cp-bg-color-lightpurple {
+  background-color: #ece6f4 !important;
+  border-color: #ece6f4 !important;
+}
+
+.cp-position-bottom-30 {
+  position: absolute;
+  width:100%;
+  bottom: 30px;
+  right: 0;
+  margin: 0 auto;
+}
+
+.cp-img-thumb-min {
+  width: 117.5px;
+  height: 117.5px;
+}
+
+
+.cp-promo-headline {
+  /*font-family: Nunito-SemiBold;*/
+  font-size: 28px;
+  color: #000000;
+}
+
+.cp-promo-headline-subtext {
+  /*font-family: Nunito-SemiBold;*/
+  font-size: 18px;
+  color: #000000;
+}
+
+
+.cp-promo-logo-img {
+    height: auto; 
+    width: auto; 
+    max-width: 200px; 
+    max-height: 54px;
+}
+
+.cp-promo-bg-img {
+    height: auto; 
+    width: 100%; 
+    max-width: 520px; 
+    max-height: 285px;
+}
+
+.cp-promo-cardtiles-img {
+    height: auto; 
+    width: auto; 
+    max-width: 520px; 
+    max-height: 78px;
+}
+
+.cp-font-weight-3 {
+  font-weight: 400 !important;
+}
+
+.cp-font-weight-4 {
+  font-weight: 400 !important;
+}
+
+.cp-font-weight-5 {
+  font-weight: 500 !important;
+}
+
+.cp-font-weight-6 {
+  font-weight: 600 !important;
+}
+
+.cp-font-weight-7 {
+  font-weight: 700 !important;
+}
+
+.cp-font-weight-8 {
+  font-weight: 800 !important;
+}
+
+.cp-font-weight-9 {
+  font-weight: 900 !important;
+}
+
+.cp-font-weight-bold {
+  font-weight: bold !important;
+}
+
+.cp-ptnr-primary-msg {
+    background: #33577c;
+    color: white;
+}
+
+.cp-ptnr-img {
+    height: auto; 
+    max-height: 450px;
+}
+
+.cp-bg-color-cp-blue {
+  background-color: #33577c; !important;
+}
+
+
+@media (max-width: 576px) {
+    .cp-ptnr-headline {
+      font-size: 16px;
+      color: white;
+    }
+
+    .cp-ptnr-sub-headline {
+      font-size: 12px;
+      color: white;
+    }
+
+    .cp-ptnr-burst-img {
+      max-height: 50px;
+      float:right;
+      position: absolute;
+      top: -25px;
+      right: 0;
+      z-index: 1000;
+    }
+
+    .col-xs-0 {
+      display: none;
+    }
+}
+
+@media (min-width: 576px) {
+    .cp-ptnr-headline {
+      font-size: 24px;
+      color: white;
+    }
+
+    .cp-ptnr-sub-headline {
+      font-size: 16px;
+      color: white;
+    }
+
+    .cp-ptnr-burst-img {
+      max-height: 75px;
+      float:right;
+      position: absolute;
+      top: -37px;
+      right: 0;
+      z-index: 1000;
+    }
+
+    .col-sm-0 {
+      display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .cp-ptnr-headline {
+      font-size: 28px;
+      color: white;
+    }
+
+    .cp-ptnr-sub-headline {
+      font-size: 18px;
+      color: white;
+    }
+
+    img.cp-ptnr-burst-img {
+      max-height: 100px;
+      float:right;
+      position: absolute;
+      top: -50px;
+      right: 0;
+      z-index: 1000;
+    }
+}
+
+@media (min-width: 670px) and (max-width: 699px) {
+    .cp-ptnr-pr-tubby {
+      padding-right: 3em;
+    }
+}
+
+@media (min-width: 700px) and (max-width: 739px) {
+    .cp-ptnr-pr-tubby {
+      padding-right: 3.5em;
+    }
+}
+
+@media (min-width: 740px) and (max-width: 767px) {
+    .cp-ptnr-pr-tubby {
+      padding-right: 4em;
+    }
+}
+
+/*
+.cp-ptnr-burst-img {
+  max-height: 80px;
+  float:right;
+  position: absolute;
+  top: -50px;
+  right: 0;
+  z-index: 1000;
+}*/
+
+.cp-ptnr-logo {
+  max-height: 40px !important;
+}
+
+
+.cp-logo-with-ptnr-logo {
+  max-width: : 160px !important;
+  max-height: 40px !important;
+}
+

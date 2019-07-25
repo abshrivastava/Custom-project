@@ -1,0 +1,27 @@
+.gmap-location {
+  position: relative;
+  background: #fff;
+  border-radius: 6px;
+  border: 1px solid $gray-light;
+  padding: ($padding-large-vertical * 1.5);
+  margin-bottom: ($padding-large-vertical * 5);
+
+  h1 {
+    @include Montserrat-Light;
+    font-size: ceil(($font-size-base * 1.33));
+    margin: ceil(($padding-small-vertical * 2)) auto;
+  }
+
+  #map {
+    height: 320px;
+    position: relative;
+  }
+}
+.get-dir {
+  color:$blue-action;
+  text-transform: uppercase;
+  @include Montserrat-Regular;
+  font-size: ceil(($font-size-base * .9));
+  padding: ($padding-large-vertical *1.5) 0 0;
+  display: block;
+}

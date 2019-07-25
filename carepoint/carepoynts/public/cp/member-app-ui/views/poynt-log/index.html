@@ -1,0 +1,48 @@
+<!-- Start content section -->
+
+<div class="container">
+    <div class="row px-3">
+        <div class="col-1 col-sm-1 my-auto pl-0"><a class="back-btn" ng-click="goBack()"><i class="fa fa-long-arrow-left"></i></a></div>
+        <div class="col-10 col-sm-10">
+            <h5 class="text-center py-3">My Poynts</h5>
+        </div>
+        <div class="col-1 col-sm-1 pl-0"></div>
+    </div>
+</div>
+<div class="border-box mb-3 pb-3" ng-repeat="item in ctrl.poyntLog">
+    <h5 class="my-3">{{item.transactionDate}}</h5>
+    <div class="content-border-box my-2" ng-repeat="tItem in item.transactionData">
+        <div class="row">
+            <div class="col-4 col-sm-2 text-center my-auto sm-logo-frame">
+                <img ng-src= "{{tItem.imageUrl == '' ? '/cp/images/blank-img.png' : tItem.imageUrl }}" />
+            </div>
+            <div class="col-sm-8 col-6 pl-2 pr-0" ng-if="tItem.entity_type=='GiftCard'">
+                <h5 class="large overflow-ellipsis pt-1">{{tItem.promo_name}}</h5>
+                <span class="text-grey medium overflow-ellipsis">{{tItem.card_details}}</span>
+            </div>
+            <div class="col-sm-8 col-6 pl-2 pr-0" ng-if="tItem.entity_type!='Point Transfer' && tItem.entity_type!='GiftCard' && 
+                                                tItem.entity_type!='Carepoynt Support'">
+                <h5 class="large overflow-ellipsis pt-1">{{tItem.ent_name}}</h5>
+                <span class="text-grey medium overflow-ellipsis">{{tItem.promo_name}}</span>
+            </div>
+            <div class="col-sm-8 col-6 pl-2 pr-0" ng-if="tItem.entity_type=='Point Transfer'">
+                <h5 class="large overflow-ellipsis pt-1">Poynt Transfer</h5>
+                <span class="text-grey medium overflow-ellipsis" ng-if="tItem.from=='' && tItem.to">To: {{tItem.to}}</span>
+                <span class="text-grey medium overflow-ellipsis" ng-if="tItem.to=='' && tItem.from">From: {{tItem.from}}</span>
+            </div>
+            <div class="col-sm-8 col-6 pl-2 pr-0" ng-if="tItem.entity_type=='Carepoynt Support'">
+                <h5 class="large overflow-ellipsis pt-1">{{tItem.entity_type}}</h5>  
+                <span class="text-grey medium overflow-ellipsis" style="text-transform: none;" >{{tItem.reason}}</span>
+            </div> 
+            <div class="col-sm-2 col-2 pl-0 text-right my-auto">
+                <!-- <strong class="text-success">+200</strong> -->
+                <span class="text-danger text-sm" ng-if="tItem.value<0"> {{tItem.value}}</span>
+                <span class="text-success text-sm" ng-if="tItem.value>0"> {{tItem.value}}</span>
+                <div class="clearfix"></div>
+                <span> {{tItem.balance}} </span>
+            </div>   
+        </div>
+    </div>
+</div>
+
+<!-- End of content section -->

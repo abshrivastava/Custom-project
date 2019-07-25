@@ -1,0 +1,49 @@
+	<div class="content-border-box mt-2 pt-2">
+		<div class="row text-left text-xs">
+			<div class="col-sm-12 col-4 pr-sm">
+				<div class="row">
+					<div class="col-sm-6 py-1 my-auto"><strong>Refer To</strong></div>
+					<div class="col-sm-4 py-1 my-auto"><strong>Refer Date</strong></div>
+					<div class="col-sm-2 py-1 my-auto"><strong>Status</strong></div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-8 pl-sm">
+				<div class="row">
+					<div class="col-sm-6 py-1 my-auto overflow-ellipsis">referfamily@gmail.com</div>
+					<div class="col-sm-4 py-1 my-auto">2017-09-15 08:04:39</div>
+					<div class="col-sm-2 py-1 my-auto">Success</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	<div class="content-border-box mt-2 pt-2">
+		<div class="row text-xs">
+			<div class="col-sm-12 col-4 pr-sm">
+				<div class="row">
+					<div class="col-sm-5 py-1 my-auto"><strong>Refer To</strong></div>
+					<div class="col-sm-3 py-1 my-auto"><strong>Refer Date</strong></div>
+					<div class="col-sm-2 py-1 my-auto"><strong>Status</strong></div>
+					<div class="col-sm-2 pdt-xs my-auto"><strong>Send Invite</strong></div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-8 pl-sm">
+				<div class="row">
+					<div class="col-sm-5 py-1 my-auto overflow-ellipsis">referfamily@gmail.com</div>
+					<div class="col-sm-3 py-1 my-auto">2017-09-15 08:04:39</div>
+					<div class="col-sm-2 py-1 my-auto">Success</div>
+					<div class="col-sm-2 my-auto"><button class="btn btn-default btn-small my-1">Send</button></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	
+	
+	
+	.text-xs { font-size: 13px;}
+	.pl-sm { padding-left: 0; }
+	.pr-sm { padding-right: 0; }

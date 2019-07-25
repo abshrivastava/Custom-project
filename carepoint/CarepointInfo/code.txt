@@ -1,0 +1,12 @@
+
+--------------------CSS Code
+
+
+@media screen and (max-width: 767px) {
+.modal-dialog { width: 80%; display:table; margin-left: auto; margin-right: auto; }
+.modal-dialog.sm { width: 63%; }
+.modal-dialog.lg { width: 97%;  }
+.modal-content { width: 100%; margin: 0px auto; font-size: 12px; }
+.w-btn { width: 35% !important; }
+ 
+}

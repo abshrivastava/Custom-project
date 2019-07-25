@@ -1,0 +1,69 @@
+.main {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.gif {
+    display: block;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    margin: 0 auto;
+}
+
+.main-img {
+    max-width:75px;
+}
+
+.sub-img {
+    max-width:30px;
+    text-align:left;
+}
+
+td, th {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+body {
+    display: 'block';
+    position: 'absolute';
+    width: '100%';
+    height: '100%';
+    zIndex: '-20';
+    background: '-webkit-linear-gradient(left top, #64b7cd, #2e587e)'; /* For Safari 5.1 to 6.0 */
+    background: '-o-linear-gradient(bottom right, #64b7cd, #2e587e)'; /* For Opera 11.1 to 12.0 */
+    background: '-moz-linear-gradient(bottom right, #64b7cd, #2e587e)'; /* For Firefox 3.6 to 15 */
+    background: 'linear-gradient(to bottom right, #64b7cd, #2e587e)'; /* Standard syntax */
+    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) inset';
+}
+
+@media screen and (min-width: 480px) {
+    .main {
+        display: block;
+        position: absolute;
+        width: 800px;
+        height: 100%;
+        left: 50%;
+        margin-left: -400px;
+    }
+    
+    .gif {
+        display: block;
+        width: 400px;
+        position: relative;
+        margin: 0 auto;
+    }
+    
+    .main-img {
+        max-width:200px;
+    }
+    
+    .sub-img {
+        max-width:100px;
+        text-align:left;
+    }
+}
